@@ -11994,3 +11994,281 @@ body.ceremony .shell {
   box-shadow: none !important;
 }
 
+
+/* ==========================================================
+   FINAL EVENT CONSISTENCY
+   Baraat + Walima border = Nikkah / Mehndi style
+========================================================== */
+
+#event-baraat,
+#event-walima {
+  border: 1px solid #c7b48a !important;
+  border-radius: 3px !important;
+
+  box-shadow:
+    0 8px 20px rgba(48, 46, 35, .06) !important;
+}
+
+
+/* Same inner frame used by the original event design */
+
+#event-baraat::after,
+#event-walima::after {
+  content: "" !important;
+
+  position: absolute !important;
+  inset: 7px !important;
+
+  display: block !important;
+
+  border: 1px solid #e6d8bc !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  pointer-events: none !important;
+}
+
+
+/*
+   Baraat had an additional royal ::before frame.
+   Keep that extra frame removed so it matches the
+   normal Nikkah / Mehndi event-border structure.
+*/
+
+#event-baraat::before {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* ==========================================================
+   NIKKAH TIME — GOLD UNDERLINE
+========================================================== */
+
+.event-nikkah .nikkah-time > span {
+  display: block !important;
+
+  width: 45px !important;
+  height: 3px !important;
+
+  margin-top: 7px !important;
+
+  background: #e8d3a2 !important;
+  border-radius: 10px !important;
+}
+
+
+/* Left-side time needs line aligned toward centre */
+
+.event-nikkah .nikkah-right .nikkah-time > span {
+  margin-left: auto !important;
+}
+
+
+/* ==========================================================
+   MEHNDI TIME — GOLD UNDERLINE
+========================================================== */
+
+.event-mehndi .mehndi-time > span {
+  display: block !important;
+
+  width: 45px !important;
+  height: 3px !important;
+
+  margin-top: 7px !important;
+
+  background: #e8d3a2 !important;
+  border-radius: 10px !important;
+}
+
+
+/* Left-side time needs line aligned toward centre */
+
+.event-mehndi .mehndi-right .mehndi-time > span {
+  margin-left: auto !important;
+}
+
+
+/* ==========================================================
+   MOBILE — all time underlines start from left
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .event-nikkah .nikkah-time > span,
+  .event-mehndi .mehndi-time > span {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+
+/* ==========================================================
+   BARAAT + WALIMA — SINGLE CURVED OUTER BORDER
+========================================================== */
+
+#event-baraat,
+#event-walima {
+  position: relative !important;
+
+  border: 1px solid #c7b48a !important;
+  border-radius: 28px !important;
+
+  outline: none !important;
+
+  box-shadow:
+    0 8px 20px rgba(48, 46, 35, .06) !important;
+
+  overflow: hidden;
+}
+
+
+/* Remove inner decorative border completely */
+
+#event-baraat::after,
+#event-walima::after {
+  content: none !important;
+
+  display: none !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+
+/* Baraat had another decorative inner frame */
+
+#event-baraat::before {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+
+/* Mobile — keep all four corners curved */
+
+@media (max-width: 640px) {
+
+  #event-baraat,
+  #event-walima {
+    border: 1px solid #c7b48a !important;
+    border-radius: 22px !important;
+
+    overflow: hidden !important;
+  }
+}
+
+
+/* ==========================================================
+   FINAL — ALL EVENT TIME UNDERLINES
+========================================================== */
+
+/* Nikkah */
+.event-nikkah .nikkah-time > span,
+
+/* Mehndi */
+.event-mehndi .mehndi-time > span {
+  display: block !important;
+
+  width: 45px !important;
+  height: 3px !important;
+
+  margin-top: 6px !important;
+
+  background: #e8d3a2 !important;
+
+  border: 0 !important;
+  border-radius: 10px !important;
+}
+
+
+/* Desktop:
+   time on left side -> underline toward centre/right
+*/
+.event-nikkah .nikkah-right .nikkah-time > span,
+.event-mehndi .mehndi-right .mehndi-time > span {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+
+/* Desktop:
+   time on right side -> underline starts left
+*/
+.event-nikkah .nikkah-left .nikkah-time > span,
+.event-mehndi .mehndi-left .mehndi-time > span {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+
+/* Mobile — all times are left aligned */
+@media (max-width: 640px) {
+
+  .event-nikkah .nikkah-time > span,
+  .event-mehndi .mehndi-time > span {
+    margin-top: 6px !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+
+    width: 45px !important;
+    height: 3px !important;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE — NIKKAH + MEHNDI TIME UNDERLINE FINAL FIX
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .event-nikkah .nikkah-time,
+  .event-mehndi .mehndi-time {
+    position: relative !important;
+
+    display: block !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+
+    padding:
+      0 0 10px 8px !important;
+
+    margin: 0 !important;
+
+    text-align: left !important;
+  }
+
+
+  .event-nikkah .nikkah-time > span,
+  .event-mehndi .mehndi-time > span {
+    position: absolute !important;
+
+    left: 8px !important;
+    right: auto !important;
+    bottom: 3px !important;
+
+    display: block !important;
+
+    width: 45px !important;
+    height: 3px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #e8d3a2 !important;
+
+    border: 0 !important;
+    border-radius: 999px !important;
+
+    transform: none !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+}
