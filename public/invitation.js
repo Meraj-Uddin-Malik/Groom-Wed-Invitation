@@ -2,7 +2,7 @@ const intro = document.getElementById("intro");
 const stage = document.getElementById("curtain-stage");
 const music = document.getElementById("music-toggle");
 
-const audio = new Audio("/wedding-melody.wav");
+const audio = new Audio("/bismila.mp3?v=1");
 audio.loop = true;
 audio.volume = 0.38;
 
@@ -22,6 +22,10 @@ function syncMusic() {
 }
 
 function startMusic() {
+  if (audio.currentTime < 43) {
+    audio.currentTime = 43;
+  }
+
   audio
     .play()
     .then(() => {
@@ -191,6 +195,38 @@ document.getElementById("open").onclick = () => {
   setTimeout(() => {
     document.body.classList.remove("invitation-closed");
     document.body.classList.add("ceremony");
+
+    const heroItems = document.querySelectorAll(
+      ".hero .wedding-ayah, " +
+      ".hero .walima-hosts, " +
+      ".hero .walima-invite, " +
+      ".hero .walima-names, " +
+      ".hero .walima-blessing, " +
+      ".hero .card > .ornament"
+    );
+
+    setTimeout(() => {
+      heroItems.forEach((item, index) => {
+        item.animate(
+          [
+            {
+              opacity: 0,
+              translate: "100px 0"
+            },
+            {
+              opacity: 1,
+              translate: "0 0"
+            }
+          ],
+          {
+            duration: 1600,
+            delay: index * 450,
+            easing: "cubic-bezier(.22,.8,.3,1)",
+            fill: "both"
+          }
+        );
+      });
+    }, reduced ? 50 : 1500);
     intro.classList.add("doors-opening");
   }, reduced ? 20 : 550);
 
@@ -216,7 +252,7 @@ document.getElementById("open").onclick = () => {
    COUNTDOWN
 ========================================================= */
 
-let wedding = null;
+let wedding = new Date("2027-01-10T19:00:00+05:00");
 
 function tick() {
   if (!wedding) return;
@@ -594,9 +630,11 @@ c.addEventListener(
 );
 
 
-document.getElementById(
-  "reveal"
-).onclick = reveal;
+const revealButton = document.getElementById("reveal");
+
+if (revealButton) {
+  revealButton.onclick = reveal;
+}
 
 
 /* =========================================================
@@ -633,6 +671,71 @@ if (
             entry.target.classList.add(
               "in-view"
             );
+
+            if (
+              entry.target.matches(
+                ".scratch-section .section-title"
+              )
+            ) {
+              const scratchItems = document.querySelectorAll(
+                ".scratch-section .eyebrow, " +
+                ".scratch-section .section-title, " +
+                ".scratch-section .section-copy, " +
+                ".scratch-section .scratch-wrap"
+              );
+
+              scratchItems.forEach((item, index) => {
+                item.animate(
+                  [
+                    {
+                      opacity: 0,
+                      translate: "100px 0"
+                    },
+                    {
+                      opacity: 1,
+                      translate: "0 0"
+                    }
+                  ],
+                  {
+                    duration: 1600,
+                    delay: index * 450,
+                    easing: "cubic-bezier(.22,.8,.3,1)",
+                    fill: "both"
+                  }
+                );
+              });
+            }
+
+            if (entry.target.matches(".story .section-title")) {
+              const storyItems = document.querySelectorAll(
+                ".story .eyebrow, " +
+                ".story .section-title, " +
+                ".story .divider, " +
+                ".story .section-copy, " +
+                ".story .wedding-countdown"
+              );
+
+              storyItems.forEach((item, index) => {
+                item.animate(
+                  [
+                    {
+                      opacity: 0,
+                      translate: "100px 0"
+                    },
+                    {
+                      opacity: 1,
+                      translate: "0 0"
+                    }
+                  ],
+                  {
+                    duration: 1600,
+                    delay: index * 450,
+                    easing: "cubic-bezier(.22,.8,.3,1)",
+                    fill: "both"
+                  }
+                );
+              });
+            }
 
             observer.unobserve(
               entry.target

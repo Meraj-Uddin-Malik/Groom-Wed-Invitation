@@ -4038,315 +4038,5312 @@ body.ceremony .shell {
 }
 
 /* =========================================================
-   COMPACT WALIMA CARD — FINAL MOBILE SIZE
-========================================================= */
 
+/* MINOR TOP & BOTTOM SPACING POLISH */
 @media (max-width: 640px) {
-
-  /* Hero no longer forces a full extra screen */
-  .hero {
-    min-height: auto !important;
-    padding-top: 12px !important;
-    padding-bottom: 18px !important;
-  }
-
-  /* Compact invitation card */
   .hero .card {
-    min-height: 0 !important;
-    height: auto !important;
-    padding:
-      12px
-      20px
-      28px
-      !important;
-  }
-
-  /* Ayah */
-  .hero .wedding-ayah {
-    margin: 0 auto 17px !important;
-    padding-top: 25px !important;
-    padding-bottom: 20px !important;
-  }
-
-  .hero .wedding-ayah .ayah-arabic {
-    line-height: 1.55 !important;
-  }
-
-  /* Hosts */
-  .hero .walima-hosts {
-    margin: 2px auto 7px !important;
-  }
-
-  /* Invitation */
-  .hero .walima-invite {
-    margin-bottom: 14px !important;
-  }
-
-  .hero .walima-invite strong {
-    margin: 5px auto !important;
-    padding: 7px 3px !important;
-  }
-
-  /* Couple names */
-  .hero .walima-names {
-    margin: 10px auto 12px !important;
-  }
-
-  .hero .walima-names .name-amp {
-    margin: 8px auto 10px !important;
-  }
-
-  /* Closing message */
-  .hero .walima-blessing {
-    margin: 18px auto 7px !important;
-    line-height: 1.4 !important;
-  }
-
-  /* Last ornament */
-  .hero .card > .ornament {
-    margin: 8px auto 3px !important;
-  }
-
-  /* Scroll text closer to card */
-  .hero .scroll {
-    margin-top: 10px !important;
+    padding-top: 12px !important;
+    padding-bottom: 45px !important;
   }
 }
 
 @media (max-width: 380px) {
   .hero .card {
-    padding-top: 8px !important;
-    padding-bottom: 22px !important;
+    padding-top: 10px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+/* MINOR SPACING POLISH V2 */
+@media (max-width: 640px) {
+  .hero .card {
+    padding-top: 5px !important;
+    padding-bottom: 30px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .card {
+    padding-top: 4px !important;
+    padding-bottom: 26px !important;
   }
 }
 
 /* =========================================================
-   WALIMA CARD — BALANCED PREMIUM FINAL
+   ORNAMENTAL GOLD DIVIDERS
 ========================================================= */
 
+/* Remove plain Walima underline/borders */
+.hero .walima-invite strong {
+  position: relative !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  padding: 17px 0 !important;
+  overflow: visible !important;
+}
+
+/* Ornamental divider above */
+.hero .walima-invite strong::before {
+  content: "◆  ─────  ❦  ─────  ◆" !important;
+  position: absolute !important;
+  top: -1px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  width: 100% !important;
+  color: #ad833c !important;
+  font-family: Georgia, serif !important;
+  font-size: .62rem !important;
+  font-weight: 400 !important;
+  letter-spacing: .05em !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* Ornamental divider below */
+.hero .walima-invite strong::after {
+  content: "◆  ─────  ❦  ─────  ◆" !important;
+  position: absolute !important;
+  bottom: -1px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(180deg) !important;
+
+  width: 100% !important;
+  color: #ad833c !important;
+  font-family: Georgia, serif !important;
+  font-size: .62rem !important;
+  font-weight: 400 !important;
+  letter-spacing: .05em !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+
+/* WITH — matching elegant gold ornaments */
+.hero .walima-names .name-amp::before,
+.hero .walima-names .name-amp::after {
+  height: auto !important;
+  background: none !important;
+
+  color: #ad833c !important;
+  font-family: Georgia, serif !important;
+  font-size: .58rem !important;
+  line-height: 1 !important;
+}
+
+.hero .walima-names .name-amp::before {
+  content: "◆ ━━━ ❦" !important;
+  text-align: right !important;
+}
+
+.hero .walima-names .name-amp::after {
+  content: "❦ ━━━ ◆" !important;
+  text-align: left !important;
+}
+
+/* =========================================================
+   REAL PNG ORNAMENT DIVIDERS
+========================================================= */
+
+/* WALIMA RECEPTION */
+.hero .walima-invite strong {
+  position: relative !important;
+  display: block !important;
+  border: 0 !important;
+  padding: 27px 0 !important;
+  overflow: visible !important;
+}
+
+/* Top ornament */
+.hero .walima-invite strong::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+
+  width: min(88%, 340px) !important;
+  height: 22px !important;
+
+  transform: translateX(-50%) !important;
+
+  background:
+    url("/divider-top.png")
+    center center / contain
+    no-repeat !important;
+}
+
+/* Bottom ornament */
+.hero .walima-invite strong::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+
+  width: min(88%, 340px) !important;
+  height: 22px !important;
+
+  transform: translateX(-50%) !important;
+
+  background:
+    url("/divider-bottom.png")
+    center center / contain
+    no-repeat !important;
+}
+
+
+/* =========================================================
+   WITH ORNAMENT
+========================================================= */
+
+.hero .walima-names .name-amp {
+  position: relative !important;
+
+  display: block !important;
+
+  width: min(78%, 300px) !important;
+  height: 42px !important;
+
+  margin: 10px auto 13px !important;
+
+  /* hide old text; PNG already contains "with" */
+  font-size: 0 !important;
+  color: transparent !important;
+
+  background:
+    url("/divider-with.png")
+    center center / contain
+    no-repeat !important;
+}
+
+/* Remove previous CSS divider lines */
+.hero .walima-names .name-amp::before,
+.hero .walima-names .name-amp::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* MOBILE TUNING */
 @media (max-width: 640px) {
 
-  /* Card: compact, but not squeezed */
-  .hero {
-    min-height: auto !important;
-    padding: 0 !important;
+  .hero .walima-invite strong::before,
+  .hero .walima-invite strong::after {
+    width: 82% !important;
+    height: 20px !important;
   }
 
+  .hero .walima-names .name-amp {
+    width: 72% !important;
+    height: 38px !important;
+  }
+
+}
+
+/* MATCH PNG ORNAMENTS WITH INVITATION ANTIQUE GOLD */
+
+.hero .walima-invite strong::before,
+.hero .walima-invite strong::after {
+  filter:
+    sepia(1)
+    saturate(.72)
+    hue-rotate(355deg)
+    brightness(.82)
+    contrast(.92) !important;
+
+  opacity: .88 !important;
+}
+
+.hero .walima-names .name-amp {
+  filter:
+    sepia(1)
+    saturate(.72)
+    hue-rotate(355deg)
+    brightness(.82)
+    contrast(.92) !important;
+
+  opacity: .9 !important;
+}
+
+/* DIVIDER GOLD COLOR FIX — warm antique gold */
+
+.hero .walima-invite strong::before,
+.hero .walima-invite strong::after {
+  filter:
+    saturate(0.9)
+    brightness(0.88)
+    contrast(0.95) !important;
+  opacity: 0.95 !important;
+}
+
+.hero .walima-names .name-amp {
+  filter:
+    saturate(0.9)
+    brightness(0.88)
+    contrast(0.95) !important;
+  opacity: 0.95 !important;
+}
+
+/* =========================================================
+   DIVIDER PNG — CLEAN CROP FIX
+   Keep original PNGs, crop visible area with CSS
+========================================================= */
+
+/* WALIMA TOP */
+.hero .walima-invite strong::before {
+  width: min(86%, 350px) !important;
+  height: 18px !important;
+  top: 2px !important;
+
+  background-image: url("/divider-top.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: auto 18px !important;
+
+  overflow: hidden !important;
+}
+
+/* WALIMA BOTTOM */
+.hero .walima-invite strong::after {
+  width: min(86%, 350px) !important;
+  height: 18px !important;
+  bottom: 2px !important;
+
+  background-image: url("/divider-bottom.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: auto 18px !important;
+
+  overflow: hidden !important;
+}
+
+
+/* WITH — crop the PNG harder so upper unwanted ornament disappears */
+.hero .walima-names .name-amp {
+  width: min(82%, 330px) !important;
+  height: 24px !important;
+
+  background-image: url("/divider-with.png") !important;
+  background-repeat: no-repeat !important;
+
+  /* enlarge PNG, then crop through element */
+  background-size: auto 43px !important;
+  background-position: center 72% !important;
+
+  overflow: hidden !important;
+
+  font-size: 0 !important;
+  color: transparent !important;
+}
+
+/* old pseudo dividers stay disabled */
+.hero .walima-names .name-amp::before,
+.hero .walima-names .name-amp::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* WALIMA BOTTOM DIVIDER — CROP POSITION FIX ONLY */
+.hero .walima-invite strong::after {
+  height: 16px !important;
+  background-size: auto 21px !important;
+  background-position: center bottom !important;
+}
+
+/* FINAL CARD VERTICAL SPACE -10PX */
+@media (max-width: 640px) {
   .hero .card {
-    min-height: 0 !important;
-    height: auto !important;
-    padding: 72px 24px 54px !important;
+    padding-top: 0 !important;
+    padding-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .card {
+    padding-top: 0 !important;
+    padding-bottom: 16px !important;
+  }
+}
+
+/* FINAL CARD POSITION POLISH */
+@media (max-width: 640px) {
+  .hero .card {
+    padding-bottom: 6px !important;
   }
 
-  /* AYAH — move down from top flowers */
+  .hero .card > * {
+    position: relative;
+    top: -6px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .card {
+    padding-bottom: 4px !important;
+  }
+
+  .hero .card > * {
+    top: -6px;
+  }
+}
+
+/* NOTICEABLE HERO CONTENT POSITION FIX */
+@media (max-width: 640px) {
+  .hero .card {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero .card > * {
+    transform: translateY(-15px) !important;
+  }
+}
+
+/* AYAH — FINAL TYPOGRAPHY & POSITION */
+@media (max-width: 640px) {
   .hero .wedding-ayah {
-    width: 91% !important;
-    margin: 0 auto 36px !important;
-    padding: 38px 0 30px !important;
-  }
-
-  .hero .wedding-ayah::before {
-    top: 0 !important;
-    font-size: 1.55rem !important;
+    transform: translateY(-10px) !important;
   }
 
   .hero .wedding-ayah .ayah-arabic {
-    font-size: clamp(1.65rem, 6.6vw, 2rem) !important;
-    line-height: 1.75 !important;
+    font-family: "Amiri", "Noto Naskh Arabic", serif !important;
+    font-size: clamp(1.35rem, 5.2vw, 1.7rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.65 !important;
   }
 
   .hero .wedding-ayah .ayah-reference {
-    margin-top: 10px !important;
+    margin-top: 2px !important;
   }
+}
 
-  /* Decorative divider below Ayah */
-  .hero .wedding-ayah::after {
-    content: "◆" !important;
-    width: 72% !important;
-    bottom: 0 !important;
-    color: #a87c35 !important;
-    font-size: .52rem !important;
-
-    background:
-      linear-gradient(
-        to right,
-        #b28a45 0%,
-        #b28a45 42%,
-        transparent 42%,
-        transparent 58%,
-        #b28a45 58%,
-        #b28a45 100%
-      ) !important;
-  }
-
-  /* HOSTS */
-  .hero .walima-hosts {
-    margin: 8px auto 16px !important;
-    font-size: .83rem !important;
-    letter-spacing: .14em !important;
-    line-height: 1.5 !important;
-  }
-
-  /* Invitation intro */
-  .hero .walima-invite {
-    gap: 8px !important;
-    margin: 0 auto 27px !important;
-    font-size: 1.18rem !important;
-    line-height: 1.35 !important;
-  }
-
-  /* WALIMA RECEPTION — premium ornamental divider */
-  .hero .walima-invite strong {
-    position: relative !important;
-    width: 94% !important;
-
-    margin: 13px auto !important;
-    padding: 16px 0 !important;
-
-    border: 0 !important;
-
-    font-size: clamp(1.45rem, 5.8vw, 1.85rem) !important;
-    letter-spacing: .025em !important;
-
-    background:
-      linear-gradient(#b1843d,#b1843d) top center / 100% 1px no-repeat,
-      linear-gradient(#b1843d,#b1843d) bottom center / 100% 1px no-repeat !important;
-  }
-
-  /* little ornaments centered on Walima rules */
-  .hero .walima-invite strong::before,
-  .hero .walima-invite strong::after {
-    content: "❦" !important;
-    position: absolute !important;
-    left: 50% !important;
-
-    transform: translateX(-50%) !important;
-
-    padding: 0 9px !important;
-    background: #f5eddd !important;
-
-    color: #a97e38 !important;
-    font-family: Georgia, serif !important;
-    font-size: .9rem !important;
-    line-height: 1 !important;
-  }
-
-  .hero .walima-invite strong::before {
-    top: -.43rem !important;
-  }
-
-  .hero .walima-invite strong::after {
-    bottom: -.43rem !important;
-    transform: translateX(-50%) rotate(180deg) !important;
-  }
-
-  /* NAMES */
-  .hero .walima-names {
-    margin: 22px auto 25px !important;
-  }
-
-  .hero .walima-names .name-first,
-  .hero .walima-names .name-second {
-    font-size: clamp(3.25rem, 13.2vw, 4.35rem) !important;
-    line-height: .95 !important;
-  }
-
-  /* WITH + ornate lines */
+/* WITH DIVIDER — CROP + COLOR FIX ONLY */
+@media (max-width: 640px) {
   .hero .walima-names .name-amp {
-    position: relative !important;
-    width: 74% !important;
+    height: 30px !important;
 
-    margin: 17px auto 19px !important;
+    /* show a little more of the upper ornament */
+    background-size: auto 40px !important;
+    background-position: center 58% !important;
 
-    gap: 11px !important;
+    /* lighter, closer to invitation gold */
+    filter: brightness(1.12) saturate(0.82) !important;
+    opacity: 0.92 !important;
+  }
+}
 
-    color: #a77b36 !important;
-    font-size: 1.35rem !important;
+/* WITH DIVIDER — KEEP ORIGINAL COLOR, CROP FIX ONLY */
+@media (max-width: 640px) {
+  .hero .walima-names .name-amp {
+    height: 30px !important;
+    background-size: auto 40px !important;
+    background-position: center 58% !important;
+
+    /* restore previous color */
+    filter:
+      saturate(0.9)
+      brightness(0.88)
+      contrast(0.95) !important;
+    opacity: 0.95 !important;
+  }
+}
+
+/* STORY — ELEGANT TEXT REVEAL */
+.story.in-view .eyebrow,
+.story.in-view .section-title,
+.story.in-view .divider,
+.story.in-view .section-copy,
+.story.in-view .wedding-countdown {
+  animation: weddingTextReveal 0.85s ease both;
+}
+
+.story.in-view .section-title {
+  animation-delay: 0.12s;
+}
+
+.story.in-view .divider {
+  animation-delay: 0.22s;
+}
+
+.story.in-view .section-copy {
+  animation-delay: 0.32s;
+}
+
+.story.in-view .wedding-countdown {
+  animation-delay: 0.45s;
+}
+
+@keyframes weddingTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
   }
 
-  .hero .walima-names .name-amp::before,
-  .hero .walima-names .name-amp::after {
-    content: "◆━━" !important;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    flex: 1 !important;
-    height: auto !important;
+/* =========================================================
+   NIKKAH — PREMIUM TIMELINE
+========================================================= */
 
-    background: none !important;
+.event-nikkah.event-timeline {
+  position: relative;
+  max-width: 430px;
+  margin: 30px auto 0;
+  padding: 46px 24px 34px;
 
-    color: #ad843f !important;
-    font-family: Georgia, serif !important;
-    font-size: .62rem !important;
-    letter-spacing: -.05em !important;
+  color: #173f30;
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(190, 151, 78, .09),
+      transparent 32%
+    ),
+    #fffaf0;
+
+  border: 1px solid #b9934f;
+  border-radius: 150px 150px 18px 18px;
+
+  box-shadow:
+    inset 0 0 0 6px #fffaf0,
+    inset 0 0 0 7px rgba(181, 140, 70, .28),
+    0 14px 35px rgba(46, 56, 43, .08);
+
+  overflow: hidden;
+}
+
+/* inner ornamental border */
+.event-nikkah.event-timeline::after {
+  inset: 9px;
+  border: 1px solid rgba(177, 137, 66, .35);
+  border-radius: 140px 140px 13px 13px;
+}
+
+/* subtle decorative ornament */
+.event-nikkah.event-timeline::before {
+  content: "❦";
+  position: absolute;
+  top: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: #b28a43;
+  font-family: Georgia, serif;
+  font-size: 19px;
+}
+
+/* 01 medallion */
+.event-nikkah .event-medallion {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 68px;
+  height: 68px;
+  margin: 7px auto 15px;
+
+  color: #174a36;
+  background: #fffaf0;
+
+  border: 1px solid #b58a43;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 5px rgba(181, 138, 67, .08);
+}
+
+.event-nikkah .event-medallion span {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 34px;
+  line-height: 1;
+}
+
+/* NIKKAH heading */
+.event-nikkah.event-timeline h3 {
+  margin: 0;
+
+  color: #164a35;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(3.6rem, 16vw, 5.2rem);
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.045em;
+}
+
+/* subtitle */
+.event-nikkah .event-subtitle {
+  position: relative;
+
+  margin: 13px auto 28px;
+  padding-bottom: 19px;
+
+  color: #9b773a;
+
+  font-family: Georgia, serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.event-nikkah .event-subtitle::after {
+  content: "◆";
+  position: absolute;
+
+  left: 50%;
+  bottom: -4px;
+
+  width: 76%;
+  transform: translateX(-50%);
+
+  color: #b28a43;
+  font-size: 7px;
+
+  border-bottom:
+    1px solid rgba(177, 137, 66, .55);
+
+  line-height: 1px;
+}
+
+/* Date */
+.event-nikkah .event-date {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  margin: 0 auto 33px;
+}
+
+.event-nikkah .event-date-icon {
+  display: grid;
+  place-items: center;
+
+  width: 35px;
+  height: 35px;
+
+  color: #b18742;
+
+  border: 1px solid rgba(177, 135, 64, .55);
+  border-radius: 50%;
+}
+
+.event-nikkah .event-date div {
+  text-align: left;
+}
+
+.event-nikkah .event-date small {
+  display: block;
+
+  color: #9a773c;
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.event-nikkah .event-date strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #173f30;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Timeline */
+.event-nikkah .event-schedule {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  margin: 0 auto;
+  padding: 4px 0 5px;
+
+  text-align: left;
+}
+
+.event-nikkah .event-schedule::before {
+  content: "";
+  position: absolute;
+
+  top: 23px;
+  bottom: 23px;
+  left: 82px;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      #b58a43 5%,
+      #b58a43 95%,
+      transparent
+    );
+}
+
+.event-nikkah .schedule-item {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 61px 42px 1fr;
+  align-items: center;
+
+  min-height: 78px;
+}
+
+.event-nikkah .schedule-item time {
+  color: #8f6c34;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* green/gold timeline icon */
+.event-nikkah .schedule-dot {
+  position: relative;
+  z-index: 3;
+
+  display: block;
+
+  width: 30px;
+  height: 30px;
+  margin: auto;
+
+  background: #174a36;
+
+  border: 3px solid #fffaf0;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 1px #b58a43;
+}
+
+.event-nikkah .schedule-dot::after {
+  content: "✦";
+
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #d7b36a;
+  font-size: 10px;
+}
+
+.event-nikkah .schedule-item > div {
+  min-width: 0;
+  padding-left: 8px;
+}
+
+.event-nikkah .schedule-item strong {
+  display: block;
+
+  color: #174331;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.event-nikkah .schedule-item p {
+  margin: 4px 0 0;
+
+  color: #6d705f;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+/* Venue */
+.event-nikkah .event-timeline-venue {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 25px;
+  padding-top: 26px;
+
+  border-top:
+    1px solid rgba(177, 137, 66, .48);
+}
+
+.event-nikkah .event-timeline-venue::before {
+  content: "◆";
+
+  position: absolute;
+  top: -5px;
+  left: 50%;
+
+  padding: 0 8px;
+  transform: translateX(-50%);
+
+  color: #b28a43;
+  background: #fffaf0;
+
+  font-size: 8px;
+}
+
+.event-nikkah .event-timeline-venue > span {
+  display: block;
+
+  color: #9a7639;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.event-nikkah .event-timeline-venue > strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #173f30;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 23px;
+  font-weight: 500;
+}
+
+/* location pending */
+.event-nikkah .map-pending {
+  position: relative;
+  z-index: 2;
+
+  margin: 11px 0 0;
+
+  color: #8b7958;
+  font-size: 12px;
+}
+
+/* Actual map button once location exists */
+.event-nikkah .timeline-map:not([hidden]) {
+  position: relative;
+  z-index: 2;
+
+  display: block;
+
+  width: min(260px, 90%);
+  margin: 18px auto 0;
+  padding: 13px 18px;
+
+  color: #fff8e8;
+  background: #174a36;
+
+  border: 1px solid #b58a43;
+  border-radius: 999px;
+
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: .13em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .event-nikkah.event-timeline {
+    padding:
+      42px
+      18px
+      30px;
+
+    border-radius:
+      120px
+      120px
+      15px
+      15px;
   }
 
-  .hero .walima-names .name-amp::before {
-    text-align: right !important;
+  .event-nikkah .event-schedule::before {
+    left: 72px;
   }
 
-  .hero .walima-names .name-amp::after {
-    content: "━━◆" !important;
-    text-align: left !important;
+  .event-nikkah .schedule-item {
+    grid-template-columns:
+      54px
+      36px
+      1fr;
+
+    min-height: 75px;
   }
 
-  /* Closing message */
-  .hero .walima-blessing {
-    position: relative !important;
-
-    width: 88% !important;
-
-    margin: 39px auto 17px !important;
-    padding-top: 25px !important;
-
-    font-size: 1rem !important;
-    line-height: 1.5 !important;
+  .event-nikkah .schedule-item time {
+    font-size: 12px;
   }
 
-  /* ornamental divider above blessing */
-  .hero .walima-blessing::before {
-    content: "──── ❦ ────" !important;
-
-    position: absolute !important;
-    top: 0 !important;
-    left: 50% !important;
-
-    transform: translateX(-50%) !important;
-
-    width: 100% !important;
-
-    color: #a9803d !important;
-    font-family: Georgia, serif !important;
-    font-size: .72rem !important;
-    letter-spacing: .04em !important;
-    white-space: nowrap !important;
+  .event-nikkah .schedule-dot {
+    width: 27px;
+    height: 27px;
   }
 
-  /* Existing bottom star */
-  .hero .card > .ornament {
-    margin: 20px auto 0 !important;
-    font-size: 1rem !important;
+  .event-nikkah .schedule-item strong {
+    font-size: 18px;
   }
 
-  /* Celebration button */
-  .hero .scroll {
-    margin-top: 0 !important;
+  .event-nikkah .schedule-item p {
+    font-size: 13px;
   }
 }
 
 
-/* Very narrow phones */
+
+/* ==========================================================
+   NIKKAH — PREMIUM GOLD TIMELINE
+   Based on selected reference UI
+========================================================== */
+
+.event-nikkah {
+  --nk-cream: #fcfbf8;
+  --nk-white: #ffffff;
+  --nk-gold: #c5a059;
+  --nk-gold-light: #e8d3a2;
+  --nk-dark: #2c3531;
+  --nk-green: #174a36;
+  --nk-gray: #5a635d;
+
+  position: relative;
+
+  max-width: 900px !important;
+  margin: 34px auto 0 !important;
+  padding: 58px 34px 48px !important;
+
+  overflow: hidden;
+
+  color: var(--nk-dark);
+  text-align: center !important;
+
+  background-color: var(--nk-cream) !important;
+  background-image:
+    radial-gradient(
+      circle at 50% 0,
+      rgba(197, 160, 89, .08),
+      transparent 34%
+    ) !important;
+
+  border: 1px solid rgba(197, 160, 89, .25) !important;
+  border-radius: 18px !important;
+
+  box-shadow:
+    0 12px 42px rgba(80, 65, 35, .07) !important;
+}
+
+.event-nikkah::after {
+  display: none !important;
+}
+
+
+/* --------------------------
+   HEADER
+--------------------------- */
+
+.nikkah-header {
+  position: relative;
+  z-index: 3;
+
+  max-width: 560px;
+  margin: 0 auto 55px;
+}
+
+.nikkah-script,
+.nikkah-card-script {
+  display: block;
+
+  color: var(--nk-gold);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-style: italic;
+}
+
+.nikkah-script {
+  margin-bottom: 4px;
+
+  font-size: 27px;
+  line-height: 1;
+}
+
+.event-nikkah .nikkah-header h3 {
+  margin: 0 !important;
+
+  color: var(--nk-dark) !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: clamp(44px, 7vw, 66px) !important;
+  font-weight: 500 !important;
+  line-height: .95 !important;
+
+  letter-spacing: .02em !important;
+
+  text-transform: uppercase;
+}
+
+.nikkah-heading-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  margin: 19px auto;
+}
+
+.nikkah-heading-divider span {
+  width: 76px;
+  height: 1px;
+
+  background: var(--nk-gold);
+}
+
+.nikkah-heading-divider svg {
+  width: 19px;
+  height: 19px;
+
+  fill: none;
+  stroke: var(--nk-gold);
+  stroke-width: 1.4;
+}
+
+.nikkah-intro {
+  max-width: 470px;
+
+  margin: 0 auto !important;
+
+  color: var(--nk-gray) !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+}
+
+.nikkah-date {
+  display: inline-flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+  padding: 9px 23px;
+
+  border-top: 1px solid rgba(197, 160, 89, .35);
+  border-bottom: 1px solid rgba(197, 160, 89, .35);
+}
+
+.nikkah-date span {
+  color: var(--nk-gold);
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.nikkah-date strong {
+  margin-top: 2px;
+
+  color: var(--nk-dark);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+/* --------------------------
+   TIMELINE
+--------------------------- */
+
+.nikkah-timeline {
+  position: relative;
+
+  max-width: 760px;
+
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.nikkah-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  width: 2px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      var(--nk-gold),
+      var(--nk-gold-light),
+      var(--nk-gold),
+      transparent
+    );
+}
+
+
+/* ROW */
+
+.nikkah-row {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    68px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  min-height: 160px;
+  margin-bottom: 34px;
+}
+
+.nikkah-row:last-child {
+  margin-bottom: 0;
+}
+
+
+/* LEFT */
+
+.nikkah-left .nikkah-card {
+  grid-column: 1;
+  grid-row: 1;
+
+  margin-right: 15px;
+
+  text-align: right;
+}
+
+.nikkah-left .nikkah-time {
+  grid-column: 3;
+  grid-row: 1;
+
+  padding-left: 18px;
+
+  text-align: left;
+}
+
+
+/* RIGHT */
+
+.nikkah-right .nikkah-card {
+  grid-column: 3;
+  grid-row: 1;
+
+  margin-left: 15px;
+
+  text-align: left;
+}
+
+.nikkah-right .nikkah-time {
+  grid-column: 1;
+  grid-row: 1;
+
+  padding-right: 18px;
+
+  text-align: right;
+}
+
+
+/* --------------------------
+   WHITE CARDS
+--------------------------- */
+
+.nikkah-card {
+  padding: 23px 22px;
+
+  background: rgba(255, 255, 255, .92);
+
+  border:
+    1px solid rgba(197, 160, 89, .22);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 40px -10px
+    rgba(197, 160, 89, .15);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.nikkah-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 17px 38px
+    rgba(44, 53, 49, .11);
+}
+
+.nikkah-card-script {
+  margin-bottom: 3px;
+
+  font-size: 25px;
+}
+
+.nikkah-card-title {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.nikkah-left .nikkah-card-title {
+  justify-content: flex-end;
+}
+
+.nikkah-card-title svg {
+  flex: 0 0 auto;
+
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+  stroke: var(--nk-gold);
+
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nikkah-card-title strong {
+  color: var(--nk-dark);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.nikkah-card p {
+  margin: 9px 0 0 !important;
+
+  color: var(--nk-gray) !important;
+
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+}
+
+
+/* --------------------------
+   MAIN NIKKAH CARD
+--------------------------- */
+
+.nikkah-main .nikkah-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #2c3531,
+      #17251f
+    );
+
+  border-color:
+    rgba(197, 160, 89, .45);
+
+  box-shadow:
+    0 16px 36px
+    rgba(30, 40, 35, .17);
+}
+
+.nikkah-main .nikkah-card::after {
+  content: "❦";
+
+  position: absolute;
+
+  top: -17px;
+  right: 9px;
+
+  color:
+    rgba(197, 160, 89, .10);
+
+  font-family: Georgia, serif;
+  font-size: 100px;
+
+  pointer-events: none;
+}
+
+.nikkah-main .nikkah-card-script {
+  color: #d6b56f;
+
+  font-size: 31px;
+}
+
+.nikkah-main .nikkah-card-title strong {
+  color: #fff;
+}
+
+.nikkah-main .nikkah-card p {
+  color: rgba(255,255,255,.72) !important;
+}
+
+
+/* --------------------------
+   GOLD MARKERS
+--------------------------- */
+
+.nikkah-marker {
+  position: relative;
+  z-index: 5;
+
+  grid-column: 2;
+  grid-row: 1;
+
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  margin: auto;
+
+  background: #fff;
+
+  border: 2px solid var(--nk-gold);
+  border-radius: 50%;
+
+  box-shadow:
+    0 4px 14px
+    rgba(197, 160, 89, .20);
+}
+
+.nikkah-marker > span {
+  width: 11px;
+  height: 11px;
+
+  background: var(--nk-gold);
+
+  border-radius: 50%;
+}
+
+.nikkah-marker svg {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+  stroke: #e2c173;
+
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nikkah-main .nikkah-marker {
+  width: 50px;
+  height: 50px;
+
+  background: var(--nk-dark);
+
+  box-shadow:
+    0 0 0 6px rgba(197, 160, 89, .08),
+    0 6px 18px rgba(44, 53, 49, .18);
+}
+
+
+/* --------------------------
+   TIME
+--------------------------- */
+
+.nikkah-time {
+  color: var(--nk-gold);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 27px;
+  font-weight: 600;
+
+  letter-spacing: .04em;
+}
+
+.nikkah-time > span {
+  display: block;
+
+  width: 45px;
+  height: 3px;
+
+  margin-top: 6px;
+
+  background: var(--nk-gold-light);
+
+  border-radius: 10px;
+}
+
+.nikkah-right .nikkah-time > span {
+  margin-left: auto;
+}
+
+
+/* --------------------------
+   VENUE
+--------------------------- */
+
+.nikkah-venue {
+  max-width: 390px;
+
+  margin: 50px auto 0;
+  padding-top: 28px;
+
+  text-align: center;
+
+  border-top:
+    1px solid rgba(197, 160, 89, .35);
+}
+
+.nikkah-venue > svg {
+  width: 22px;
+  height: 22px;
+
+  margin-bottom: 7px;
+
+  fill: none;
+  stroke: var(--nk-gold);
+
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nikkah-venue > span {
+  display: block;
+
+  color: var(--nk-gold);
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.nikkah-venue > strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--nk-dark);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 23px;
+  font-weight: 500;
+}
+
+
+/* ==========================================================
+   MOBILE — SAME DESIGN, MOBILE LAYOUT
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .event-nikkah {
+    width: 100% !important;
+
+    margin-top: 22px !important;
+
+    padding:
+      42px
+      17px
+      34px !important;
+
+    border-radius: 13px !important;
+  }
+
+
+  .nikkah-header {
+    margin-bottom: 38px;
+  }
+
+  .nikkah-script {
+    font-size: 24px;
+  }
+
+  .event-nikkah .nikkah-header h3 {
+    font-size: 45px !important;
+  }
+
+  .nikkah-heading-divider {
+    margin: 15px auto;
+  }
+
+  .nikkah-heading-divider span {
+    width: 48px;
+  }
+
+  .nikkah-intro {
+    max-width: 290px;
+
+    font-size: 15px !important;
+  }
+
+
+  /* Move timeline to left */
+
+  .nikkah-timeline {
+    padding-left: 0;
+  }
+
+  .nikkah-timeline::before {
+    left: 20px;
+
+    transform: none;
+  }
+
+
+  /* Mobile rows */
+
+  .nikkah-row {
+    display: grid;
+
+    grid-template-columns:
+      42px
+      minmax(0, 1fr);
+
+    grid-template-rows:
+      auto
+      auto;
+
+    min-height: 0;
+
+    margin-bottom: 35px;
+  }
+
+
+  /* Marker left */
+
+  .nikkah-marker,
+  .nikkah-main .nikkah-marker {
+    grid-column: 1;
+    grid-row: 1 / 3;
+
+    align-self: start;
+
+    width: 40px;
+    height: 40px;
+
+    margin: 5px 0 0 0;
+  }
+
+  .nikkah-main .nikkah-marker {
+    width: 44px;
+    height: 44px;
+
+    margin-left: -2px;
+  }
+
+
+  /* Time first */
+
+  .nikkah-time,
+  .nikkah-left .nikkah-time,
+  .nikkah-right .nikkah-time {
+    grid-column: 2;
+    grid-row: 1;
+
+    padding: 0 !important;
+    margin:
+      0
+      0
+      8px
+      15px;
+
+    text-align: left;
+
+    font-size: 22px;
+  }
+
+  .nikkah-time > span {
+    display: none;
+  }
+
+
+  /* Card */
+
+  .nikkah-card,
+  .nikkah-left .nikkah-card,
+  .nikkah-right .nikkah-card {
+    grid-column: 2;
+    grid-row: 2;
+
+    margin:
+      0
+      0
+      0
+      15px;
+
+    padding:
+      18px
+      17px;
+
+    text-align: left;
+
+    border-radius: 14px;
+  }
+
+  .nikkah-left .nikkah-card-title {
+    justify-content: flex-start;
+  }
+
+  .nikkah-card-script {
+    font-size: 22px;
+  }
+
+  .nikkah-main .nikkah-card-script {
+    font-size: 27px;
+  }
+
+  .nikkah-card-title strong {
+    font-size: 19px;
+  }
+
+  .nikkah-card p {
+    font-size: 11px !important;
+    line-height: 1.55 !important;
+  }
+
+
+  .nikkah-venue {
+    margin-top: 38px;
+  }
+
+}
+
+
+/* SMALL PHONES */
+
+@media (max-width: 360px) {
+
+  .event-nikkah {
+    padding-left: 13px !important;
+    padding-right: 13px !important;
+  }
+
+  .nikkah-row {
+    grid-template-columns:
+      39px
+      minmax(0, 1fr);
+  }
+
+  .nikkah-timeline::before {
+    left: 19px;
+  }
+
+  .nikkah-card,
+  .nikkah-left .nikkah-card,
+  .nikkah-right .nikkah-card {
+    margin-left: 11px;
+  }
+
+  .nikkah-time,
+  .nikkah-left .nikkah-time,
+  .nikkah-right .nikkah-time {
+    margin-left: 11px;
+  }
+
+}
+
+
+
+/* ==========================================================
+   NIKKAH — FINAL LUXURY REFERENCE UI
+   Mobile-first refinement
+========================================================== */
+
+.event-nikkah {
+  --lux-gold: #d4af37;
+  --lux-gold-dark: #aa771c;
+  --lux-gold-light: #f3e5ab;
+  --lux-ivory: #faf9f6;
+  --lux-text: #625b52;
+  --lux-heading: #4a443d;
+
+  max-width: 940px !important;
+  margin: 48px auto 70px !important;
+  padding: 68px 42px 54px !important;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(212,175,55,.10),
+      transparent 34%
+    ),
+    rgba(255,255,255,.66) !important;
+
+  border: 1px solid rgba(212,175,55,.27) !important;
+  border-radius: 40px !important;
+
+  box-shadow:
+    0 20px 60px -15px rgba(212,175,55,.12),
+    inset 0 0 0 10px rgba(255,255,255,.24) !important;
+
+  overflow: hidden;
+}
+
+
+/* large 01 watermark */
+
+.event-nikkah::before {
+  content: "01" !important;
+
+  position: absolute;
+  top: 18px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: rgba(212,175,55,.055);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 180px;
+  font-weight: 500;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+
+/* HEADER */
+
+.nikkah-header {
+  position: relative;
+  z-index: 2;
+
+  max-width: 600px;
+  margin: 0 auto 65px;
+}
+
+.nikkah-script {
+  margin-bottom: 6px;
+
+  color: var(--lux-gold-dark);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.event-nikkah .nikkah-header h3 {
+  margin: 0 !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #bf953f,
+      #fcf6ba,
+      #b38728,
+      #fbf5b7,
+      #aa771c
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent !important;
+
+  font-family:
+    "Italianno",
+    "Cormorant Garamond",
+    cursive !important;
+
+  font-size: clamp(68px, 9vw, 92px) !important;
+  font-weight: 400 !important;
+  line-height: .95 !important;
+
+  text-transform: none !important;
+
+  filter:
+    drop-shadow(0 2px 4px rgba(212,175,55,.15));
+}
+
+
+/* ornamental divider */
+
+.nikkah-heading-divider {
+  margin: 20px auto 18px;
+  gap: 12px;
+}
+
+.nikkah-heading-divider span {
+  width: 80px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--lux-gold)
+    );
+}
+
+.nikkah-heading-divider span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      var(--lux-gold),
+      transparent
+    );
+}
+
+.nikkah-heading-divider svg {
+  width: 22px;
+  height: 22px;
+
+  stroke: var(--lux-gold);
+}
+
+
+/* intro */
+
+.nikkah-intro {
+  max-width: 480px;
+
+  color: var(--lux-text) !important;
+
+  font-family:
+    "Montserrat",
+    "DM Sans",
+    sans-serif !important;
+
+  font-size: 13px !important;
+  font-weight: 300;
+  line-height: 1.8 !important;
+}
+
+
+/* date pill */
+
+.nikkah-date {
+  display: inline-flex;
+
+  margin-top: 24px;
+  padding: 10px 25px;
+
+  background: rgba(255,255,255,.72);
+
+  border: 1px solid rgba(212,175,55,.38);
+  border-radius: 999px;
+
+  box-shadow:
+    0 5px 18px rgba(212,175,55,.08);
+}
+
+.nikkah-date span {
+  display: none;
+}
+
+.nikkah-date strong {
+  margin: 0;
+
+  color: #806c49;
+
+  font-family:
+    "Montserrat",
+    sans-serif;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+
+/* TIMELINE */
+
+.nikkah-timeline {
+  max-width: 800px;
+
+  padding: 28px 0;
+}
+
+.nikkah-timeline::before {
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(212,175,55,.45) 10%,
+      rgba(212,175,55,.45) 90%,
+      transparent
+    );
+}
+
+.nikkah-row {
+  grid-template-columns:
+    minmax(0,1fr)
+    74px
+    minmax(0,1fr);
+
+  min-height: 165px;
+  margin-bottom: 38px;
+}
+
+
+/* WHITE EVENT CARDS */
+
+.nikkah-card {
+  padding: 27px 25px;
+
+  background:
+    rgba(255,255,255,.91);
+
+  border:
+    1px solid rgba(212,175,55,.14);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 40px -10px
+    rgba(212,175,55,.15);
+}
+
+.nikkah-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 20px 50px -12px
+    rgba(212,175,55,.24);
+}
+
+.nikkah-card-script {
+  color: var(--lux-gold);
+
+  font-family:
+    "Italianno",
+    "Cormorant Garamond",
+    cursive;
+
+  font-size: 34px;
+  line-height: 1;
+}
+
+.nikkah-card-title {
+  gap: 9px;
+}
+
+.nikkah-card-title strong {
+  color: #59534c;
+
+  font-family:
+    "Playfair Display",
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.nikkah-card-title svg {
+  width: 18px;
+  height: 18px;
+
+  stroke: var(--lux-gold);
+  stroke-width: 1.5;
+}
+
+.nikkah-card p {
+  color: var(--lux-text) !important;
+
+  font-family:
+    "Montserrat",
+    "DM Sans",
+    sans-serif;
+
+  font-size: 11px !important;
+  font-weight: 300;
+
+  line-height: 1.75 !important;
+}
+
+
+/* MAIN NIKKAH = GOLD */
+
+.nikkah-main .nikkah-card {
+  background:
+    linear-gradient(
+      135deg,
+      #d8b64a 0%,
+      #c49a2d 52%,
+      #aa771c 100%
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.34) !important;
+
+  box-shadow:
+    0 18px 42px
+    rgba(170,119,28,.20) !important;
+}
+
+.nikkah-main .nikkah-card::after {
+  display: none !important;
+}
+
+.nikkah-main .nikkah-card-script,
+.nikkah-main .nikkah-card-title strong {
+  color: #fff !important;
+}
+
+.nikkah-main .nikkah-card-title svg {
+  stroke: #fff !important;
+}
+
+.nikkah-main .nikkah-card p {
+  color: rgba(255,255,255,.90) !important;
+}
+
+
+/* TIME */
+
+.nikkah-time {
+  color: var(--lux-gold) !important;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif !important;
+
+  font-size: 27px !important;
+  font-weight: 500 !important;
+
+  letter-spacing: .08em;
+}
+
+.nikkah-main .nikkah-time {
+  font-size: 33px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #bf953f,
+      #fcf6ba,
+      #b38728,
+      #aa771c
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent !important;
+}
+
+
+/* ICON NODES */
+
+.nikkah-marker {
+  width: 42px;
+  height: 42px;
+
+  background: #fff;
+
+  border:
+    1px solid var(--lux-gold);
+
+  box-shadow:
+    0 0 0 5px var(--lux-ivory),
+    0 0 0 6px rgba(212,175,55,.18);
+}
+
+.nikkah-marker svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+  stroke: var(--lux-gold);
+
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nikkah-main .nikkah-marker {
+  width: 50px;
+  height: 50px;
+
+  border-width: 2px;
+}
+
+.nikkah-main .nikkah-marker svg {
+  width: 21px;
+  height: 21px;
+}
+
+
+/* VENUE — ROYAL ARCH */
+
+.nikkah-venue {
+  position: relative;
+
+  max-width: 420px;
+
+  margin: 58px auto 0 !important;
+  padding: 64px 32px 34px !important;
+
+  background:
+    rgba(255,255,255,.90) !important;
+
+  border:
+    1px solid rgba(212,175,55,.25) !important;
+
+  border-radius:
+    210px 210px 22px 22px !important;
+
+  box-shadow:
+    0 14px 42px -14px
+    rgba(212,175,55,.20) !important;
+}
+
+.nikkah-venue > svg {
+  width: 25px;
+  height: 25px;
+
+  margin-bottom: 12px;
+
+  fill: none;
+  stroke: var(--lux-gold);
+
+  stroke-width: 1.5;
+}
+
+.nikkah-venue > span {
+  display: block;
+
+  color: var(--lux-gold);
+
+  font-family:
+    "Montserrat",
+    sans-serif;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: .3em;
+  text-transform: uppercase;
+}
+
+.nikkah-venue > strong {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #554f48;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 23px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .event-nikkah {
+    width: calc(100% - 20px) !important;
+
+    margin:
+      30px auto 48px !important;
+
+    padding:
+      46px 14px 34px !important;
+
+    border-radius:
+      24px !important;
+  }
+
+  .event-nikkah::before {
+    top: 14px;
+
+    font-size: 112px;
+  }
+
+  .nikkah-header {
+    margin-bottom: 38px;
+    padding: 0 8px;
+  }
+
+  .nikkah-script {
+    font-size: 11px;
+    letter-spacing: .2em;
+  }
+
+  .event-nikkah .nikkah-header h3 {
+    font-size: 67px !important;
+  }
+
+  .nikkah-heading-divider {
+    margin: 14px auto;
+  }
+
+  .nikkah-heading-divider span {
+    width: 46px;
+  }
+
+  .nikkah-intro {
+    max-width: 300px;
+
+    font-size: 11px !important;
+    line-height: 1.7 !important;
+  }
+
+  .nikkah-date {
+    margin-top: 18px;
+    padding: 8px 16px;
+  }
+
+  .nikkah-date strong {
+    font-size: 9px;
+    letter-spacing: .11em;
+  }
+
+
+  /* mobile timeline */
+
+  .nikkah-timeline {
+    width: 100%;
+
+    padding:
+      10px 0 8px 0;
+  }
+
+  .nikkah-timeline::before {
+    left: 22px;
+
+    transform: none;
+  }
+
+  .nikkah-row,
+  .nikkah-left,
+  .nikkah-right {
+    display: grid !important;
+
+    grid-template-columns:
+      44px minmax(0,1fr) !important;
+
+    grid-template-rows:
+      auto auto !important;
+
+    min-height: 0 !important;
+
+    margin-bottom:
+      34px !important;
+
+    align-items: start !important;
+  }
+
+
+  /* icon */
+
+  .nikkah-marker,
+  .nikkah-main .nikkah-marker {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+
+    align-self: start;
+
+    width: 34px;
+    height: 34px;
+
+    margin:
+      7px auto 0 5px !important;
+  }
+
+  .nikkah-main .nikkah-marker {
+    width: 38px;
+    height: 38px;
+
+    margin-left: 3px !important;
+  }
+
+  .nikkah-marker svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .nikkah-main .nikkah-marker svg {
+    width: 17px;
+    height: 17px;
+  }
+
+
+  /* time */
+
+  .nikkah-left .nikkah-time,
+  .nikkah-right .nikkah-time,
+  .nikkah-time {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+
+    padding: 0 0 7px 8px !important;
+    margin: 0 !important;
+
+    text-align: left !important;
+
+    font-size: 20px !important;
+    line-height: 1.2;
+  }
+
+  .nikkah-main .nikkah-time {
+    font-size: 23px !important;
+  }
+
+  .nikkah-time span {
+    display: none !important;
+  }
+
+
+  /* cards */
+
+  .nikkah-left .nikkah-card,
+  .nikkah-right .nikkah-card,
+  .nikkah-card {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+
+    width: auto !important;
+
+    margin:
+      0 0 0 8px !important;
+
+    padding:
+      18px 17px !important;
+
+    text-align:
+      left !important;
+
+    border-radius:
+      15px;
+  }
+
+  .nikkah-left .nikkah-card-title {
+    justify-content:
+      flex-start;
+  }
+
+  .nikkah-card-script {
+    font-size: 28px;
+  }
+
+  .nikkah-card-title strong {
+    font-size: 17px;
+  }
+
+  .nikkah-card p {
+    margin-top: 7px !important;
+
+    font-size: 10px !important;
+    line-height: 1.65 !important;
+  }
+
+
+  /* venue */
+
+  .nikkah-venue {
+    width: calc(100% - 32px);
+
+    margin:
+      46px auto 0 !important;
+
+    padding:
+      49px 20px 27px !important;
+
+    border-radius:
+      150px 150px 18px 18px !important;
+  }
+
+  .nikkah-venue > strong {
+    font-size: 20px;
+  }
+}
+
+
+/* reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nikkah-card {
+    transition: none;
+  }
+
+  .nikkah-card:hover {
+    transform: none;
+  }
+}
+
+
+/* ==========================================================
+   NIKKAH — LUXURY UI / INVITATION THEME MATCH
+========================================================== */
+
+.event-nikkah {
+  --nk-ivory: #fcfbf8;
+  --nk-gold: #c5a059;
+  --nk-gold-light: #e8d3a2;
+  --nk-gold-deep: #a9823d;
+  --nk-green: #244b3c;
+  --nk-green-deep: #17372c;
+  --nk-text: #5a635d;
+  --nk-heading: #2c3531;
+
+  position: relative;
+  max-width: 920px !important;
+
+  margin: 48px auto 72px !important;
+  padding: 64px 38px 50px !important;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% -5%,
+      rgba(197,160,89,.12),
+      transparent 35%
+    ),
+    rgba(252,251,248,.96) !important;
+
+  border:
+    1px solid rgba(197,160,89,.28) !important;
+
+  border-radius: 36px !important;
+
+  box-shadow:
+    0 20px 55px -20px rgba(36,75,60,.13),
+    inset 0 0 0 8px rgba(255,255,255,.32) !important;
+}
+
+
+/* 01 watermark */
+
+.event-nikkah::before {
+  content: "01" !important;
+
+  position: absolute;
+  top: 15px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: rgba(197,160,89,.055);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 175px;
+  font-weight: 500;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+.event-nikkah::after {
+  display: none !important;
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.nikkah-header {
+  position: relative;
+  z-index: 2;
+
+  max-width: 570px;
+
+  margin:
+    0 auto 58px;
+}
+
+
+/* small top title */
+
+.nikkah-script {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--nk-gold-deep);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+
+/* NIKKAH */
+
+.event-nikkah .nikkah-header h3 {
+  margin: 0 !important;
+
+  color: var(--nk-green) !important;
+
+  font-family:
+    "Italianno",
+    "Cormorant Garamond",
+    cursive !important;
+
+  font-size:
+    clamp(68px, 9vw, 92px) !important;
+
+  font-weight: 400 !important;
+  line-height: .92 !important;
+
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+
+  text-shadow:
+    0 2px 14px rgba(36,75,60,.08);
+}
+
+
+/* divider */
+
+.nikkah-heading-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin:
+    17px auto 17px;
+}
+
+.nikkah-heading-divider span {
+  width: 72px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--nk-gold)
+    );
+}
+
+.nikkah-heading-divider span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      var(--nk-gold),
+      transparent
+    );
+}
+
+.nikkah-heading-divider svg {
+  width: 19px;
+  height: 19px;
+
+  fill: none;
+
+  stroke:
+    var(--nk-gold);
+
+  stroke-width: 1.4;
+}
+
+
+/* intro */
+
+.nikkah-intro {
+  max-width: 455px;
+
+  margin:
+    0 auto !important;
+
+  color:
+    var(--nk-text) !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: 17px !important;
+  font-weight: 400;
+
+  line-height: 1.55 !important;
+}
+
+
+/* date pill */
+
+.nikkah-date {
+  display: inline-flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+  padding: 9px 22px;
+
+  background:
+    rgba(255,255,255,.70);
+
+  border:
+    1px solid rgba(197,160,89,.34);
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 5px 18px rgba(197,160,89,.08);
+}
+
+.nikkah-date span {
+  color:
+    var(--nk-gold-deep);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: .20em;
+  text-transform: uppercase;
+}
+
+.nikkah-date strong {
+  margin-top: 2px;
+
+  color:
+    var(--nk-green);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+/* ==========================================================
+   TIMELINE
+========================================================== */
+
+.nikkah-timeline {
+  position: relative;
+
+  max-width: 780px;
+
+  margin: 0 auto;
+  padding: 22px 0;
+}
+
+.nikkah-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(197,160,89,.48) 10%,
+      rgba(197,160,89,.48) 90%,
+      transparent
+    );
+}
+
+
+/* rows */
+
+.nikkah-row {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    70px
+    minmax(0,1fr);
+
+  align-items: center;
+
+  min-height: 155px;
+
+  margin-bottom: 36px;
+}
+
+.nikkah-row:last-child {
+  margin-bottom: 0;
+}
+
+
+/* alternating desktop */
+
+.nikkah-left .nikkah-card {
+  grid-column: 1;
+  grid-row: 1;
+
+  margin-right: 14px;
+
+  text-align: right;
+}
+
+.nikkah-left .nikkah-time {
+  grid-column: 3;
+  grid-row: 1;
+
+  padding-left: 17px;
+
+  text-align: left;
+}
+
+.nikkah-right .nikkah-card {
+  grid-column: 3;
+  grid-row: 1;
+
+  margin-left: 14px;
+
+  text-align: left;
+}
+
+.nikkah-right .nikkah-time {
+  grid-column: 1;
+  grid-row: 1;
+
+  padding-right: 17px;
+
+  text-align: right;
+}
+
+
+/* ==========================================================
+   EVENT CARDS
+========================================================== */
+
+.nikkah-card {
+  padding:
+    24px 22px;
+
+  background:
+    rgba(255,255,255,.91);
+
+  border:
+    1px solid rgba(197,160,89,.18);
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 12px 38px -14px
+    rgba(36,75,60,.15);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.nikkah-card:hover {
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 18px 42px -14px
+    rgba(36,75,60,.20);
+}
+
+
+/* script labels */
+
+.nikkah-card-script {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color:
+    var(--nk-gold);
+
+  font-family:
+    "Italianno",
+    "Cormorant Garamond",
+    cursive;
+
+  font-size: 31px;
+  font-style: normal;
+
+  line-height: 1;
+}
+
+
+/* card title */
+
+.nikkah-card-title {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.nikkah-left .nikkah-card-title {
+  justify-content:
+    flex-end;
+}
+
+.nikkah-card-title strong {
+  color:
+    var(--nk-heading);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 21px;
+  font-weight: 600;
+}
+
+
+/* icons */
+
+.nikkah-card-title svg {
+  flex:
+    0 0 auto;
+
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+
+  stroke:
+    var(--nk-gold);
+
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* description */
+
+.nikkah-card p {
+  margin:
+    8px 0 0 !important;
+
+  color:
+    var(--nk-text) !important;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 11px !important;
+  font-weight: 400;
+
+  line-height: 1.65 !important;
+}
+
+
+/* ==========================================================
+   MAIN NIKKAH CARD
+========================================================== */
+
+.nikkah-main .nikkah-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      140deg,
+      #c9a55c 0%,
+      #b48c45 50%,
+      #9d7437 100%
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.30) !important;
+
+  box-shadow:
+    0 18px 40px -12px
+    rgba(157,116,55,.28) !important;
+}
+
+.nikkah-main .nikkah-card::after {
+  display:
+    none !important;
+}
+
+.nikkah-main .nikkah-card-script {
+  color:
+    #fff8e8 !important;
+
+  font-size:
+    35px;
+}
+
+.nikkah-main .nikkah-card-title strong {
+  color:
+    #fff !important;
+}
+
+.nikkah-main .nikkah-card-title svg {
+  stroke:
+    #fff4d7 !important;
+}
+
+.nikkah-main .nikkah-card p {
+  color:
+    rgba(255,255,255,.88) !important;
+}
+
+
+/* ==========================================================
+   TIMES
+========================================================== */
+
+.nikkah-time {
+  color:
+    var(--nk-gold-deep) !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size:
+    27px !important;
+
+  font-weight:
+    600 !important;
+
+  letter-spacing:
+    .05em;
+}
+
+.nikkah-main .nikkah-time {
+  color:
+    var(--nk-green) !important;
+
+  font-size:
+    32px !important;
+}
+
+
+/* hide old tiny decoration */
+
+.nikkah-time > span {
+  display:
+    none !important;
+}
+
+
+/* ==========================================================
+   TIMELINE ICON NODES
+========================================================== */
+
+.nikkah-marker {
+  position: relative;
+  z-index: 4;
+
+  grid-column: 2;
+  grid-row: 1;
+
+  display: grid;
+  place-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  margin: auto;
+
+  background:
+    var(--nk-ivory);
+
+  border:
+    1px solid var(--nk-gold);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 5px var(--nk-ivory),
+    0 0 0 6px rgba(197,160,89,.18);
+}
+
+.nikkah-marker svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+
+  stroke:
+    var(--nk-gold);
+
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nikkah-marker > span {
+  width: 9px;
+  height: 9px;
+
+  background:
+    var(--nk-gold);
+
+  border-radius: 50%;
+}
+
+
+/* main node */
+
+.nikkah-main .nikkah-marker {
+  width: 48px;
+  height: 48px;
+
+  background:
+    var(--nk-green);
+
+  border:
+    2px solid var(--nk-gold-light);
+
+  box-shadow:
+    0 0 0 5px var(--nk-ivory),
+    0 5px 17px rgba(36,75,60,.20);
+}
+
+.nikkah-main .nikkah-marker svg {
+  width: 20px;
+  height: 20px;
+
+  stroke:
+    var(--nk-gold-light);
+}
+
+
+/* ==========================================================
+   VENUE ARCH
+========================================================== */
+
+.nikkah-venue {
+  position: relative;
+
+  max-width: 390px;
+
+  margin:
+    56px auto 0 !important;
+
+  padding:
+    58px 28px 31px !important;
+
+  text-align:
+    center;
+
+  background:
+    rgba(255,255,255,.88) !important;
+
+  border:
+    1px solid rgba(197,160,89,.25) !important;
+
+  border-radius:
+    195px 195px 20px 20px !important;
+
+  box-shadow:
+    0 15px 42px -18px
+    rgba(36,75,60,.18) !important;
+}
+
+.nikkah-venue > svg {
+  width: 24px;
+  height: 24px;
+
+  margin-bottom: 10px;
+
+  fill: none;
+
+  stroke:
+    var(--nk-gold);
+
+  stroke-width: 1.5;
+}
+
+.nikkah-venue > span {
+  display: block;
+
+  color:
+    var(--nk-gold-deep);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: .30em;
+  text-transform: uppercase;
+}
+
+.nikkah-venue > strong {
+  display: block;
+
+  margin-top: 9px;
+
+  color:
+    var(--nk-green);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size:
+    24px;
+
+  font-style:
+    italic;
+
+  font-weight:
+    500;
+}
+
+.nikkah-venue .map-pending {
+  color:
+    var(--nk-text) !important;
+
+  font-family:
+    "Italianno",
+    "Cormorant Garamond",
+    cursive;
+
+  font-size:
+    22px !important;
+}
+
+
+/* ==========================================================
+   MOBILE — PRIORITY
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .event-nikkah {
+    width:
+      calc(100% - 18px) !important;
+
+    margin:
+      28px auto 48px !important;
+
+    padding:
+      43px 13px 32px !important;
+
+    border-radius:
+      23px !important;
+
+    box-shadow:
+      0 14px 38px -20px
+      rgba(36,75,60,.20) !important;
+  }
+
+
+  /* watermark */
+
+  .event-nikkah::before {
+    top: 12px;
+
+    font-size:
+      108px;
+  }
+
+
+  /* header */
+
+  .nikkah-header {
+    margin-bottom:
+      38px;
+
+    padding:
+      0 8px;
+  }
+
+  .nikkah-script {
+    font-size:
+      8px;
+
+    letter-spacing:
+      .25em;
+  }
+
+  .event-nikkah .nikkah-header h3 {
+    font-size:
+      66px !important;
+  }
+
+  .nikkah-heading-divider {
+    gap: 9px;
+
+    margin:
+      13px auto;
+  }
+
+  .nikkah-heading-divider span {
+    width:
+      43px;
+  }
+
+  .nikkah-heading-divider svg {
+    width:
+      16px;
+
+    height:
+      16px;
+  }
+
+  .nikkah-intro {
+    max-width:
+      295px;
+
+    font-size:
+      14px !important;
+
+    line-height:
+      1.5 !important;
+  }
+
+  .nikkah-date {
+    margin-top:
+      17px;
+
+    padding:
+      7px 16px;
+  }
+
+  .nikkah-date span {
+    font-size:
+      7px;
+  }
+
+  .nikkah-date strong {
+    font-size:
+      14px;
+  }
+
+
+  /* timeline moves left */
+
+  .nikkah-timeline {
+    width: 100%;
+
+    padding:
+      8px 0;
+  }
+
+  .nikkah-timeline::before {
+    left:
+      20px;
+
+    transform:
+      none;
+  }
+
+
+  /* rows */
+
+  .nikkah-row,
+  .nikkah-left,
+  .nikkah-right {
+    display:
+      grid !important;
+
+    grid-template-columns:
+      42px minmax(0,1fr) !important;
+
+    grid-template-rows:
+      auto auto !important;
+
+    align-items:
+      start !important;
+
+    min-height:
+      0 !important;
+
+    margin-bottom:
+      31px !important;
+  }
+
+
+  /* timeline icons */
+
+  .nikkah-marker,
+  .nikkah-main .nikkah-marker {
+    grid-column:
+      1 !important;
+
+    grid-row:
+      1 / span 2 !important;
+
+    align-self:
+      start;
+
+    width:
+      32px;
+
+    height:
+      32px;
+
+    margin:
+      5px auto 0 4px !important;
+
+    box-shadow:
+      0 0 0 4px var(--nk-ivory),
+      0 0 0 5px rgba(197,160,89,.16);
+  }
+
+  .nikkah-main .nikkah-marker {
+    width:
+      36px;
+
+    height:
+      36px;
+
+    margin-left:
+      2px !important;
+  }
+
+  .nikkah-marker svg {
+    width:
+      13px;
+
+    height:
+      13px;
+  }
+
+  .nikkah-main .nikkah-marker svg {
+    width:
+      16px;
+
+    height:
+      16px;
+  }
+
+
+  /* times */
+
+  .nikkah-left .nikkah-time,
+  .nikkah-right .nikkah-time,
+  .nikkah-time {
+    grid-column:
+      2 !important;
+
+    grid-row:
+      1 !important;
+
+    padding:
+      0 0 6px 8px !important;
+
+    margin:
+      0 !important;
+
+    text-align:
+      left !important;
+
+    font-size:
+      20px !important;
+
+    line-height:
+      1.1;
+  }
+
+  .nikkah-main .nikkah-time {
+    font-size:
+      23px !important;
+  }
+
+
+  /* cards */
+
+  .nikkah-left .nikkah-card,
+  .nikkah-right .nikkah-card,
+  .nikkah-card {
+    grid-column:
+      2 !important;
+
+    grid-row:
+      2 !important;
+
+    width:
+      auto !important;
+
+    margin:
+      0 0 0 8px !important;
+
+    padding:
+      17px 16px !important;
+
+    text-align:
+      left !important;
+
+    border-radius:
+      14px;
+  }
+
+  .nikkah-left .nikkah-card-title {
+    justify-content:
+      flex-start;
+  }
+
+  .nikkah-card-script {
+    font-size:
+      27px;
+  }
+
+  .nikkah-card-title {
+    gap:
+      7px;
+  }
+
+  .nikkah-card-title strong {
+    font-size:
+      17px;
+  }
+
+  .nikkah-card-title svg {
+    width:
+      15px;
+
+    height:
+      15px;
+  }
+
+  .nikkah-card p {
+    margin-top:
+      6px !important;
+
+    font-size:
+      10px !important;
+
+    line-height:
+      1.6 !important;
+  }
+
+
+  /* venue */
+
+  .nikkah-venue {
+    width:
+      calc(100% - 28px);
+
+    margin:
+      42px auto 0 !important;
+
+    padding:
+      45px 18px 25px !important;
+
+    border-radius:
+      140px 140px 17px 17px !important;
+  }
+
+  .nikkah-venue > svg {
+    width:
+      21px;
+
+    height:
+      21px;
+  }
+
+  .nikkah-venue > strong {
+    font-size:
+      20px;
+  }
+
+  .nikkah-venue .map-pending {
+    font-size:
+      19px !important;
+  }
+}
+
+
+/* small phones */
+
 @media (max-width: 380px) {
 
-  .hero .card {
+  .event-nikkah {
+    width:
+      calc(100% - 12px) !important;
+
+    padding-left:
+      10px !important;
+
+    padding-right:
+      10px !important;
+  }
+
+  .event-nikkah .nikkah-header h3 {
+    font-size:
+      59px !important;
+  }
+
+  .nikkah-row,
+  .nikkah-left,
+  .nikkah-right {
+    grid-template-columns:
+      39px minmax(0,1fr) !important;
+  }
+
+  .nikkah-card {
     padding:
-      62px
-      19px
-      48px
-      !important;
+      15px 13px !important;
+  }
+}
+
+
+/* accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nikkah-card {
+    transition:
+      none;
   }
 
-  .hero .walima-names .name-first,
-  .hero .walima-names .name-second {
-    font-size: 3rem !important;
+  .nikkah-card:hover {
+    transform:
+      none;
+  }
+}
+
+
+/* Nikkah mini venue map */
+
+.nikkah-mini-map {
+  width: 100%;
+  height: 155px;
+
+  margin: 20px auto 15px;
+
+  overflow: hidden;
+
+  background: #fcfbf8;
+
+  border: 1px solid rgba(197, 160, 89, .28);
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 28px -14px rgba(36, 75, 60, .22);
+}
+
+.nikkah-mini-map iframe {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+
+  filter:
+    saturate(.78)
+    contrast(.94);
+}
+
+.event-nikkah .nikkah-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+
+  margin-top: 2px;
+  padding: 9px 18px;
+
+  color: #244b3c;
+
+  background: rgba(197, 160, 89, .10);
+
+  border: 1px solid rgba(197, 160, 89, .34);
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: .05em;
+
+  text-decoration: none;
+
+  transition:
+    transform .25s ease,
+    background .25s ease;
+}
+
+.event-nikkah .nikkah-map:hover {
+  transform: translateY(-2px);
+
+  background: rgba(197, 160, 89, .18);
+}
+
+@media (max-width: 640px) {
+  .nikkah-mini-map {
+    height: 135px;
+
+    margin-top: 16px;
+
+    border-radius: 13px;
+  }
+}
+
+
+/* ==========================================================
+   NIKKAH VENUE — CLEAN RECTANGULAR CARD
+========================================================== */
+
+.event-nikkah .nikkah-venue {
+  width: min(100%, 430px) !important;
+  max-width: 430px !important;
+
+  margin: 52px auto 0 !important;
+  padding: 30px 22px 22px !important;
+
+  background:
+    rgba(255,255,255,.90) !important;
+
+  border:
+    1px solid rgba(197,160,89,.25) !important;
+
+  border-radius: 20px !important;
+
+  box-shadow:
+    0 14px 36px -18px
+    rgba(36,75,60,.20) !important;
+
+  overflow: hidden;
+}
+
+
+/* location pin */
+
+.event-nikkah .nikkah-venue > svg {
+  width: 22px;
+  height: 22px;
+
+  margin: 0 auto 9px;
+
+  stroke: #c5a059;
+}
+
+
+/* small VENUE label */
+
+.event-nikkah .nikkah-venue > span {
+  margin-bottom: 6px;
+
+  color: #a9823d;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: .28em;
+}
+
+
+/* Bride's Home */
+
+.event-nikkah .nikkah-venue > strong {
+  display: block;
+
+  margin: 0 0 18px !important;
+
+  color: #244b3c;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 25px;
+  font-weight: 600;
+  font-style: normal;
+
+  line-height: 1.1;
+}
+
+
+/* MAP — inset from left/right */
+
+.event-nikkah .nikkah-mini-map {
+  width: calc(100% - 16px) !important;
+  height: 155px !important;
+
+  margin:
+    0 8px 15px !important;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(197,160,89,.24) !important;
+
+  border-radius: 13px !important;
+
+  box-shadow:
+    0 7px 22px -12px
+    rgba(36,75,60,.22) !important;
+}
+
+.event-nikkah .nikkah-mini-map iframe {
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  border: 0;
+}
+
+
+/* View Location */
+
+.event-nikkah .nikkah-map {
+  display: inline-flex;
+
+  margin: 1px auto 0 !important;
+  padding: 9px 18px;
+
+  min-height: 37px;
+
+  color: #244b3c;
+
+  background:
+    rgba(197,160,89,.10);
+
+  border:
+    1px solid rgba(197,160,89,.30);
+
+  border-radius: 10px;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: .06em;
+
+  text-decoration: none;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+
+  .event-nikkah .nikkah-venue {
+    width:
+      calc(100% - 18px) !important;
+
+    margin:
+      40px auto 0 !important;
+
+    padding:
+      24px 14px 16px !important;
+
+    border-radius:
+      17px !important;
   }
 
+  .event-nikkah .nikkah-venue > strong {
+    margin-bottom:
+      16px !important;
+
+    font-size:
+      22px;
+  }
+
+  .event-nikkah .nikkah-mini-map {
+    width:
+      calc(100% - 12px) !important;
+
+    height:
+      135px !important;
+
+    margin:
+      0 6px 13px !important;
+
+    border-radius:
+      11px !important;
+  }
+
+  .event-nikkah .nikkah-map {
+    width:
+      calc(100% - 12px);
+
+    min-height:
+      38px;
+
+    border-radius:
+      10px;
+  }
+}
+
+/* Nikkah main ceremony — deep green theme */
+
+.nikkah-main .nikkah-card {
+  background:
+    linear-gradient(
+      145deg,
+      #2f5b49 0%,
+      #244b3c 52%,
+      #17372c 100%
+    ) !important;
+
+  border:
+    1px solid rgba(197,160,89,.42) !important;
+
+  box-shadow:
+    0 18px 42px -14px
+    rgba(23,55,44,.35) !important;
+}
+
+.nikkah-main .nikkah-card-script {
+  color: #e8d3a2 !important;
+}
+
+.nikkah-main .nikkah-card-title strong {
+  color: #fffdf7 !important;
+}
+
+.nikkah-main .nikkah-card-title svg {
+  stroke: #e8d3a2 !important;
+}
+
+.nikkah-main .nikkah-card p {
+  color: rgba(255,255,255,.84) !important;
+}
+
+.nikkah-main .nikkah-marker {
+  background: #244b3c !important;
+  border-color: #c5a059 !important;
+}
+
+.nikkah-main .nikkah-marker svg {
+  stroke: #e8d3a2 !important;
+}
+
+.nikkah-main .nikkah-time {
+  color: #244b3c !important;
+}
+
+
+
+/* ==========================================================
+   EVENTS 02–04 — LUXURY CELEBRATION COLLECTION
+   Mehndi / Baraat / Walima
+========================================================== */
+
+.celebration-event {
+  --event-accent: #c5a059;
+  --event-deep: #244b3c;
+  --event-soft: rgba(197,160,89,.10);
+
+  position: relative;
+
+  width: min(920px, calc(100% - 28px)) !important;
+
+  margin: 58px auto 0 !important;
+  padding: 64px 38px 38px !important;
+
+  overflow: hidden;
+
+  text-align: center !important;
+
+  background:
+    radial-gradient(
+      circle at 50% -5%,
+      var(--event-soft),
+      transparent 37%
+    ),
+    rgba(252,251,248,.96) !important;
+
+  border:
+    1px solid rgba(197,160,89,.24) !important;
+
+  border-radius: 34px !important;
+
+  box-shadow:
+    0 20px 55px -22px rgba(36,53,47,.16) !important;
+}
+
+
+/* large 02 / 03 / 04 */
+
+.celebration-event .event-number {
+  position: absolute !important;
+
+  top: 10px !important;
+  left: 50% !important;
+  right: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  margin: 0 !important;
+
+  color: var(--event-accent) !important;
+  opacity: .07;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: 168px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+
+  pointer-events: none;
+}
+
+
+/* ==========================================================
+   SHARED HEADER
+========================================================== */
+
+.celebration-header {
+  position: relative;
+  z-index: 2;
+
+  max-width: 570px;
+
+  margin: 0 auto 40px;
+}
+
+.celebration-kicker {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--event-accent);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+.celebration-event .celebration-header h3 {
+  margin: 0 !important;
+
+  color: var(--event-deep) !important;
+
+  font-family:
+    "Italianno",
+    "Cormorant Garamond",
+    cursive !important;
+
+  font-size: clamp(68px, 9vw, 90px) !important;
+  font-weight: 400 !important;
+  line-height: .94 !important;
+
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.celebration-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin: 16px auto;
+}
+
+.celebration-divider span {
+  width: 68px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--event-accent)
+    );
+}
+
+.celebration-divider span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      var(--event-accent),
+      transparent
+    );
+}
+
+.celebration-divider b {
+  color: var(--event-accent);
+
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.celebration-header > p {
+  max-width: 450px;
+
+  margin: 0 auto !important;
+
+  color: #5a635d !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+}
+
+.celebration-date {
+  display: inline-flex;
+
+  margin-top: 20px;
+  padding: 8px 18px;
+
+  color: var(--event-deep);
+
+  background: rgba(255,255,255,.72);
+
+  border:
+    1px solid color-mix(
+      in srgb,
+      var(--event-accent) 38%,
+      transparent
+    );
+
+  border-radius: 999px;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   SHARED DETAIL CARDS
+========================================================== */
+
+.celebration-details {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0,1fr));
+
+  gap: 16px;
+
+  max-width: 670px;
+
+  margin: 32px auto 0;
+}
+
+.celebration-detail {
+  min-width: 0;
+
+  padding: 25px 20px;
+
+  background:
+    rgba(255,255,255,.88);
+
+  border:
+    1px solid rgba(197,160,89,.17);
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 11px 34px -17px rgba(36,53,47,.18);
+}
+
+.detail-icon {
+  display: grid;
+  place-items: center;
+
+  width: 39px;
+  height: 39px;
+
+  margin: 0 auto 12px;
+
+  color: var(--event-accent);
+
+  background:
+    color-mix(
+      in srgb,
+      var(--event-accent) 8%,
+      white
+    );
+
+  border:
+    1px solid color-mix(
+      in srgb,
+      var(--event-accent) 32%,
+      transparent
+    );
+
+  border-radius: 50%;
+}
+
+.detail-icon svg {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+  stroke: currentColor;
+
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.celebration-detail > span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--event-accent);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.celebration-detail > strong {
+  display: block;
+
+  color: var(--event-deep);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.celebration-detail .venue-address {
+  margin: 5px 0 0 !important;
+
+  color: #6c706d !important;
+
+  font-size: 11px !important;
+}
+
+
+/* location */
+
+.celebration-venue-action {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 18px;
+}
+
+.celebration-venue-action .map-pending {
+  margin: 0 !important;
+
+  color: #7b7d78 !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 14px !important;
+  font-style: italic;
+}
+
+.celebration-venue-action .map-link {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+
+  padding: 9px 18px;
+
+  color: var(--event-deep);
+
+  background:
+    color-mix(
+      in srgb,
+      var(--event-accent) 9%,
+      white
+    );
+
+  border:
+    1px solid color-mix(
+      in srgb,
+      var(--event-accent) 32%,
+      transparent
+    );
+
+  border-radius: 10px;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+
+/* ==========================================================
+   MEHNDI — BOTANICAL / FESTIVE
+========================================================== */
+
+.event-mehndi {
+  --event-accent: #a89557;
+  --event-deep: #556b45;
+  --event-soft: rgba(143,158,103,.14);
+
+  background:
+    radial-gradient(
+      circle at 8% 13%,
+      rgba(126,145,87,.12),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 92% 86%,
+      rgba(197,160,89,.10),
+      transparent 25%
+    ),
+    #fcfbf8 !important;
+}
+
+
+/* subtle botanical corners */
+
+.event-mehndi::before,
+.event-mehndi::after {
+  content: "❧";
+
+  position: absolute;
+
+  color: rgba(85,107,69,.10);
+
+  font-family: Georgia, serif;
+
+  font-size: 105px;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+.event-mehndi::before {
+  top: -13px;
+  left: -7px;
+
+  transform: rotate(-35deg);
+}
+
+.event-mehndi::after {
+  right: -7px;
+  bottom: -17px;
+
+  transform: rotate(145deg);
+}
+
+.mehndi-motif {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  margin: -4px auto 4px;
+
+  color: #84915f;
+}
+
+.mehndi-motif span:nth-child(2) {
+  font-size: 28px;
+}
+
+.mehndi-motif span:not(:nth-child(2)) {
+  color: #c5a059;
+
+  font-size: 10px;
+}
+
+
+/* Mehndi detail highlight */
+
+.event-mehndi
+.celebration-detail:first-child {
+  background:
+    linear-gradient(
+      145deg,
+      #71805a,
+      #556b45
+    );
+
+  border-color:
+    rgba(197,160,89,.38);
+}
+
+.event-mehndi
+.celebration-detail:first-child
+.detail-icon {
+  color: #e8d3a2;
+
+  background:
+    rgba(255,255,255,.08);
+
+  border-color:
+    rgba(232,211,162,.45);
+}
+
+.event-mehndi
+.celebration-detail:first-child
+> span {
+  color: #e8d3a2;
+}
+
+.event-mehndi
+.celebration-detail:first-child
+> strong {
+  color: #fffdf7;
+}
+
+
+/* ==========================================================
+   BARAAT — ROYAL BURGUNDY
+========================================================== */
+
+.event-baraat {
+  --event-accent: #c5a059;
+  --event-deep: #713d45;
+  --event-soft: rgba(113,61,69,.09);
+
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      rgba(113,61,69,.09),
+      transparent 34%
+    ),
+    #fcfbf8 !important;
+}
+
+
+/* royal inner frame */
+
+.event-baraat::before {
+  content: "";
+
+  position: absolute;
+  inset: 9px;
+
+  border:
+    1px solid rgba(197,160,89,.14);
+
+  border-radius: 27px;
+
+  pointer-events: none;
+}
+
+.baraat-royal-mark {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  width: fit-content;
+
+  margin: -3px auto 7px;
+  padding: 8px 18px;
+
+  color: #c5a059;
+
+  border-top:
+    1px solid rgba(197,160,89,.24);
+
+  border-bottom:
+    1px solid rgba(197,160,89,.24);
+}
+
+.baraat-royal-mark strong {
+  color: #713d45;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  letter-spacing: .18em;
+}
+
+.baraat-royal-mark span {
+  font-size: 8px;
+}
+
+
+/* royal highlighted card */
+
+.event-baraat
+.celebration-detail:first-child {
+  background:
+    linear-gradient(
+      145deg,
+      #824b54,
+      #68363e
+    );
+
+  border-color:
+    rgba(197,160,89,.38);
+
+  box-shadow:
+    0 16px 38px -15px
+    rgba(104,54,62,.35);
+}
+
+.event-baraat
+.celebration-detail:first-child
+.detail-icon {
+  color: #e8d3a2;
+
+  background:
+    rgba(255,255,255,.07);
+
+  border-color:
+    rgba(232,211,162,.45);
+}
+
+.event-baraat
+.celebration-detail:first-child
+> span {
+  color: #e8d3a2;
+}
+
+.event-baraat
+.celebration-detail:first-child
+> strong {
+  color: #fffdf7;
+}
+
+
+/* ==========================================================
+   WALIMA — EMERALD / CHAMPAGNE
+========================================================== */
+
+.event-walima {
+  --event-accent: #c5a059;
+  --event-deep: #244b3c;
+  --event-soft: rgba(36,75,60,.09);
+
+  background:
+    radial-gradient(
+      circle at 50% -8%,
+      rgba(197,160,89,.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      #fcfbf8,
+      #f8f7f2
+    ) !important;
+
+  border-color:
+    rgba(197,160,89,.32) !important;
+}
+
+
+/* monogram */
+
+.walima-monogram {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 92px;
+  height: 92px;
+
+  margin: -4px auto 8px;
+
+  color: #244b3c;
+
+  border:
+    1px solid rgba(197,160,89,.50);
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 0 0 0 5px #fcfbf8,
+    inset 0 0 0 6px rgba(197,160,89,.18);
+}
+
+.walima-monogram span {
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.walima-monogram i {
+  margin: 0 3px;
+
+  color: #c5a059;
+
+  font-family:
+    "Italianno",
+    cursive;
+
+  font-size: 24px;
+  font-style: normal;
+}
+
+
+/* formal reception highlight */
+
+.event-walima
+.celebration-detail:first-child {
+  background:
+    linear-gradient(
+      145deg,
+      #315c4b,
+      #17372c
+    );
+
+  border-color:
+    rgba(197,160,89,.40);
+
+  box-shadow:
+    0 16px 40px -15px
+    rgba(23,55,44,.34);
+}
+
+.event-walima
+.celebration-detail:first-child
+.detail-icon {
+  color: #e8d3a2;
+
+  background:
+    rgba(255,255,255,.07);
+
+  border-color:
+    rgba(232,211,162,.45);
+}
+
+.event-walima
+.celebration-detail:first-child
+> span {
+  color: #e8d3a2;
+}
+
+.event-walima
+.celebration-detail:first-child
+> strong {
+  color: #fffdf7;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .celebration-event {
+    width:
+      calc(100% - 18px) !important;
+
+    margin:
+      38px auto 0 !important;
+
+    padding:
+      44px 13px 25px !important;
+
+    border-radius:
+      23px !important;
+  }
+
+  .celebration-event .event-number {
+    top: 10px !important;
+
+    font-size:
+      105px !important;
+  }
+
+  .celebration-header {
+    margin-bottom:
+      28px;
+
+    padding:
+      0 8px;
+  }
+
+  .celebration-kicker {
+    font-size:
+      8px;
+
+    letter-spacing:
+      .22em;
+  }
+
+  .celebration-event
+  .celebration-header h3 {
+    font-size:
+      64px !important;
+  }
+
+  .celebration-divider {
+    gap: 9px;
+
+    margin:
+      12px auto;
+  }
+
+  .celebration-divider span {
+    width:
+      43px;
+  }
+
+  .celebration-header > p {
+    max-width:
+      290px;
+
+    font-size:
+      14px !important;
+
+    line-height:
+      1.5 !important;
+  }
+
+  .celebration-date {
+    margin-top:
+      16px;
+
+    padding:
+      7px 13px;
+
+    font-size:
+      8px;
+
+    letter-spacing:
+      .09em;
+  }
+
+
+  /* cards stacked */
+
+  .celebration-details {
+    grid-template-columns:
+      1fr;
+
+    gap: 11px;
+
+    width:
+      calc(100% - 12px);
+
+    margin:
+      24px auto 0;
+  }
+
+  .celebration-detail {
+    padding:
+      19px 15px;
+
+    border-radius:
+      14px;
+  }
+
+  .detail-icon {
+    width:
+      34px;
+
+    height:
+      34px;
+
+    margin-bottom:
+      9px;
+  }
+
+  .detail-icon svg {
+    width:
+      15px;
+
+    height:
+      15px;
+  }
+
+  .celebration-detail > strong {
+    font-size:
+      18px;
+  }
+
+
+  /* Mehndi */
+
+  .event-mehndi::before,
+  .event-mehndi::after {
+    font-size:
+      68px;
+  }
+
+  .mehndi-motif {
+    margin-top:
+      -7px;
+  }
+
+
+  /* Baraat */
+
+  .event-baraat::before {
+    inset:
+      6px;
+
+    border-radius:
+      18px;
+  }
+
+  .baraat-royal-mark {
+    margin-top:
+      -8px;
+
+    padding:
+      6px 13px;
+  }
+
+
+  /* Walima */
+
+  .walima-monogram {
+    width:
+      74px;
+
+    height:
+      74px;
+
+    margin-top:
+      -7px;
+  }
+
+  .walima-monogram span {
+    font-size:
+      25px;
+  }
+
+  .walima-monogram i {
+    font-size:
+      20px;
+  }
+
+
+  .celebration-venue-action {
+    margin-top:
+      14px;
+  }
+
+}
+
+
+/* very small phones */
+
+@media (max-width: 380px) {
+
+  .celebration-event {
+    width:
+      calc(100% - 12px) !important;
+
+    padding-left:
+      10px !important;
+
+    padding-right:
+      10px !important;
+  }
+
+  .celebration-event
+  .celebration-header h3 {
+    font-size:
+      58px !important;
+  }
+}
+
+
+/* ==========================================================
+   MEHNDI — NIKKAH STYLE EVENT TIMELINE
+========================================================== */
+
+.mehndi-event-timeline {
+  position: relative;
+
+  max-width: 720px;
+
+  margin: 32px auto 38px;
+  padding: 4px 0;
+}
+
+
+/* center gold/olive line */
+
+.mehndi-event-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 8px;
+  bottom: 8px;
+  left: 50%;
+
+  width: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(168,149,87,.55) 8%,
+      rgba(168,149,87,.55) 92%,
+      transparent
+    );
+}
+
+
+/* each row */
+
+.mehndi-row {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,1fr) 62px minmax(0,1fr);
+
+  align-items: center;
+
+  min-height: 118px;
+}
+
+
+/* marker */
+
+.mehndi-marker {
+  position: relative;
+  z-index: 3;
+
+  grid-column: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  margin: auto;
+
+  color: #a89557;
+
+  background: #fcfbf8;
+
+  border:
+    1px solid rgba(168,149,87,.50);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 6px #fcfbf8;
+}
+
+.mehndi-marker svg {
+  width: 16px;
+  height: 16px;
+
+  fill: none;
+  stroke: currentColor;
+
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* cards */
+
+.mehndi-timeline-card {
+  width: min(100%, 275px);
+
+  padding: 19px 18px;
+
+  text-align: left;
+
+  background:
+    rgba(255,255,255,.90);
+
+  border:
+    1px solid rgba(168,149,87,.19);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 13px 32px -20px
+    rgba(85,107,69,.28);
+}
+
+.mehndi-left .mehndi-timeline-card {
+  grid-column: 1;
+
+  justify-self: end;
+
+  text-align: right;
+}
+
+.mehndi-right .mehndi-timeline-card {
+  grid-column: 3;
+
+  justify-self: start;
+}
+
+.mehndi-timeline-card > span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #a89557;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: .20em;
+  text-transform: uppercase;
+}
+
+.mehndi-timeline-card > strong {
+  display: block;
+
+  color: #556b45;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 23px;
+  font-weight: 600;
+
+  line-height: 1.1;
+}
+
+.mehndi-timeline-card > p {
+  margin: 6px 0 0 !important;
+
+  color: #687064 !important;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 9px !important;
+
+  line-height: 1.55 !important;
+}
+
+
+/* timeline labels */
+
+.mehndi-time {
+  color: #87916d;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 12px;
+  font-style: italic;
+}
+
+.mehndi-left .mehndi-time {
+  grid-column: 3;
+
+  padding-left: 13px;
+
+  text-align: left;
+}
+
+.mehndi-right .mehndi-time {
+  grid-column: 1;
+
+  padding-right: 13px;
+
+  text-align: right;
+}
+
+
+/* MAIN MEHNDI EVENT */
+
+.mehndi-main .mehndi-timeline-card {
+  background:
+    linear-gradient(
+      145deg,
+      #71805a 0%,
+      #556b45 100%
+    );
+
+  border-color:
+    rgba(232,211,162,.40);
+
+  box-shadow:
+    0 17px 38px -17px
+    rgba(85,107,69,.40);
+}
+
+.mehndi-main .mehndi-timeline-card > span {
+  color: #e8d3a2;
+}
+
+.mehndi-main .mehndi-timeline-card > strong {
+  color: #fffdf7;
+}
+
+.mehndi-main .mehndi-timeline-card > p {
+  color:
+    rgba(255,255,255,.77) !important;
+}
+
+.mehndi-main .mehndi-marker {
+  color: #e8d3a2;
+
+  background: #556b45;
+
+  border-color: #c5a059;
+
+  box-shadow:
+    0 0 0 6px #fcfbf8,
+    0 7px 18px rgba(85,107,69,.22);
+}
+
+
+/* venue becomes full width below timeline */
+
+.event-mehndi .mehndi-details {
+  display: block;
+
+  max-width: 430px;
+
+  margin:
+    4px auto 0;
+}
+
+.event-mehndi .mehndi-venue-card {
+  width: 100%;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .mehndi-event-timeline {
+    width:
+      calc(100% - 6px);
+
+    margin:
+      27px auto 31px;
+
+    padding-left:
+      0;
+  }
+
+  .mehndi-event-timeline::before {
+    left:
+      20px;
+
+    transform:
+      none;
+  }
+
+  .mehndi-row {
+    display: grid;
+
+    grid-template-columns:
+      41px minmax(0,1fr);
+
+    min-height:
+      auto;
+
+    margin-bottom:
+      14px;
+  }
+
+  .mehndi-row:last-child {
+    margin-bottom:
+      0;
+  }
+
+  .mehndi-marker {
+    grid-column:
+      1;
+
+    grid-row:
+      1;
+
+    width:
+      32px;
+
+    height:
+      32px;
+
+    margin:
+      15px auto 0 4px;
+
+    box-shadow:
+      0 0 0 5px #fcfbf8;
+  }
+
+  .mehndi-marker svg {
+    width:
+      14px;
+
+    height:
+      14px;
+  }
+
+
+  /* all cards right side on mobile */
+
+  .mehndi-left .mehndi-timeline-card,
+  .mehndi-right .mehndi-timeline-card {
+    grid-column:
+      2;
+
+    grid-row:
+      1;
+
+    justify-self:
+      stretch;
+
+    width:
+      100%;
+
+    text-align:
+      left;
+  }
+
+  .mehndi-timeline-card {
+    padding:
+      16px 15px;
+
+    border-radius:
+      14px;
+  }
+
+  .mehndi-timeline-card > strong {
+    font-size:
+      21px;
+  }
+
+
+  /* time inside top of card area */
+
+  .mehndi-left .mehndi-time,
+  .mehndi-right .mehndi-time {
+    grid-column:
+      2;
+
+    grid-row:
+      1;
+
+    align-self:
+      start;
+
+    position:
+      relative;
+
+    z-index:
+      2;
+
+    width:
+      fit-content;
+
+    margin:
+      6px 0 0 15px;
+
+    padding:
+      0 5px;
+
+    color:
+      #9a8a58;
+
+    background:
+      #fff;
+
+    font-size:
+      9px;
+
+    text-align:
+      left;
+  }
+
+  .mehndi-timeline-card {
+    padding-top:
+      27px;
+  }
+
+  .mehndi-main .mehndi-time {
+    color:
+      #e8d3a2;
+
+    background:
+      transparent;
+  }
+
+
+  .event-mehndi .mehndi-details {
+    width:
+      calc(100% - 12px);
+
+    margin-top:
+      3px;
+  }
 }
