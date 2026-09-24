@@ -44,6 +44,29 @@
       rel="stylesheet"
     />
 
+    <!-- Critical opening paint: prevents cream flash before CSS loads -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #14281f;
+      }
+
+      body.invitation-closed {
+        background: #14281f;
+        overflow: hidden;
+      }
+
+      body.invitation-closed .shell {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .env-preview {
+        display: none !important;
+      }
+    </style>
+
     <!-- Main Invitation CSS -->
     <link
       rel="stylesheet"
@@ -142,37 +165,40 @@
       >
         <div class="card">
 
-          <p
-            class="bismillah"
-            lang="ar"
-            dir="rtl"
-          >
-            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-          </p>
+          <div class="wedding-ayah" lang="ar" dir="rtl">
+              <p class="ayah-arabic">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+              <span class="ayah-reference">Surah Ar-Rum • 30:21</span>
+            </div>
 
-          <div class="eyebrow">
-            Together with their families
+          <div class="eyebrow walima-hosts">
+            Mr. &amp; Mrs. Abdul Ghafar Malik
           </div>
 
-          <h1 class="names">
+          <div class="walima-invite">
+            <span>cordially invite you to the</span>
+            <strong>Walima Reception</strong>
+            <span>of their beloved son</span>
+          </div>
+
+          <h1 class="names walima-names">
             <span class="name-first">
-              Meraj
+              Meraj Uddin
             </span>
 
             <span class="name-amp">
-              &amp;
+              with
             </span>
 
             <span class="name-second">
-              Urooj
+              Urooj Fatima
             </span>
           </h1>
 
-          <p class="invite-copy">
-            Request the pleasure of your company
+          <div class="walima-blessing">
+            Your gracious presence and prayers
             <br />
-            at their wedding celebration
-          </p>
+            will be a cherished part of our celebration.
+          </div>
 
           <div
             class="ornament"
@@ -180,17 +206,6 @@
           >
             ✦
           </div>
-
-          <p
-            class="date-line"
-            id="hero-date"
-          >
-            DATES TO BE ANNOUNCED
-          </p>
-
-          <p class="eyebrow">
-            Karachi, Pakistan
-          </p>
         </div>
 
         <a
@@ -569,198 +584,6 @@
 
 
       <!-- ======================================
-           RSVP
-      ======================================= -->
-      <section
-        class="rsvp"
-        id="rsvp"
-      >
-        <div class="eyebrow">
-          Your presence matters
-        </div>
-
-        <h2 class="section-title">
-          Join us for Walima
-        </h2>
-
-        <p class="section-copy">
-          Please let us know if you will join us for the Walima.
-          Reply once for your family or group, including everyone
-          coming with you.
-        </p>
-
-        <form
-          id="rsvp-form"
-          class="rsvp-form"
-        >
-
-          <div class="form-row">
-
-            <label>
-              Your full name
-
-              <input
-                name="name"
-                autocomplete="name"
-                required
-                minlength="2"
-                maxlength="100"
-                placeholder="Name of the main guest"
-              />
-            </label>
-
-
-            <label>
-              Contact number
-
-              <input
-                name="phone"
-                type="tel"
-                autocomplete="tel"
-                required
-                maxlength="30"
-                placeholder="e.g. 03XX XXXXXXX"
-              />
-            </label>
-
-          </div>
-
-
-          <p class="form-help">
-            Guest numbers include you, adults and children.
-          </p>
-
-
-          <div id="event-answers">
-
-            <fieldset class="attendance">
-
-              <legend>
-                Will you attend the Walima?
-              </legend>
-
-
-              <div class="attendance-row">
-
-                <label class="choice">
-
-                  <input
-                    type="radio"
-                    name="walima-answer"
-                    value="yes"
-                    required
-                  />
-
-                  Yes, we will be there
-                </label>
-
-
-                <label class="choice">
-
-                  <input
-                    type="radio"
-                    name="walima-answer"
-                    value="no"
-                    required
-                  />
-
-                  Sorry, unable to attend
-                </label>
-
-              </div>
-
-
-              <label
-                class="count-label"
-                data-count-label="walima"
-                hidden
-              >
-                Total guests, including you
-
-                <input
-                  type="number"
-                  name="walima-count"
-                  min="1"
-                  max="30"
-                  step="1"
-                  value="1"
-                  inputmode="numeric"
-                  disabled
-                />
-              </label>
-
-            </fieldset>
-          </div>
-
-
-          <label>
-            A message for the couple
-
-            <span class="optional">
-              (optional)
-            </span>
-
-            <textarea
-              name="message"
-              rows="3"
-              maxlength="500"
-              placeholder="Your wishes or anything we should know"
-            ></textarea>
-          </label>
-
-
-          <p class="privacy-note">
-            Your reply and contact number are visible only to the hosts.
-          </p>
-
-
-          <p
-            id="rsvp-status"
-            role="status"
-            aria-live="polite"
-          ></p>
-
-
-          <button
-            class="submit-rsvp"
-            type="submit"
-          >
-            Send my reply
-
-            <span aria-hidden="true">
-              ↗
-            </span>
-          </button>
-        </form>
-
-
-        <!-- RSVP SUCCESS -->
-        <div
-          id="rsvp-success"
-          tabindex="-1"
-          hidden
-        >
-          <span
-            class="success-mark"
-            aria-hidden="true"
-          >
-            ✓
-          </span>
-
-          <h3>
-            Thank you for your reply
-          </h3>
-
-          <p>
-            Your response has been saved for the hosts.
-          </p>
-
-          <p id="response-summary"></p>
-        </div>
-      </section>
-
-
-      <!-- ======================================
            FOOTER
       ======================================= -->
       <footer>
@@ -771,13 +594,6 @@
         <small>
           A CELEBRATION OF LOVE &amp; FAITH
         </small>
-
-        <a
-          class="host-link"
-          href="/manage"
-        >
-          Host management
-        </a>
       </footer>
 
     </main>

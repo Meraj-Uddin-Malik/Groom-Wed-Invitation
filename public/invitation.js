@@ -187,8 +187,10 @@ document.getElementById("open").onclick = () => {
   /* 1. Move the wax seal */
   intro.classList.add("seal-moving");
 
-  /* 2. Begin opening the doors */
+  /* 2. Begin opening the doors and reveal invitation behind them */
   setTimeout(() => {
+    document.body.classList.remove("invitation-closed");
+    document.body.classList.add("ceremony");
     intro.classList.add("doors-opening");
   }, reduced ? 20 : 550);
 
@@ -196,12 +198,6 @@ document.getElementById("open").onclick = () => {
   setTimeout(() => {
     intro.classList.add("seal-gone");
   }, reduced ? 40 : 1100);
-
-  /* Show invitation immediately as doors begin opening */
-  setTimeout(() => {
-    document.body.classList.remove("invitation-closed");
-    document.body.classList.add("ceremony");
-  }, reduced ? 20 : 550);
 
   /* Remove intro after doors finish */
   setTimeout(() => {
@@ -213,7 +209,7 @@ document.getElementById("open").onclick = () => {
       heading.tabIndex = -1;
       heading.focus({ preventScroll: true });
     }
-  }, reduced ? 100 : 3300);
+  }, reduced ? 100 : 2550);
 };
 
 /* =========================================================
@@ -297,186 +293,7 @@ function prettyTime(time) {
   }`;
 }
 
-async function loadEvents() {
-  try {
-    const res = await fetch(
-      "/api/events"
-    );
 
-    const data = await res.json();
-
-    if (!res.ok) {
-      throw new Error(data.error);
-    }
-
-
-    for (const e of data.events) {
-      const dateElement =
-        document.querySelector(
-          `[data-date="${e.id}"]`
-        );
-
-      if (dateElement) {
-        dateElement.textContent =
-          e.date
-            ? `${prettyDate(e.date)}${
-                e.time
-                  ? " · " +
-                    prettyTime(e.time)
-                  : " · Time to be announced"
-              }`
-            : "Date to be announced";
-      }
-
-
-      const venueElement =
-        document.querySelector(
-          `[data-venue="${e.id}"]`
-        );
-
-      if (venueElement) {
-        venueElement.textContent =
-          e.venue ||
-          "To be announced";
-      }
-
-
-      const addressElement =
-        document.querySelector(
-          `[data-address="${e.id}"]`
-        );
-
-      if (addressElement) {
-        addressElement.textContent =
-          e.address || "";
-      }
-
-
-      const map =
-        document.querySelector(
-          `[data-map="${e.id}"]`
-        );
-
-      if (
-        map &&
-        (
-          e.mapUrl ||
-          e.venue ||
-          e.address
-        )
-      ) {
-        map.href =
-          e.mapUrl ||
-          "https://www.google.com/maps/search/?api=1&query=" +
-            encodeURIComponent(
-              [
-                e.venue,
-                e.address,
-              ]
-                .filter(Boolean)
-                .join(", ")
-            );
-
-        map.hidden = false;
-
-        const pending =
-          document.querySelector(
-            `[data-pending="${e.id}"]`
-          );
-
-        if (pending) {
-          pending.hidden = true;
-        }
-      }
-    }
-
-
-    const dated = data.events
-      .filter((e) => e.date)
-      .sort((a, b) =>
-        (
-          a.date +
-          (a.time || "00:00")
-        ).localeCompare(
-          b.date +
-            (b.time || "00:00")
-        )
-      );
-
-
-    if (dated.length) {
-      const first = dated[0];
-
-      document.getElementById(
-        "hero-date"
-      ).textContent =
-        prettyDate(first.date);
-
-
-      document.getElementById(
-        "reveal-date"
-      ).textContent =
-        prettyDate(first.date);
-
-
-      document.getElementById(
-        "reveal-label"
-      ).textContent =
-        first.name +
-        " · Save the date";
-
-
-      const next = dated.find(
-        (e) =>
-          new Date(
-            e.date +
-              "T" +
-              (e.time || "00:00") +
-              ":00+05:00"
-          ).getTime() >
-          Date.now()
-      );
-
-
-      if (next) {
-        wedding =
-          new Date(
-            next.date +
-              "T" +
-              (next.time ||
-                "00:00") +
-              ":00+05:00"
-          ).getTime();
-
-
-        document.getElementById(
-          "countdown-label"
-        ).textContent =
-          "Counting the moments to " +
-          next.name;
-
-
-        document.getElementById(
-          "countdown"
-        ).hidden = false;
-
-        tick();
-      }
-    }
-  } catch (err) {
-    const status =
-      document.getElementById(
-        "events-error"
-      );
-
-    status.textContent =
-      "Event details are temporarily unavailable. Please refresh to try again.";
-
-    status.hidden = false;
-  }
-}
-
-loadEvents();
 
 
 /* =========================================================
@@ -783,200 +600,6 @@ document.getElementById(
 
 
 /* =========================================================
-   RSVP FORM
-========================================================= */
-
-const form =
-  document.getElementById(
-    "rsvp-form"
-  );
-
-const submissionId =
-  crypto.randomUUID();
-
-const status =
-  document.getElementById(
-    "rsvp-status"
-  );
-
-
-for (
-  const id of ["walima"]
-) {
-  form
-    .querySelectorAll(
-      `[name="${id}-answer"]`
-    )
-    .forEach((radio) =>
-      radio.addEventListener(
-        "change",
-        () => {
-          const yes =
-            form.elements[
-              id + "-answer"
-            ].value ===
-            "yes";
-
-
-          const input =
-            form.elements[
-              id + "-count"
-            ];
-
-
-          document.querySelector(
-            `[data-count-label="${id}"]`
-          ).hidden =
-            !yes;
-
-
-          input.disabled =
-            !yes;
-
-          input.required =
-            yes;
-        }
-      )
-    );
-}
-
-
-form.addEventListener(
-  "submit",
-  async (e) => {
-    e.preventDefault();
-
-
-    if (
-      !form.reportValidity()
-    ) {
-      return;
-    }
-
-
-    const button =
-      form.querySelector(
-        "button[type=submit]"
-      );
-
-
-    button.disabled =
-      true;
-
-    button.textContent =
-      "Saving your reply…";
-
-    status.textContent =
-      "";
-
-
-    const data = {
-      id: submissionId,
-
-      name:
-        form.elements.name.value.trim(),
-
-      phone:
-        form.elements.phone.value.trim(),
-
-      message:
-        form.elements.message.value.trim(),
-    };
-
-
-    data.walima =
-      form.elements[
-        "walima-answer"
-      ].value ===
-      "yes"
-        ? Number(
-            form.elements[
-              "walima-count"
-            ].value
-          )
-        : 0;
-
-
-    try {
-      const res =
-        await fetch(
-          "/api/rsvp",
-          {
-            method:
-              "POST",
-
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
-
-            body:
-              JSON.stringify(
-                data
-              ),
-          }
-        );
-
-
-      const body =
-        await res.json();
-
-
-      if (!res.ok) {
-        throw new Error(
-          body.error ||
-            "Unable to save. Please try again."
-        );
-      }
-
-
-      form.hidden =
-        true;
-
-
-      const success =
-        document.getElementById(
-          "rsvp-success"
-        );
-
-
-      success.hidden =
-        false;
-
-
-      document.getElementById(
-        "response-summary"
-      ).textContent =
-        data.walima
-          ? "Walima: " +
-            data.walima +
-            " guest" +
-            (
-              data.walima >
-              1
-                ? "s"
-                : ""
-            )
-          : "Walima: Unable to attend";
-
-
-      success.focus();
-    } catch (err) {
-      status.textContent =
-        err.message ||
-        "Connection problem. Please try again.";
-    } finally {
-      button.disabled =
-        false;
-
-      button.textContent =
-        "Send my reply ↗";
-    }
-  }
-);
-
-
-/* =========================================================
    SCROLL REVEAL ANIMATIONS
 ========================================================= */
 
@@ -992,9 +615,7 @@ if (
       ".story .section-title," +
       ".scratch-section .section-title," +
       ".events>.section-title," +
-      ".rsvp>.section-title," +
       ".event," +
-      ".rsvp-form," +
       ".scratch-wrap"
     );
 

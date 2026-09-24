@@ -418,125 +418,6 @@ img {
 
 
 /* ========================================
-   CURTAIN STAGE
-======================================== */
-
-.curtain-stage {
-  position: fixed;
-  inset: 0;
-
-  z-index: 19;
-
-  overflow: hidden;
-
-  pointer-events: none;
-
-  background: #203c2e;
-}
-
-.curtain-panel {
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-
-  width: 50.5%;
-
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #10271d 0%,
-      #35533e 11%,
-      #183426 22%,
-      #416047 34%,
-      #193627 46%,
-      #112b20 53%
-    );
-
-  box-shadow:
-    inset -13px 0 27px rgba(10, 33, 26, .55),
-    14px 0 30px rgba(9, 30, 22, .6);
-
-  transition:
-    transform
-    1.7s
-    cubic-bezier(.66, 0, .18, 1);
-}
-
-.curtain-left {
-  left: 0;
-
-  border-right:
-    2px solid #b79b60;
-}
-
-.curtain-right {
-  right: 0;
-
-  border-left:
-    2px solid #b79b60;
-
-  filter: brightness(.87);
-}
-
-.curtain-stage.parting .curtain-left {
-  transform: translateX(-103%);
-}
-
-.curtain-stage.parting .curtain-right {
-  transform: translateX(103%);
-}
-
-
-/* ========================================
-   CURTAIN MONOGRAM
-======================================== */
-
-.curtain-monogram {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  transform:
-    translate(-50%, -50%);
-
-  color: #f4ddac;
-
-  white-space: nowrap;
-
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size: 54px;
-  font-weight: 500;
-
-  text-shadow:
-    0 4px 18px rgba(8, 26, 18, .9);
-
-  transition:
-    opacity .45s,
-    transform .6s;
-}
-
-.curtain-monogram i {
-  color: #e4c88b;
-
-  font-weight: 400;
-}
-
-.curtain-stage.parting
-.curtain-monogram {
-  opacity: 0;
-
-  transform:
-    translate(-50%, -50%)
-    scale(1.15);
-}
-
-
-/* ========================================
    PETALS
 ======================================== */
 
@@ -1512,292 +1393,6 @@ canvas {
   font-size: 13px;
 
   line-height: 1.7;
-}
-
-
-/* ========================================
-   RSVP
-======================================== */
-
-.rsvp {
-  padding-top:
-    90px !important;
-
-  padding-bottom:
-    90px !important;
-
-  background:
-    #223d30 !important;
-}
-
-.rsvp .section-title {
-  color: #e5d2a7;
-}
-
-.rsvp .section-copy {
-  color: #f1ebd8;
-}
-
-.rsvp-form {
-  margin-top: 36px;
-
-  padding:
-    30px
-    26px;
-
-  text-align: left;
-
-  color: #2b4031;
-
-  background: #faf6e9;
-
-  border:
-    1px solid #c9aa72;
-
-  box-shadow:
-    0 18px 45px
-    rgba(17, 39, 27, .4);
-}
-
-.rsvp-form label {
-  display: block;
-
-  font-size: 14px;
-
-  font-weight: 500;
-}
-
-.rsvp-form
-input:not([type="radio"]),
-.rsvp-form textarea {
-  display: block;
-
-  width: 100%;
-
-  margin:
-    8px 0 20px;
-
-  padding: 12px;
-
-  color: #263e2e;
-
-  background: #fffdf6;
-
-  border:
-    1px solid #b9b49f;
-
-  border-radius: 3px;
-
-  outline-offset: 3px;
-}
-
-.rsvp-form input:focus,
-.rsvp-form textarea:focus {
-  outline:
-    2px solid #718561;
-}
-
-.form-row {
-  display: grid;
-
-  gap: 14px;
-}
-
-.form-help {
-  margin:
-    4px 0 22px;
-
-  color: #6a715f;
-
-  font-size: 14px;
-
-  line-height: 1.6;
-}
-
-.attendance {
-  margin:
-    0 0 22px;
-
-  padding: 15px;
-
-  border:
-    1px solid #d1c4a6;
-}
-
-.attendance legend {
-  padding:
-    0 8px;
-
-  color: #36503c;
-
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size: 27px;
-
-  font-weight: 500;
-}
-
-.attendance-row {
-  display: grid;
-
-  gap: 8px;
-}
-
-.choice {
-  display: flex !important;
-
-  align-items: center;
-
-  gap: 8px;
-
-  min-height: 42px;
-
-  padding:
-    10px
-    8px;
-
-  border:
-    1px solid #d0c9b7;
-
-  border-radius: 3px;
-
-  cursor: pointer;
-}
-
-.choice input {
-  width: 19px;
-  height: 19px;
-
-  flex-shrink: 0;
-
-  accent-color: #315340;
-}
-
-.choice:has(input:checked) {
-  background: #e3e9dd;
-
-  border-color: #6b825e;
-
-  box-shadow:
-    inset 3px 0 #718561;
-}
-
-.count-label {
-  line-height: 1.6;
-}
-
-.count-label input {
-  width: 100%;
-
-  max-width: 150px;
-}
-
-.optional {
-  color: #71715f;
-
-  font-weight: 400;
-}
-
-.privacy-note {
-  margin:
-    0 0 18px;
-
-  color: #71715f;
-
-  font-size: 13px;
-}
-
-#rsvp-status:not(:empty) {
-  padding: 12px;
-
-  background: #f7e6d9;
-
-  color: #813a28;
-
-  font-size: 14px;
-}
-
-.submit-rsvp {
-  display: flex;
-
-  justify-content:
-    space-between;
-
-  width: 100%;
-
-  min-height: 54px;
-
-  padding:
-    16px
-    20px;
-
-  border: 0;
-
-  border-radius: 3px;
-
-  background: #244a35;
-
-  color: #fff7df;
-}
-
-.submit-rsvp:hover {
-  background: #326046;
-}
-
-.submit-rsvp:active {
-  transform: scale(.985);
-}
-
-.submit-rsvp:disabled {
-  opacity: .6;
-
-  cursor: wait;
-}
-
-
-/* ========================================
-   RSVP SUCCESS
-======================================== */
-
-#rsvp-success {
-  padding:
-    25px 0;
-}
-
-#rsvp-success h3 {
-  margin-top: 20px;
-
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size: 36px;
-}
-
-.success-mark {
-  display: inline-grid;
-
-  place-items: center;
-
-  width: 65px;
-  height: 65px;
-
-  border:
-    1px solid #d6c092;
-
-  border-radius: 50%;
-
-  color: #e0c58c;
-
-  font-size: 30px;
-}
-
-#response-summary {
-  color: #eadcb9;
-
-  white-space: pre-line;
 }
 
 
@@ -3362,148 +2957,6 @@ body.ceremony .shell {
 
 
 /* =========================================================
-   REAL VELVET-STYLE CURTAIN
-========================================================= */
-
-.curtain-stage {
-  overflow: hidden;
-}
-
-
-/* upper velvet pelmet */
-
-.curtain-stage::before {
-  content: "";
-
-  position: absolute;
-
-  left: -4%;
-  right: -4%;
-  top: -2px;
-
-  height: 15vh;
-
-  min-height: 95px;
-
-  z-index: 6;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at 50% -20%,
-      rgba(255,255,255,.18),
-      transparent 55%
-    ),
-    repeating-linear-gradient(
-      90deg,
-      #142a20 0,
-      #385b45 5%,
-      #183225 10%,
-      #456951 15%,
-      #172f24 20%
-    );
-
-  border-bottom:
-    2px solid rgba(197,161,88,.75);
-
-  border-radius:
-    0 0 48% 48% / 0 0 40% 40%;
-
-  box-shadow:
-    0 14px 30px
-    rgba(3,12,8,.5),
-    inset 0 -18px 25px
-    rgba(0,0,0,.25);
-}
-
-
-/* actual curtains */
-
-.curtain-panel {
-  width: 51% !important;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.03),
-      transparent 12%,
-      rgba(0,0,0,.18) 24%,
-      rgba(255,255,255,.11) 39%,
-      rgba(0,0,0,.24) 54%,
-      rgba(255,255,255,.09) 69%,
-      rgba(0,0,0,.24) 84%,
-      rgba(255,255,255,.04)
-    ),
-    repeating-linear-gradient(
-      90deg,
-      #10271d 0px,
-      #294a37 23px,
-      #153124 47px,
-      #3d6048 72px,
-      #173528 96px,
-      #0f281d 118px
-    ) !important;
-
-  background-blend-mode:
-    soft-light,
-    normal;
-
-  box-shadow:
-    inset 0 0 38px
-    rgba(0,0,0,.35),
-    0 0 28px
-    rgba(0,0,0,.4) !important;
-
-  transition:
-    transform 3.1s
-    cubic-bezier(.66,0,.14,1) !important;
-
-  will-change: transform;
-}
-
-
-/* bright gold inner seam */
-
-.curtain-left {
-  border-right:
-    2px solid rgba(210,177,101,.82) !important;
-
-  box-shadow:
-    inset -25px 0 35px
-    rgba(0,0,0,.32),
-    12px 0 28px
-    rgba(0,0,0,.38) !important;
-}
-
-.curtain-right {
-  border-left:
-    2px solid rgba(210,177,101,.82) !important;
-
-  box-shadow:
-    inset 25px 0 35px
-    rgba(0,0,0,.32),
-    -12px 0 28px
-    rgba(0,0,0,.38) !important;
-}
-
-
-/* curtain slowly moves out */
-
-.curtain-stage.parting .curtain-left {
-  transform:
-    translateX(-103%)
-    scaleX(.88) !important;
-}
-
-.curtain-stage.parting .curtain-right {
-  transform:
-    translateX(103%)
-    scaleX(.88) !important;
-}
-
-
-/* =========================================================
    CELEBRATION PARTICLE FIELD
 ========================================================= */
 
@@ -4141,3 +3594,759 @@ body.ceremony .shell {
   }
 }
 
+/* =========================================================
+   FINAL OPENING STATE
+   Closed doors -> seal -> doors open -> invitation
+========================================================= */
+
+/* Never show the cream preview card */
+.env-preview {
+  display: none !important;
+}
+
+/* Invitation must NOT be visible before opening */
+body.invitation-closed .shell {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Reveal real invitation behind the doors */
+body.ceremony .shell {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transition: opacity .35s ease !important;
+}
+
+/* Intro has no cream intermediate screen */
+.intro,
+.intro.open,
+.intro.doors-opening {
+  background: transparent !important;
+}
+
+/* Remove opening layer after doors finish */
+.intro.finished {
+  display: none !important;
+}
+\n
+
+/* =========================================================
+   WALIMA HERO — MOBILE LUXURY LAYOUT
+========================================================= */
+
+.hero .card .walima-hosts {
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-size: clamp(.72rem, 2.7vw, .9rem);
+  letter-spacing: .17em;
+  line-height: 1.45;
+}
+
+.walima-invite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin: 0 auto 20px;
+  color: var(--forest);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.08rem, 4.6vw, 1.4rem);
+  line-height: 1.18;
+}
+
+.walima-invite strong {
+  display: block;
+  margin: 5px 0 4px;
+  color: var(--forest);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.25rem, 5.2vw, 1.65rem);
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+
+.hero .walima-names {
+  margin-top: 12px;
+  margin-bottom: 22px;
+}
+
+.hero .walima-names .name-first,
+.hero .walima-names .name-second {
+  font-size: clamp(3.25rem, 13.5vw, 5.8rem);
+  line-height: .9;
+}
+
+.hero .walima-names .name-amp {
+  margin: 8px 0 10px;
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  line-height: 1;
+}
+
+.hero .card > .ornament {
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.hero #hero-date {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .hero .card {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero .card .bismillah {
+    margin-bottom: 16px;
+  }
+
+  .hero .walima-names .name-first,
+  .hero .walima-names .name-second {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .walima-names .name-first,
+  .hero .walima-names .name-second {
+    font-size: 3rem;
+  }
+
+  .hero .card .walima-hosts {
+    letter-spacing: .12em;
+  }
+}
+
+
+/* ===== PREMIUM AYAH HEADER ===== */
+
+.wedding-ayah {
+  position: relative;
+  width: min(92%, 560px);
+  margin: 0 auto 34px;
+  padding-top: 38px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Top gold ornament */
+.wedding-ayah::before {
+  content: "❦";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #b28a45;
+  font-family: Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+/* Arabic */
+.wedding-ayah .ayah-arabic {
+  margin: 0;
+  color: #244f3c;
+  font-family:
+    "Noto Naskh Arabic",
+    "Amiri",
+    "Traditional Arabic",
+    serif;
+  font-size: clamp(1.65rem, 6.2vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.9;
+  direction: rtl;
+}
+
+/* Surah reference */
+.wedding-ayah .ayah-reference {
+  display: block;
+  margin-top: 8px;
+  color: #9c7738;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(.55rem, 2vw, .68rem);
+  font-weight: 500;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  direction: ltr;
+}
+
+/* Gold divider */
+.wedding-ayah::after {
+  content: "◆";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 72%;
+  transform: translateX(-50%);
+  color: #ad8644;
+  font-size: .52rem;
+  line-height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      #b99555 0%,
+      #b99555 44%,
+      transparent 44%,
+      transparent 56%,
+      #b99555 56%,
+      #b99555 100%
+    );
+
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .wedding-ayah {
+    margin-bottom: 27px;
+    padding-top: 32px;
+    padding-bottom: 25px;
+  }
+
+  .wedding-ayah .ayah-arabic {
+    font-size: clamp(1.55rem, 6.3vw, 1.95rem);
+  }
+}
+
+
+
+/* =========================================================
+   PREMIUM WALIMA CARD V2
+========================================================= */
+
+/* Less empty space above content */
+.hero .card {
+  justify-content: flex-start !important;
+  padding-top: 245px !important;
+  padding-left: 22px !important;
+  padding-right: 22px !important;
+  padding-bottom: 60px !important;
+}
+
+/* AYAH AREA */
+.hero .wedding-ayah {
+  width: min(90%, 540px) !important;
+  margin: 0 auto 28px !important;
+  padding: 34px 0 29px !important;
+}
+
+.hero .wedding-ayah::before {
+  content: "❦" !important;
+  top: 0 !important;
+  color: #ae833b !important;
+  font-size: 1.65rem !important;
+}
+
+.hero .wedding-ayah .ayah-arabic {
+  margin: 0 !important;
+  color: #174d37 !important;
+  font-family:
+    "Noto Naskh Arabic",
+    "Amiri",
+    "Traditional Arabic",
+    serif !important;
+  font-size: clamp(1.65rem, 6.3vw, 2.2rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.8 !important;
+}
+
+.hero .wedding-ayah .ayah-reference {
+  display: block !important;
+  margin-top: 6px !important;
+  color: #9d7535 !important;
+  font-family: Georgia, serif !important;
+  font-size: .62rem !important;
+  letter-spacing: .27em !important;
+}
+
+.hero .wedding-ayah::after {
+  width: 65% !important;
+  bottom: 0 !important;
+  color: #a77e3b !important;
+}
+
+/* HOSTS */
+.hero .walima-hosts {
+  margin: 5px auto 10px !important;
+  color: #906c32 !important;
+  font-family: Georgia, serif !important;
+  font-size: clamp(.72rem, 2.8vw, .9rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: .16em !important;
+  line-height: 1.45 !important;
+}
+
+/* INVITATION */
+.hero .walima-invite {
+  gap: 4px !important;
+  margin: 0 auto 22px !important;
+  color: #183f30 !important;
+  font-family: Georgia, serif !important;
+  font-size: clamp(1rem, 4.1vw, 1.3rem) !important;
+  line-height: 1.25 !important;
+}
+
+/* WALIMA title */
+.hero .walima-invite strong {
+  display: block !important;
+  width: min(96%, 470px) !important;
+  margin: 8px auto !important;
+  padding: 10px 3px !important;
+
+  border-top: 1px solid rgba(166,124,54,.72) !important;
+  border-bottom: 1px solid rgba(166,124,54,.72) !important;
+
+  color: #124a35 !important;
+  font-family: Georgia, serif !important;
+  font-size: clamp(1.3rem, 5.3vw, 1.8rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: .02em !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+}
+
+/* NAMES */
+.hero .walima-names {
+  margin: 15px auto 20px !important;
+}
+
+.hero .walima-names .name-first,
+.hero .walima-names .name-second {
+  color: #15513a !important;
+  font-size: clamp(2.9rem, 12vw, 4.8rem) !important;
+  line-height: .92 !important;
+  white-space: nowrap !important;
+}
+
+/* WITH + decorative lines */
+.hero .walima-names .name-amp {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+
+  width: 65% !important;
+  margin: 12px auto 14px !important;
+
+  color: #a47a37 !important;
+  font-size: clamp(1.1rem, 4.5vw, 1.45rem) !important;
+}
+
+.hero .walima-names .name-amp::before,
+.hero .walima-names .name-amp::after {
+  content: "" !important;
+  flex: 1 !important;
+  height: 1px !important;
+  background: rgba(166,124,57,.7) !important;
+}
+
+/* CLOSING MESSAGE */
+.hero .walima-blessing {
+  width: min(90%, 470px);
+  margin: 30px auto 12px;
+
+  color: #253f33;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(.9rem, 3.7vw, 1.12rem);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Bottom ornament */
+.hero .card > .ornament {
+  margin: 15px auto 18px !important;
+  color: #aa803c !important;
+}
+
+/* Date */
+.hero #hero-date {
+  margin: 0 auto 10px !important;
+  color: #8f6b34 !important;
+  font-size: clamp(.72rem, 3vw, .9rem) !important;
+  letter-spacing: .18em !important;
+}
+
+
+/* SMALL MOBILE */
+@media (max-width: 380px) {
+
+  .hero .card {
+    padding-top: 220px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .hero .walima-names .name-first,
+  .hero .walima-names .name-second {
+    font-size: 2.7rem !important;
+  }
+
+}
+
+
+/* FINAL HERO TOP SPACING FIX */
+.hero .card {
+  padding-top: 125px !important;
+}
+
+@media (max-width: 640px) {
+  .hero .card {
+    padding-top: 115px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .card {
+    padding-top: 105px !important;
+  }
+}
+
+/* REMOVE EXCESS HERO TOP GAP */
+.hero .card {
+  padding-top: 28px !important;
+}
+
+@media (max-width: 640px) {
+  .hero .card {
+    padding-top: 20px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .card {
+    padding-top: 16px !important;
+  }
+}
+
+/* REMOVE EXCESS HERO TOP GAP */
+.hero .card {
+  padding-top: 28px !important;
+}
+
+@media (max-width: 640px) {
+  .hero .card {
+    padding-top: 20px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .card {
+    padding-top: 16px !important;
+  }
+}
+
+/* =========================================================
+   COMPACT WALIMA CARD — FINAL MOBILE SIZE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  /* Hero no longer forces a full extra screen */
+  .hero {
+    min-height: auto !important;
+    padding-top: 12px !important;
+    padding-bottom: 18px !important;
+  }
+
+  /* Compact invitation card */
+  .hero .card {
+    min-height: 0 !important;
+    height: auto !important;
+    padding:
+      12px
+      20px
+      28px
+      !important;
+  }
+
+  /* Ayah */
+  .hero .wedding-ayah {
+    margin: 0 auto 17px !important;
+    padding-top: 25px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .hero .wedding-ayah .ayah-arabic {
+    line-height: 1.55 !important;
+  }
+
+  /* Hosts */
+  .hero .walima-hosts {
+    margin: 2px auto 7px !important;
+  }
+
+  /* Invitation */
+  .hero .walima-invite {
+    margin-bottom: 14px !important;
+  }
+
+  .hero .walima-invite strong {
+    margin: 5px auto !important;
+    padding: 7px 3px !important;
+  }
+
+  /* Couple names */
+  .hero .walima-names {
+    margin: 10px auto 12px !important;
+  }
+
+  .hero .walima-names .name-amp {
+    margin: 8px auto 10px !important;
+  }
+
+  /* Closing message */
+  .hero .walima-blessing {
+    margin: 18px auto 7px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Last ornament */
+  .hero .card > .ornament {
+    margin: 8px auto 3px !important;
+  }
+
+  /* Scroll text closer to card */
+  .hero .scroll {
+    margin-top: 10px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .card {
+    padding-top: 8px !important;
+    padding-bottom: 22px !important;
+  }
+}
+
+/* =========================================================
+   WALIMA CARD — BALANCED PREMIUM FINAL
+========================================================= */
+
+@media (max-width: 640px) {
+
+  /* Card: compact, but not squeezed */
+  .hero {
+    min-height: auto !important;
+    padding: 0 !important;
+  }
+
+  .hero .card {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 72px 24px 54px !important;
+  }
+
+  /* AYAH — move down from top flowers */
+  .hero .wedding-ayah {
+    width: 91% !important;
+    margin: 0 auto 36px !important;
+    padding: 38px 0 30px !important;
+  }
+
+  .hero .wedding-ayah::before {
+    top: 0 !important;
+    font-size: 1.55rem !important;
+  }
+
+  .hero .wedding-ayah .ayah-arabic {
+    font-size: clamp(1.65rem, 6.6vw, 2rem) !important;
+    line-height: 1.75 !important;
+  }
+
+  .hero .wedding-ayah .ayah-reference {
+    margin-top: 10px !important;
+  }
+
+  /* Decorative divider below Ayah */
+  .hero .wedding-ayah::after {
+    content: "◆" !important;
+    width: 72% !important;
+    bottom: 0 !important;
+    color: #a87c35 !important;
+    font-size: .52rem !important;
+
+    background:
+      linear-gradient(
+        to right,
+        #b28a45 0%,
+        #b28a45 42%,
+        transparent 42%,
+        transparent 58%,
+        #b28a45 58%,
+        #b28a45 100%
+      ) !important;
+  }
+
+  /* HOSTS */
+  .hero .walima-hosts {
+    margin: 8px auto 16px !important;
+    font-size: .83rem !important;
+    letter-spacing: .14em !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Invitation intro */
+  .hero .walima-invite {
+    gap: 8px !important;
+    margin: 0 auto 27px !important;
+    font-size: 1.18rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* WALIMA RECEPTION — premium ornamental divider */
+  .hero .walima-invite strong {
+    position: relative !important;
+    width: 94% !important;
+
+    margin: 13px auto !important;
+    padding: 16px 0 !important;
+
+    border: 0 !important;
+
+    font-size: clamp(1.45rem, 5.8vw, 1.85rem) !important;
+    letter-spacing: .025em !important;
+
+    background:
+      linear-gradient(#b1843d,#b1843d) top center / 100% 1px no-repeat,
+      linear-gradient(#b1843d,#b1843d) bottom center / 100% 1px no-repeat !important;
+  }
+
+  /* little ornaments centered on Walima rules */
+  .hero .walima-invite strong::before,
+  .hero .walima-invite strong::after {
+    content: "❦" !important;
+    position: absolute !important;
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    padding: 0 9px !important;
+    background: #f5eddd !important;
+
+    color: #a97e38 !important;
+    font-family: Georgia, serif !important;
+    font-size: .9rem !important;
+    line-height: 1 !important;
+  }
+
+  .hero .walima-invite strong::before {
+    top: -.43rem !important;
+  }
+
+  .hero .walima-invite strong::after {
+    bottom: -.43rem !important;
+    transform: translateX(-50%) rotate(180deg) !important;
+  }
+
+  /* NAMES */
+  .hero .walima-names {
+    margin: 22px auto 25px !important;
+  }
+
+  .hero .walima-names .name-first,
+  .hero .walima-names .name-second {
+    font-size: clamp(3.25rem, 13.2vw, 4.35rem) !important;
+    line-height: .95 !important;
+  }
+
+  /* WITH + ornate lines */
+  .hero .walima-names .name-amp {
+    position: relative !important;
+    width: 74% !important;
+
+    margin: 17px auto 19px !important;
+
+    gap: 11px !important;
+
+    color: #a77b36 !important;
+    font-size: 1.35rem !important;
+  }
+
+  .hero .walima-names .name-amp::before,
+  .hero .walima-names .name-amp::after {
+    content: "◆━━" !important;
+
+    flex: 1 !important;
+    height: auto !important;
+
+    background: none !important;
+
+    color: #ad843f !important;
+    font-family: Georgia, serif !important;
+    font-size: .62rem !important;
+    letter-spacing: -.05em !important;
+  }
+
+  .hero .walima-names .name-amp::before {
+    text-align: right !important;
+  }
+
+  .hero .walima-names .name-amp::after {
+    content: "━━◆" !important;
+    text-align: left !important;
+  }
+
+  /* Closing message */
+  .hero .walima-blessing {
+    position: relative !important;
+
+    width: 88% !important;
+
+    margin: 39px auto 17px !important;
+    padding-top: 25px !important;
+
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ornamental divider above blessing */
+  .hero .walima-blessing::before {
+    content: "──── ❦ ────" !important;
+
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    width: 100% !important;
+
+    color: #a9803d !important;
+    font-family: Georgia, serif !important;
+    font-size: .72rem !important;
+    letter-spacing: .04em !important;
+    white-space: nowrap !important;
+  }
+
+  /* Existing bottom star */
+  .hero .card > .ornament {
+    margin: 20px auto 0 !important;
+    font-size: 1rem !important;
+  }
+
+  /* Celebration button */
+  .hero .scroll {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Very narrow phones */
+@media (max-width: 380px) {
+
+  .hero .card {
+    padding:
+      62px
+      19px
+      48px
+      !important;
+  }
+
+  .hero .walima-names .name-first,
+  .hero .walima-names .name-second {
+    font-size: 3rem !important;
+  }
+
+}
