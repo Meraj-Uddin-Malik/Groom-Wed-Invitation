@@ -40,3 +40,4 @@ Replace `YOUR_USERNAME` and `YOUR_REPO`. Sign into GitHub when prompted. Never c
 The RSVP backend uses Cloudflare D1. This project's `/manage` access checks for Meraj's ChatGPT sign-in email, which is supplied by Sites hosting; standalone local browsing does not supply that identity, so `/manage` cannot authenticate you locally. Do not disable its check and deploy publicly. For independent Netlify/Cloudflare hosting, set up a new protected owner login and production database first. Merely uploading the folder to GitHub or Netlify will not preserve existing guest responses or enable the host dashboard.
 
 Key files: `templates/invitation.html` (guest layout and styles), `public/invitation.js` (opening and form), `public/` (art and music), `app/api/` (event and RSVP endpoints), `templates/manage.html` (host UI), and `drizzle/` (database migration).
+# Groom-Wed-Invitation
