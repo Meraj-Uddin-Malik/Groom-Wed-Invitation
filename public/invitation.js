@@ -706,6 +706,44 @@ if (
               });
             }
 
+            /* Event sections — left to right reveal */
+            if (entry.target.matches(".event")) {
+              const eventItems = entry.target.querySelectorAll(
+                ":scope > .event-number, " +
+                ":scope > .nikkah-header, " +
+                ":scope > .nikkah-timeline, " +
+                ":scope > .nikkah-venue, " +
+                ":scope > .celebration-header, " +
+                ":scope > .celebration-motif, " +
+                ":scope > .baraat-royal-mark, " +
+                ":scope > .walima-monogram, " +
+                ":scope > .mehndi-event-timeline, " +
+                ":scope > .celebration-details, " +
+                ":scope > .celebration-footer"
+              );
+
+              eventItems.forEach((item, index) => {
+                item.animate(
+                  [
+                    {
+                      opacity: 0,
+                      translate: "-100px 0"
+                    },
+                    {
+                      opacity: 1,
+                      translate: "0 0"
+                    }
+                  ],
+                  {
+                    duration: 1400,
+                    delay: index * 220,
+                    easing: "cubic-bezier(.22,.8,.3,1)",
+                    fill: "both"
+                  }
+                );
+              });
+            }
+
             if (entry.target.matches(".story .section-title")) {
               const storyItems = document.querySelectorAll(
                 ".story .eyebrow, " +

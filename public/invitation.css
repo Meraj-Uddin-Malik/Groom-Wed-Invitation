@@ -9347,3 +9347,867 @@ body.ceremony .shell {
       3px;
   }
 }
+
+
+/* ==========================================================
+   MEHNDI VENUE — MATCH NIKKAH LOCATION CARD
+========================================================== */
+
+.event-mehndi .mehndi-details {
+  display: block !important;
+
+  width: min(100%, 430px) !important;
+  max-width: 430px !important;
+
+  margin: 12px auto 0 !important;
+}
+
+.event-mehndi .mehndi-venue-card {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100% !important;
+
+  padding: 30px 22px 22px !important;
+
+  text-align: center !important;
+
+  background: #fff !important;
+
+  border:
+    1px solid rgba(168,149,87,.28) !important;
+
+  border-radius: 20px !important;
+
+  box-shadow:
+    0 15px 38px -20px
+    rgba(85,107,69,.25) !important;
+
+  overflow: hidden;
+}
+
+
+/* pin icon */
+
+.event-mehndi
+.mehndi-venue-card
+.detail-icon {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  margin: 0 auto 12px !important;
+
+  color: #a89557 !important;
+
+  background:
+    rgba(168,149,87,.08) !important;
+
+  border:
+    1px solid rgba(168,149,87,.30) !important;
+
+  border-radius: 50% !important;
+}
+
+.event-mehndi
+.mehndi-venue-card
+.detail-icon svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+
+  stroke-width: 1.5;
+}
+
+
+/* Venue label */
+
+.event-mehndi
+.mehndi-venue-card
+> span {
+  display: block;
+
+  margin-bottom: 5px !important;
+
+  color: #a89557 !important;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 8px !important;
+  font-weight: 600;
+
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+
+/* AGM Home */
+
+.event-mehndi
+.mehndi-venue-card
+> strong {
+  display: block;
+
+  margin-bottom: 18px !important;
+
+  color: #556b45 !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 25px !important;
+  font-weight: 600;
+
+  line-height: 1.1;
+}
+
+
+/* map — same fitted rectangular style as Nikkah */
+
+.event-mehndi .mehndi-mini-map {
+  width: calc(100% - 16px) !important;
+  height: 155px !important;
+
+  margin:
+    0 8px 15px !important;
+
+  overflow: hidden;
+
+  background: #f7f6f1;
+
+  border:
+    1px solid rgba(168,149,87,.20) !important;
+
+  border-radius: 13px !important;
+
+  box-shadow:
+    none !important;
+}
+
+.event-mehndi
+.mehndi-mini-map iframe {
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  border: 0 !important;
+}
+
+
+/* View Location */
+
+.event-mehndi .mehndi-location-link {
+  display: inline-flex !important;
+
+  align-items: center;
+  justify-content: center;
+
+  width: calc(100% - 16px) !important;
+  min-height: 40px;
+
+  margin:
+    0 8px !important;
+
+  padding:
+    9px 15px !important;
+
+  color: #556b45 !important;
+
+  background:
+    rgba(168,149,87,.09) !important;
+
+  border:
+    1px solid rgba(168,149,87,.30) !important;
+
+  border-radius: 10px !important;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 9px !important;
+  font-weight: 600;
+
+  letter-spacing: .05em;
+
+  text-decoration: none !important;
+}
+
+
+/* MOBILE — match Nikkah proportions */
+
+@media (max-width: 640px) {
+
+  .event-mehndi .mehndi-details {
+    width:
+      calc(100% - 18px) !important;
+
+    margin:
+      7px auto 0 !important;
+  }
+
+  .event-mehndi .mehndi-venue-card {
+    padding:
+      24px 14px 16px !important;
+
+    border-radius:
+      17px !important;
+  }
+
+  .event-mehndi
+  .mehndi-venue-card
+  .detail-icon {
+    width:
+      38px;
+
+    height:
+      38px;
+
+    margin-bottom:
+      10px !important;
+  }
+
+  .event-mehndi
+  .mehndi-venue-card
+  > strong {
+    margin-bottom:
+      16px !important;
+
+    font-size:
+      23px !important;
+  }
+
+  .event-mehndi .mehndi-mini-map {
+    width:
+      calc(100% - 12px) !important;
+
+    height:
+      135px !important;
+
+    margin:
+      0 6px 13px !important;
+
+    border-radius:
+      11px !important;
+  }
+
+  .event-mehndi .mehndi-location-link {
+    width:
+      calc(100% - 12px) !important;
+
+    margin:
+      0 6px !important;
+  }
+}
+
+/* NIKKAH 01 — match event numbering */
+
+.event-nikkah {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-nikkah .nikkah-event-number {
+  position: absolute !important;
+
+  top: 10px !important;
+  left: 50% !important;
+  right: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  margin: 0 !important;
+
+  color: #c5a059 !important;
+  opacity: .07 !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: 168px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.event-nikkah .nikkah-header,
+.event-nikkah .nikkah-timeline,
+.event-nikkah .nikkah-venue {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 640px) {
+  .event-nikkah .nikkah-event-number {
+    top: 10px !important;
+    font-size: 105px !important;
+  }
+}
+
+/* FINAL FIX — Nikkah 01 visibility */
+
+.event-nikkah .nikkah-event-number {
+  display: block !important;
+  visibility: visible !important;
+
+  position: absolute !important;
+  top: 10px !important;
+  left: 50% !important;
+  right: auto !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  color: #c5a059 !important;
+  opacity: .09 !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: 168px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+.event-nikkah .nikkah-header {
+  position: relative;
+  z-index: 3 !important;
+}
+
+.event-nikkah .nikkah-timeline,
+.event-nikkah .nikkah-venue {
+  position: relative;
+  z-index: 3 !important;
+}
+
+@media (max-width: 640px) {
+  .event-nikkah .nikkah-event-number {
+    top: 10px !important;
+    font-size: 105px !important;
+  }
+}
+
+/* FINAL — Nikkah large 01 watermark only */
+
+.event-nikkah::before {
+  content: "01" !important;
+
+  display: block !important;
+  visibility: visible !important;
+
+  position: absolute !important;
+
+  top: 10px !important;
+  left: 50% !important;
+  right: auto !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  color: #c5a059 !important;
+  opacity: .07 !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: 168px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.event-nikkah .nikkah-header {
+  position: relative;
+  z-index: 2 !important;
+}
+
+/* Make sure duplicate HTML number never appears */
+
+.event-nikkah .nikkah-event-number {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .event-nikkah::before {
+    top: 10px !important;
+    font-size: 105px !important;
+  }
+}
+
+/* MEHNDI TIMELINE — readable typography matching Nikkah */
+
+.mehndi-time {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+}
+
+.mehndi-timeline-card > span {
+  font-size: 9px !important;
+  letter-spacing: .17em !important;
+}
+
+.mehndi-timeline-card > strong {
+  font-size: 24px !important;
+  line-height: 1.1 !important;
+}
+
+.mehndi-timeline-card > p {
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+}
+
+@media (max-width: 640px) {
+
+  .mehndi-left .mehndi-time,
+  .mehndi-right .mehndi-time {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+  }
+
+  .mehndi-timeline-card > span {
+    font-size: 8.5px !important;
+  }
+
+  .mehndi-timeline-card > strong {
+    font-size: 22px !important;
+  }
+
+  .mehndi-timeline-card > p {
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+
+/* ==========================================================
+   FINAL MEHNDI TIMELINE TYPOGRAPHY
+   Match Nikkah readability
+========================================================== */
+
+.event-mehndi .mehndi-time {
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+
+  color: #556b45 !important;
+}
+
+.event-mehndi .mehndi-timeline-card > span {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+
+  letter-spacing: .14em !important;
+}
+
+.event-mehndi .mehndi-timeline-card > strong {
+  font-size: 27px !important;
+  font-weight: 600 !important;
+  line-height: 1.08 !important;
+}
+
+.event-mehndi .mehndi-timeline-card > p {
+  margin-top: 7px !important;
+
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* highlighted Mehndi card */
+
+.event-mehndi
+.mehndi-main
+.mehndi-time {
+  color: #556b45 !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+
+  .event-mehndi
+  .mehndi-left
+  .mehndi-time,
+
+  .event-mehndi
+  .mehndi-right
+  .mehndi-time {
+
+    font-size: 14px !important;
+    font-weight: 600 !important;
+
+    margin-top: 7px !important;
+  }
+
+  .event-mehndi
+  .mehndi-timeline-card {
+    padding:
+      31px 16px 17px !important;
+  }
+
+  .event-mehndi
+  .mehndi-timeline-card > span {
+    font-size: 9px !important;
+    letter-spacing: .13em !important;
+  }
+
+  .event-mehndi
+  .mehndi-timeline-card > strong {
+    font-size: 25px !important;
+  }
+
+  .event-mehndi
+  .mehndi-timeline-card > p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* ==========================================================
+   MEHNDI TIME — EXACT NIKKAH STYLE
+========================================================== */
+
+/* LEFT CARD -> time on RIGHT */
+.event-mehndi .mehndi-left .mehndi-time {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+
+  padding-left: 18px !important;
+  padding-right: 0 !important;
+
+  margin: 0 !important;
+
+  text-align: left !important;
+  align-self: center !important;
+}
+
+/* RIGHT CARD -> time on LEFT */
+.event-mehndi .mehndi-right .mehndi-time {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+
+  padding-right: 18px !important;
+  padding-left: 0 !important;
+
+  margin: 0 !important;
+
+  text-align: right !important;
+  align-self: center !important;
+}
+
+/* Same typography as Nikkah */
+.event-mehndi .mehndi-time {
+  color: #a89557 !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: 27px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: .04em !important;
+
+  background: transparent !important;
+}
+
+/* Keep highlighted Mehndi event time outside too */
+.event-mehndi .mehndi-main .mehndi-time {
+  color: #a89557 !important;
+  background: transparent !important;
+}
+
+
+/* MOBILE — same concept: time outside card */
+
+@media (max-width: 640px) {
+
+  .event-mehndi .mehndi-left .mehndi-time,
+  .event-mehndi .mehndi-right .mehndi-time {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+
+    position: relative !important;
+
+    padding: 0 !important;
+    margin: 0 0 8px 9px !important;
+
+    text-align: left !important;
+    align-self: start !important;
+
+    font-size: 21px !important;
+    line-height: 1 !important;
+
+    color: #a89557 !important;
+
+    background: transparent !important;
+  }
+
+  .event-mehndi .mehndi-left .mehndi-timeline-card,
+  .event-mehndi .mehndi-right .mehndi-timeline-card {
+    grid-column: 2 !important;
+  }
+}
+
+
+/* ==========================================================
+   MEHNDI — EXACT NIKKAH TIME/CARD LAYOUT
+========================================================== */
+
+/* DESKTOP */
+
+.event-mehndi .mehndi-left .mehndi-timeline-card {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  margin-right: 15px !important;
+  text-align: right !important;
+}
+
+.event-mehndi .mehndi-left .mehndi-time {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  padding-left: 18px !important;
+  padding-right: 0 !important;
+  text-align: left !important;
+}
+
+.event-mehndi .mehndi-right .mehndi-timeline-card {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  margin-left: 15px !important;
+  text-align: left !important;
+}
+
+.event-mehndi .mehndi-right .mehndi-time {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  padding-right: 18px !important;
+  padding-left: 0 !important;
+  text-align: right !important;
+}
+
+
+/* EXACT NIKKAH TIME TYPOGRAPHY */
+
+.event-mehndi .mehndi-time {
+  margin: 0 !important;
+
+  color: #c5a059 !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: 27px !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  letter-spacing: .04em !important;
+
+  background: transparent !important;
+}
+
+
+/* MOBILE — EXACTLY LIKE NIKKAH */
+
+@media (max-width: 640px) {
+
+  .event-mehndi .mehndi-row {
+    align-items: start !important;
+  }
+
+  /* TIME = ROW 1, OUTSIDE/ABOVE CARD */
+
+  .event-mehndi .mehndi-left .mehndi-time,
+  .event-mehndi .mehndi-right .mehndi-time,
+  .event-mehndi .mehndi-time {
+
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+
+    padding: 0 0 6px 8px !important;
+    margin: 0 !important;
+
+    text-align: left !important;
+
+    font-size: 20px !important;
+    line-height: 1.1 !important;
+
+    color: #c5a059 !important;
+    background: transparent !important;
+  }
+
+  .event-mehndi .mehndi-main .mehndi-time {
+    font-size: 23px !important;
+  }
+
+
+  /* CARD = ROW 2 */
+
+  .event-mehndi .mehndi-left .mehndi-timeline-card,
+  .event-mehndi .mehndi-right .mehndi-timeline-card,
+  .event-mehndi .mehndi-timeline-card {
+
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+
+    width: auto !important;
+
+    margin: 0 0 0 8px !important;
+    padding: 17px 16px !important;
+
+    text-align: left !important;
+
+    border-radius: 14px !important;
+  }
+}
+
+
+/* EVENT NUMBERS — slightly lighter & consistent */
+
+/* Nikkah 01 */
+.event-nikkah::before {
+  opacity: .055 !important;
+}
+
+/* Mehndi 02, Baraat 03, Walima 04 */
+.celebration-event .event-number {
+  opacity: .055 !important;
+}
+
+
+/* EVENT NUMBERS — balanced visibility */
+
+.event-nikkah::before,
+.celebration-event .event-number {
+  opacity: .065 !important;
+}
+
+
+/* EVENT NUMBERS — final visibility */
+
+.event-nikkah::before,
+.celebration-event .event-number {
+  opacity: .09 !important;
+}
+
+
+/* EVENT NUMBERS — clearly visible watermark */
+
+.event-nikkah::before,
+.celebration-event .event-number {
+  opacity: .15 !important;
+}
+
+
+/* ==========================================================
+   INTIMATE FAMILY EVENT BADGE
+========================================================== */
+
+.family-event-badge {
+  position: relative;
+  z-index: 6;
+
+  width: fit-content;
+  max-width: calc(100% - 32px);
+
+  margin: 12px auto 28px;
+  padding: 10px 22px 11px;
+
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.88),
+    rgba(248,243,230,.94)
+  );
+
+  border: 1px solid rgba(197,160,89,.42);
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 24px -15px rgba(36,75,60,.28);
+}
+
+.family-event-badge span {
+  display: block;
+
+  color: #244b3c;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.family-event-badge strong {
+  display: block;
+  margin-top: 3px;
+
+  color: #a38343;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .family-event-badge {
+    max-width: calc(100% - 36px);
+    margin: 8px auto 24px;
+    padding: 9px 18px 10px;
+  }
+
+  .family-event-badge span {
+    font-size: 16px;
+  }
+
+  .family-event-badge strong {
+    font-size: 7.5px;
+    letter-spacing: .09em;
+  }
+}
+
