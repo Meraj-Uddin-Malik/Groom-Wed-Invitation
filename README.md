@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Meraj & Urooj — invitation source
 
-## Getting Started
+This is the latest source (including the envelope, seal glow, curtain opening, music, all three events, Walima RSVP, and host page). It does not include the live guest response database. Editing this copy will not automatically change the currently hosted Site.
 
-First, run the development server:
+## Run in VS Code on Linux Mint
+
+1. Extract the ZIP in your Home folder (e.g. `/home/meraj/meraj-urooj-invitation`).
+2. In VS Code, choose **File > Open Folder** and select the extracted `meraj-urooj-invitation` folder.
+3. Open VS Code's terminal (**Terminal > New Terminal**). Install Node.js 22.13+ first if `node -v` shows an older version. Run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+corepack enable
+pnpm install
+pnpm build
+node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_long_aaron_stack.sql
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open the local address printed in the terminal (usually `http://localhost:5173`). Stop the server with Ctrl+C.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The D1 migration is needed once per new local database, not every launch. Next time, use `pnpm dev`. `node_modules`, build output, and the local database are excluded from Git.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## GitHub
 
-## Learn More
+Create an empty **private** repository on GitHub, then run these commands from this project's VS Code terminal:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+git init
+git branch -M main
+git add .
+git commit -m "Add wedding invitation"
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git push -u origin main
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Replace `YOUR_USERNAME` and `YOUR_REPO`. Sign into GitHub when prompted. Never commit `.env` files or credentials.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Important differences from the hosted Site
 
-## Deploy on Vercel
+The RSVP backend uses Cloudflare D1. This project's `/manage` access checks for Meraj's ChatGPT sign-in email, which is supplied by Sites hosting; standalone local browsing does not supply that identity, so `/manage` cannot authenticate you locally. Do not disable its check and deploy publicly. For independent Netlify/Cloudflare hosting, set up a new protected owner login and production database first. Merely uploading the folder to GitHub or Netlify will not preserve existing guest responses or enable the host dashboard.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Key files: `templates/invitation.html` (guest layout and styles), `public/invitation.js` (opening and form), `public/` (art and music), `app/api/` (event and RSVP endpoints), `templates/manage.html` (host UI), and `drizzle/` (database migration).

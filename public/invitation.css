@@ -1,0 +1,4143 @@
+:root {
+  --forest: #1f3b31;
+  --forest-dark: #13261f;
+  --forest-soft: #2c4a3f;
+
+  --gold: #aa8755;
+  --gold-light: #d8bd86;
+
+  --paper: #f8f1e4;
+  --paper-soft: #fcf8f0;
+  --cream: #f4ecdd;
+
+  --text: #314238;
+  --muted: #6f7468;
+
+  --white: #ffffff;
+
+  --shadow-soft: 0 15px 40px rgba(20, 32, 26, 0.12);
+  --shadow-deep: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ========================================
+   BASE
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+
+  background: #e8e1d2;
+  color: var(--text);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body.invitation-closed {
+  overflow: hidden;
+}
+
+button,
+a,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* ========================================
+   PAGE SHELL
+======================================== */
+
+.shell {
+  width: 100%;
+  max-width: 620px;
+
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  background: var(--paper);
+
+  box-shadow:
+    0 0 50px rgba(22, 35, 28, 0.12);
+}
+
+
+/* ========================================
+   OPENING SCREEN
+======================================== */
+
+.intro {
+  position: fixed;
+  inset: 0;
+
+  z-index: 20;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  perspective: 1400px;
+
+  background:
+    radial-gradient(
+      circle at 50% 38%,
+      #3c5946 0%,
+      #1b3025 55%,
+      #0c1711 100%
+    );
+}
+
+.intro.open {
+  pointer-events: none;
+}
+
+
+/* ========================================
+   ENVELOPE
+======================================== */
+
+.envelope {
+  position: relative;
+
+  width: min(88vw, 440px);
+  height: auto;
+
+  aspect-ratio: 2 / 3;
+
+  max-height: 86svh;
+
+  padding: 0;
+
+  overflow: visible;
+
+  border: 0;
+  border-radius: 4px;
+
+  background: #f6eddb;
+
+  box-shadow: var(--shadow-deep);
+
+  transform-style: preserve-3d;
+}
+
+.envelope:active {
+  filter: brightness(1.04);
+}
+
+.envelope:focus-visible {
+  outline: 3px solid #f0d595;
+  outline-offset: 10px;
+}
+
+
+/* ========================================
+   ENVELOPE PREVIEW
+======================================== */
+
+.env-preview {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-content: center;
+
+  gap: 12px;
+
+  padding: 20%;
+
+  text-align: center;
+
+  color: var(--forest);
+
+  background:
+    #faf5ea
+    url("/floral-invitation.webp")
+    center / 100% 100%
+    no-repeat;
+
+  letter-spacing: 0.04em;
+
+  transition:
+    transform 1.4s cubic-bezier(.2, .7, .2, 1),
+    filter 1.4s ease;
+}
+
+.env-preview > span[lang] {
+  font-family: "Amiri", serif;
+  font-size: 23px;
+  line-height: 1.7;
+}
+
+.env-preview b {
+  display: block;
+
+  margin: 0;
+
+  color: var(--forest);
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 45px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.intro.open .env-preview {
+  transform: scale(1.045);
+  filter: brightness(1.06);
+}
+
+
+/* ========================================
+   ENVELOPE PANELS
+======================================== */
+
+.env-panel {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 50%;
+
+  background:
+    #32533e
+    url("/envelope-paper.webp")
+    no-repeat;
+
+  background-size: 200% 100%;
+
+  backface-visibility: hidden;
+
+  transition:
+    transform 1.65s cubic-bezier(.35, .05, .2, 1);
+}
+
+.env-panel.left {
+  left: 0;
+
+  background-position: left center;
+
+  transform-origin: left center;
+}
+
+.env-panel.right {
+  right: 0;
+
+  background-position: right center;
+
+  transform-origin: right center;
+}
+
+.intro.open .left {
+  transform: rotateY(-110deg);
+}
+
+.intro.open .right {
+  transform: rotateY(110deg);
+}
+
+
+/* ========================================
+   WAX SEAL
+======================================== */
+
+.seal {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 145px;
+  height: 145px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border: 0;
+
+  background: none;
+
+  filter:
+    drop-shadow(
+      3px
+      10px
+      8px
+      rgba(10, 20, 15, 0.55)
+    );
+
+  animation:
+    seal-breathe
+    3.2s
+    ease-in-out
+    infinite;
+
+  transition:
+    transform .55s ease-in,
+    opacity .28s ease;
+}
+
+.seal img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.intro.open .seal {
+  animation: none;
+
+  transform:
+    translate(-50%, 8%)
+    rotate(18deg)
+    scale(.9);
+
+  opacity: 0;
+}
+
+
+/* ========================================
+   SEAL LIGHT
+======================================== */
+
+.seal-light {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 4;
+
+  width: 68vw;
+  height: 68vw;
+
+  max-width: 350px;
+  max-height: 350px;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.12);
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  filter: blur(4px);
+
+  background:
+    radial-gradient(
+      circle,
+      #fff8d9 0%,
+      rgba(239, 205, 126, .7) 22%,
+      rgba(220, 184, 109, .25) 44%,
+      transparent 72%
+    );
+}
+
+.intro.open .seal-light {
+  animation:
+    seal-to-paper
+    1.3s
+    ease-out
+    both;
+}
+
+
+/* ========================================
+   OPENING HINT
+======================================== */
+
+.intro-hint {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 26px;
+
+  z-index: 3;
+
+  text-align: center;
+
+  color: #f2e4c3;
+
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 8px rgba(8, 18, 14, .7);
+
+  animation:
+    hint-glow
+    2.7s
+    ease-in-out
+    infinite;
+}
+
+.intro.open .intro-hint {
+  opacity: 0;
+}
+
+
+/* ========================================
+   CURTAIN STAGE
+======================================== */
+
+.curtain-stage {
+  position: fixed;
+  inset: 0;
+
+  z-index: 19;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  background: #203c2e;
+}
+
+.curtain-panel {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 50.5%;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #10271d 0%,
+      #35533e 11%,
+      #183426 22%,
+      #416047 34%,
+      #193627 46%,
+      #112b20 53%
+    );
+
+  box-shadow:
+    inset -13px 0 27px rgba(10, 33, 26, .55),
+    14px 0 30px rgba(9, 30, 22, .6);
+
+  transition:
+    transform
+    1.7s
+    cubic-bezier(.66, 0, .18, 1);
+}
+
+.curtain-left {
+  left: 0;
+
+  border-right:
+    2px solid #b79b60;
+}
+
+.curtain-right {
+  right: 0;
+
+  border-left:
+    2px solid #b79b60;
+
+  filter: brightness(.87);
+}
+
+.curtain-stage.parting .curtain-left {
+  transform: translateX(-103%);
+}
+
+.curtain-stage.parting .curtain-right {
+  transform: translateX(103%);
+}
+
+
+/* ========================================
+   CURTAIN MONOGRAM
+======================================== */
+
+.curtain-monogram {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  color: #f4ddac;
+
+  white-space: nowrap;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 54px;
+  font-weight: 500;
+
+  text-shadow:
+    0 4px 18px rgba(8, 26, 18, .9);
+
+  transition:
+    opacity .45s,
+    transform .6s;
+}
+
+.curtain-monogram i {
+  color: #e4c88b;
+
+  font-weight: 400;
+}
+
+.curtain-stage.parting
+.curtain-monogram {
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.15);
+}
+
+
+/* ========================================
+   PETALS
+======================================== */
+
+.petal-field {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.petal {
+  position: absolute;
+
+  top: -12vh;
+
+  left: var(--x);
+
+  width: var(--size);
+
+  height:
+    calc(
+      var(--size) * 1.35
+    );
+
+  border-radius:
+    70% 12% 70% 22%;
+
+  opacity: .9;
+
+  background:
+    linear-gradient(
+      140deg,
+      #fff3e5,
+      #dfa9a8 55%,
+      #c57c84
+    );
+
+  box-shadow:
+    0 1px 4px rgba(181, 119, 121, .5);
+
+  transform:
+    rotate(var(--turn));
+
+  animation:
+    petal-fall
+    var(--dur)
+    var(--delay)
+    linear
+    both;
+}
+
+.petal:nth-child(4n) {
+  background:
+    linear-gradient(
+      140deg,
+      #fdf8dc,
+      #ead59c 65%,
+      #bdad72
+    );
+}
+
+.petal:nth-child(6n) {
+  background:
+    linear-gradient(
+      140deg,
+      #e9eee3,
+      #bacbb1 65%,
+      #869c81
+    );
+}
+
+
+/* ========================================
+   MUSIC BUTTON
+======================================== */
+
+.music-toggle {
+  position: fixed;
+
+  right:
+    max(
+      16px,
+      env(safe-area-inset-right)
+    );
+
+  bottom:
+    max(
+      18px,
+      env(safe-area-inset-bottom)
+    );
+
+  z-index: 25;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  min-height: 44px;
+
+  padding:
+    9px
+    13px;
+
+  border:
+    1px solid #d8bd81;
+
+  border-radius: 999px;
+
+  background:
+    rgba(33, 67, 50, .95);
+
+  color: #fff4d7;
+
+  box-shadow:
+    0 7px 21px rgba(23, 46, 35, .5);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.music-toggle
+span:first-child {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 22px;
+  line-height: 1;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+  position: relative;
+
+  isolation: isolate;
+
+  min-height: 100svh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding:
+    230px
+    12%
+    220px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      #eee2cc 0,
+      #faf3e6 8%,
+      #faf3e6 92%,
+      #eee2cc 100%
+    );
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  z-index: -1;
+
+  width: 100%;
+  height: 360px;
+
+  pointer-events: none;
+
+  background-image:
+    url("/floral-invitation.webp");
+
+  background-size: 100% auto;
+
+  background-repeat: no-repeat;
+}
+
+.hero::before {
+  top: 0;
+
+  background-position:
+    center top;
+
+  mask-image:
+    linear-gradient(
+      black 65%,
+      transparent 100%
+    );
+}
+
+.hero::after {
+  bottom: 0;
+
+  background-position:
+    center bottom;
+
+  mask-image:
+    linear-gradient(
+      transparent 0%,
+      black 45%
+    );
+}
+
+
+/* ========================================
+   HERO CARD
+======================================== */
+
+.card {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  max-width: 440px;
+
+  padding: 0 14px;
+
+  animation:
+    letter-entrance
+    1s
+    .25s
+    cubic-bezier(.18, .75, .25, 1)
+    both;
+}
+
+.bismillah {
+  margin: 0 0 10px;
+
+  color: #745d3a;
+
+  font-family: "Amiri", serif;
+  font-size: 30px;
+  line-height: 1.7;
+}
+
+.verse {
+  margin: 0 0 24px;
+}
+
+.verse > p:first-child {
+  margin: 0 0 6px;
+
+  color: #325641;
+
+  font-family:
+    "Amiri",
+    serif;
+
+  font-size: 26px;
+  line-height: 1.9;
+}
+
+.verse .translation {
+  max-width: 320px;
+
+  margin:
+    0 auto 8px;
+
+  color: #5b6354;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.verse cite {
+  color: #796c54;
+
+  font-size: 12px;
+  font-style: normal;
+}
+
+.verse a {
+  text-decoration: none;
+}
+
+.verse a:hover {
+  text-decoration: underline;
+}
+
+.eyebrow {
+  color: #917349;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: .18em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   NAMES
+======================================== */
+
+.names {
+  margin:
+    34px auto 24px;
+
+  line-height: 1;
+
+  letter-spacing: -.04em;
+}
+
+.name-first,
+.name-second {
+  display: block;
+
+  color: #24513a;
+
+  font-family:
+    "Italianno",
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      76px,
+      18vw,
+      104px
+    );
+
+  font-weight: 400;
+
+  line-height: .92;
+
+  text-shadow:
+    0 2px 0
+    rgba(255, 248, 235, .9);
+}
+
+.name-amp {
+  display: block;
+
+  margin-top: -2px;
+
+  color: var(--gold);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 32px;
+
+  font-style: italic;
+  font-weight: 500;
+}
+
+.invite-copy {
+  max-width: 340px;
+
+  margin:
+    0 auto 18px;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.22;
+}
+
+.ornament {
+  margin: 10px 0;
+
+  color: var(--gold);
+
+  font-size: 19px;
+}
+
+.date-line {
+  margin:
+    16px 0 8px;
+
+  color: #745c39;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 17px;
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  letter-spacing: .15em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   SCROLL LINK
+======================================== */
+
+.hero .scroll {
+  position: absolute;
+
+  bottom: 24px;
+
+  z-index: 1;
+
+  display: grid;
+  place-items: center;
+
+  min-height: 44px;
+
+  padding:
+    9px
+    20px;
+
+  color: var(--forest);
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  letter-spacing: .14em;
+
+  text-transform: uppercase;
+
+  border-top:
+    1px solid #a88858;
+
+  border-bottom:
+    1px solid #a88858;
+
+  background:
+    rgba(250, 243, 230, .9);
+}
+
+
+/* ========================================
+   GENERAL SECTIONS
+======================================== */
+
+section:not(.hero) {
+  padding:
+    86px
+    28px;
+
+  text-align: center;
+}
+
+.section-title {
+  margin:
+    16px 0 18px;
+
+  color: #254a38;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      50px,
+      9vw,
+      70px
+    );
+
+  font-weight: 500;
+
+  line-height: .95;
+
+  letter-spacing: -.045em;
+}
+
+.section-copy {
+  max-width: 390px;
+
+  margin:
+    0 auto 30px;
+
+  color: #5a6658;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.divider {
+  margin:
+    22px auto;
+
+  color: #b89968;
+
+  font-size: 18px;
+}
+
+
+/* ========================================
+   STORY
+======================================== */
+
+.story {
+  position: relative;
+
+  background: #faf7ef;
+}
+
+.story::before {
+  content: "";
+
+  display: block;
+
+  width: 1px;
+  height: 54px;
+
+  margin:
+    -55px auto 50px;
+
+  background: #b59561;
+}
+
+.story .section-copy {
+  max-width: 365px;
+}
+
+.story #countdown-label {
+  padding-top: 12px;
+
+  color: #886d47;
+
+  letter-spacing: .13em;
+}
+
+
+/* ========================================
+   COUNTDOWN
+======================================== */
+
+.countdown {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  max-width: 390px;
+
+  margin:
+    30px auto 0;
+}
+
+.countdown div {
+  flex: 1;
+
+  padding:
+    12px 3px;
+
+  border:
+    1px solid #c6ad80;
+
+  background: #fffaf0;
+}
+
+.countdown strong {
+  display: block;
+
+  color: var(--forest);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 36px;
+
+  line-height: 1;
+}
+
+.countdown small {
+  font-size: 10px;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   SCRATCH SECTION
+======================================== */
+
+.scratch-section {
+  background: #efe8d9;
+
+  border-top:
+    1px solid #dfd4bb;
+
+  border-bottom:
+    1px solid #dfd4bb;
+}
+
+.scratch-section
+.section-title {
+  font-style: italic;
+}
+
+.heart-definition {
+  position: absolute;
+
+  pointer-events: none;
+}
+
+.scratch-wrap {
+  position: relative;
+
+  display: grid;
+  place-content: center;
+
+  width:
+    min(100%, 370px);
+
+  aspect-ratio: 1;
+
+  margin:
+    28px auto 10px;
+
+  padding:
+    60px
+    35px
+    58px;
+
+  clip-path:
+    url(#heart-shape);
+
+  background:
+    radial-gradient(
+      circle at 40% 30%,
+      #fffdf4,
+      #ebdfbf
+    );
+
+  filter:
+    drop-shadow(
+      0
+      15px
+      10px
+      rgba(132, 119, 88, .2)
+    );
+}
+
+.scratch-wrap strong {
+  display: block;
+
+  max-width: 250px;
+
+  margin:
+    8px auto;
+
+  color: #234832;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 35px;
+
+  font-weight: 500;
+
+  line-height: 1.15;
+}
+
+.scratch-wrap span {
+  display: block;
+
+  font-size: 12px;
+
+  letter-spacing: .12em;
+}
+
+.scratch-wrap
+.heart-caption {
+  margin-top: 12px;
+
+  color: #aa8853;
+}
+
+canvas {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  touch-action: none;
+}
+
+#reveal {
+  padding: 14px;
+
+  border: 0;
+
+  background: none;
+
+  color: #2f553e;
+
+  text-decoration: underline;
+
+  text-underline-offset: 4px;
+}
+
+
+/* ========================================
+   EVENTS
+======================================== */
+
+.events {
+  background: #faf7f0;
+}
+
+.events > .section-copy {
+  margin-bottom: 42px;
+}
+
+.event {
+  position: relative;
+
+  max-width: 420px;
+
+  margin:
+    22px auto 0;
+
+  padding:
+    34px
+    30px
+    28px;
+
+  text-align: left;
+
+  background: #fffdf7;
+
+  border:
+    1px solid #c7b48a;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 8px 20px
+    rgba(48, 46, 35, .06);
+}
+
+.event::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 7px;
+
+  border:
+    1px solid #e6d8bc;
+
+  pointer-events: none;
+}
+
+.event-number {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #ac8856;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 15px;
+
+  font-weight: 500;
+}
+
+.event .eyebrow {
+  font-size: 11px;
+
+  letter-spacing: .15em;
+}
+
+.event h3 {
+  margin:
+    10px 0 16px;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 58px;
+
+  font-weight: 500;
+
+  line-height: .95;
+
+  letter-spacing: -.04em;
+}
+
+.event-description {
+  max-width: 350px;
+
+  margin:
+    0 0 18px !important;
+
+  color: #64695d;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 18px;
+
+  line-height: 1.42;
+}
+
+.event-facts {
+  margin-top: 14px;
+
+  border-top:
+    1px solid #ddcfae;
+}
+
+.event-facts > div {
+  padding:
+    15px 0;
+
+  border-bottom:
+    1px solid #ddcfae;
+}
+
+.event-facts span {
+  color: #8b7045;
+
+  font-size: 11px;
+
+  letter-spacing: .13em;
+
+  text-transform: uppercase;
+}
+
+.event-facts p {
+  margin:
+    5px 0 0;
+
+  color: #2f4233;
+
+  font-size: 15px;
+}
+
+.venue-address {
+  color: #6b6b5e !important;
+
+  font-size: 14px !important;
+}
+
+
+/* ========================================
+   WALIMA CARD
+======================================== */
+
+.event-walima {
+  color: #fff8e6;
+
+  background: #213e31;
+
+  border-color: #ad9565;
+}
+
+.event-walima::after {
+  border-color: #71816a;
+}
+
+.event-walima h3,
+.event-walima
+.event-facts p {
+  color: #fff8e6;
+}
+
+.event-walima
+.event-description,
+.event-walima
+.event-number,
+.event-walima
+.eyebrow,
+.event-walima
+.event-facts span,
+.event-walima
+.map-pending {
+  color: #d9caa6;
+}
+
+.event-walima
+.event-facts,
+.event-walima
+.event-facts > div {
+  border-color:
+    rgba(129, 146, 115, .4);
+}
+
+
+/* ========================================
+   MAP BUTTON
+======================================== */
+
+.map-link {
+  display: inline-block;
+
+  margin-top: 17px;
+
+  padding:
+    13px
+    22px;
+
+  border-radius: 3px;
+
+  background: var(--forest);
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition:
+    transform .2s ease,
+    filter .2s ease;
+}
+
+.map-link:hover {
+  filter: brightness(1.1);
+}
+
+.map-link:active {
+  transform: scale(.985);
+}
+
+.event-walima
+.map-link {
+  background: #e2d2aa;
+
+  color: #203c2e;
+}
+
+.map-pending,
+.event-note {
+  margin-top:
+    22px !important;
+
+  color: #7f725b;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   RSVP
+======================================== */
+
+.rsvp {
+  padding-top:
+    90px !important;
+
+  padding-bottom:
+    90px !important;
+
+  background:
+    #223d30 !important;
+}
+
+.rsvp .section-title {
+  color: #e5d2a7;
+}
+
+.rsvp .section-copy {
+  color: #f1ebd8;
+}
+
+.rsvp-form {
+  margin-top: 36px;
+
+  padding:
+    30px
+    26px;
+
+  text-align: left;
+
+  color: #2b4031;
+
+  background: #faf6e9;
+
+  border:
+    1px solid #c9aa72;
+
+  box-shadow:
+    0 18px 45px
+    rgba(17, 39, 27, .4);
+}
+
+.rsvp-form label {
+  display: block;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+.rsvp-form
+input:not([type="radio"]),
+.rsvp-form textarea {
+  display: block;
+
+  width: 100%;
+
+  margin:
+    8px 0 20px;
+
+  padding: 12px;
+
+  color: #263e2e;
+
+  background: #fffdf6;
+
+  border:
+    1px solid #b9b49f;
+
+  border-radius: 3px;
+
+  outline-offset: 3px;
+}
+
+.rsvp-form input:focus,
+.rsvp-form textarea:focus {
+  outline:
+    2px solid #718561;
+}
+
+.form-row {
+  display: grid;
+
+  gap: 14px;
+}
+
+.form-help {
+  margin:
+    4px 0 22px;
+
+  color: #6a715f;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.attendance {
+  margin:
+    0 0 22px;
+
+  padding: 15px;
+
+  border:
+    1px solid #d1c4a6;
+}
+
+.attendance legend {
+  padding:
+    0 8px;
+
+  color: #36503c;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 27px;
+
+  font-weight: 500;
+}
+
+.attendance-row {
+  display: grid;
+
+  gap: 8px;
+}
+
+.choice {
+  display: flex !important;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-height: 42px;
+
+  padding:
+    10px
+    8px;
+
+  border:
+    1px solid #d0c9b7;
+
+  border-radius: 3px;
+
+  cursor: pointer;
+}
+
+.choice input {
+  width: 19px;
+  height: 19px;
+
+  flex-shrink: 0;
+
+  accent-color: #315340;
+}
+
+.choice:has(input:checked) {
+  background: #e3e9dd;
+
+  border-color: #6b825e;
+
+  box-shadow:
+    inset 3px 0 #718561;
+}
+
+.count-label {
+  line-height: 1.6;
+}
+
+.count-label input {
+  width: 100%;
+
+  max-width: 150px;
+}
+
+.optional {
+  color: #71715f;
+
+  font-weight: 400;
+}
+
+.privacy-note {
+  margin:
+    0 0 18px;
+
+  color: #71715f;
+
+  font-size: 13px;
+}
+
+#rsvp-status:not(:empty) {
+  padding: 12px;
+
+  background: #f7e6d9;
+
+  color: #813a28;
+
+  font-size: 14px;
+}
+
+.submit-rsvp {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  width: 100%;
+
+  min-height: 54px;
+
+  padding:
+    16px
+    20px;
+
+  border: 0;
+
+  border-radius: 3px;
+
+  background: #244a35;
+
+  color: #fff7df;
+}
+
+.submit-rsvp:hover {
+  background: #326046;
+}
+
+.submit-rsvp:active {
+  transform: scale(.985);
+}
+
+.submit-rsvp:disabled {
+  opacity: .6;
+
+  cursor: wait;
+}
+
+
+/* ========================================
+   RSVP SUCCESS
+======================================== */
+
+#rsvp-success {
+  padding:
+    25px 0;
+}
+
+#rsvp-success h3 {
+  margin-top: 20px;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 36px;
+}
+
+.success-mark {
+  display: inline-grid;
+
+  place-items: center;
+
+  width: 65px;
+  height: 65px;
+
+  border:
+    1px solid #d6c092;
+
+  border-radius: 50%;
+
+  color: #e0c58c;
+
+  font-size: 30px;
+}
+
+#response-summary {
+  color: #eadcb9;
+
+  white-space: pre-line;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+  padding:
+    45px
+    20px;
+
+  text-align: center;
+
+  background:
+    var(--forest-dark);
+
+  color: #eee1c4;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 40px;
+
+  font-weight: 500;
+}
+
+footer small {
+  display: block;
+
+  margin-top: 8px;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: .18em;
+}
+
+.host-link {
+  display: block;
+
+  margin-top: 24px;
+
+  color: #cabb99;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 12px;
+}
+
+
+/* ========================================
+   SCROLL ANIMATIONS
+======================================== */
+
+.motion-ready
+.story .section-title,
+
+.motion-ready
+.scratch-section
+.section-title,
+
+.motion-ready
+.events >
+.section-title,
+
+.motion-ready
+.rsvp >
+.section-title,
+
+.motion-ready
+.event,
+
+.motion-ready
+.rsvp-form,
+
+.motion-ready
+.scratch-wrap {
+  opacity: 0;
+
+  transform:
+    translateY(26px);
+
+  transition:
+    opacity .8s ease,
+    transform .8s
+    cubic-bezier(.2, .7, .2, 1);
+}
+
+.motion-ready .in-view {
+  opacity: 1 !important;
+
+  transform:
+    translateY(0) !important;
+}
+
+
+/* ========================================
+   NAME ANIMATION
+======================================== */
+
+body.ceremony
+.name-first,
+
+body.ceremony
+.name-second,
+
+body.ceremony
+.name-amp {
+  animation:
+    name-appear
+    1.1s
+    cubic-bezier(.16, .8, .26, 1)
+    both;
+}
+
+body.ceremony
+.name-amp {
+  animation-delay: .3s;
+}
+
+body.ceremony
+.name-second {
+  animation-delay: .55s;
+}
+
+
+/* ========================================
+   ANIMATION KEYFRAMES
+======================================== */
+
+@keyframes seal-breathe {
+  0%,
+  100% {
+    filter:
+      drop-shadow(
+        3px 10px 8px
+        rgba(10, 20, 15, .55)
+      );
+  }
+
+  50% {
+    filter:
+      drop-shadow(
+        3px 10px 8px
+        rgba(10, 20, 15, .55)
+      )
+      drop-shadow(
+        0 0 14px
+        rgba(234, 203, 128, .5)
+      );
+  }
+}
+
+@keyframes hint-glow {
+  50% {
+    opacity: .55;
+  }
+}
+
+@keyframes seal-to-paper {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(.12);
+  }
+
+  28% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(.75);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(2.8);
+  }
+}
+
+@keyframes petal-fall {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(
+        0,
+        -8vh,
+        0
+      )
+      rotate(
+        var(--turn)
+      );
+  }
+
+  8% {
+    opacity: .94;
+  }
+
+  82% {
+    opacity: .86;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(
+        var(--drift),
+        115vh,
+        0
+      )
+      rotate(
+        calc(
+          var(--turn) + 660deg
+        )
+      );
+  }
+}
+
+@keyframes letter-entrance {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes name-appear {
+  from {
+    opacity: 0;
+
+    filter:
+      blur(7px);
+
+    transform:
+      translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+
+    filter:
+      blur(0);
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 640px) {
+
+  .shell {
+    width: 100%;
+
+    max-width: none;
+
+    box-shadow: none;
+  }
+
+  .intro {
+    width: 100%;
+
+    height: 100svh;
+
+    align-items: stretch;
+  }
+
+  .envelope {
+    width: 100%;
+
+    max-width: none;
+
+    height: 100svh;
+
+    max-height: none;
+
+    aspect-ratio: auto;
+
+    border-radius: 0;
+
+    box-shadow: none;
+  }
+
+  .env-preview {
+    padding:
+      25% 17%;
+  }
+
+  .seal {
+    width:
+      clamp(
+        125px,
+        38vw,
+        165px
+      );
+
+    height:
+      clamp(
+        125px,
+        38vw,
+        165px
+      );
+  }
+
+  .intro-hint {
+    bottom:
+      max(
+        38px,
+        env(
+          safe-area-inset-bottom
+        )
+      );
+  }
+
+  .hero {
+    min-height: 100svh;
+
+    padding:
+      clamp(
+        190px,
+        56vw,
+        265px
+      )
+      max(
+        25px,
+        7vw
+      )
+      clamp(
+        180px,
+        48vw,
+        250px
+      );
+
+    background: #faf3e6;
+  }
+
+  .hero::before {
+    height:
+      clamp(
+        230px,
+        75vw,
+        380px
+      );
+  }
+
+  .hero::after {
+    height:
+      clamp(
+        210px,
+        70vw,
+        350px
+      );
+  }
+
+  .card {
+    max-width: 390px;
+
+    padding:
+      0 8px;
+  }
+
+  .bismillah {
+    font-size: 25px;
+  }
+
+  .verse >
+  p:first-child {
+    font-size: 24px;
+
+    line-height: 1.7;
+  }
+
+  .verse
+  .translation {
+    font-size: 17px;
+  }
+
+  .names {
+    margin:
+      25px auto 22px;
+  }
+
+  .name-first,
+  .name-second {
+    font-size:
+      clamp(
+        72px,
+        22vw,
+        96px
+      );
+  }
+
+  .name-amp {
+    font-size: 26px;
+  }
+
+  .invite-copy {
+    font-size: 21px;
+  }
+
+  .date-line {
+    font-size: 15px;
+  }
+
+  .section-title {
+    font-size: 56px;
+  }
+
+  .story,
+  .scratch-section,
+  .events,
+  .rsvp {
+    padding-left:
+      25px !important;
+
+    padding-right:
+      25px !important;
+  }
+
+  .event {
+    max-width: 100%;
+
+    padding:
+      31px
+      26px
+      27px;
+  }
+
+  .event h3 {
+    font-size: 53px;
+  }
+
+  .music-toggle {
+    right: 12px;
+
+    bottom:
+      max(
+        13px,
+        env(
+          safe-area-inset-bottom
+        )
+      );
+  }
+}
+
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 380px) {
+
+  .hero {
+    padding-top: 52vw;
+
+    padding-bottom: 52vw;
+  }
+
+  .name-first,
+  .name-second {
+    font-size: 65px;
+  }
+
+  .invite-copy {
+    font-size: 20px;
+  }
+
+  .section-title {
+    font-size: 50px;
+  }
+
+  .event {
+    padding:
+      28px
+      22px;
+  }
+
+  .event h3 {
+    font-size: 48px;
+  }
+
+  .rsvp-form {
+    padding:
+      23px
+      18px;
+  }
+
+  .scratch-wrap {
+    padding:
+      50px
+      25px;
+  }
+
+  .scratch-wrap strong {
+    font-size: 28px;
+  }
+}
+
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .seal,
+  .intro-hint,
+  .card,
+  .petal,
+  .seal-light,
+  .name-first,
+  .name-second,
+  .name-amp {
+    animation: none !important;
+  }
+
+  .env-panel,
+  .curtain-panel,
+  .curtain-monogram,
+  .env-preview {
+    transition: none !important;
+  }
+
+  .motion-ready
+  .story .section-title,
+
+  .motion-ready
+  .scratch-section
+  .section-title,
+
+  .motion-ready
+  .events >
+  .section-title,
+
+  .motion-ready
+  .rsvp >
+  .section-title,
+
+  .motion-ready
+  .event,
+
+  .motion-ready
+  .rsvp-form,
+
+  .motion-ready
+  .scratch-wrap {
+    opacity: 1;
+
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   PREMIUM OPENING REDESIGN
+========================================================= */
+
+.intro {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(193, 160, 102, 0.13), transparent 24%),
+    radial-gradient(circle at 50% 50%, #254638 0%, #162d24 45%, #08110d 100%);
+}
+
+.envelope {
+  width: min(92vw, 430px);
+  height: min(88svh, 680px);
+  aspect-ratio: auto;
+
+  border: 1px solid rgba(218, 190, 128, 0.65);
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: #f7f0e2;
+
+  box-shadow:
+    0 45px 100px rgba(0, 0, 0, 0.58),
+    0 0 0 1px rgba(255, 231, 177, 0.18),
+    0 0 55px rgba(193, 157, 91, 0.14);
+}
+
+
+/* Invitation visible behind the doors */
+
+.env-preview {
+  position: absolute;
+  inset: 13px;
+
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  padding: 44px 28px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  color: #214334;
+
+  background:
+    linear-gradient(
+      rgba(255, 252, 244, 0.9),
+      rgba(250, 243, 226, 0.94)
+    ),
+    url("/floral-invitation.webp")
+    center / cover
+    no-repeat;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(174, 139, 78, 0.55),
+    inset 0 0 0 8px rgba(255, 251, 238, 0.55);
+}
+
+
+/* Gold decorative frame */
+
+.env-preview::before {
+  content: "";
+
+  position: absolute;
+  inset: 14px;
+
+  border: 1px solid rgba(169, 132, 74, 0.68);
+  border-radius: 6px;
+
+  pointer-events: none;
+}
+
+.env-preview::after {
+  content: "M  ✦  U";
+
+  position: absolute;
+  top: 32px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: #a27c40;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+
+  letter-spacing: 0.24em;
+}
+
+
+.env-preview > span[lang] {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 28px;
+
+  color: #715b36;
+
+  font-family: "Amiri", serif;
+  font-size: 25px;
+}
+
+
+.env-preview b {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  margin: 12px 0 4px;
+
+  color: #214b38;
+
+  font-family: "Italianno", cursive;
+  font-size: clamp(62px, 18vw, 88px);
+  font-weight: 400;
+  line-height: 0.9;
+
+  letter-spacing: 0;
+
+  text-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.8);
+}
+
+
+.env-preview > span:last-child {
+  position: relative;
+  z-index: 1;
+
+  color: #917147;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LUXURY GATEFOLD DOORS
+========================================================= */
+
+.env-panel {
+  z-index: 2;
+
+  width: 50.5%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.02),
+      rgba(255,255,255,0.1),
+      rgba(0,0,0,0.08)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #183b2c 0px,
+      #254d3a 22px,
+      #1c402f 44px,
+      #315943 66px,
+      #183b2c 88px
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(213, 185, 124, 0.5),
+    inset 0 0 35px rgba(0, 0, 0, 0.28);
+
+  transition:
+    transform 1.8s cubic-bezier(.64, .04, .25, 1);
+}
+
+
+.env-panel.left {
+  border-right:
+    1px solid rgba(214, 184, 119, 0.8);
+}
+
+.env-panel.right {
+  border-left:
+    1px solid rgba(214, 184, 119, 0.8);
+}
+
+
+/* Gold inner design */
+
+.env-panel::before {
+  content: "";
+
+  display: block;
+
+  position: absolute;
+
+  top: 5%;
+  bottom: 5%;
+
+  width: calc(100% - 20px);
+
+  border:
+    1px solid rgba(209, 176, 106, 0.52);
+
+  pointer-events: none;
+}
+
+.env-panel.left::before {
+  left: 9px;
+
+  border-radius:
+    10px 0 0 10px;
+}
+
+.env-panel.right::before {
+  right: 9px;
+
+  border-radius:
+    0 10px 10px 0;
+}
+
+
+/* Decorative gate symbols */
+
+.env-panel.left::after,
+.env-panel.right::after {
+  position: absolute;
+
+  top: 15%;
+
+  color:
+    rgba(220, 195, 136, 0.32);
+
+  font-family: Georgia, serif;
+
+  font-size: 95px;
+  line-height: 1;
+}
+
+.env-panel.left::after {
+  content: "❦";
+
+  right: -10px;
+
+  transform:
+    rotate(-45deg);
+}
+
+.env-panel.right::after {
+  content: "❦";
+
+  left: -10px;
+
+  transform:
+    rotate(135deg);
+}
+
+
+/* =========================================================
+   WAX SEAL REDESIGN
+========================================================= */
+
+.seal {
+  width: 132px;
+  height: 132px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(244, 218, 160, 0.22),
+      transparent 67%
+    );
+
+  filter:
+    drop-shadow(0 12px 15px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 10px rgba(218, 184, 111, 0.38));
+}
+
+
+.seal::before {
+  content: "";
+
+  position: absolute;
+  inset: -14px;
+
+  border:
+    1px solid rgba(222, 192, 126, 0.45);
+
+  border-radius: 50%;
+
+  animation:
+    seal-ring 2.4s ease-in-out infinite;
+}
+
+
+@keyframes seal-ring {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.8;
+  }
+}
+
+
+/* =========================================================
+   OPEN TEXT
+========================================================= */
+
+.intro-hint {
+  bottom: 30px;
+
+  color: #f1dcae;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =========================================================
+   OPENING ANIMATION
+========================================================= */
+
+.intro.open .env-panel.left {
+  transform:
+    perspective(1100px)
+    rotateY(-118deg);
+}
+
+.intro.open .env-panel.right {
+  transform:
+    perspective(1100px)
+    rotateY(118deg);
+}
+
+.intro.open .env-preview {
+  transform:
+    scale(1.035);
+
+  filter:
+    brightness(1.08);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .envelope {
+    width: 100%;
+    height: 100svh;
+
+    max-width: none;
+    max-height: none;
+
+    border: 0;
+    border-radius: 0;
+  }
+
+  .env-preview {
+    inset: 14px;
+
+    border-radius: 4px;
+  }
+
+  .env-preview::before {
+    inset: 12px;
+  }
+
+  .env-preview::after {
+    top: 30px;
+  }
+
+  .env-preview b {
+    font-size:
+      clamp(
+        66px,
+        21vw,
+        94px
+      );
+  }
+
+  .seal {
+    width:
+      clamp(
+        120px,
+        34vw,
+        150px
+      );
+
+    height:
+      clamp(
+        120px,
+        34vw,
+        150px
+      );
+  }
+
+  .intro-hint {
+    bottom:
+      max(
+        32px,
+        env(safe-area-inset-bottom)
+      );
+  }
+}
+
+
+/* =========================================================
+   REALISTIC GATEFOLD DOORS
+   Same opening shape, real paper texture
+========================================================= */
+
+.env-panel {
+  width: 50.1%;
+
+  /* Real continuous texture across both doors */
+  background-image: url("/envelope-paper.webp");
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+
+  border: 0;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(198, 166, 108, 0.38),
+    inset 0 0 32px rgba(12, 29, 21, 0.18),
+    0 0 8px rgba(0, 0, 0, 0.18);
+
+  backface-visibility: hidden;
+
+  transition:
+    transform 1.65s cubic-bezier(.35, .05, .2, 1);
+
+  overflow: hidden;
+}
+
+
+/* Left half uses left side of SAME texture */
+
+.env-panel.left {
+  background-position: left center;
+
+  transform-origin: left center;
+
+  border-right:
+    1px solid rgba(197, 165, 104, 0.6);
+}
+
+
+/* Right half uses right side of SAME texture */
+
+.env-panel.right {
+  background-position: right center;
+
+  transform-origin: right center;
+
+  border-left:
+    1px solid rgba(197, 165, 104, 0.6);
+}
+
+
+/* Natural light on paper */
+
+.env-panel::before {
+  content: "";
+
+  display: block !important;
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.11) 28%,
+      transparent 58%,
+      rgba(0, 0, 0, 0.06)
+    );
+
+  mix-blend-mode: soft-light;
+}
+
+
+/* Very subtle paper edge */
+
+.env-panel::after {
+  content: "";
+
+  display: block !important;
+
+  position: absolute;
+
+  top: 12px;
+  bottom: 12px;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(222, 193, 132, 0.7) 15%,
+      rgba(222, 193, 132, 0.7) 85%,
+      transparent
+    );
+
+  opacity: 0.7;
+}
+
+
+.env-panel.left::after {
+  right: 9px;
+}
+
+
+.env-panel.right::after {
+  left: 9px;
+}
+
+
+/* Center seam should feel like two physical panels */
+
+.env-panel.left {
+  box-shadow:
+    inset -14px 0 22px rgba(10, 27, 19, 0.14),
+    inset 0 0 0 1px rgba(200, 170, 112, 0.28);
+}
+
+
+.env-panel.right {
+  box-shadow:
+    inset 14px 0 22px rgba(10, 27, 19, 0.16),
+    inset 0 0 0 1px rgba(200, 170, 112, 0.28);
+}
+
+
+/* Keep the current gate-opening movement */
+
+.intro.open .env-panel.left {
+  transform:
+    perspective(1200px)
+    rotateY(-112deg);
+}
+
+
+.intro.open .env-panel.right {
+  transform:
+    perspective(1200px)
+    rotateY(112deg);
+}
+
+
+/* More realistic shading while opening */
+
+.intro.open .env-panel.left {
+  filter:
+    brightness(.86)
+    saturate(.92);
+}
+
+
+.intro.open .env-panel.right {
+  filter:
+    brightness(.82)
+    saturate(.9);
+}
+
+
+/* Don't let it look glossy/plastic */
+
+.env-panel {
+  filter:
+    saturate(.92)
+    contrast(.98);
+}
+
+/* Keep intro in DOM but hide it after doors finish */
+.intro.finished {
+  display: none !important;
+}
+
+
+/* =========================================================
+   HIDE INTRO IMMEDIATELY WHEN DOORS OPEN
+========================================================= */
+
+.intro.open {
+  pointer-events: none;
+}
+
+/* hide all intro content once opening starts */
+.intro.open .env-preview,
+.intro.open .seal,
+.intro.open .seal-light,
+.intro.open .intro-hint,
+.intro.open .door-stars {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* prevent any flash before curtain */
+.intro.finished {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Never show invitation preview between doors and curtain */
+.intro.open .env-preview {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.intro.finished {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+
+
+/* =========================================================
+   SLOW CINEMATIC OPENING + NO CREAM FLASH
+========================================================= */
+
+/* Opening layer stays above curtain */
+.intro {
+  z-index: 30 !important;
+}
+
+/* Curtain already sits behind the doors */
+.curtain-stage {
+  z-index: 20 !important;
+
+  /* Never reveal cream between transitions */
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #31513f 0%,
+      #203c2e 48%,
+      #102018 100%
+    ) !important;
+}
+
+/* Main invitation stays underneath */
+.shell {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ---------------------------------------------------------
+   SLOWER DOOR OPENING
+--------------------------------------------------------- */
+
+.env-panel {
+  transition:
+    transform 2.4s
+    cubic-bezier(.55,.02,.18,1) !important;
+}
+
+
+/* ---------------------------------------------------------
+   SLOWER WAX SEAL
+--------------------------------------------------------- */
+
+.seal {
+  transition:
+    transform .95s
+    cubic-bezier(.32,.05,.2,1),
+    opacity .75s ease !important;
+}
+
+.intro.open .seal {
+  transform:
+    translate(-50%, 10%)
+    rotate(14deg)
+    scale(.92) !important;
+
+  opacity: 0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   SOFTER SEAL GLOW
+--------------------------------------------------------- */
+
+.intro.open .seal-light {
+  animation:
+    slow-seal-glow
+    1.55s
+    ease-out
+    both !important;
+}
+
+@keyframes slow-seal-glow {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%,-50%)
+      scale(.12);
+  }
+
+  32% {
+    opacity: .85;
+    transform:
+      translate(-50%,-50%)
+      scale(.72);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(-50%,-50%)
+      scale(2.4);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   CURTAIN OPENS SLOWER
+--------------------------------------------------------- */
+
+.curtain-panel {
+  transition:
+    transform 2.35s
+    cubic-bezier(.65,0,.18,1) !important;
+}
+
+
+/* ---------------------------------------------------------
+   NEVER SHOW THE CREAM PREVIEW AFTER OPENING STARTS
+--------------------------------------------------------- */
+
+.intro.open .env-preview {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+
+/* intro disappears only after the doors finish */
+.intro.finished {
+  display: none !important;
+}
+
+
+/* Main invitation should not flash before curtain */
+body.invitation-closed .shell {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+body.ceremony .shell {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+
+
+/* =========================================================
+   ROYAL CINEMATIC CELEBRATION OPENING
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   LAYER ORDER
+--------------------------------------------------------- */
+
+.intro {
+  z-index: 40 !important;
+  perspective: 1600px;
+}
+
+.curtain-stage {
+  z-index: 30 !important;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #294536 0%,
+      #152c21 55%,
+      #08130e 100%
+    ) !important;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   WAX SEAL — MOVE, DO NOT FADE
+========================================================= */
+
+.seal {
+  opacity: 1 !important;
+
+  transition:
+    transform 1.35s
+    cubic-bezier(.22,.75,.18,1),
+    filter 1.1s ease !important;
+
+  will-change: transform;
+}
+
+
+/* Gentle touch reaction */
+
+.opening-sequence .seal {
+  filter:
+    drop-shadow(
+      0 10px 10px
+      rgba(0,0,0,.35)
+    )
+    drop-shadow(
+      0 0 8px
+      rgba(225,188,109,.3)
+    ) !important;
+}
+
+
+/* Wax moves down and sideways like it has been released */
+
+.intro.seal-moving .seal {
+  opacity: 1 !important;
+
+  transform:
+    translate(-37%, 78%)
+    rotate(23deg)
+    scale(.94) !important;
+
+  filter:
+    drop-shadow(
+      7px 14px 10px
+      rgba(0,0,0,.42)
+    ) !important;
+}
+
+
+/* Keep wax visible during the beginning of door opening */
+
+.intro.doors-opening .seal {
+  opacity: 1 !important;
+
+  transform:
+    translate(-28%, 125%)
+    rotate(32deg)
+    scale(.9) !important;
+}
+
+
+/* =========================================================
+   GOLDEN SEAL LIGHT
+========================================================= */
+
+.seal-light {
+  opacity: 0;
+}
+
+.intro.seal-moving .seal-light {
+  animation:
+    royal-seal-light
+    1.65s
+    ease-out
+    both !important;
+}
+
+@keyframes royal-seal-light {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%,-50%)
+      scale(.12);
+  }
+
+  38% {
+    opacity: .9;
+
+    transform:
+      translate(-50%,-50%)
+      scale(.8);
+  }
+
+  68% {
+    opacity: .45;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%,-50%)
+      scale(2.1);
+  }
+}
+
+
+/* =========================================================
+   SLOW ROYAL DOORS
+========================================================= */
+
+.env-panel {
+  transition:
+    transform 3.25s
+    cubic-bezier(.62,.01,.17,1),
+    filter 3s ease !important;
+
+  will-change: transform;
+}
+
+
+/* Keep doors closed until the proper stage */
+
+.intro:not(.doors-opening) .env-panel.left,
+.intro:not(.doors-opening) .env-panel.right {
+  transform: rotateY(0deg) !important;
+}
+
+
+/* Real slow gate opening */
+
+.intro.doors-opening .env-panel.left {
+  transform:
+    perspective(1400px)
+    rotateY(-116deg) !important;
+
+  filter:
+    brightness(.72)
+    saturate(.88) !important;
+}
+
+.intro.doors-opening .env-panel.right {
+  transform:
+    perspective(1400px)
+    rotateY(116deg) !important;
+
+  filter:
+    brightness(.68)
+    saturate(.86) !important;
+}
+
+
+/* Do not expose cream invitation preview */
+
+.intro.doors-opening .env-preview {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+
+/* =========================================================
+   REAL VELVET-STYLE CURTAIN
+========================================================= */
+
+.curtain-stage {
+  overflow: hidden;
+}
+
+
+/* upper velvet pelmet */
+
+.curtain-stage::before {
+  content: "";
+
+  position: absolute;
+
+  left: -4%;
+  right: -4%;
+  top: -2px;
+
+  height: 15vh;
+
+  min-height: 95px;
+
+  z-index: 6;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 50% -20%,
+      rgba(255,255,255,.18),
+      transparent 55%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #142a20 0,
+      #385b45 5%,
+      #183225 10%,
+      #456951 15%,
+      #172f24 20%
+    );
+
+  border-bottom:
+    2px solid rgba(197,161,88,.75);
+
+  border-radius:
+    0 0 48% 48% / 0 0 40% 40%;
+
+  box-shadow:
+    0 14px 30px
+    rgba(3,12,8,.5),
+    inset 0 -18px 25px
+    rgba(0,0,0,.25);
+}
+
+
+/* actual curtains */
+
+.curtain-panel {
+  width: 51% !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.03),
+      transparent 12%,
+      rgba(0,0,0,.18) 24%,
+      rgba(255,255,255,.11) 39%,
+      rgba(0,0,0,.24) 54%,
+      rgba(255,255,255,.09) 69%,
+      rgba(0,0,0,.24) 84%,
+      rgba(255,255,255,.04)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #10271d 0px,
+      #294a37 23px,
+      #153124 47px,
+      #3d6048 72px,
+      #173528 96px,
+      #0f281d 118px
+    ) !important;
+
+  background-blend-mode:
+    soft-light,
+    normal;
+
+  box-shadow:
+    inset 0 0 38px
+    rgba(0,0,0,.35),
+    0 0 28px
+    rgba(0,0,0,.4) !important;
+
+  transition:
+    transform 3.1s
+    cubic-bezier(.66,0,.14,1) !important;
+
+  will-change: transform;
+}
+
+
+/* bright gold inner seam */
+
+.curtain-left {
+  border-right:
+    2px solid rgba(210,177,101,.82) !important;
+
+  box-shadow:
+    inset -25px 0 35px
+    rgba(0,0,0,.32),
+    12px 0 28px
+    rgba(0,0,0,.38) !important;
+}
+
+.curtain-right {
+  border-left:
+    2px solid rgba(210,177,101,.82) !important;
+
+  box-shadow:
+    inset 25px 0 35px
+    rgba(0,0,0,.32),
+    -12px 0 28px
+    rgba(0,0,0,.38) !important;
+}
+
+
+/* curtain slowly moves out */
+
+.curtain-stage.parting .curtain-left {
+  transform:
+    translateX(-103%)
+    scaleX(.88) !important;
+}
+
+.curtain-stage.parting .curtain-right {
+  transform:
+    translateX(103%)
+    scaleX(.88) !important;
+}
+
+
+/* =========================================================
+   CELEBRATION PARTICLE FIELD
+========================================================= */
+
+.petal-field {
+  z-index: 8 !important;
+  pointer-events: none;
+}
+
+
+/* more natural floating petals */
+
+.petal {
+  opacity: 0;
+
+  box-shadow:
+    0 2px 5px
+    rgba(110,61,65,.22) !important;
+
+  animation:
+    celebration-petal-fall
+    var(--dur)
+    var(--delay)
+    cubic-bezier(.2,.4,.35,1)
+    both !important;
+}
+
+
+@keyframes celebration-petal-fall {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(0,-12vh,0)
+      rotate(var(--turn));
+  }
+
+  10% {
+    opacity: .95;
+  }
+
+  45% {
+    transform:
+      translate3d(
+        calc(var(--drift) * .45),
+        45vh,
+        0
+      )
+      rotate(
+        calc(var(--turn) + 250deg)
+      );
+  }
+
+  82% {
+    opacity: .9;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(
+        var(--drift),
+        115vh,
+        0
+      )
+      rotate(
+        calc(var(--turn) + 650deg)
+      );
+  }
+}
+
+
+/* =========================================================
+   GLOWING STARS
+========================================================= */
+
+.celebration-star {
+  position: absolute;
+
+  font-size:
+    var(--star-size);
+
+  color:
+    #ffe5a2;
+
+  opacity: 0;
+
+  text-shadow:
+    0 0 5px #fff5d1,
+    0 0 12px rgba(255,224,138,.9),
+    0 0 26px rgba(237,190,86,.65);
+
+  animation:
+    celebration-star-glow
+    var(--star-dur)
+    var(--star-delay)
+    ease-in-out
+    infinite;
+
+  pointer-events: none;
+}
+
+
+@keyframes celebration-star-glow {
+
+  0%,
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(.25)
+      rotate(0deg);
+  }
+
+  35% {
+    opacity: 1;
+
+    transform:
+      scale(1.25)
+      rotate(20deg);
+  }
+
+  65% {
+    opacity: .75;
+
+    transform:
+      scale(.78)
+      rotate(37deg);
+  }
+}
+
+
+/* =========================================================
+   FLOATING FLOWERS
+========================================================= */
+
+.celebration-flower {
+  position: absolute;
+
+  top: -12vh;
+
+  font-size:
+    var(--flower-size);
+
+  color:
+    #f0c7c4;
+
+  opacity: .9;
+
+  text-shadow:
+    0 2px 5px
+    rgba(75,31,32,.2);
+
+  animation:
+    celebration-flower-fall
+    var(--flower-dur)
+    var(--flower-delay)
+    linear
+    both;
+
+  pointer-events: none;
+}
+
+
+@keyframes celebration-flower-fall {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(0,-10vh,0)
+      rotate(0deg);
+  }
+
+  12% {
+    opacity: .95;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(
+        var(--flower-drift),
+        112vh,
+        0
+      )
+      rotate(480deg);
+  }
+}
+
+
+/* =========================================================
+   REMOVE ALL FLASHES
+========================================================= */
+
+body.invitation-closed .shell {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+body.ceremony .shell {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.intro.finished {
+  display: none !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:640px) {
+
+  .env-panel {
+    transition-duration:
+      3.1s !important;
+  }
+
+  .curtain-panel {
+    transition-duration:
+      2.9s !important;
+  }
+
+  .curtain-stage::before {
+    height: 13vh;
+  }
+
+  .seal {
+    transition-duration:
+      1.25s !important;
+  }
+}
+
+
+/* =========================================================
+   REAL CURTAINS + WHITE FLOWERS + STAR RAIN
+========================================================= */
+
+/* curtain stage behind opening */
+.curtain-stage {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,255,255,.05), transparent 28%),
+    linear-gradient(180deg, #0f2018 0%, #173126 55%, #0c1812 100%) !important;
+  overflow: hidden;
+}
+
+/* top curtain header / pelmet */
+.curtain-stage::before {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  top: 0;
+  height: 92px;
+  z-index: 6;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.12), transparent 35%),
+    repeating-linear-gradient(
+      90deg,
+      #163125 0 28px,
+      #2b4f3d 28px 56px,
+      #193527 56px 84px,
+      #3b6450 84px 112px
+    );
+  border-bottom: 2px solid rgba(214, 185, 108, .75);
+  box-shadow:
+    0 12px 24px rgba(0,0,0,.35),
+    inset 0 -12px 18px rgba(0,0,0,.25);
+}
+
+/* real curtain cloth look */
+.curtain-panel {
+  width: 50.5% !important;
+  top: 0;
+  bottom: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.16) 0%,
+      rgba(255,255,255,.03) 6%,
+      rgba(0,0,0,.18) 12%,
+      rgba(255,255,255,.08) 19%,
+      rgba(0,0,0,.22) 28%,
+      rgba(255,255,255,.06) 36%,
+      rgba(0,0,0,.20) 44%,
+      rgba(255,255,255,.08) 53%,
+      rgba(0,0,0,.24) 63%,
+      rgba(255,255,255,.08) 74%,
+      rgba(0,0,0,.20) 84%,
+      rgba(255,255,255,.04) 100%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #173427 0 22px,
+      #274c3a 22px 46px,
+      #1a3629 46px 70px,
+      #3f6854 70px 95px,
+      #173326 95px 118px
+    ) !important;
+  box-shadow:
+    inset 0 0 45px rgba(0,0,0,.25),
+    0 0 26px rgba(0,0,0,.28) !important;
+  transition:
+    transform 3.1s cubic-bezier(.66,0,.16,1) !important;
+  will-change: transform;
+}
+
+.curtain-left {
+  border-right: 2px solid rgba(216, 188, 116, .78) !important;
+  box-shadow:
+    inset -20px 0 32px rgba(0,0,0,.28),
+    10px 0 24px rgba(0,0,0,.25) !important;
+}
+
+.curtain-right {
+  border-left: 2px solid rgba(216, 188, 116, .78) !important;
+  box-shadow:
+    inset 20px 0 32px rgba(0,0,0,.28),
+    -10px 0 24px rgba(0,0,0,.25) !important;
+}
+
+/* slower opening */
+.curtain-stage.parting .curtain-left {
+  transform: translateX(-103%) scaleX(.9) !important;
+}
+
+.curtain-stage.parting .curtain-right {
+  transform: translateX(103%) scaleX(.9) !important;
+}
+
+/* white floral decoration on curtains */
+.curtain-panel::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  width: 120px;
+  height: 170px;
+  z-index: 7;
+  opacity: .95;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 18%, #ffffff 0 8px, transparent 9px),
+    radial-gradient(circle at 34% 28%, #fffdf8 0 10px, transparent 11px),
+    radial-gradient(circle at 54% 18%, #ffffff 0 9px, transparent 10px),
+    radial-gradient(circle at 70% 34%, #fffefa 0 8px, transparent 9px),
+    radial-gradient(circle at 86% 20%, #ffffff 0 7px, transparent 8px),
+    radial-gradient(circle at 42% 52%, #fffefc 0 10px, transparent 11px),
+    radial-gradient(circle at 74% 60%, #ffffff 0 9px, transparent 10px),
+    radial-gradient(circle at 25% 73%, #ffffff 0 8px, transparent 9px),
+    radial-gradient(circle at 57% 82%, #fffefa 0 10px, transparent 11px),
+    radial-gradient(circle at 82% 84%, #ffffff 0 8px, transparent 9px);
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,.18));
+}
+
+.curtain-left::before {
+  right: 16px;
+}
+
+.curtain-right::before {
+  left: 16px;
+}
+
+/* petals softer and more realistic */
+.petal {
+  background:
+    linear-gradient(145deg, #fff8fb, #f3d9dd 58%, #dbb8bf) !important;
+  opacity: .94;
+  box-shadow: 0 2px 6px rgba(110,75,78,.22) !important;
+  animation:
+    real-petal-fall var(--dur) var(--delay) linear both !important;
+}
+
+@keyframes real-petal-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0,-10vh,0) rotate(var(--turn));
+  }
+  10% {
+    opacity: .96;
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(var(--drift),115vh,0)
+      rotate(calc(var(--turn) + 620deg));
+  }
+}
+
+/* star rain */
+.celebration-star {
+  position: absolute;
+  font-size: var(--star-size);
+  color: #ffe6a8;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow:
+    0 0 6px #fff5d8,
+    0 0 14px rgba(255,226,149,.95),
+    0 0 24px rgba(240,193,88,.55);
+  animation:
+    star-rain-glow var(--star-dur) var(--star-delay) ease-in-out infinite;
+}
+
+@keyframes star-rain-glow {
+  0%,100% {
+    opacity: 0;
+    transform: scale(.3) rotate(0deg);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1.2) rotate(18deg);
+  }
+  65% {
+    opacity: .72;
+    transform: scale(.8) rotate(34deg);
+  }
+}
+
+/* real white flower rain */
+.white-bloom {
+  position: absolute;
+  top: -12vh;
+  width: var(--bloom-size);
+  height: var(--bloom-size);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: .96;
+  background:
+    radial-gradient(circle at 50% 14%, #ffffff 0 20%, transparent 22%),
+    radial-gradient(circle at 82% 40%, #ffffff 0 20%, transparent 22%),
+    radial-gradient(circle at 70% 80%, #fffefc 0 20%, transparent 22%),
+    radial-gradient(circle at 30% 80%, #ffffff 0 20%, transparent 22%),
+    radial-gradient(circle at 18% 40%, #fffefc 0 20%, transparent 22%),
+    radial-gradient(circle at 50% 50%, #efd798 0 10%, transparent 12%);
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.16));
+  animation:
+    white-bloom-fall var(--bloom-dur) var(--bloom-delay) linear both;
+}
+
+@keyframes white-bloom-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0,-10vh,0) rotate(0deg);
+  }
+  10% {
+    opacity: .98;
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(var(--bloom-drift),114vh,0)
+      rotate(520deg);
+  }
+}
+
+/* mobile */
+@media (max-width:640px) {
+  .curtain-panel {
+    transition-duration: 2.8s !important;
+  }
+
+  .curtain-panel::before {
+    width: 92px;
+    height: 135px;
+  }
+
+  .curtain-stage::before {
+    height: 78px;
+  }
+}
+
+
+
+/* =========================================================
+   FINAL OPENING — NO CURTAIN
+   Seal moves -> disappears -> doors open -> invitation
+========================================================= */
+
+/* Disable old curtain completely */
+.curtain-stage,
+#curtain-stage {
+  display: none !important;
+}
+
+/* Main invitation hidden until doors finish */
+body.invitation-closed .shell {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+body.ceremony .shell {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* -----------------------------------------
+   WAX SEAL
+----------------------------------------- */
+
+.seal {
+  opacity: 1 !important;
+
+  transition:
+    transform 1.05s cubic-bezier(.22,.72,.18,1),
+    opacity .38s ease !important;
+
+  will-change: transform, opacity;
+}
+
+/* Seal physically moves first */
+.intro.seal-moving .seal {
+  transform:
+    translate(-30%, 90%)
+    rotate(24deg)
+    scale(.94) !important;
+
+  opacity: 1 !important;
+
+  filter:
+    drop-shadow(
+      7px 13px 8px
+      rgba(0,0,0,.38)
+    ) !important;
+}
+
+/* Then it disappears */
+.intro.seal-gone .seal {
+  transform:
+    translate(-25%, 120%)
+    rotate(30deg)
+    scale(.9) !important;
+
+  opacity: 0 !important;
+}
+
+/* Soft glow while seal moves */
+.intro.seal-moving .seal-light {
+  animation:
+    final-seal-glow
+    1.25s ease-out both !important;
+}
+
+@keyframes final-seal-glow {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%,-50%)
+      scale(.15);
+  }
+
+  35% {
+    opacity: .75;
+    transform:
+      translate(-50%,-50%)
+      scale(.7);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(-50%,-50%)
+      scale(1.9);
+  }
+}
+
+/* -----------------------------------------
+   DOORS
+----------------------------------------- */
+
+.env-panel {
+  transition:
+    transform 2.55s
+    cubic-bezier(.62,.01,.18,1),
+    filter 2.4s ease !important;
+}
+
+/* Keep closed before door-opening class */
+.intro:not(.doors-opening) .env-panel.left,
+.intro:not(.doors-opening) .env-panel.right {
+  transform: rotateY(0deg) !important;
+}
+
+/* Slow physical door movement */
+.intro.doors-opening .env-panel.left {
+  transform:
+    perspective(1400px)
+    rotateY(-116deg) !important;
+
+  filter:
+    brightness(.78)
+    saturate(.92) !important;
+}
+
+.intro.doors-opening .env-panel.right {
+  transform:
+    perspective(1400px)
+    rotateY(116deg) !important;
+
+  filter:
+    brightness(.74)
+    saturate(.9) !important;
+}
+
+/* No intermediate cream card */
+.intro.doors-opening .env-preview {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* No old open-state animation overriding this */
+.intro.open .env-panel.left,
+.intro.open .env-panel.right {
+  transform: none;
+}
+
+/* Once animation completes */
+.intro.finished {
+  display: none !important;
+}
+
+/* Mobile */
+@media (max-width:640px) {
+  .env-panel {
+    transition-duration: 2.45s !important;
+  }
+
+  .seal {
+    transition-duration: .95s !important;
+  }
+}
+

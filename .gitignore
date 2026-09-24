@@ -15,10 +15,8 @@
 
 # next.js
 /.next/
+/.vinext/
 /out/
-
-# production
-/build
 
 # misc
 .DS_Store
@@ -37,5 +35,35 @@ yarn-error.log*
 .vercel
 
 # typescript
-*.tsbuildinfo
 next-env.d.ts
+/dist/
+/.wrangler/
+# Checkout-local execution profile and tool state; never publish them.
+/.sites-runtime/
+/.agents/
+/.codex/
+/outputs/
+/work/
+
+site.tar.gz
+
+# Build / cache
+.next/
+dist/
+build/
+.vinext/
+.wrangler/
+.sites-runtime/
+
+# Dependencies
+node_modules/
+
+# Temporary / backups
+*.before-*
+*.backup.*
+*.deb
+
+# Environment
+.env
+.env.*
+!.env.example
