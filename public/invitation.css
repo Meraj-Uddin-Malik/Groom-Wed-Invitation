@@ -11994,3 +11994,526 @@ body.ceremony .shell {
   box-shadow: none !important;
 }
 
+
+/* ==========================================================
+   FINAL EVENT CONSISTENCY
+   Baraat + Walima border = Nikkah / Mehndi style
+========================================================== */
+
+#event-baraat,
+#event-walima {
+  border: 1px solid #c7b48a !important;
+  border-radius: 3px !important;
+
+  box-shadow:
+    0 8px 20px rgba(48, 46, 35, .06) !important;
+}
+
+
+/* Same inner frame used by the original event design */
+
+#event-baraat::after,
+#event-walima::after {
+  content: "" !important;
+
+  position: absolute !important;
+  inset: 7px !important;
+
+  display: block !important;
+
+  border: 1px solid #e6d8bc !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  pointer-events: none !important;
+}
+
+
+/*
+   Baraat had an additional royal ::before frame.
+   Keep that extra frame removed so it matches the
+   normal Nikkah / Mehndi event-border structure.
+*/
+
+#event-baraat::before {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* ==========================================================
+   NIKKAH TIME — GOLD UNDERLINE
+========================================================== */
+
+.event-nikkah .nikkah-time > span {
+  display: block !important;
+
+  width: 45px !important;
+  height: 3px !important;
+
+  margin-top: 7px !important;
+
+  background: #e8d3a2 !important;
+  border-radius: 10px !important;
+}
+
+
+/* Left-side time needs line aligned toward centre */
+
+.event-nikkah .nikkah-right .nikkah-time > span {
+  margin-left: auto !important;
+}
+
+
+/* ==========================================================
+   MEHNDI TIME — GOLD UNDERLINE
+========================================================== */
+
+.event-mehndi .mehndi-time > span {
+  display: block !important;
+
+  width: 45px !important;
+  height: 3px !important;
+
+  margin-top: 7px !important;
+
+  background: #e8d3a2 !important;
+  border-radius: 10px !important;
+}
+
+
+/* Left-side time needs line aligned toward centre */
+
+.event-mehndi .mehndi-right .mehndi-time > span {
+  margin-left: auto !important;
+}
+
+
+/* ==========================================================
+   MOBILE — all time underlines start from left
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .event-nikkah .nikkah-time > span,
+  .event-mehndi .mehndi-time > span {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+
+/* ==========================================================
+   BARAAT + WALIMA — SINGLE CURVED OUTER BORDER
+========================================================== */
+
+#event-baraat,
+#event-walima {
+  position: relative !important;
+
+  border: 1px solid #c7b48a !important;
+  border-radius: 28px !important;
+
+  outline: none !important;
+
+  box-shadow:
+    0 8px 20px rgba(48, 46, 35, .06) !important;
+
+  overflow: hidden;
+}
+
+
+/* Remove inner decorative border completely */
+
+#event-baraat::after,
+#event-walima::after {
+  content: none !important;
+
+  display: none !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+
+/* Baraat had another decorative inner frame */
+
+#event-baraat::before {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+
+/* Mobile — keep all four corners curved */
+
+@media (max-width: 640px) {
+
+  #event-baraat,
+  #event-walima {
+    border: 1px solid #c7b48a !important;
+    border-radius: 22px !important;
+
+    overflow: hidden !important;
+  }
+}
+
+
+/* ==========================================================
+   FINAL — ALL EVENT TIME UNDERLINES
+========================================================== */
+
+/* Nikkah */
+.event-nikkah .nikkah-time > span,
+
+/* Mehndi */
+.event-mehndi .mehndi-time > span {
+  display: block !important;
+
+  width: 45px !important;
+  height: 3px !important;
+
+  margin-top: 6px !important;
+
+  background: #e8d3a2 !important;
+
+  border: 0 !important;
+  border-radius: 10px !important;
+}
+
+
+/* Desktop:
+   time on left side -> underline toward centre/right
+*/
+.event-nikkah .nikkah-right .nikkah-time > span,
+.event-mehndi .mehndi-right .mehndi-time > span {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+
+/* Desktop:
+   time on right side -> underline starts left
+*/
+.event-nikkah .nikkah-left .nikkah-time > span,
+.event-mehndi .mehndi-left .mehndi-time > span {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+
+/* Mobile — all times are left aligned */
+@media (max-width: 640px) {
+
+  .event-nikkah .nikkah-time > span,
+  .event-mehndi .mehndi-time > span {
+    margin-top: 6px !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+
+    width: 45px !important;
+    height: 3px !important;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE — NIKKAH + MEHNDI TIME UNDERLINE FINAL FIX
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .event-nikkah .nikkah-time,
+  .event-mehndi .mehndi-time {
+    position: relative !important;
+
+    display: block !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+
+    padding:
+      0 0 10px 8px !important;
+
+    margin: 0 !important;
+
+    text-align: left !important;
+  }
+
+
+  .event-nikkah .nikkah-time > span,
+  .event-mehndi .mehndi-time > span {
+    position: absolute !important;
+
+    left: 8px !important;
+    right: auto !important;
+    bottom: 3px !important;
+
+    display: block !important;
+
+    width: 45px !important;
+    height: 3px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #e8d3a2 !important;
+
+    border: 0 !important;
+    border-radius: 999px !important;
+
+    transform: none !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+}
+
+/* ==========================================================
+   SCRATCH DATE REVEAL — EVENT DESIGN FAMILY
+========================================================== */
+
+.scratch-section {
+  position: relative !important;
+
+  width: min(100%, 900px) !important;
+  margin: 42px auto !important;
+  padding: 54px 28px 58px !important;
+
+  text-align: center !important;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(197,160,89,.08),
+      transparent 35%
+    ),
+    #fcfbf8 !important;
+
+  border: 1px solid #c7b48a !important;
+  border-radius: 28px !important;
+
+  box-shadow:
+    0 8px 20px rgba(48,46,35,.06) !important;
+
+  overflow: hidden !important;
+}
+
+
+/* Small heading */
+
+.scratch-section > .eyebrow {
+  margin-bottom: 7px !important;
+
+  color: #c5a059 !important;
+
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 600 !important;
+
+  letter-spacing: .20em !important;
+  text-transform: uppercase !important;
+}
+
+
+/* Main title */
+
+.scratch-section > .section-title {
+  margin: 0 !important;
+
+  color: #244b3c !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-size: clamp(36px, 5vw, 52px) !important;
+  font-weight: 500 !important;
+
+  line-height: 1 !important;
+}
+
+
+/* Gold ornament divider under heading */
+
+.scratch-section > .section-title::after {
+  content: "✦";
+
+  display: block;
+
+  margin: 13px auto 12px;
+
+  color: #c5a059;
+
+  font-size: 12px;
+  line-height: 1;
+}
+
+
+/* Description */
+
+.scratch-section > .section-copy {
+  max-width: 470px !important;
+
+  margin:
+    0 auto 32px !important;
+
+  color: #5a635d !important;
+
+  font-family:
+    "DM Sans",
+    sans-serif !important;
+
+  font-size: 11px !important;
+  line-height: 1.8 !important;
+}
+
+
+/* ==========================================================
+   SCRATCH MEDALLION
+   Keep existing size / canvas functionality
+========================================================== */
+
+.scratch-section .scratch-medallion {
+  position: relative !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  filter:
+    drop-shadow(
+      0 18px 22px rgba(36,75,60,.10)
+    );
+}
+
+
+/* Premium gold ring around existing scratch heart/medallion */
+
+.scratch-section .scratch-medallion::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -9px;
+
+  border: 1px solid rgba(197,160,89,.45);
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* Revealed content */
+
+.scratch-section .medallion-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+.scratch-section .heart-caption {
+  color: #c5a059 !important;
+
+  font-family:
+    "DM Sans",
+    sans-serif !important;
+
+  font-size: 8px !important;
+  font-weight: 600 !important;
+
+  letter-spacing: .20em !important;
+}
+
+
+/* Date */
+
+.scratch-section #reveal-date {
+  color: #244b3c !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-weight: 600 !important;
+}
+
+
+/* Celebration label */
+
+.scratch-section #reveal-label {
+  color: #c5a059 !important;
+
+  font-family:
+    "DM Sans",
+    sans-serif !important;
+
+  font-weight: 600 !important;
+
+  letter-spacing: .15em !important;
+}
+
+
+/* Decorative flourishes */
+
+.scratch-section .medallion-ornament {
+  color: #c5a059 !important;
+}
+
+
+/* Keep canvas above revealed content */
+
+.scratch-section #scratch {
+  position: absolute !important;
+  z-index: 5 !important;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .scratch-section {
+    width: 100% !important;
+
+    margin: 30px auto !important;
+
+    padding:
+      42px 18px
+      48px !important;
+
+    border: 1px solid #c7b48a !important;
+    border-radius: 22px !important;
+  }
+
+
+  .scratch-section > .section-title {
+    font-size: 38px !important;
+  }
+
+
+  .scratch-section > .section-copy {
+    max-width: 290px !important;
+
+    margin-bottom: 28px !important;
+
+    font-size: 10px !important;
+    line-height: 1.75 !important;
+  }
+
+
+  .scratch-section .scratch-medallion {
+    max-width: calc(100% - 20px) !important;
+  }
+
+}
+
