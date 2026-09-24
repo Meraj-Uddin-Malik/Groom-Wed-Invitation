@@ -1012,3 +1012,42 @@ if (
       )
   );
 }
+
+/* =========================================================
+   Privacy + Closing premium scroll reveal
+   ========================================================= */
+
+(() => {
+  const premiumSections = document.querySelectorAll(
+    ".receiving-section, .privacy-request, .final-closing"
+  );
+
+  if (!premiumSections.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    premiumSections.forEach((section) => {
+      section.classList.add("is-visible");
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, revealObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.18,
+      rootMargin: "0px 0px -8% 0px",
+    }
+  );
+
+  premiumSections.forEach((section) => {
+    observer.observe(section);
+  });
+})();
+
