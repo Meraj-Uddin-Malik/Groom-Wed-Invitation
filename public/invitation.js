@@ -474,12 +474,94 @@ function paint() {
 }
 
 
+let celebrationPlayed = false;
+
+function celebrationBurst() {
+  if (celebrationPlayed) return;
+  celebrationPlayed = true;
+
+  const layer = document.createElement("div");
+  layer.className = "reveal-celebration";
+  layer.setAttribute("aria-hidden", "true");
+
+  const colors = [
+    "#c5a059",
+    "#e8d3a2",
+    "#244b3c",
+    "#ffffff",
+    "#b89968"
+  ];
+
+  const shapes = ["square", "circle", "strip"];
+
+  for (let i = 0; i < 150; i++) {
+    const piece = document.createElement("i");
+
+    const fromLeft = i % 2 === 0;
+    const angle =
+      fromLeft
+        ? 20 + Math.random() * 55
+        : 105 + Math.random() * 55;
+
+    const distance = 220 + Math.random() * 430;
+
+    piece.className =
+      "celebration-piece " +
+      shapes[Math.floor(Math.random() * shapes.length)];
+
+    piece.style.setProperty(
+      "--color",
+      colors[Math.floor(Math.random() * colors.length)]
+    );
+
+    piece.style.setProperty(
+      "--start-x",
+      fromLeft ? "5vw" : "95vw"
+    );
+
+    piece.style.setProperty(
+      "--angle",
+      angle + "deg"
+    );
+
+    piece.style.setProperty(
+      "--distance",
+      distance + "px"
+    );
+
+    piece.style.setProperty(
+      "--rotate",
+      (360 + Math.random() * 900) + "deg"
+    );
+
+    piece.style.setProperty(
+      "--delay",
+      (Math.random() * 0.18) + "s"
+    );
+
+    piece.style.setProperty(
+      "--duration",
+      (2.4 + Math.random() * 1.8) + "s"
+    );
+
+    layer.appendChild(piece);
+  }
+
+  document.body.appendChild(layer);
+
+  setTimeout(() => {
+    layer.remove();
+  }, 4800);
+}
+
 function reveal() {
   scratched = true;
 
   c.hidden = true;
 
   down = false;
+
+  celebrationBurst();
 }
 
 
@@ -638,6 +720,129 @@ if (revealButton) {
 
 
 /* =========================================================
+   EVENT THEME CELEBRATIONS
+========================================================= */
+
+const celebratedEvents = new Set();
+
+function eventCelebrationBurst(event) {
+  if (!event?.id || celebratedEvents.has(event.id)) return;
+
+  const themes = {
+    "event-nikkah": [
+      "#244b3c",
+      "#c5a059",
+      "#e8d3a2",
+      "#fcfbf8"
+    ],
+
+    "event-mehndi": [
+      "#68734a",
+      "#d6a72c",
+      "#e8c766",
+      "#f4df9b"
+    ],
+
+    "event-baraat": [
+      "#713b3b",
+      "#9b5555",
+      "#c5a059",
+      "#f0d9a6"
+    ],
+
+    "event-walima": [
+      "#245443",
+      "#3d7862",
+      "#c5a059",
+      "#f2dfb7"
+    ]
+  };
+
+  const colors = themes[event.id];
+  if (!colors) return;
+
+  celebratedEvents.add(event.id);
+
+  const rect = event.getBoundingClientRect();
+
+  const originY = Math.min(
+    window.innerHeight - 80,
+    Math.max(100, rect.top + Math.min(rect.height * 0.30, 180))
+  );
+
+  const layer = document.createElement("div");
+  layer.className = "event-celebration";
+  layer.setAttribute("aria-hidden", "true");
+
+  const shapes = ["square", "circle", "strip"];
+
+  for (let i = 0; i < 72; i++) {
+    const piece = document.createElement("i");
+    const fromLeft = i % 2 === 0;
+
+    piece.className =
+      "event-confetti " +
+      shapes[Math.floor(Math.random() * shapes.length)];
+
+    piece.style.setProperty(
+      "--event-color",
+      colors[Math.floor(Math.random() * colors.length)]
+    );
+
+    piece.style.setProperty(
+      "--event-x",
+      fromLeft ? "8vw" : "92vw"
+    );
+
+    piece.style.setProperty(
+      "--event-y",
+      originY + "px"
+    );
+
+    piece.style.setProperty(
+      "--event-move-x",
+      (
+        (fromLeft ? 1 : -1) *
+        (80 + Math.random() * 250)
+      ) + "px"
+    );
+
+    piece.style.setProperty(
+      "--event-rise",
+      -(100 + Math.random() * 230) + "px"
+    );
+
+    piece.style.setProperty(
+      "--event-fall",
+      (180 + Math.random() * 300) + "px"
+    );
+
+    piece.style.setProperty(
+      "--event-spin",
+      (360 + Math.random() * 800) + "deg"
+    );
+
+    piece.style.setProperty(
+      "--event-delay",
+      (Math.random() * 0.15) + "s"
+    );
+
+    piece.style.setProperty(
+      "--event-duration",
+      (1.8 + Math.random() * 1.1) + "s"
+    );
+
+    layer.appendChild(piece);
+  }
+
+  document.body.appendChild(layer);
+
+  setTimeout(() => {
+    layer.remove();
+  }, 3400);
+}
+
+/* =========================================================
    SCROLL REVEAL ANIMATIONS
 ========================================================= */
 
@@ -708,6 +913,9 @@ if (
 
             /* Event sections — left to right reveal */
             if (entry.target.matches(".event")) {
+
+              eventCelebrationBurst(entry.target);
+
               const eventItems = entry.target.querySelectorAll(
                 ":scope > .event-number, " +
                 ":scope > .nikkah-header, " +
@@ -718,6 +926,8 @@ if (
                 ":scope > .baraat-royal-mark, " +
                 ":scope > .walima-monogram, " +
                 ":scope > .mehndi-event-timeline, " +
+                ":scope > .baraat-event-timeline, " +
+                ":scope > .walima-event-timeline, " +
                 ":scope > .celebration-details, " +
                 ":scope > .celebration-footer"
               );

@@ -12517,3 +12517,511 @@ body.ceremony .shell {
 
 }
 
+
+/* ==========================================================
+   SCRATCH CARD — PREMIUM REDESIGN
+   Heading / section content unchanged
+========================================================== */
+
+.scratch-section .scratch-wrap {
+  position: relative !important;
+
+  margin:
+    38px auto
+    10px !important;
+
+  filter:
+    drop-shadow(
+      0 16px 22px
+      rgba(36,75,60,.10)
+    ) !important;
+}
+
+
+/* Remove any old extra frame around scratch */
+
+.scratch-section .scratch-wrap::before,
+.scratch-section .scratch-wrap::after {
+  pointer-events: none;
+}
+
+
+/* Revealed area */
+
+.scratch-section .medallion-content {
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #fffdf8 0%,
+      #f9f3e6 58%,
+      #eee0c3 100%
+    ) !important;
+
+  color: #244b3c !important;
+}
+
+
+/* WITH LOVE */
+
+.scratch-section .heart-caption {
+  color: #c5a059 !important;
+
+  font-family:
+    "DM Sans",
+    sans-serif !important;
+
+  font-size: 8px !important;
+  font-weight: 700 !important;
+
+  letter-spacing: .22em !important;
+}
+
+
+/* Main revealed date */
+
+.scratch-section #reveal-date {
+  color: #244b3c !important;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif !important;
+
+  font-weight: 600 !important;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.7);
+}
+
+
+/* OUR CELEBRATION */
+
+.scratch-section #reveal-label {
+  color: #9c7b3d !important;
+
+  font-family:
+    "DM Sans",
+    sans-serif !important;
+
+  font-weight: 600 !important;
+
+  letter-spacing: .15em !important;
+}
+
+
+/* Flourish */
+
+.scratch-section .medallion-ornament {
+  color: #c5a059 !important;
+}
+
+
+/* Scratch canvas itself */
+
+.scratch-section #scratch {
+  cursor: crosshair;
+
+  filter:
+    drop-shadow(
+      0 2px 3px
+      rgba(61,48,28,.08)
+    );
+}
+
+
+/* ==========================================================
+   MOBILE — make scratch card the focal point
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .scratch-section .scratch-wrap {
+    margin-top: 34px !important;
+
+    transform:
+      scale(1.06);
+
+    transform-origin:
+      center center;
+  }
+
+  .scratch-section #reveal-date {
+    font-size:
+      clamp(23px, 7vw, 31px) !important;
+  }
+
+}
+
+/* ==========================================================
+   SCRATCH — RESTORE ORIGINAL HEADING / TEXT TYPOGRAPHY
+========================================================== */
+
+.scratch-section > .eyebrow {
+  color: #917349 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+}
+
+.scratch-section > .section-title {
+  margin: 16px 0 18px !important;
+
+  color: #254a38 !important;
+
+  font-family:
+    "Cormorant Garamond",
+    serif !important;
+
+  font-size:
+    clamp(
+      50px,
+      9vw,
+      70px
+    ) !important;
+
+  font-weight: 500 !important;
+  font-style: italic !important;
+  letter-spacing: -.045em !important;
+}
+
+.scratch-section > .section-copy {
+  max-width: 390px !important;
+
+  margin: 0 auto 30px !important;
+
+  color: #5a6658 !important;
+
+  font-size: 16px !important;
+  line-height: 1.8 !important;
+}
+
+
+/* Original mobile title size */
+
+@media (max-width: 640px) {
+  .scratch-section > .section-title {
+    font-size: 56px !important;
+  }
+}
+
+
+/* ==========================================================
+   DATE REVEAL — CELEBRATION BURST
+========================================================== */
+
+.reveal-celebration {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.celebration-piece {
+  --color: #c5a059;
+  --start-x: 50vw;
+  --angle: 45deg;
+  --distance: 220px;
+  --rotate: 720deg;
+  --delay: 0s;
+  --duration: 2.4s;
+
+  position: absolute;
+
+  left: var(--start-x);
+  bottom: 8vh;
+
+  width: 9px;
+  height: 13px;
+
+  background: var(--color);
+
+  opacity: 0;
+
+  transform-origin: center;
+
+  animation:
+    wedding-confetti-burst
+    var(--duration)
+    cubic-bezier(.18,.7,.25,1)
+    var(--delay)
+    forwards;
+}
+
+.celebration-piece.circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.celebration-piece.strip {
+  width: 5px;
+  height: 18px;
+  border-radius: 999px;
+}
+
+@keyframes wedding-confetti-burst {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 0)
+      rotate(0deg)
+      scale(.4);
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  48% {
+    opacity: 1;
+
+    transform:
+      translate(
+        calc(cos(var(--angle)) * var(--distance)),
+        calc(sin(var(--angle)) * var(--distance) * -1)
+      )
+      rotate(var(--rotate))
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(cos(var(--angle)) * var(--distance)),
+        105vh
+      )
+      rotate(calc(var(--rotate) * 1.7))
+      scale(.8);
+  }
+}
+
+
+/* Small golden flash at reveal */
+
+.scratch-section:has(#scratch[hidden]) .scratch-wrap {
+  animation:
+    reveal-joy-glow
+    1.1s
+    ease-out;
+}
+
+@keyframes reveal-joy-glow {
+
+  0% {
+    filter:
+      drop-shadow(0 0 0 rgba(197,160,89,0));
+  }
+
+  35% {
+    filter:
+      drop-shadow(0 0 26px rgba(197,160,89,.48));
+  }
+
+  100% {
+    filter:
+      drop-shadow(0 16px 22px rgba(36,75,60,.10));
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .celebration-piece {
+    animation-duration: .01ms !important;
+  }
+
+}
+
+/* ==========================================================
+   SCRATCH REVEAL — BIGGER DATE MEDALLION + BIGGER CELEBRATION
+========================================================== */
+
+.scratch-section .scratch-wrap {
+  width: min(100%, 410px) !important;
+  margin-top: 38px !important;
+}
+
+
+/* Larger celebration pieces */
+
+.reveal-celebration .celebration-piece {
+  width: 11px;
+  height: 16px;
+}
+
+.reveal-celebration .celebration-piece.circle {
+  width: 10px;
+  height: 10px;
+}
+
+.reveal-celebration .celebration-piece.strip {
+  width: 6px;
+  height: 22px;
+}
+
+
+/* Make revealed date slightly more prominent */
+
+.scratch-section #reveal-date {
+  font-size: clamp(28px, 7vw, 38px) !important;
+}
+
+
+/* Mobile */
+
+@media (max-width: 640px) {
+
+  .scratch-section .scratch-wrap {
+    width: min(100%, 390px) !important;
+    max-width: calc(100vw - 32px) !important;
+
+    /* remove previous 1.06 scaling so canvas stays aligned */
+    transform: none !important;
+  }
+
+  .scratch-section #reveal-date {
+    font-size: clamp(27px, 8vw, 36px) !important;
+  }
+}
+
+
+/* ==========================================================
+   EVENT THEMED CELEBRATION BURSTS
+========================================================== */
+
+.event-celebration {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.event-confetti {
+  --event-color: #c5a059;
+  --event-x: 50vw;
+  --event-y: 50vh;
+  --event-move-x: 180px;
+  --event-rise: -180px;
+  --event-fall: 300px;
+  --event-spin: 720deg;
+  --event-delay: 0s;
+  --event-duration: 2.3s;
+
+  position: absolute;
+
+  left: var(--event-x);
+  top: var(--event-y);
+
+  width: 8px;
+  height: 13px;
+
+  background: var(--event-color);
+  opacity: 0;
+
+  animation:
+    event-party-burst
+    var(--event-duration)
+    cubic-bezier(.18,.7,.25,1)
+    var(--event-delay)
+    forwards;
+}
+
+.event-confetti.circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.event-confetti.strip {
+  width: 4px;
+  height: 17px;
+  border-radius: 999px;
+}
+
+@keyframes event-party-burst {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 0)
+      rotate(0deg)
+      scale(.3);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  48% {
+    opacity: 1;
+
+    transform:
+      translate(
+        var(--event-move-x),
+        var(--event-rise)
+      )
+      rotate(var(--event-spin))
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(var(--event-move-x) * 1.25),
+        var(--event-fall)
+      )
+      rotate(calc(var(--event-spin) * 1.5))
+      scale(.75);
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .event-confetti {
+    animation: none !important;
+  }
+}
+
+
+/* SCRATCH — BIGGER INNER DATE REVEAL BOX ONLY */
+
+.scratch-section .medallion-content {
+  width: 88% !important;
+  height: 88% !important;
+  max-width: none !important;
+  max-height: none !important;
+
+  margin: auto !important;
+  padding: 34px 26px !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Keep revealed content nicely centered */
+
+.scratch-section #reveal-date {
+  font-size: clamp(30px, 7vw, 40px) !important;
+}
+
+@media (max-width: 640px) {
+  .scratch-section .medallion-content {
+    width: 90% !important;
+    height: 90% !important;
+    padding: 30px 20px !important;
+  }
+
+  .scratch-section #reveal-date {
+    font-size: clamp(29px, 8vw, 38px) !important;
+  }
+}
