@@ -11355,3 +11355,642 @@ body.ceremony .shell {
   }
 }
 
+
+/* ==========================================================
+   WALIMA — EMERALD & CHAMPAGNE RECEPTION
+========================================================== */
+
+.event-walima {
+  --wl-green: #245443;
+  --wl-deep: #173d31;
+  --wl-gold: #c5a059;
+  --wl-champagne: #ead9b7;
+  --wl-ivory: #fcfbf8;
+}
+
+
+/* Timeline */
+
+.event-walima .walima-event-timeline {
+  position: relative;
+
+  max-width: 760px;
+  margin: 34px auto 0;
+  padding: 15px 0;
+}
+
+.event-walima .walima-event-timeline::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      var(--wl-gold),
+      var(--wl-champagne),
+      var(--wl-gold),
+      transparent
+    );
+}
+
+
+/* Rows */
+
+.event-walima .walima-row {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    68px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  min-height: 160px;
+  margin-bottom: 34px;
+}
+
+.event-walima .walima-row:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Left */
+
+.event-walima .walima-left .walima-timeline-card {
+  grid-column: 1;
+  grid-row: 1;
+
+  margin-right: 15px;
+
+  text-align: right;
+}
+
+.event-walima .walima-left .walima-time {
+  grid-column: 3;
+  grid-row: 1;
+
+  padding-left: 18px;
+
+  text-align: left;
+}
+
+
+/* Right */
+
+.event-walima .walima-right .walima-timeline-card {
+  grid-column: 3;
+  grid-row: 1;
+
+  margin-left: 15px;
+
+  text-align: left;
+}
+
+.event-walima .walima-right .walima-time {
+  grid-column: 1;
+  grid-row: 1;
+
+  padding-right: 18px;
+
+  text-align: right;
+}
+
+
+/* Normal cards */
+
+.event-walima .walima-timeline-card {
+  padding: 23px 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.98),
+      rgba(249,247,240,.95)
+    );
+
+  border:
+    1px solid rgba(197,160,89,.28);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 15px 35px -25px rgba(23,61,49,.32);
+}
+
+
+.event-walima .walima-card-script {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--wl-gold);
+
+  font-family:
+    "Italianno",
+    cursive;
+
+  font-size: 25px;
+  line-height: 1;
+}
+
+
+.event-walima .walima-card-title {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 8px;
+}
+
+.event-walima .walima-left .walima-card-title {
+  justify-content: flex-end;
+}
+
+
+.event-walima .walima-card-title svg {
+  width: 22px;
+  height: 22px;
+
+  fill: none;
+
+  stroke: var(--wl-gold);
+  stroke-width: 1.6;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+.event-walima .walima-card-title strong {
+  color: var(--wl-green);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 21px;
+  font-weight: 600;
+}
+
+
+.event-walima .walima-timeline-card p {
+  margin: 0;
+
+  color: #606862;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+
+/* ==========================================================
+   MAIN WALIMA RECEPTION CARD
+========================================================== */
+
+.event-walima .walima-main .walima-timeline-card {
+  background:
+    linear-gradient(
+      145deg,
+      #306754 0%,
+      #245443 48%,
+      #173d31 100%
+    );
+
+  border:
+    1px solid rgba(234,217,183,.58);
+
+  box-shadow:
+    0 20px 44px -17px rgba(23,61,49,.48);
+}
+
+
+.event-walima .walima-main .walima-card-script {
+  color: var(--wl-champagne);
+}
+
+.event-walima .walima-main .walima-card-title strong {
+  color: #fffdf8;
+}
+
+.event-walima .walima-main .walima-card-title svg {
+  stroke: var(--wl-champagne);
+}
+
+.event-walima .walima-main .walima-timeline-card p {
+  color: rgba(255,255,255,.82);
+}
+
+
+/* ==========================================================
+   TIMELINE MARKERS
+========================================================== */
+
+.event-walima .walima-marker {
+  position: relative;
+
+  grid-column: 2;
+  grid-row: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 3;
+}
+
+
+.event-walima .walima-marker > span {
+  width: 15px;
+  height: 15px;
+
+  background: var(--wl-ivory);
+
+  border:
+    2px solid var(--wl-gold);
+
+  transform: rotate(45deg);
+
+  box-shadow:
+    0 0 0 5px var(--wl-ivory);
+}
+
+
+.event-walima .walima-main .walima-marker > span {
+  background: var(--wl-green);
+  border-color: var(--wl-champagne);
+}
+
+
+/* ==========================================================
+   TIMES
+========================================================== */
+
+.event-walima .walima-time {
+  color: var(--wl-gold);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  line-height: 1.15;
+
+  letter-spacing: .02em;
+}
+
+
+.event-walima .walima-time > span {
+  display: block;
+
+  width: 45px;
+  height: 3px;
+
+  margin-top: 7px;
+
+  background: var(--wl-champagne);
+
+  border-radius: 10px;
+}
+
+
+.event-walima .walima-right .walima-time > span {
+  margin-left: auto;
+}
+
+
+/* ==========================================================
+   ROSE MEHAL VENUE
+========================================================== */
+
+.event-walima .walima-venue {
+  width: min(100%, 440px);
+
+  margin: 36px auto 0;
+  padding: 22px 22px 20px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.90),
+      rgba(248,244,233,.88)
+    );
+
+  border:
+    1px solid rgba(197,160,89,.34);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 15px 35px -25px rgba(23,61,49,.30);
+}
+
+
+.event-walima .walima-venue-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  margin: 0 auto 9px;
+
+  border:
+    1px solid rgba(197,160,89,.45);
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.7);
+}
+
+
+.event-walima .walima-venue-icon svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+
+  stroke: var(--wl-gold);
+  stroke-width: 1.6;
+}
+
+
+.event-walima .walima-venue > span {
+  display: block;
+
+  color: var(--wl-gold);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+
+.event-walima .walima-venue > strong {
+  display: block;
+
+  margin: 5px 0 13px;
+
+  color: var(--wl-green);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 23px;
+  font-weight: 600;
+}
+
+
+/* Location button */
+
+.event-walima .walima-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+
+  padding: 0 18px;
+
+  color: #fffdf8 !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #306754,
+      #245443
+    ) !important;
+
+  border:
+    1px solid rgba(197,160,89,.52) !important;
+
+  border-radius: 999px;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: .10em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .event-walima .walima-event-timeline {
+    margin-top: 28px;
+    padding: 4px 0 4px 20px;
+  }
+
+  .event-walima .walima-event-timeline::before {
+    left: 20px;
+    transform: none;
+  }
+
+
+  .event-walima .walima-row {
+    grid-template-columns:
+      30px minmax(0,1fr);
+
+    min-height: 0;
+
+    margin-bottom: 32px;
+
+    align-items: start;
+  }
+
+
+  .event-walima .walima-marker {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+
+    margin-top: 34px;
+  }
+
+
+  .event-walima .walima-left .walima-time,
+  .event-walima .walima-right .walima-time,
+  .event-walima .walima-time {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+
+    padding: 0 0 6px 8px !important;
+    margin: 0 !important;
+
+    text-align: left !important;
+
+    font-size: 17px !important;
+  }
+
+
+  .event-walima .walima-main .walima-time {
+    font-size: 19px !important;
+  }
+
+
+  .event-walima .walima-time > span {
+    margin-left: 0 !important;
+  }
+
+
+  .event-walima .walima-left .walima-timeline-card,
+  .event-walima .walima-right .walima-timeline-card,
+  .event-walima .walima-timeline-card {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+
+    width: auto !important;
+
+    margin: 0 0 0 8px !important;
+    padding: 17px 16px !important;
+
+    text-align: left !important;
+
+    border-radius: 14px;
+  }
+
+
+  .event-walima .walima-left .walima-card-title {
+    justify-content: flex-start;
+  }
+
+
+  .event-walima .walima-card-title strong {
+    font-size: 19px;
+  }
+
+
+  .event-walima .walima-venue {
+    width: calc(100% - 28px);
+
+    margin-top: 24px;
+    padding: 19px 16px;
+  }
+
+
+  .event-walima .walima-venue > strong {
+    font-size: 21px;
+  }
+}
+
+
+/* ==========================================================
+   BARAAT + WALIMA — BORDERLESS OUTER EVENT SECTIONS
+========================================================== */
+
+.event-baraat,
+.event-walima {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* ==========================================================
+   WALIMA — MINI VENUE MAP
+========================================================== */
+
+.event-walima .walima-mini-map {
+  width: 100%;
+  height: 175px;
+
+  margin: 15px 0 14px;
+
+  overflow: hidden;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #f3efe5;
+}
+
+.event-walima .walima-mini-map iframe {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+
+/* Keep final Walima row clean */
+.event-walima .walima-row:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (max-width: 640px) {
+
+  .event-walima .walima-mini-map {
+    height: 160px;
+    margin: 14px 0 13px;
+    border-radius: 10px;
+  }
+}
+
+
+/* FINAL — Remove Baraat & Walima outer borders only */
+.events .event.event-baraat,
+.events .event.event-walima,
+.event.event-baraat.celebration-event,
+.event.event-walima.celebration-event,
+#event-baraat,
+#event-walima {
+  border: 0 !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+#event-baraat::after,
+#event-walima::after {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+
+/* FINAL — Remove Baraat decorative inner frame */
+#event-baraat::before {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
