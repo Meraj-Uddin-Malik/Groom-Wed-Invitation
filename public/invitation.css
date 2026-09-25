@@ -14597,3 +14597,19 @@ body.invitation-closed .intro {
 body.invitation-closed .envelope {
   background: #1f3b31 !important;
 }
+
+/* Wedding Footer */
+.wedding-footer {
+  padding: 28px 20px 32px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.8;
+  letter-spacing: .08em;
+  opacity: .58;
+}
+
+.wedding-footer .developer-credit {
+  font-size: 9px;
+  letter-spacing: .06em;
+  opacity: .75;
+}
