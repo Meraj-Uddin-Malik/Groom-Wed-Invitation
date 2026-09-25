@@ -14266,3 +14266,321 @@ body.ceremony .shell {
   }
 }
 
+
+/* =========================================================
+   RECEIVING — EMERALD WEDDING CARD REDESIGN
+   ========================================================= */
+
+.receiving-section {
+  padding: 88px 20px !important;
+  color: #f8f0dc;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(213,181,112,.14), transparent 32%),
+    linear-gradient(180deg, #1d4032 0%, #142e24 100%) !important;
+}
+
+.receiving-inner {
+  width: min(100%, 420px);
+}
+
+.receiving-section::before,
+.receiving-section::after {
+  color: rgba(221,190,126,.07) !important;
+}
+
+.receiving-monogram {
+  display: flex;
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 25px;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border: 1px solid rgba(221,190,126,.45);
+  border-radius: 50%;
+  color: #dfc184;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  box-shadow: 0 0 28px rgba(205,167,94,.08);
+}
+
+.receiving-monogram i {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.receiving-kicker {
+  color: #c9a96c;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.receiving-title {
+  margin: 10px 0 18px;
+  color: #fff7e6;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(42px, 10vw, 55px);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.receiving-gold-rule {
+  display: flex;
+  width: 190px;
+  margin: 0 auto 32px;
+  align-items: center;
+  gap: 11px;
+}
+
+.receiving-gold-rule span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(218,184,116,.65));
+}
+
+.receiving-gold-rule span:last-child {
+  transform: scaleX(-1);
+}
+
+.receiving-gold-rule b {
+  color: #d6b474;
+  font-size: 8px;
+}
+
+
+/* Elders — one elegant line */
+
+.receiving-section .family-elders {
+  margin: 0 0 40px;
+  padding: 20px 8px;
+  border-top: 1px solid rgba(220,187,121,.18);
+  border-bottom: 1px solid rgba(220,187,121,.18);
+}
+
+.receiving-section .family-label {
+  margin-bottom: 11px;
+  color: rgba(224,194,135,.7);
+  font-size: 9px;
+}
+
+.receiving-section .elder-names {
+  flex-wrap: nowrap !important;
+  gap: 5px !important;
+}
+
+.receiving-section .elder-names strong {
+  color: #f7edd7;
+  font-size: clamp(14px, 4vw, 18px) !important;
+  font-weight: 500;
+}
+
+.receiving-section .elder-names i {
+  color: #cba866;
+}
+
+
+/* Receiving subheading */
+
+.receiving-section .receiving-heading {
+  margin-bottom: 17px;
+}
+
+.receiving-section .receiving-heading small {
+  display: block;
+  margin-bottom: 7px;
+  color: #b9975d;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .2em;
+}
+
+.receiving-section .receiving-heading span {
+  color: #f6ecd7;
+  font-size: 26px;
+}
+
+
+/* Directory instead of cream cards */
+
+.receiving-section .receiving-list {
+  overflow: hidden;
+  gap: 0;
+  border-top: 1px solid rgba(221,190,126,.18);
+  border-bottom: 1px solid rgba(221,190,126,.18);
+}
+
+.receiving-section .receiving-person {
+  min-height: 70px;
+  padding: 10px 5px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(221,190,126,.12) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.receiving-section .receiving-person:last-child {
+  border-bottom: 0 !important;
+}
+
+.receiver-number {
+  width: 31px;
+  flex: 0 0 31px;
+  color: rgba(210,176,108,.5);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.receiving-section .receiver-info {
+  flex: 1;
+}
+
+.receiving-section .receiver-info strong {
+  color: #f8efdc;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.receiving-section .receiver-info small {
+  color: rgba(226,205,164,.62);
+  font-size: 10px;
+}
+
+.receiving-section .receiver-call {
+  width: 38px;
+  height: 38px;
+  flex-basis: 38px;
+  border-color: rgba(216,181,111,.3);
+  color: #d7b775;
+  background: rgba(255,255,255,.025);
+}
+
+.receiver-call svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.receiving-section .receiving-person:active {
+  background: rgba(255,255,255,.035) !important;
+}
+
+.receiving-note {
+  margin: 25px 0 0;
+  color: rgba(240,224,192,.6);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-style: italic;
+}
+
+
+/* =========================================================
+   PRIVACY — REAL CAMERA PRIVACY ICON
+   ========================================================= */
+
+.privacy-icon {
+  width: 68px !important;
+  height: 68px !important;
+}
+
+.privacy-icon::before,
+.privacy-icon::after,
+.privacy-icon > span {
+  display: none !important;
+}
+
+.privacy-icon svg {
+  width: 35px;
+  height: 35px;
+  overflow: visible;
+  fill: none;
+  stroke: #917349;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.privacy-icon svg .privacy-slash {
+  stroke-width: 2;
+}
+
+.privacy-request.is-visible .privacy-icon svg {
+  animation: privacyCameraReveal .8s cubic-bezier(.22,1,.36,1) .45s both;
+}
+
+@keyframes privacyCameraReveal {
+  from {
+    opacity: 0;
+    transform: scale(.78);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Receiving new elements reveal */
+
+.receiving-section:not(.is-visible) .receiving-monogram,
+.receiving-section:not(.is-visible) .receiving-kicker,
+.receiving-section:not(.is-visible) .receiving-title,
+.receiving-section:not(.is-visible) .receiving-gold-rule,
+.receiving-section:not(.is-visible) .receiving-note {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.receiving-section.is-visible .receiving-monogram,
+.receiving-section.is-visible .receiving-kicker,
+.receiving-section.is-visible .receiving-title,
+.receiving-section.is-visible .receiving-gold-rule,
+.receiving-section.is-visible .receiving-note {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity .8s cubic-bezier(.22,1,.36,1),
+    transform .8s cubic-bezier(.22,1,.36,1);
+}
+
+.receiving-section.is-visible .receiving-monogram {
+  transition-delay: .05s;
+}
+
+.receiving-section.is-visible .receiving-kicker {
+  transition-delay: .13s;
+}
+
+.receiving-section.is-visible .receiving-title {
+  transition-delay: .21s;
+}
+
+.receiving-section.is-visible .receiving-gold-rule {
+  transition-delay: .29s;
+}
+
+.receiving-section.is-visible .receiving-note {
+  transition-delay: 1s;
+}
+
+@media (hover: hover) {
+  .receiving-section .receiving-person:hover {
+    transform: none;
+    background: rgba(255,255,255,.035) !important;
+  }
+
+  .receiving-section .receiving-person:hover .receiver-call {
+    border-color: rgba(216,181,111,.6);
+    background: rgba(216,181,111,.08);
+  }
+}
+
