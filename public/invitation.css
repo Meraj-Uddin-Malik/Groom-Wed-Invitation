@@ -14584,3 +14584,16 @@ body.ceremony .shell {
   }
 }
 
+
+/* FIRST LOAD — prevent separate dark screen before envelope paints */
+body.invitation-closed {
+  background: #1f3b31 !important;
+}
+
+body.invitation-closed .intro {
+  background: #1f3b31 !important;
+}
+
+body.invitation-closed .envelope {
+  background: #1f3b31 !important;
+}
