@@ -246,6 +246,108 @@
 
 
       <!-- ======================================
+           WALIMA RSVP
+      ======================================= -->
+      <section class="rsvp" id="rsvp" aria-labelledby="rsvp-title">
+        <div class="rsvp-inner">
+
+          <div class="rsvp-monogram" aria-hidden="true">
+            <span>M</span><i>&amp;</i><span>U</span>
+          </div>
+
+          <div class="eyebrow">Kindly Respond</div>
+
+          <h2 class="section-title" id="rsvp-title">
+            Will You Celebrate With Us?
+          </h2>
+
+          <p class="section-copy">
+            Your presence would make our Walima celebration
+            even more meaningful.
+          </p>
+
+          <div class="rsvp-divider" aria-hidden="true">
+            <span></span><b>✦</b><span></span>
+          </div>
+
+          <form class="rsvp-form" id="rsvp-form">
+
+            <div class="rsvp-choice" role="group" aria-label="Attendance">
+              <button
+                type="button"
+                class="rsvp-option"
+                data-rsvp="yes"
+              >
+                <span class="rsvp-option-icon">✓</span>
+                <strong>Yes, InshaAllah</strong>
+                <small>I'll be there</small>
+              </button>
+
+              <button
+                type="button"
+                class="rsvp-option"
+                data-rsvp="no"
+              >
+                <span class="rsvp-option-icon">×</span>
+                <strong>Unable to Attend</strong>
+                <small>With our prayers</small>
+              </button>
+            </div>
+
+            <div class="rsvp-details" id="rsvp-details" hidden>
+              <label class="rsvp-field">
+                <span>Your Name</span>
+                <input
+                  type="text"
+                  id="rsvp-name"
+                  name="name"
+                  autocomplete="name"
+                  placeholder="Enter your name"
+                />
+              </label>
+
+              <label class="rsvp-field rsvp-guests-field">
+                <span>Number of Guests</span>
+                <select id="rsvp-guests" name="guests">
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="more">More...</option>
+                </select>
+
+                <input
+                  type="number"
+                  id="rsvp-custom-guests"
+                  min="7"
+                  inputmode="numeric"
+                  placeholder="Enter number of guests"
+                  hidden
+                />
+              </label>
+
+              <button type="submit" class="rsvp-submit">
+                Confirm RSVP
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+
+          </form>
+
+          <div
+            class="rsvp-success"
+            id="rsvp-success"
+            role="status"
+            hidden
+          ></div>
+
+        </div>
+      </section>
+
+
+      <!-- ======================================
            PRIVACY REQUEST
       ======================================= -->
       <section class="privacy-request" aria-labelledby="privacy-title">

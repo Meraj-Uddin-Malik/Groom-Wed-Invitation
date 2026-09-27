@@ -494,7 +494,7 @@ function celebrationBurst() {
 
   const shapes = ["square", "circle", "strip"];
 
-  for (let i = 0; i < 150; i++) {
+  for (let i = 0; i < 36; i++) {
     const piece = document.createElement("i");
 
     const fromLeft = i % 2 === 0;
@@ -859,7 +859,8 @@ if (
       ".scratch-section .section-title," +
       ".events>.section-title," +
       ".event," +
-      ".scratch-wrap"
+      ".scratch-wrap," +
+      ".rsvp-form"
     );
 
 
@@ -1051,3 +1052,149 @@ if (
   });
 })();
 
+
+
+/* =========================================================
+   WALIMA RSVP
+========================================================= */
+
+(() => {
+  const form = document.getElementById("rsvp-form");
+  const details = document.getElementById("rsvp-details");
+  const success = document.getElementById("rsvp-success");
+  const nameInput = document.getElementById("rsvp-name");
+  const guestsField = document.querySelector(".rsvp-guests-field");
+  const guestsSelect = document.getElementById("rsvp-guests");
+  const customGuests = document.getElementById("rsvp-custom-guests");
+  const options = document.querySelectorAll(".rsvp-option");
+
+  if (
+    !form ||
+    !details ||
+    !success ||
+    !nameInput ||
+    !guestsField ||
+    !guestsSelect ||
+    !customGuests ||
+    !options.length
+  ) {
+    return;
+  }
+
+  let attendance = "";
+
+  guestsSelect.addEventListener("change", () => {
+    const isMore = guestsSelect.value === "more";
+
+    customGuests.hidden = !isMore;
+
+    if (isMore) {
+      customGuests.focus();
+    } else {
+      customGuests.value = "";
+    }
+  });
+
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      attendance = option.dataset.rsvp || "";
+
+      options.forEach((item) => {
+        item.classList.toggle("selected", item === option);
+      });
+
+      details.hidden = false;
+      success.hidden = true;
+
+      guestsField.hidden = attendance !== "yes";
+
+      setTimeout(() => {
+        nameInput.focus({
+          preventScroll: true,
+        });
+      }, 150);
+    });
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const guestName = nameInput.value.trim();
+
+    if (!attendance) {
+      return;
+    }
+
+    if (!guestName) {
+      nameInput.focus();
+      return;
+    }
+
+    let guestCount = "0";
+
+    if (attendance === "yes") {
+      guestCount =
+        guestsSelect.value === "more"
+          ? customGuests.value.trim()
+          : guestsSelect.value;
+
+      if (
+        guestsSelect.value === "more" &&
+        (!guestCount || Number(guestCount) < 7)
+      ) {
+        customGuests.focus();
+        return;
+      }
+    }
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbzzBLjMZB9yUoyETcBNm7qFVVMDlMaVWjti1sgZxy7vXWK6GbmkVedNX5ujtY9TeEpg/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify({
+          name: guestName,
+          attendance: attendance === "yes" ? "Yes" : "No",
+          guests: guestCount,
+        }),
+      }
+    ).catch((error) => {
+      console.error("RSVP save failed:", error);
+    });
+
+    if (attendance === "yes") {
+
+      success.innerHTML = `
+        <span class="rsvp-success-mark">✦</span>
+        <strong>JazakAllah, ${escapeHtml(guestName)}</strong>
+        <span>
+          We’ll be delighted to welcome
+          ${guestCount === "1" ? "you" : `you and your guests`}
+          to our Walima Reception.
+        </span>
+        <small>${guestCount} ${guestCount === "1" ? "Guest" : "Guests"} confirmed</small>
+      `;
+    } else {
+      success.innerHTML = `
+        <span class="rsvp-success-mark">❦</span>
+        <strong>Thank You, ${escapeHtml(guestName)}</strong>
+        <span>
+          We’ll miss your presence, but your prayers
+          and good wishes mean a lot to us.
+        </span>
+      `;
+    }
+
+    form.hidden = true;
+    success.hidden = false;
+  });
+
+  function escapeHtml(value) {
+    const element = document.createElement("div");
+    element.textContent = value;
+    return element.innerHTML;
+  }
+})();

@@ -1834,10 +1834,43 @@ body.ceremony
   .events,
   .rsvp {
     padding-left:
-      25px !important;
+      20px !important;
 
     padding-right:
-      25px !important;
+      20px !important;
+  }
+
+  /* Mobile-first compact story */
+  .story::before {
+    height: 32px;
+    margin: -32px auto 28px;
+  }
+
+  .story .section-copy {
+    max-width: 330px;
+    line-height: 1.65;
+  }
+
+  .story #countdown-label {
+    padding-top: 8px;
+  }
+
+  .story .countdown {
+    gap: 6px;
+    margin-top: 20px;
+  }
+
+  .story .countdown div {
+    padding: 9px 3px;
+  }
+
+  .story .countdown strong {
+    font-size: 31px;
+  }
+
+  .story .countdown small {
+    font-size: 9px;
+    letter-spacing: .09em;
   }
 
   .event {
@@ -7487,7 +7520,7 @@ body.ceremony .shell {
       0 0 0 8px !important;
 
     padding:
-      17px 16px !important;
+      13px 14px !important;
 
     text-align:
       left !important;
@@ -7844,10 +7877,10 @@ body.ceremony .shell {
       calc(100% - 18px) !important;
 
     margin:
-      40px auto 0 !important;
+      24px auto 0 !important;
 
     padding:
-      24px 14px 16px !important;
+      18px 14px 14px !important;
 
     border-radius:
       17px !important;
@@ -7855,10 +7888,10 @@ body.ceremony .shell {
 
   .event-nikkah .nikkah-venue > strong {
     margin-bottom:
-      16px !important;
+      12px !important;
 
     font-size:
-      22px;
+      21px;
   }
 
   .event-nikkah .nikkah-mini-map {
@@ -7866,10 +7899,10 @@ body.ceremony .shell {
       calc(100% - 12px) !important;
 
     height:
-      135px !important;
+      120px !important;
 
     margin:
-      0 6px 13px !important;
+      0 6px 10px !important;
 
     border-radius:
       11px !important;
@@ -9189,7 +9222,7 @@ body.ceremony .shell {
       calc(100% - 6px);
 
     margin:
-      27px auto 31px;
+      20px auto 22px;
 
     padding-left:
       0;
@@ -9213,7 +9246,7 @@ body.ceremony .shell {
       auto;
 
     margin-bottom:
-      14px;
+      10px;
   }
 
   .mehndi-row:last-child {
@@ -9272,7 +9305,7 @@ body.ceremony .shell {
 
   .mehndi-timeline-card {
     padding:
-      16px 15px;
+      13px 14px;
 
     border-radius:
       14px;
@@ -9558,7 +9591,7 @@ body.ceremony .shell {
 
   .event-mehndi .mehndi-venue-card {
     padding:
-      24px 14px 16px !important;
+      18px 14px 14px !important;
 
     border-radius:
       17px !important;
@@ -9581,10 +9614,10 @@ body.ceremony .shell {
   .mehndi-venue-card
   > strong {
     margin-bottom:
-      16px !important;
+      12px !important;
 
     font-size:
-      23px !important;
+      21px !important;
   }
 
   .event-mehndi .mehndi-mini-map {
@@ -10090,7 +10123,7 @@ body.ceremony .shell {
     width: auto !important;
 
     margin: 0 0 0 8px !important;
-    padding: 17px 16px !important;
+    padding: 13px 14px !important;
 
     text-align: left !important;
 
@@ -11278,8 +11311,8 @@ body.ceremony .shell {
 @media (max-width: 640px) {
 
   .event-baraat .baraat-event-timeline {
-    margin-top: 28px;
-    padding: 4px 0 4px 20px;
+    margin-top: 20px;
+    padding: 2px 0 2px 20px;
   }
 
   .event-baraat .baraat-event-timeline::before {
@@ -11291,7 +11324,7 @@ body.ceremony .shell {
     grid-template-columns: 30px minmax(0,1fr);
 
     min-height: 0;
-    margin-bottom: 32px;
+    margin-bottom: 22px;
 
     align-items: start;
   }
@@ -11334,7 +11367,7 @@ body.ceremony .shell {
     width: auto !important;
 
     margin: 0 0 0 8px !important;
-    padding: 17px 16px !important;
+    padding: 13px 14px !important;
 
     text-align: left !important;
 
@@ -11350,8 +11383,8 @@ body.ceremony .shell {
   }
 
   .event-baraat .baraat-starting-point {
-    width: calc(100% - 28px);
-    margin-top: 22px;
+    width: calc(100% - 20px);
+    margin-top: 16px;
   }
 }
 
@@ -11813,8 +11846,8 @@ body.ceremony .shell {
 @media (max-width: 640px) {
 
   .event-walima .walima-event-timeline {
-    margin-top: 28px;
-    padding: 4px 0 4px 20px;
+    margin-top: 20px;
+    padding: 2px 0 2px 20px;
   }
 
   .event-walima .walima-event-timeline::before {
@@ -11829,7 +11862,7 @@ body.ceremony .shell {
 
     min-height: 0;
 
-    margin-bottom: 32px;
+    margin-bottom: 22px;
 
     align-items: start;
   }
@@ -11896,10 +11929,10 @@ body.ceremony .shell {
 
 
   .event-walima .walima-venue {
-    width: calc(100% - 28px);
+    width: calc(100% - 20px);
 
-    margin-top: 24px;
-    padding: 19px 16px;
+    margin-top: 18px;
+    padding: 15px 14px;
   }
 
 
@@ -12488,8 +12521,8 @@ body.ceremony .shell {
     margin: 30px auto !important;
 
     padding:
-      42px 18px
-      48px !important;
+      30px 18px
+      34px !important;
 
     border: 1px solid #c7b48a !important;
     border-radius: 22px !important;
@@ -12636,7 +12669,7 @@ body.ceremony .shell {
 @media (max-width: 640px) {
 
   .scratch-section .scratch-wrap {
-    margin-top: 34px !important;
+    margin-top: 20px !important;
 
     transform:
       scale(1.06);
@@ -12701,7 +12734,16 @@ body.ceremony .shell {
 
 @media (max-width: 640px) {
   .scratch-section > .section-title {
-    font-size: 56px !important;
+    margin: 10px 0 12px !important;
+    font-size: 46px !important;
+    line-height: 1 !important;
+  }
+
+  .scratch-section > .section-copy {
+    max-width: 320px !important;
+    margin-bottom: 18px !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
   }
 }
 
@@ -13198,7 +13240,7 @@ body.ceremony .shell {
 }
 
 .closing-flourish {
-  margin-bottom: 31px;
+  margin-bottom: 22px;
   color: #d0af70;
   font-family: "Cormorant Garamond", serif;
   font-size: 30px;
@@ -13206,7 +13248,7 @@ body.ceremony .shell {
 }
 
 .closing-title {
-  margin: 17px 0 25px;
+  margin: 13px 0 20px;
   font-family: "Cormorant Garamond", serif;
   font-weight: 400;
   line-height: 0.98;
@@ -13233,7 +13275,7 @@ body.ceremony .shell {
 }
 
 .closing-divider {
-  margin-bottom: 31px;
+  margin-bottom: 23px;
 }
 
 .closing-divider span {
@@ -13245,7 +13287,7 @@ body.ceremony .shell {
 }
 
 .closing-prayer {
-  margin: 0 auto 37px;
+  margin: 0 auto 27px;
   color: rgba(247, 240, 222, 0.78);
   font-family: "Cormorant Garamond", serif;
   font-size: 18px;
@@ -13271,7 +13313,7 @@ body.ceremony .shell {
   display: flex;
   width: 82px;
   height: 82px;
-  margin: 29px auto;
+  margin: 23px auto;
   align-items: center;
   justify-content: center;
   gap: 4px;
@@ -13298,7 +13340,7 @@ body.ceremony .shell {
 }
 
 .closing-flourish-bottom {
-  margin: 31px 0 0;
+  margin: 23px 0 0;
   font-size: 22px;
 }
 
@@ -13330,17 +13372,55 @@ body.ceremony .shell {
 
 @media (max-width: 640px) {
   .privacy-request {
-    padding: 76px 22px;
+    padding: 58px 20px;
   }
 
   .final-closing {
-    min-height: 650px;
-    padding: 88px 22px 80px;
+    min-height: 0;
+    padding: 68px 20px 62px;
   }
 
   .privacy-request .section-copy {
-    font-size: 15.5px;
-    line-height: 1.75;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .privacy-request .privacy-ornament {
+    margin-bottom: 18px;
+  }
+
+  .privacy-request .privacy-icon {
+    width: 60px !important;
+    height: 60px !important;
+    margin-bottom: 20px;
+  }
+
+  .privacy-request .privacy-icon svg {
+    width: 31px;
+    height: 31px;
+  }
+
+  .privacy-request .section-title {
+    margin-bottom: 15px;
+  }
+
+  .privacy-request .privacy-divider {
+    margin-bottom: 20px;
+  }
+
+  .privacy-request .section-copy strong {
+    margin-top: 6px;
+    font-size: 18px;
+  }
+
+  .privacy-request .privacy-note {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .privacy-request .privacy-ornament-bottom {
+    margin-top: 22px;
   }
 
   .closing-prayer {
@@ -14272,7 +14352,7 @@ body.ceremony .shell {
    ========================================================= */
 
 .receiving-section {
-  padding: 88px 20px !important;
+  padding: 62px 20px !important;
   color: #f8f0dc;
   background:
     radial-gradient(circle at 50% 0%, rgba(213,181,112,.14), transparent 32%),
@@ -14292,7 +14372,7 @@ body.ceremony .shell {
   display: flex;
   width: 62px;
   height: 62px;
-  margin: 0 auto 25px;
+  margin: 0 auto 18px;
   align-items: center;
   justify-content: center;
   gap: 3px;
@@ -14318,7 +14398,7 @@ body.ceremony .shell {
 }
 
 .receiving-title {
-  margin: 10px 0 18px;
+  margin: 8px 0 14px;
   color: #fff7e6;
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(42px, 10vw, 55px);
@@ -14330,7 +14410,7 @@ body.ceremony .shell {
 .receiving-gold-rule {
   display: flex;
   width: 190px;
-  margin: 0 auto 32px;
+  margin: 0 auto 24px;
   align-items: center;
   gap: 11px;
 }
@@ -14354,8 +14434,8 @@ body.ceremony .shell {
 /* Elders — one elegant line */
 
 .receiving-section .family-elders {
-  margin: 0 0 40px;
-  padding: 20px 8px;
+  margin: 0 0 28px;
+  padding: 16px 6px;
   border-top: 1px solid rgba(220,187,121,.18);
   border-bottom: 1px solid rgba(220,187,121,.18);
 }
@@ -14385,7 +14465,7 @@ body.ceremony .shell {
 /* Receiving subheading */
 
 .receiving-section .receiving-heading {
-  margin-bottom: 17px;
+  margin-bottom: 13px;
 }
 
 .receiving-section .receiving-heading small {
@@ -14413,8 +14493,8 @@ body.ceremony .shell {
 }
 
 .receiving-section .receiving-person {
-  min-height: 70px;
-  padding: 10px 5px !important;
+  min-height: 58px;
+  padding: 8px 5px !important;
   border: 0 !important;
   border-bottom: 1px solid rgba(221,190,126,.12) !important;
   border-radius: 0 !important;
@@ -14474,7 +14554,7 @@ body.ceremony .shell {
 }
 
 .receiving-note {
-  margin: 25px 0 0;
+  margin: 18px 0 0;
   color: rgba(240,224,192,.6);
   font-family: "Cormorant Garamond", serif;
   font-size: 15px;
@@ -14613,3 +14693,448 @@ body.invitation-closed .envelope {
   letter-spacing: .06em;
   opacity: .75;
 }
+
+/* =========================================================
+   WALIMA RSVP — PREMIUM
+========================================================= */
+
+.rsvp {
+  position: relative;
+  padding: 100px 20px;
+  overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(202, 187, 153, .12), transparent 34%),
+    linear-gradient(180deg, #10251d 0%, #183529 50%, #10251d 100%);
+}
+
+.rsvp-inner {
+  position: relative;
+  width: min(100%, 430px);
+  margin: 0 auto;
+}
+
+.rsvp-monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: #cabb99;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  letter-spacing: .08em;
+}
+
+.rsvp-monogram span {
+  font-size: 23px;
+}
+
+.rsvp-monogram i {
+  opacity: .7;
+  font-size: 13px;
+}
+
+.rsvp .section-title {
+  max-width: 390px;
+  margin: 12px auto 18px;
+  color: #f5efe3;
+  font-size: clamp(42px, 11vw, 58px);
+  line-height: .98;
+}
+
+.rsvp .section-copy {
+  max-width: 340px;
+  margin: 0 auto;
+  color: rgba(245, 239, 227, .72);
+  line-height: 1.75;
+}
+
+.rsvp-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: min(240px, 70%);
+  margin: 28px auto 32px;
+}
+
+.rsvp-divider span {
+  width: 70px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(202, 187, 153, .6)
+  );
+}
+
+.rsvp-divider span:last-child {
+  transform: rotate(180deg);
+}
+
+.rsvp-divider b {
+  color: #cabb99;
+  font-size: 10px;
+}
+
+.rsvp-form {
+  padding: 0;
+}
+
+.rsvp-choice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.rsvp-option {
+  appearance: none;
+  min-height: 145px;
+  padding: 22px 12px;
+  border: 1px solid rgba(202, 187, 153, .25);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .045);
+  color: #f5efe3;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+.rsvp-option:active {
+  transform: scale(.97);
+}
+
+.rsvp-option.selected {
+  border-color: rgba(202, 187, 153, .85);
+  background: rgba(202, 187, 153, .11);
+  box-shadow:
+    0 0 0 1px rgba(202, 187, 153, .08),
+    0 15px 40px rgba(0, 0, 0, .18);
+}
+
+.rsvp-option-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin: 0 auto 15px;
+  border: 1px solid rgba(202, 187, 153, .5);
+  border-radius: 50%;
+  color: #cabb99;
+  font-size: 20px;
+}
+
+.rsvp-option strong,
+.rsvp-option small {
+  display: block;
+}
+
+.rsvp-option strong {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.rsvp-option small {
+  margin-top: 7px;
+  color: rgba(245, 239, 227, .55);
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+
+.rsvp-details {
+  margin-top: 20px;
+  padding: 25px 20px;
+  border: 1px solid rgba(202, 187, 153, .18);
+  border-radius: 22px;
+  background: rgba(7, 20, 15, .28);
+  text-align: left;
+  animation: rsvpDetailsIn .45s ease both;
+}
+
+.rsvp-details[hidden],
+.rsvp-success[hidden] {
+  display: none !important;
+}
+
+.rsvp-field {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.rsvp-field > span {
+  display: block;
+  margin: 0 0 8px 3px;
+  color: #cabb99;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.rsvp-field input,
+.rsvp-field select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 15px;
+  border: 1px solid rgba(202, 187, 153, .25);
+  border-radius: 13px;
+  outline: none;
+  background: rgba(255, 255, 255, .055);
+  color: #f5efe3;
+  font: inherit;
+  font-size: 14px;
+}
+
+.rsvp-field input::placeholder {
+  color: rgba(245, 239, 227, .38);
+}
+
+#rsvp-custom-guests {
+  margin-top: 10px;
+  animation: rsvpCustomGuestsIn .3s ease both;
+}
+
+#rsvp-custom-guests[hidden] {
+  display: none !important;
+}
+
+@keyframes rsvpCustomGuestsIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rsvp-field input:focus,
+.rsvp-field select:focus {
+  border-color: #cabb99;
+  box-shadow: 0 0 0 3px rgba(202, 187, 153, .08);
+}
+
+.rsvp-field select option {
+  color: #152a21;
+  background: #f5efe3;
+}
+
+.rsvp-submit {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 4px;
+  border: 1px solid #cabb99;
+  border-radius: 999px;
+  background: #cabb99;
+  color: #152a21;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.rsvp-submit span {
+  margin-left: 8px;
+}
+
+.rsvp-success {
+  margin-top: 20px;
+  padding: 34px 24px;
+  border: 1px solid rgba(202, 187, 153, .32);
+  border-radius: 24px;
+  background: rgba(202, 187, 153, .08);
+  color: #f5efe3;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  line-height: 1.55;
+  animation: rsvpDetailsIn .55s ease both;
+}
+
+@keyframes rsvpDetailsIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .rsvp {
+    padding: 82px 18px;
+  }
+
+  .rsvp-choice {
+    gap: 10px;
+  }
+
+  .rsvp-option {
+    min-height: 135px;
+    padding: 20px 9px;
+  }
+
+  .rsvp-option strong {
+    font-size: 16px;
+  }
+}
+
+
+/* RSVP confirmation */
+
+.rsvp-success-mark,
+.rsvp-success strong,
+.rsvp-success span,
+.rsvp-success small {
+  display: block;
+}
+
+.rsvp-success-mark {
+  margin-bottom: 15px;
+  color: #cabb99;
+  font-size: 22px;
+}
+
+.rsvp-success strong {
+  margin-bottom: 12px;
+  color: #f5efe3;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.rsvp-success > span:not(.rsvp-success-mark) {
+  color: rgba(245, 239, 227, .72);
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.rsvp-success small {
+  margin-top: 18px;
+  color: #cabb99;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.rsvp-guests-field[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================================
+   MOBILE TYPOGRAPHY — FINAL BALANCE
+   ========================================================= */
+@media (max-width: 640px) {
+
+  /* Story */
+  .story .section-title {
+    font-size: 42px !important;
+    line-height: 1.02 !important;
+  }
+
+  .story .section-copy {
+    max-width: 315px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+  }
+
+  /* Scratch */
+  .scratch-section > .section-title {
+    font-size: 40px !important;
+    line-height: 1.02 !important;
+  }
+
+  .scratch-section > .section-copy {
+    max-width: 310px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+  }
+
+  /* RSVP */
+  .rsvp .section-title {
+    max-width: 340px;
+    font-size: 40px !important;
+    line-height: 1.02 !important;
+  }
+
+  .rsvp .section-copy {
+    max-width: 310px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  /* Privacy */
+  .privacy-request .section-title {
+    font-size: 40px !important;
+    line-height: 1.02 !important;
+  }
+
+  .privacy-request .section-copy {
+    max-width: 315px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+  }
+
+  .privacy-request .section-copy strong {
+    font-size: 17px;
+    line-height: 1.45;
+  }
+
+  /* Family / Receiving */
+  .receiving-title {
+    font-size: 40px !important;
+    line-height: 1.02;
+  }
+
+  .receiving-section .receiving-heading span {
+    font-size: 23px;
+    line-height: 1.15;
+  }
+
+  /* Closing */
+  .closing-title span {
+    font-size: 38px !important;
+    line-height: 1.02;
+  }
+
+  .closing-title strong {
+    font-size: 27px !important;
+    line-height: 1.08;
+  }
+
+  .closing-prayer {
+    max-width: 310px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .closing-couple {
+    font-size: 46px !important;
+  }
+}
+
