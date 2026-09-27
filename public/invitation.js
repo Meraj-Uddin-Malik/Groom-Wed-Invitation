@@ -67,7 +67,7 @@ function shower() {
   if (reduced) return;
 
   /* soft petals */
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 18; i++) {
     const petal = document.createElement("i");
 
     petal.className = "petal";
@@ -106,7 +106,7 @@ function shower() {
   }
 
   /* glowing stars */
-  for (let i = 0; i < 28; i++) {
+  for (let i = 0; i < 10; i++) {
     const star = document.createElement("span");
 
     star.className = "celebration-star";
@@ -137,7 +137,7 @@ function shower() {
   }
 
   /* real-style white blossom rain */
-  for (let i = 0; i < 18; i++) {
+  for (let i = 0; i < 6; i++) {
     const bloom = document.createElement("span");
 
     bloom.className = "white-bloom";
@@ -211,7 +211,7 @@ document.getElementById("open").onclick = () => {
           [
             {
               opacity: 0,
-              translate: "100px 0"
+              translate: "35px 0"
             },
             {
               opacity: 1,
@@ -219,8 +219,8 @@ document.getElementById("open").onclick = () => {
             }
           ],
           {
-            duration: 1600,
-            delay: index * 450,
+            duration: 750,
+            delay: index * 120,
             easing: "cubic-bezier(.22,.8,.3,1)",
             fill: "both"
           }
@@ -776,7 +776,7 @@ function eventCelebrationBurst(event) {
 
   const shapes = ["square", "circle", "strip"];
 
-  for (let i = 0; i < 72; i++) {
+  for (let i = 0; i < 28; i++) {
     const piece = document.createElement("i");
     const fromLeft = i % 2 === 0;
 
@@ -839,7 +839,7 @@ function eventCelebrationBurst(event) {
 
   setTimeout(() => {
     layer.remove();
-  }, 3400);
+  }, 2600);
 }
 
 /* =========================================================
@@ -895,7 +895,7 @@ if (
                   [
                     {
                       opacity: 0,
-                      translate: "100px 0"
+                      translate: "35px 0"
                     },
                     {
                       opacity: 1,
@@ -903,8 +903,8 @@ if (
                     }
                   ],
                   {
-                    duration: 1600,
-                    delay: index * 450,
+                    duration: 750,
+                    delay: index * 120,
                     easing: "cubic-bezier(.22,.8,.3,1)",
                     fill: "both"
                   }
@@ -938,7 +938,7 @@ if (
                   [
                     {
                       opacity: 0,
-                      translate: "-100px 0"
+                      translate: "-30px 0"
                     },
                     {
                       opacity: 1,
@@ -946,8 +946,8 @@ if (
                     }
                   ],
                   {
-                    duration: 1400,
-                    delay: index * 220,
+                    duration: 700,
+                    delay: index * 90,
                     easing: "cubic-bezier(.22,.8,.3,1)",
                     fill: "both"
                   }
@@ -969,7 +969,7 @@ if (
                   [
                     {
                       opacity: 0,
-                      translate: "100px 0"
+                      translate: "35px 0"
                     },
                     {
                       opacity: 1,
@@ -977,8 +977,8 @@ if (
                     }
                   ],
                   {
-                    duration: 1600,
-                    delay: index * 450,
+                    duration: 750,
+                    delay: index * 120,
                     easing: "cubic-bezier(.22,.8,.3,1)",
                     fill: "both"
                   }

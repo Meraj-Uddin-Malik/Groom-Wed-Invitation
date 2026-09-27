@@ -15138,3 +15138,41 @@ body.invitation-closed .envelope {
   }
 }
 
+
+/* =========================================================
+   MOBILE PERFORMANCE — CONTINUOUS EFFECTS
+   Keep premium motion, reduce expensive repaints
+   ========================================================= */
+@media (max-width: 640px) {
+
+  /* Box-shadow animation causes continuous repaints */
+  .privacy-request.is-visible .privacy-icon {
+    animation: none !important;
+  }
+
+  /* Large glowing layer is expensive on mobile */
+  .final-closing.is-visible .closing-glow {
+    animation: none !important;
+    opacity: .72;
+    transform: translateX(-50%) scale(1);
+  }
+
+  /* Animated border repaint is unnecessary */
+  .receiving-section.is-visible .family-elders {
+    animation: none !important;
+  }
+
+  /* Keep the lightweight premium effects */
+  .final-closing.is-visible .closing-couple {
+    animation-duration: 6s;
+  }
+
+  .final-closing.is-visible .closing-monogram::after {
+    animation-duration: 16s;
+  }
+
+  .final-closing.is-visible .closing-monogram {
+    animation-duration: 6s;
+  }
+}
+
