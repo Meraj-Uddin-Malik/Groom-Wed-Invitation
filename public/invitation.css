@@ -17383,3 +17383,211 @@ body.invitation-closed .envelope {
     font-size: 12px !important;
   }
 }
+
+
+/* =========================================================
+   MOBILE UX — FINAL READABILITY / LENGTH / TAP TARGETS
+========================================================= */
+
+/* Walima quick information near the opening */
+.walima-quick-summary {
+  width: min(92%, 390px) !important;
+  margin: 18px auto 12px !important;
+  padding: 14px 14px 13px !important;
+  text-align: center !important;
+  border-top: 1px solid rgba(164, 125, 50, .35) !important;
+  border-bottom: 1px solid rgba(164, 125, 50, .35) !important;
+}
+
+.walima-quick-date {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  letter-spacing: .02em !important;
+}
+
+.walima-quick-date span {
+  margin: 0 5px !important;
+  color: #a47d32 !important;
+}
+
+.walima-quick-venue {
+  display: block !important;
+  margin-top: 3px !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+}
+
+.walima-quick-actions {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-top: 10px !important;
+}
+
+.walima-quick-btn {
+  min-height: 44px !important;
+  padding: 0 15px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid #b8944f !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: .05em !important;
+}
+
+
+/* All existing event/location CTAs easier to tap */
+.event a[href*="maps"],
+.event a[href*="google"],
+.event a[href*="goo.gl"],
+.event a[href*="share.google"],
+.event .location-button,
+.event .location-btn,
+.event .map-button,
+.event .map-btn {
+  min-height: 48px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 640px) {
+
+  /* Timeline descriptions — readable on 360 / 390 */
+  .event-nikkah .nikkah-timeline-card p,
+  .event-mehndi .mehndi-timeline-card p,
+  .event-baraat .baraat-timeline-card p,
+  .event-walima .walima-timeline-card p,
+  .event-nikkah .nikkah-card-copy,
+  .event-mehndi .mehndi-card-copy,
+  .event-baraat .baraat-card-copy,
+  .event-walima .walima-card-copy {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Gold labels slightly clearer */
+  .event-nikkah .nikkah-timeline-card > span,
+  .event-mehndi .mehndi-timeline-card > span,
+  .event-baraat .baraat-timeline-card > span,
+  .event-walima .walima-timeline-card > span {
+    opacity: 1 !important;
+  }
+
+
+  /* Reduce excessive page length without squeezing content */
+  .scratch-section,
+  .event-nikkah,
+  .event-mehndi,
+  .event-baraat,
+  .event-walima {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+
+  .event-nikkah .nikkah-header,
+  .event-mehndi .celebration-header,
+  .event-baraat .celebration-header,
+  .event-walima .celebration-header {
+    margin-bottom: 13px !important;
+  }
+
+  .event-nikkah .nikkah-timeline,
+  .event-mehndi .mehndi-timeline,
+  .event-baraat .baraat-timeline,
+  .event-walima .walima-timeline {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+
+  /* Quick Walima information */
+  .walima-quick-summary {
+    width: calc(100% - 36px) !important;
+    margin: 14px auto 10px !important;
+    padding: 11px 8px 10px !important;
+  }
+
+  .walima-quick-date {
+    font-size: 13px !important;
+  }
+
+  .walima-quick-venue {
+    font-size: 15px !important;
+  }
+
+  .walima-quick-btn {
+    min-height: 46px !important;
+    padding: 0 14px !important;
+    font-size: 11px !important;
+  }
+
+
+  /* Floating music control — small icon only */
+  .music-toggle,
+  .music-control,
+  .music-button,
+  #music-toggle,
+  #music-control,
+  #music-button {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    max-width: 38px !important;
+    padding: 0 !important;
+
+    position: fixed !important;
+    right: 10px !important;
+    bottom: 10px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+    overflow: hidden !important;
+
+    font-size: 0 !important;
+    line-height: 0 !important;
+
+    z-index: 1000 !important;
+  }
+
+  .music-toggle svg,
+  .music-control svg,
+  .music-button svg,
+  #music-toggle svg,
+  #music-control svg,
+  #music-button svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+
+  /* Existing map/location buttons */
+  .event a[href*="maps"],
+  .event a[href*="google"],
+  .event a[href*="goo.gl"],
+  .event a[href*="share.google"],
+  .event .location-button,
+  .event .location-btn,
+  .event .map-button,
+  .event .map-btn {
+    min-height: 48px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
