@@ -18053,3 +18053,159 @@ body.invitation-closed .envelope {
   outline-offset: 2px;
 }
 
+
+/* =========================================================
+   RESTORE PREMIUM EVENT TIMELINES
+   Keep tabs, restore original event-card UI
+========================================================= */
+
+@media (max-width: 640px) {
+
+  /* Restore original event spacing */
+  .events.events-tabs-ready > .event.event-tab-active {
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+  }
+
+  /* Restore timeline containers */
+  .event-tab-active .nikkah-timeline,
+  .event-tab-active .mehndi-event-timeline,
+  .event-tab-active .baraat-event-timeline,
+  .event-tab-active .walima-event-timeline {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 14px auto !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  /* Restore original timeline rows */
+  .event-tab-active .nikkah-row,
+  .event-tab-active .mehndi-row,
+  .event-tab-active .baraat-row,
+  .event-tab-active .walima-row {
+    width: 100% !important;
+    min-height: initial !important;
+
+    margin: initial !important;
+    padding: initial !important;
+
+    display: grid !important;
+
+    border-bottom: 0 !important;
+  }
+
+  /* Restore markers */
+  .event-tab-active .nikkah-marker,
+  .event-tab-active .mehndi-marker,
+  .event-tab-active .baraat-marker,
+  .event-tab-active .walima-marker {
+    display: flex !important;
+  }
+
+  /* Restore decorative labels */
+  .event-tab-active .nikkah-card-script,
+  .event-tab-active .mehndi-timeline-card > span,
+  .event-tab-active .baraat-card-script,
+  .event-tab-active .walima-card-script {
+    display: block !important;
+  }
+
+  /* Restore card icons */
+  .event-tab-active .nikkah-card-title svg,
+  .event-tab-active .baraat-card-title svg,
+  .event-tab-active .walima-card-title svg {
+    display: block !important;
+  }
+
+  /* Restore descriptions — readable 14px */
+  .event-tab-active .nikkah-card p,
+  .event-tab-active .mehndi-timeline-card p,
+  .event-tab-active .baraat-timeline-card p,
+  .event-tab-active .walima-timeline-card p {
+    display: block !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Restore premium cards */
+  .event-tab-active .nikkah-card,
+  .event-tab-active .mehndi-timeline-card,
+  .event-tab-active .baraat-timeline-card,
+  .event-tab-active .walima-timeline-card {
+    position: relative !important;
+
+    width: initial !important;
+    max-width: initial !important;
+    min-height: initial !important;
+
+    margin: initial !important;
+    padding: initial !important;
+
+    transform: none !important;
+
+    background: initial !important;
+    border: initial !important;
+    border-radius: initial !important;
+    box-shadow: initial !important;
+
+    text-align: initial !important;
+
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* Restore card title layout */
+  .event-tab-active .nikkah-card-title,
+  .event-tab-active .baraat-card-title,
+  .event-tab-active .walima-card-title {
+    display: flex !important;
+    text-align: initial !important;
+  }
+
+  .event-tab-active .nikkah-card-title strong,
+  .event-tab-active .mehndi-timeline-card > strong,
+  .event-tab-active .baraat-card-title strong,
+  .event-tab-active .walima-card-title strong {
+    display: initial !important;
+
+    font-size: initial !important;
+    font-weight: initial !important;
+    line-height: initial !important;
+
+    color: initial !important;
+    text-align: initial !important;
+  }
+
+  /* Restore time positions/design */
+  .event-tab-active .nikkah-time,
+  .event-tab-active .mehndi-time,
+  .event-tab-active .baraat-time,
+  .event-tab-active .walima-time {
+    position: initial !important;
+
+    width: initial !important;
+    margin: initial !important;
+    padding: initial !important;
+
+    grid-column: auto !important;
+    grid-row: auto !important;
+
+    text-align: initial !important;
+
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: 21px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+
+    color: initial !important;
+  }
+
+  .event-tab-active .nikkah-time span,
+  .event-tab-active .mehndi-time span,
+  .event-tab-active .baraat-time span,
+  .event-tab-active .walima-time span {
+    display: initial !important;
+  }
+}
+
