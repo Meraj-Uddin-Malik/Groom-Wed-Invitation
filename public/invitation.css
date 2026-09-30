@@ -17212,3 +17212,77 @@ body.invitation-closed .envelope {
     padding-bottom: 32px !important;
   }
 }
+
+/* =========================================================
+   MAIN INVITATION — BALANCED COMPACT SPACING
+   Scratch + Nikkah + Mehndi + Baraat + Walima
+========================================================= */
+
+/* Scratch / Date Reveal */
+.scratch-section {
+  min-height: 0 !important;
+  height: auto !important;
+  padding-top: 42px !important;
+  padding-bottom: 42px !important;
+}
+
+/* All four event sections */
+.event-nikkah,
+.event-mehndi,
+.event-baraat,
+.event-walima {
+  min-height: 0 !important;
+  height: auto !important;
+  padding-top: 42px !important;
+  padding-bottom: 42px !important;
+}
+
+/* Reduce excessive heading space without changing typography */
+.event-nikkah .nikkah-header,
+.event-mehndi .celebration-header,
+.event-baraat .celebration-header,
+.event-walima .celebration-header {
+  margin-top: 0 !important;
+  margin-bottom: 22px !important;
+}
+
+/* Keep timeline content comfortably spaced */
+.event-nikkah .nikkah-timeline,
+.event-mehndi .mehndi-timeline,
+.event-baraat .baraat-timeline,
+.event-walima .walima-timeline {
+  margin-top: 18px !important;
+  margin-bottom: 18px !important;
+}
+
+
+/* MOBILE */
+@media (max-width: 640px) {
+
+  .scratch-section,
+  .event-nikkah,
+  .event-mehndi,
+  .event-baraat,
+  .event-walima {
+    min-height: 0 !important;
+    height: auto !important;
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .event-nikkah .nikkah-header,
+  .event-mehndi .celebration-header,
+  .event-baraat .celebration-header,
+  .event-walima .celebration-header {
+    margin-bottom: 17px !important;
+  }
+
+  .event-nikkah .nikkah-timeline,
+  .event-mehndi .mehndi-timeline,
+  .event-baraat .baraat-timeline,
+  .event-walima .walima-timeline {
+    margin-top: 14px !important;
+    margin-bottom: 14px !important;
+  }
+}
+
