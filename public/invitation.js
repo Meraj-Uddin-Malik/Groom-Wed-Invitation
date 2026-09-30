@@ -188,6 +188,9 @@ document.getElementById("open").onclick = () => {
   music.hidden = false;
   startMusic();
 
+  /* Start 2-minute fireworks when seal is opened */
+  startWeddingFireworks();
+
   /* 1. Move the wax seal */
   intro.classList.add("seal-moving");
 
@@ -481,67 +484,95 @@ function celebrationBurst() {
   celebrationPlayed = true;
 
   const layer = document.createElement("div");
-  layer.className = "reveal-celebration";
+  layer.className = "flower-blast-layer";
   layer.setAttribute("aria-hidden", "true");
 
-  const colors = [
-    "#c5a059",
-    "#e8d3a2",
-    "#244b3c",
-    "#ffffff",
-    "#b89968"
+  const flowerAssets = [
+    "/flowers/petal-red-1.png",
+    "/flowers/petal-blush-1.png",
+    "/flowers/petal-ivory-1.png",
+    "/flowers/petal-red-2.png",
+    "/flowers/petal-blush-2.png",
+    "/flowers/petal-gold.png",
+    "/flowers/petal-red-small.png",
+    "/flowers/petal-blush-small.png",
+    "/flowers/petal-ivory-small.png"
   ];
 
-  const shapes = ["square", "circle", "strip"];
+  const fullFlowers = [
+    "/flowers/rose-red.png",
+    "/flowers/rose-blush.png",
+    "/flowers/rose-ivory.png",
+    "/flowers/flower-blush.png",
+    "/flowers/flower-ivory.png"
+  ];
 
-  for (let i = 0; i < 36; i++) {
-    const piece = document.createElement("i");
+  /*
+    Mostly loose petals.
+    Only a few complete flowers so it doesn't look artificial.
+  */
+  const totalPieces = window.innerWidth < 600 ? 52 : 68;
 
-    const fromLeft = i % 2 === 0;
-    const angle =
-      fromLeft
-        ? 20 + Math.random() * 55
-        : 105 + Math.random() * 55;
+  for (let i = 0; i < totalPieces; i++) {
+    const piece = document.createElement("img");
 
-    const distance = 220 + Math.random() * 430;
+    const useFlower = Math.random() < 0.14;
 
-    piece.className =
-      "celebration-piece " +
-      shapes[Math.floor(Math.random() * shapes.length)];
+    const source = useFlower
+      ? fullFlowers[Math.floor(Math.random() * fullFlowers.length)]
+      : flowerAssets[Math.floor(Math.random() * flowerAssets.length)];
 
+    piece.src = source;
+    piece.alt = "";
+    piece.className = useFlower
+      ? "flower-blast-piece full-flower"
+      : "flower-blast-piece petal-piece";
+
+    /*
+      Start around the centre of the visible screen,
+      where the revealed date is being viewed.
+    */
+    const startX = 50 + (Math.random() - 0.5) * 10;
+    const startY = 53 + (Math.random() - 0.5) * 8;
+
+    /*
+      Strong outward/upward blast.
+    */
+    /* Softer, more natural flower toss */
+    const x =
+      (Math.random() - 0.5) *
+      (window.innerWidth < 600 ? 300 : 500);
+
+    const y =
+      -(90 + Math.random() * 190);
+
+    const fall =
+      260 + Math.random() * 360;
+
+    /* Gentle tumble instead of fast spinning */
+    const rotate =
+      (Math.random() > 0.5 ? 1 : -1) *
+      (80 + Math.random() * 240);
+
+    /* Smaller, realistic petal scale */
+    const size = useFlower
+      ? 20 + Math.random() * 15
+      : 9 + Math.random() * 12;
+
+    piece.style.setProperty("--flower-start-x", startX + "vw");
+    piece.style.setProperty("--flower-start-y", startY + "vh");
+    piece.style.setProperty("--flower-x", x + "px");
+    piece.style.setProperty("--flower-y", y + "px");
+    piece.style.setProperty("--flower-fall", fall + "px");
+    piece.style.setProperty("--flower-rotate", rotate + "deg");
+    piece.style.setProperty("--flower-size", size + "px");
     piece.style.setProperty(
-      "--color",
-      colors[Math.floor(Math.random() * colors.length)]
+      "--flower-delay",
+      (Math.random() * 0.28) + "s"
     );
-
     piece.style.setProperty(
-      "--start-x",
-      fromLeft ? "5vw" : "95vw"
-    );
-
-    piece.style.setProperty(
-      "--angle",
-      angle + "deg"
-    );
-
-    piece.style.setProperty(
-      "--distance",
-      distance + "px"
-    );
-
-    piece.style.setProperty(
-      "--rotate",
-      (360 + Math.random() * 900) + "deg"
-    );
-
-    piece.style.setProperty(
-      "--delay",
-      (Math.random() * 0.18) + "s"
-    );
-
-    piece.style.setProperty(
-      "--duration",
-      (2.4 + Math.random() * 1.8) + "s"
+      "--flower-duration",
+      (3.2 + Math.random() * 1.2) + "s"
     );
 
     layer.appendChild(piece);
@@ -551,7 +582,7 @@ function celebrationBurst() {
 
   setTimeout(() => {
     layer.remove();
-  }, 4800);
+  }, 6500);
 }
 
 function reveal() {
@@ -1198,3 +1229,274 @@ if (
     return element.innerHTML;
   }
 })();
+
+
+/* =========================================================
+   2-MINUTE WEDDING FIREWORKS
+========================================================= */
+
+let fireworksRunning = false;
+let fireworksStopTimer = null;
+
+function startWeddingFireworks() {
+  if (fireworksRunning) return;
+
+  fireworksRunning = true;
+
+  const canvas = document.createElement("canvas");
+  canvas.id = "wedding-fireworks";
+
+  Object.assign(canvas.style, {
+    position: "fixed",
+    inset: "0",
+    width: "100%",
+    height: "100%",
+    zIndex: "9998",
+    pointerEvents: "none"
+  });
+
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext("2d");
+
+  let width;
+  let height;
+  let dpr;
+
+  function resizeFireworks() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  resizeFireworks();
+  window.addEventListener("resize", resizeFireworks);
+
+  const particles = [];
+  const rockets = [];
+
+  const colors = [
+    "#D4AF37", /* classic gold */
+    "#F4D06F", /* soft gold */
+    "#FFE8A3", /* champagne */
+    "#FFF1C7", /* warm ivory */
+    "#C9963B", /* antique gold */
+    "#E6C875", /* muted gold */
+    "#FFF8E7"  /* creamy white */
+  ];
+
+  class Rocket {
+    constructor() {
+      this.x = width * (0.08 + Math.random() * 0.84);
+      this.y = height + 20;
+      this.targetY = height * (0.08 + Math.random() * 0.48);
+      this.speed = 7 + Math.random() * 4;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    update() {
+      this.y -= this.speed;
+
+      if (this.y <= this.targetY) {
+        createExplosion(this.x, this.y, this.color);
+        return false;
+      }
+
+      return true;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y + 15);
+      ctx.lineTo(this.x, this.y);
+      ctx.strokeStyle = this.color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 2.4, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+    }
+  }
+
+  class Particle {
+    constructor(x, y, color, angle, speed) {
+      this.x = x;
+      this.y = y;
+      this.vx = Math.cos(angle) * speed;
+      this.vy = Math.sin(angle) * speed;
+      this.alpha = 1;
+
+      this.color =
+        Math.random() > 0.72
+          ? colors[Math.floor(Math.random() * colors.length)]
+          : color;
+
+      this.gravity = 0.045;
+      this.friction = 0.985;
+      this.size = 1.3 + Math.random() * 2.3;
+    }
+
+    update() {
+      this.vx *= this.friction;
+      this.vy *= this.friction;
+      this.vy += this.gravity;
+
+      this.x += this.vx;
+      this.y += this.vy;
+
+      this.alpha -= 0.012;
+
+      return this.alpha > 0;
+    }
+
+    draw() {
+      ctx.globalAlpha = this.alpha;
+
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+
+      ctx.fillStyle = this.color;
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = this.color;
+
+      ctx.fill();
+
+      ctx.shadowBlur = 0;
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  let lastFireworkSound = 0;
+
+  function playFireworkSound() {
+    const now = Date.now();
+
+    /* Maximum one firework sound per second */
+    if (now - lastFireworkSound < 1700) return;
+
+    lastFireworkSound = now;
+
+    const boom = new Audio("/firework.mp3");
+    boom.volume = 0.25;
+
+    /* Keep Bismillah audible behind the fireworks */
+    const normalVolume = 0.38;
+    const duckVolume = 0.27;
+
+    if (musicPlaying && !audio.paused) {
+      audio.volume = duckVolume;
+    }
+
+    boom.play().catch(() => {});
+
+    setTimeout(() => {
+      if (musicPlaying && !audio.paused) {
+        audio.volume = normalVolume;
+      }
+    }, 700);
+  }
+
+  function createExplosion(x, y, color) {
+    playFireworkSound();
+
+    const count =
+      window.innerWidth < 600
+        ? 38 + Math.floor(Math.random() * 18)
+        : 55 + Math.floor(Math.random() * 25);
+
+    const power = 3.2 + Math.random() * 3;
+
+    for (let i = 0; i < count; i++) {
+      const angle =
+        (Math.PI * 2 * i) / count +
+        Math.random() * 0.12;
+
+      const speed =
+        power * (0.55 + Math.random() * 0.65);
+
+      particles.push(
+        new Particle(x, y, color, angle, speed)
+      );
+    }
+  }
+
+  function launchWave() {
+    if (!fireworksRunning) return;
+
+    const amount = 1 + Math.floor(Math.random() * 2);
+
+    for (let i = 0; i < amount; i++) {
+      setTimeout(() => {
+        if (fireworksRunning) {
+          rockets.push(new Rocket());
+        }
+      }, i * 180);
+    }
+
+    const next = 650 + Math.random() * 900;
+
+    setTimeout(launchWave, next);
+  }
+
+  function animateFireworks() {
+    if (!fireworksRunning) {
+      ctx.clearRect(0, 0, width, height);
+      return;
+    }
+
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = rockets.length - 1; i >= 0; i--) {
+      if (!rockets[i].update()) {
+        rockets.splice(i, 1);
+      } else {
+        rockets[i].draw();
+      }
+    }
+
+    for (let i = particles.length - 1; i >= 0; i--) {
+      if (!particles[i].update()) {
+        particles.splice(i, 1);
+      } else {
+        particles[i].draw();
+      }
+    }
+
+    requestAnimationFrame(animateFireworks);
+  }
+
+  /* Strong opening celebration */
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+      rockets.push(new Rocket());
+    }, i * 220);
+  }
+
+  launchWave();
+  animateFireworks();
+
+  /* Stop after 2 minutes */
+  fireworksStopTimer = setTimeout(() => {
+    fireworksRunning = false;
+
+    window.removeEventListener(
+      "resize",
+      resizeFireworks
+    );
+
+    setTimeout(() => {
+      canvas.remove();
+    }, 4000);
+
+  }, 120000);
+}

@@ -15176,3 +15176,135 @@ body.invitation-closed .envelope {
   }
 }
 
+
+
+/* =========================================================
+   DATE REVEAL — REAL FLOWER BLAST
+========================================================= */
+
+.flower-blast-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.flower-blast-piece {
+  position: absolute;
+
+  left: var(--flower-start-x);
+  top: var(--flower-start-y);
+
+  width: var(--flower-size);
+  height: auto;
+
+  object-fit: contain;
+
+  opacity: 0;
+
+  will-change:
+    transform,
+    opacity;
+
+  filter:
+    drop-shadow(0 4px 5px rgba(64, 35, 18, 0.15));
+
+  animation:
+    realFlowerBlast
+    var(--flower-duration)
+    cubic-bezier(.15,.68,.22,1)
+    var(--flower-delay)
+    forwards;
+}
+
+.flower-blast-piece.full-flower {
+  filter:
+    drop-shadow(0 5px 7px rgba(64, 35, 18, 0.18));
+}
+
+@keyframes realFlowerBlast {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      translate(0, 0)
+      rotate(0deg)
+      scale(.35);
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  32% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        var(--flower-x),
+        var(--flower-y)
+      )
+      rotate(
+        calc(var(--flower-rotate) * .35)
+      )
+      scale(1);
+  }
+
+  70% {
+    opacity: .95;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        calc(var(--flower-x) * 1.08),
+        calc(
+          var(--flower-y) +
+          var(--flower-fall) * .55
+        )
+      )
+      rotate(
+        calc(var(--flower-rotate) * .72)
+      )
+      scale(.96);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        calc(var(--flower-x) * 1.15),
+        calc(
+          var(--flower-y) +
+          var(--flower-fall)
+        )
+      )
+      rotate(var(--flower-rotate))
+      scale(.82);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flower-blast-layer {
+    display: none;
+  }
+}
+
+/* Date reveal flower realism tuning */
+.flower-blast-piece {
+  transform-origin: 50% 55%;
+  animation-timing-function: cubic-bezier(.18,.72,.28,1);
+}
+
+.flower-blast-piece.petal-piece {
+  filter: drop-shadow(0 2px 3px rgba(60, 35, 20, 0.12));
+}
+
+.flower-blast-piece.full-flower {
+  filter: drop-shadow(0 3px 4px rgba(60, 35, 20, 0.14));
+}
