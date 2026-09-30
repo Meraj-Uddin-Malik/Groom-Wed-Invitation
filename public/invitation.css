@@ -18029,3 +18029,40 @@ body.invitation-closed .envelope {
   }
 }
 
+
+/* =========================================================
+   TIMELINE CARDS — SMALLER TEXT ONLY
+   No layout / box / marker / time changes
+========================================================= */
+
+@media (max-width: 640px) {
+
+  /* Small gold labels */
+  .event-nikkah .nikkah-card-script,
+  .event-mehndi .mehndi-timeline-card > span,
+  .event-baraat .baraat-card-script,
+  .event-walima .walima-card-script {
+    font-size: 8px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Main title inside timeline boxes */
+  .event-nikkah .nikkah-card-title strong,
+  .event-mehndi .mehndi-timeline-card > strong,
+  .event-baraat .baraat-card-title strong,
+  .event-walima .walima-card-title strong {
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Description inside timeline boxes */
+  .event-nikkah .nikkah-card p,
+  .event-mehndi .mehndi-timeline-card p,
+  .event-baraat .baraat-timeline-card p,
+  .event-walima .walima-timeline-card p {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    margin-top: 4px !important;
+  }
+}
+
