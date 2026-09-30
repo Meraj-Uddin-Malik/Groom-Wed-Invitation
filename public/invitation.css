@@ -16924,3 +16924,250 @@ body.invitation-closed .envelope {
   }
 }
 
+
+/* =========================================================
+   ENDING SECTIONS — FINAL PREMIUM POLISH
+========================================================= */
+
+/* ---------- FAMILY ---------- */
+
+.receiving-section {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+.receiving-section .receiving-inner {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 24px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.receiving-section .receiving-kicker {
+  margin: 0 0 3px !important;
+  font-size: 10px !important;
+  letter-spacing: .16em !important;
+  text-align: center !important;
+}
+
+.receiving-section .receiving-title {
+  margin: 0 !important;
+  font-size: 30px !important;
+  line-height: 1.05 !important;
+  text-align: center !important;
+}
+
+.receiving-section .receiving-gold-rule {
+  margin: 8px auto 11px !important;
+}
+
+.receiving-section .family-elders {
+  width: 100% !important;
+  margin: 0 auto 11px !important;
+  text-align: center !important;
+}
+
+.receiving-section .family-label {
+  display: block !important;
+  margin: 0 0 6px !important;
+  font-size: 10px !important;
+  letter-spacing: .13em !important;
+  text-align: center !important;
+}
+
+.receiving-section .elder-names {
+  width: 100% !important;
+  max-width: 360px !important;
+  margin: 0 auto !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+  gap: 8px 10px !important;
+  align-items: center !important;
+  justify-items: center !important;
+  text-align: center !important;
+}
+
+.receiving-section .elder-names strong {
+  width: 100% !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+}
+
+.receiving-section .elder-names i {
+  display: none !important;
+}
+
+.receiving-section .receiving-heading {
+  width: 100% !important;
+  margin: 8px auto 7px !important;
+  text-align: center !important;
+}
+
+.receiving-section .receiving-heading small {
+  display: block !important;
+  margin-bottom: 2px !important;
+  font-size: 9px !important;
+  letter-spacing: .14em !important;
+  text-align: center !important;
+}
+
+.receiving-section .receiving-heading span {
+  display: block !important;
+  font-size: 19px !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+}
+
+.receiving-section .receiving-list,
+.receiving-section .receiving-person,
+.receiving-section .receiver-info {
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.receiving-section .receiving-list {
+  margin-top: 0 !important;
+  margin-bottom: 5px !important;
+}
+
+.receiving-section .receiver-info strong {
+  display: block !important;
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+}
+
+.receiving-section .receiving-note {
+  width: 100% !important;
+  margin: 4px auto 0 !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+}
+
+
+/* ---------- FINAL CLOSING ---------- */
+
+.final-closing {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+.final-closing .closing-inner {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 24px 16px !important;
+  text-align: center !important;
+}
+
+.final-closing .closing-flourish {
+  margin: 0 auto 6px !important;
+  font-size: 17px !important;
+}
+
+.final-closing .eyebrow {
+  margin: 0 0 5px !important;
+  font-size: 10px !important;
+  letter-spacing: .14em !important;
+}
+
+.final-closing .closing-title {
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+.final-closing .closing-title span {
+  display: block !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+}
+
+.final-closing .closing-title strong {
+  display: block !important;
+  margin-top: 2px !important;
+  font-size: 25px !important;
+  line-height: 1.05 !important;
+}
+
+.final-closing .closing-divider {
+  margin: 9px auto 10px !important;
+}
+
+.final-closing .closing-prayer {
+  margin: 0 auto 10px !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  text-align: center !important;
+}
+
+.final-closing .closing-couple {
+  margin: 7px auto !important;
+  font-size: 23px !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+.final-closing .closing-thanks {
+  margin: 7px auto 0 !important;
+  font-size: 10.5px !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+}
+
+.final-closing .closing-flourish-bottom {
+  margin: 8px auto 0 !important;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 640px) {
+
+  .receiving-section .receiving-inner,
+  .final-closing .closing-inner {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .receiving-section .receiving-title {
+    font-size: 28px !important;
+  }
+
+  .receiving-section .elder-names {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    max-width: 340px !important;
+    gap: 8px 7px !important;
+  }
+
+  .receiving-section .elder-names strong {
+    font-size: 16px !important;
+  }
+
+  .receiving-section .receiving-heading span {
+    font-size: 18px !important;
+  }
+
+  .final-closing .closing-title strong {
+    font-size: 24px !important;
+  }
+
+  .final-closing .closing-couple {
+    font-size: 22px !important;
+  }
+}
+
