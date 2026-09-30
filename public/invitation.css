@@ -17938,3 +17938,94 @@ body.invitation-closed .envelope {
   }
 }
 
+
+/* =========================================================
+   EVENTS — COMPACT MOBILE TYPOGRAPHY
+   Typography only — timeline UI unchanged
+========================================================= */
+
+@media (max-width: 640px) {
+
+  /* Main event names */
+  .event-nikkah .nikkah-header h3,
+  .event-mehndi .celebration-header h3,
+  .event-baraat .celebration-header h3,
+  .event-walima .celebration-header h3 {
+    font-size: 28px !important;
+    line-height: 1.05 !important;
+  }
+
+  /* Small heading above event name */
+  .event-nikkah .nikkah-kicker,
+  .event-mehndi .celebration-kicker,
+  .event-baraat .celebration-kicker,
+  .event-walima .celebration-kicker {
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+    letter-spacing: .12em !important;
+  }
+
+  /* Event intro text */
+  .event-nikkah .nikkah-header > p,
+  .event-mehndi .celebration-header > p,
+  .event-baraat .celebration-header > p,
+  .event-walima .celebration-header > p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Dates */
+  .event-nikkah .nikkah-date,
+  .event-mehndi .celebration-date,
+  .event-baraat .celebration-date,
+  .event-walima .celebration-date {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Timeline times */
+  .event-nikkah .nikkah-time,
+  .event-mehndi .mehndi-time,
+  .event-baraat .baraat-time,
+  .event-walima .walima-time {
+    font-size: 18px !important;
+    line-height: 1 !important;
+  }
+
+  /* Timeline card titles */
+  .event-nikkah .nikkah-card-title strong,
+  .event-mehndi .mehndi-timeline-card > strong,
+  .event-baraat .baraat-card-title strong,
+  .event-walima .walima-card-title strong {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Timeline descriptions */
+  .event-nikkah .nikkah-card p,
+  .event-mehndi .mehndi-timeline-card p,
+  .event-baraat .baraat-timeline-card p,
+  .event-walima .walima-timeline-card p {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Tiny gold labels inside cards */
+  .event-nikkah .nikkah-card-script,
+  .event-mehndi .mehndi-timeline-card > span,
+  .event-baraat .baraat-card-script,
+  .event-walima .walima-card-script {
+    font-size: 9px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Family event badge */
+  .family-event-badge span {
+    font-size: 9px !important;
+  }
+
+  .family-event-badge strong {
+    font-size: 10px !important;
+  }
+}
+
