@@ -248,16 +248,25 @@
       <!-- ======================================
            WALIMA RSVP
       ======================================= -->
-      <section class="rsvp" id="rsvp" aria-labelledby="rsvp-title">
+      <section class="rsvp" id="rsvp">
         <div class="rsvp-inner">
 
           <div class="rsvp-monogram" aria-hidden="true">
-          <span>M</span><i>&amp;</i><span>U</span>
-        </div>
+            <span>M</span><i>&amp;</i><span>U</span>
+          </div>
 
-        <div class="eyebrow">Kindly Respond</div>
+          <div class="rsvp-heading-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M4 7l8 6 8-6"/>
+            </svg>
+          </div>
 
-          <p class="section-copy">We would be delighted to have you with us for our Walima celebration.</p>
+          <div class="eyebrow">Kindly Respond</div>
+
+          <p class="section-copy">
+            We would be delighted to have you with us for our Walima celebration.
+          </p>
 
           <div class="rsvp-divider" aria-hidden="true">
             <span></span><b>✦</b><span></span>
@@ -266,28 +275,32 @@
           <form class="rsvp-form" id="rsvp-form">
 
             <div class="rsvp-choice" role="group" aria-label="Attendance">
-              <button
-                type="button"
-                class="rsvp-option"
-                data-rsvp="yes"
-              >
-                <span class="rsvp-option-icon">✓</span>
+
+              <button type="button" class="rsvp-option" data-rsvp="yes">
+                <span class="rsvp-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M8 12.5l2.5 2.5L16 9.5"/>
+                  </svg>
+                </span>
                 <strong>Yes, InshaAllah</strong>
-                <small></small>
               </button>
 
-              <button
-                type="button"
-                class="rsvp-option"
-                data-rsvp="no"
-              >
-                <span class="rsvp-option-icon">×</span>
+              <button type="button" class="rsvp-option" data-rsvp="no">
+                <span class="rsvp-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M9 9l6 6"/>
+                    <path d="M15 9l-6 6"/>
+                  </svg>
+                </span>
                 <strong>Unable to Attend</strong>
-                <small></small>
               </button>
+
             </div>
 
             <div class="rsvp-details" id="rsvp-details" hidden>
+
               <label class="rsvp-field">
                 <span>Your Name</span>
                 <input
@@ -301,6 +314,7 @@
 
               <label class="rsvp-field rsvp-guests-field">
                 <span>Number of Guests</span>
+
                 <select id="rsvp-guests" name="guests">
                   <option value="1">1 Guest</option>
                   <option value="2">2 Guests</option>
@@ -325,8 +339,8 @@
                 Confirm RSVP
                 <span aria-hidden="true">→</span>
               </button>
-            </div>
 
+            </div>
           </form>
 
           <div
@@ -345,7 +359,6 @@
       ======================================= -->
       <section class="privacy-request" aria-labelledby="privacy-title">
         <div class="privacy-inner">
-          <div class="privacy-ornament" aria-hidden="true">✦</div>
 
           <div class="privacy-icon" aria-hidden="true">
             <svg viewBox="0 0 48 48" role="presentation">
@@ -362,30 +375,17 @@
           </h2>
 
           <div class="privacy-divider" aria-hidden="true">
-            <span></span>
-            <b>✦</b>
-            <span></span>
+            <span></span><b>✦</b><span></span>
           </div>
 
-          <p class="section-copy">
-            To cherish the moment with us, we kindly request
-            <strong>no photos or videos of the Bride &amp; Groom.</strong>
+          <p class="section-copy privacy-message">
+            <span>Please respect our special moment.</span>
+            <span>No photos or videos of the Bride &amp; Groom.</span>
+            <span>Kindly help us keep the stage private.</span>
           </p>
 
-          <p class="privacy-note">
-            Please help us keep the stage private and comfortable.
-          </p>
-
-          <div class="privacy-ornament privacy-ornament-bottom" aria-hidden="true">
-            ❦
-          </div>
         </div>
       </section>
-
-
-
-
-
 
 
       <!-- ======================================
@@ -412,7 +412,7 @@
             <span class="family-label">Family Elders</span>
 
             <div class="elder-names">
-              <strong>Abdul Ghafar</strong>
+              <strong>Abdul Ghafar Malik</strong>
               <i>•</i>
               <strong>Abdul Ghani</strong>
               <i>•</i>
