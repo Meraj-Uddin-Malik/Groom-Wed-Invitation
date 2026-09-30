@@ -484,115 +484,99 @@ function celebrationBurst() {
   celebrationPlayed = true;
 
   const layer = document.createElement("div");
-  layer.className = "flower-blast-layer";
+  layer.className = "reveal-celebration";
   layer.setAttribute("aria-hidden", "true");
+  document.body.appendChild(layer);
 
-  const flowerAssets = [
-    "/flowers/petal-red-1.png",
-    "/flowers/petal-blush-1.png",
-    "/flowers/petal-ivory-1.png",
-    "/flowers/petal-red-2.png",
-    "/flowers/petal-blush-2.png",
-    "/flowers/petal-gold.png",
-    "/flowers/petal-red-small.png",
-    "/flowers/petal-blush-small.png",
-    "/flowers/petal-ivory-small.png"
+  const colors = [
+    "#C5A059",
+    "#D4AF37",
+    "#E7C873",
+    "#F5E6B8",
+    "#FFF4D6",
+    "#FFFFFF"
   ];
 
-  const fullFlowers = [
-    "/flowers/rose-red.png",
-    "/flowers/rose-blush.png",
-    "/flowers/rose-ivory.png",
-    "/flowers/flower-blush.png",
-    "/flowers/flower-ivory.png"
-  ];
+  const total = window.innerWidth < 600 ? 110 : 140;
 
-  /*
-    Mostly loose petals.
-    Only a few complete flowers so it doesn't look artificial.
-  */
-  const totalPieces = window.innerWidth < 600 ? 52 : 68;
+  for (let i = 0; i < total; i++) {
+    const piece = document.createElement("span");
 
-  for (let i = 0; i < totalPieces; i++) {
-    const piece = document.createElement("img");
+    piece.className =
+      "celebration-piece " +
+      (Math.random() > 0.45 ? "strip" : "circle");
 
-    const useFlower = Math.random() < 0.14;
-
-    const source = useFlower
-      ? fullFlowers[Math.floor(Math.random() * fullFlowers.length)]
-      : flowerAssets[Math.floor(Math.random() * flowerAssets.length)];
-
-    piece.src = source;
-    piece.alt = "";
-    piece.className = useFlower
-      ? "flower-blast-piece full-flower"
-      : "flower-blast-piece petal-piece";
-
-    /*
-      Start around the centre of the visible screen,
-      where the revealed date is being viewed.
-    */
-    const startX = 50 + (Math.random() - 0.5) * 10;
-    const startY = 53 + (Math.random() - 0.5) * 8;
-
-    /*
-      Strong outward/upward blast.
-    */
-    /* Softer, more natural flower toss */
-    const x =
-      (Math.random() - 0.5) *
-      (window.innerWidth < 600 ? 300 : 500);
-
-    const y =
-      -(90 + Math.random() * 190);
-
-    const fall =
-      260 + Math.random() * 360;
-
-    /* Gentle tumble instead of fast spinning */
-    const rotate =
-      (Math.random() > 0.5 ? 1 : -1) *
-      (80 + Math.random() * 240);
-
-    /* Smaller, realistic petal scale */
-    const size = useFlower
-      ? 20 + Math.random() * 15
-      : 9 + Math.random() * 12;
-
-    piece.style.setProperty("--flower-start-x", startX + "vw");
-    piece.style.setProperty("--flower-start-y", startY + "vh");
-    piece.style.setProperty("--flower-x", x + "px");
-    piece.style.setProperty("--flower-y", y + "px");
-    piece.style.setProperty("--flower-fall", fall + "px");
-    piece.style.setProperty("--flower-rotate", rotate + "deg");
-    piece.style.setProperty("--flower-size", size + "px");
     piece.style.setProperty(
-      "--flower-delay",
-      (Math.random() * 0.28) + "s"
+      "--color",
+      colors[Math.floor(Math.random() * colors.length)]
     );
+
+    /* Two party poppers: left + right */
+    const fromLeft = i % 2 === 0;
+
     piece.style.setProperty(
-      "--flower-duration",
-      (3.2 + Math.random() * 1.2) + "s"
+      "--start-x",
+      fromLeft
+        ? (4 + Math.random() * 12) + "vw"
+        : (84 + Math.random() * 12) + "vw"
+    );
+
+    piece.style.setProperty(
+      "--angle",
+      fromLeft
+        ? (25 + Math.random() * 45) + "deg"
+        : (110 + Math.random() * 45) + "deg"
+    );
+
+    piece.style.setProperty(
+      "--distance",
+      (260 + Math.random() * 360) + "px"
+    );
+
+    piece.style.setProperty(
+      "--rotate",
+      (-720 + Math.random() * 1440) + "deg"
+    );
+
+    piece.style.setProperty(
+      "--delay",
+      (Math.random() * 0.20) + "s"
+    );
+
+    piece.style.setProperty(
+      "--duration",
+      (2.1 + Math.random() * 0.9) + "s"
     );
 
     layer.appendChild(piece);
   }
 
-  document.body.appendChild(layer);
-
   setTimeout(() => {
     layer.remove();
-  }, 6500);
+  }, 3600);
+}
+
+function playCelebrationBurstSound() {
+  const burstSound = new Audio("/firework.mp3");
+  burstSound.volume = 0.32;
+  burstSound.currentTime = 0;
+  burstSound.play().catch(() => {});
 }
 
 function reveal() {
+  if (scratched && c.hidden) return;
+
   scratched = true;
-
-  c.hidden = true;
-
   down = false;
 
-  celebrationBurst();
+  /* Reveal the date first */
+  c.hidden = true;
+
+  /* Party popper burst exactly as the date appears */
+  requestAnimationFrame(() => {
+    celebrationBurst();
+    playCelebrationBurstSound();
+  });
 }
 
 
@@ -793,6 +777,9 @@ function eventCelebrationBurst(event) {
   if (!colors) return;
 
   celebratedEvents.add(event.id);
+
+  /* Play burst sound once when this event celebrates */
+  playCelebrationBurstSound();
 
   const rect = event.getBoundingClientRect();
 
@@ -1256,6 +1243,25 @@ function startWeddingFireworks() {
   });
 
   document.body.appendChild(canvas);
+
+  /* Slowly fade fireworks as the guest scrolls down */
+  function updateFireworksOpacity() {
+    const fadeDistance = Math.max(window.innerHeight * 2.5, 1400);
+    const progress = Math.min(window.scrollY / fadeDistance, 1);
+
+    /* 100% at top -> minimum 12% after scrolling down */
+    const opacity = 1 - progress * 0.88;
+
+    canvas.style.opacity = opacity.toFixed(2);
+  }
+
+  updateFireworksOpacity();
+
+  window.addEventListener(
+    "scroll",
+    updateFireworksOpacity,
+    { passive: true }
+  );
 
   const ctx = canvas.getContext("2d");
 

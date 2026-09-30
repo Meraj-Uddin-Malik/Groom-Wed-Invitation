@@ -15176,135 +15176,1133 @@ body.invitation-closed .envelope {
   }
 }
 
+/* =========================================================
+   EVENTS — FINAL TYPOGRAPHY CONSISTENCY
+========================================================= */
+
+/* Decorative/script labels */
+.event-nikkah .nikkah-script,
+.event-nikkah .nikkah-card-script,
+.event-mehndi .celebration-script,
+.event-mehndi .mehndi-card-script,
+.event-baraat .baraat-card-script,
+.event-walima .walima-card-script {
+  font-family: "Italianno", cursive !important;
+}
+
+/* Main event/card titles */
+.event-nikkah .nikkah-card-title strong,
+.event-mehndi .mehndi-card-title strong,
+.event-baraat .baraat-card-title strong,
+.event-walima .walima-card-title strong {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+/* Timeline times */
+.event-nikkah .nikkah-time,
+.event-mehndi .mehndi-time,
+.event-baraat .baraat-time,
+.event-walima .walima-time {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+/* Timeline descriptions */
+.event-nikkah .nikkah-card p,
+.event-mehndi .mehndi-timeline-card p,
+.event-baraat .baraat-timeline-card p,
+.event-walima .walima-timeline-card p {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+/* Small AM / PM labels */
+.event-nikkah .nikkah-time > span,
+.event-mehndi .mehndi-time > span,
+.event-baraat .baraat-time > span,
+.event-walima .walima-time > span {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+/* =========================================================
+   EVENTS — HEADER / DATE / VENUE TYPOGRAPHY
+========================================================= */
+
+/* Main event headings and dates */
+.event-nikkah .nikkah-date,
+.event-nikkah .nikkah-date strong,
+.event-mehndi .celebration-date,
+.event-mehndi .celebration-date strong,
+.event-baraat .celebration-date,
+.event-baraat .celebration-date strong,
+.event-walima .celebration-date,
+.event-walima .celebration-date strong {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+/* Intro/supporting text */
+.event-nikkah .nikkah-intro,
+.event-mehndi .celebration-intro,
+.event-baraat .celebration-intro,
+.event-walima .celebration-intro {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+/* Venue names */
+.event-nikkah .nikkah-venue > strong,
+.event-mehndi .mehndi-venue-card strong,
+.event-baraat .baraat-starting-point strong,
+.event-walima .walima-venue > strong {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+/* Venue labels/supporting text */
+.event-nikkah .nikkah-venue > span,
+.event-mehndi .mehndi-venue-card span,
+.event-baraat .baraat-starting-point span,
+.event-walima .walima-venue > span {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+/* =========================================================
+   EVENTS — MAIN EVENT NAME CONSISTENCY
+========================================================= */
+
+.event-nikkah .nikkah-header h3,
+.event-mehndi .celebration-header h3,
+.event-baraat .celebration-header h3,
+.event-walima .celebration-header h3 {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+/* =========================================================
+   EVENTS — FINAL MAIN HEADING FONT
+========================================================= */
+
+.event-nikkah .nikkah-header h3,
+.event-mehndi .celebration-header h3,
+.event-baraat .celebration-header h3,
+.event-walima .celebration-header h3 {
+  font-family: "Italianno", "Cormorant Garamond", cursive !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* =========================================================
+   MEHNDI — MATCH NIKKAH CARD TYPOGRAPHY
+========================================================= */
+
+.event-mehndi .mehndi-timeline-card > span {
+  display: block !important;
+  margin-bottom: 3px !important;
+  font-family: "Italianno", "Cormorant Garamond", cursive !important;
+  font-size: 27px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.event-mehndi .mehndi-timeline-card > strong {
+  display: block !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.event-mehndi .mehndi-timeline-card > p {
+  margin-top: 6px !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* =========================================================
+   DATE REVEAL — FINAL COMPACT SIZE
+========================================================= */
+
+.scratch-section .scratch-wrap {
+  width: min(100%, 330px) !important;
+  max-width: 330px !important;
+  margin-top: 24px !important;
+  padding: 46px 24px !important;
+}
+
+.scratch-section #reveal-date {
+  display: block !important;
+  max-width: none !important;
+  width: max-content !important;
+  white-space: nowrap !important;
+  font-size: clamp(25px, 6vw, 32px) !important;
+  line-height: 1 !important;
+  margin: 7px auto !important;
+}
+
+@media (max-width: 640px) {
+  .scratch-section .scratch-wrap {
+    width: min(82vw, 320px) !important;
+    max-width: 320px !important;
+    padding: 42px 20px !important;
+  }
+
+  .scratch-section #reveal-date {
+    font-size: clamp(23px, 6.8vw, 29px) !important;
+  }
+}
 
 
 /* =========================================================
-   DATE REVEAL — REAL FLOWER BLAST
+   DATE REVEAL — INNER CONTENT FINAL FIT
 ========================================================= */
 
-.flower-blast-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 9997;
-  overflow: hidden;
-  pointer-events: none;
+.scratch-section .medallion-content {
+  width: 92% !important;
+  height: 92% !important;
+  padding: 28px 18px !important;
+  box-sizing: border-box !important;
 }
 
-.flower-blast-piece {
-  position: absolute;
-
-  left: var(--flower-start-x);
-  top: var(--flower-start-y);
-
-  width: var(--flower-size);
-  height: auto;
-
-  object-fit: contain;
-
-  opacity: 0;
-
-  will-change:
-    transform,
-    opacity;
-
-  filter:
-    drop-shadow(0 4px 5px rgba(64, 35, 18, 0.15));
-
-  animation:
-    realFlowerBlast
-    var(--flower-duration)
-    cubic-bezier(.15,.68,.22,1)
-    var(--flower-delay)
-    forwards;
+.scratch-section #reveal-date {
+  width: 100% !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  font-size: 27px !important;
+  letter-spacing: -0.02em !important;
 }
 
-.flower-blast-piece.full-flower {
-  filter:
-    drop-shadow(0 5px 7px rgba(64, 35, 18, 0.18));
+.scratch-section #reveal-label {
+  font-size: 9px !important;
+  letter-spacing: .10em !important;
 }
 
-@keyframes realFlowerBlast {
-
-  0% {
-    opacity: 0;
-
-    transform:
-      translate(-50%, -50%)
-      translate(0, 0)
-      rotate(0deg)
-      scale(.35);
+@media (max-width: 640px) {
+  .scratch-section .medallion-content {
+    width: 92% !important;
+    height: 92% !important;
+    padding: 26px 16px !important;
   }
 
-  5% {
-    opacity: 1;
+  .scratch-section #reveal-date {
+    font-size: 24px !important;
   }
 
-  32% {
-    opacity: 1;
-
-    transform:
-      translate(-50%, -50%)
-      translate(
-        var(--flower-x),
-        var(--flower-y)
-      )
-      rotate(
-        calc(var(--flower-rotate) * .35)
-      )
-      scale(1);
-  }
-
-  70% {
-    opacity: .95;
-
-    transform:
-      translate(-50%, -50%)
-      translate(
-        calc(var(--flower-x) * 1.08),
-        calc(
-          var(--flower-y) +
-          var(--flower-fall) * .55
-        )
-      )
-      rotate(
-        calc(var(--flower-rotate) * .72)
-      )
-      scale(.96);
-  }
-
-  100% {
-    opacity: 0;
-
-    transform:
-      translate(-50%, -50%)
-      translate(
-        calc(var(--flower-x) * 1.15),
-        calc(
-          var(--flower-y) +
-          var(--flower-fall)
-        )
-      )
-      rotate(var(--flower-rotate))
-      scale(.82);
+  .scratch-section #reveal-label {
+    font-size: 8px !important;
+    letter-spacing: .08em !important;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .flower-blast-layer {
-    display: none;
+
+
+/* =========================================================
+   DATE REVEAL — TRUE INNER HEART FIT
+========================================================= */
+
+.scratch-section .medallion-content {
+  position: absolute !important;
+  left: 50% !important;
+  top: 49% !important;
+
+  width: 72% !important;
+  height: 62% !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 18px 14px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+
+  border-radius: 44% 44% 48% 48% !important;
+}
+
+.scratch-section #reveal-date {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 5px 0 !important;
+
+  white-space: nowrap !important;
+  text-align: center !important;
+
+  font-size: 23px !important;
+  line-height: 1 !important;
+}
+
+.scratch-section #reveal-label {
+  font-size: 8px !important;
+  line-height: 1.2 !important;
+  letter-spacing: .08em !important;
+}
+
+.scratch-section .heart-caption {
+  margin: 3px 0 !important;
+}
+
+.scratch-section .medallion-ornament {
+  line-height: 1 !important;
+}
+
+@media (max-width: 640px) {
+  .scratch-section .medallion-content {
+    width: 74% !important;
+    height: 62% !important;
+    padding: 15px 10px !important;
+  }
+
+  .scratch-section #reveal-date {
+    font-size: 21px !important;
   }
 }
 
-/* Date reveal flower realism tuning */
-.flower-blast-piece {
-  transform-origin: 50% 55%;
-  animation-timing-function: cubic-bezier(.18,.72,.28,1);
+
+/* DATE REVEAL — BIGGER DATE, KEEP ONE LINE */
+
+.scratch-section #reveal-date {
+  font-size: 27px !important;
+  white-space: nowrap !important;
+  width: max-content !important;
+  max-width: none !important;
+  line-height: 1 !important;
+  letter-spacing: -0.04em !important;
 }
 
-.flower-blast-piece.petal-piece {
-  filter: drop-shadow(0 2px 3px rgba(60, 35, 20, 0.12));
+@media (max-width: 640px) {
+  .scratch-section #reveal-date {
+    font-size: clamp(24px, 7vw, 27px) !important;
+    white-space: nowrap !important;
+  }
 }
 
-.flower-blast-piece.full-flower {
-  filter: drop-shadow(0 3px 4px rgba(60, 35, 20, 0.14));
+
+/* =========================================================
+   EVENTS — MASTER TYPOGRAPHY SYSTEM
+   Nikkah / Mehndi / Baraat / Walima
+========================================================= */
+
+/* Main event names */
+.event-nikkah .nikkah-header h3,
+.event-mehndi .celebration-header h3,
+.event-baraat .celebration-header h3,
+.event-walima .celebration-header h3 {
+  font-family: "Italianno", cursive !important;
+  font-size: 68px !important;
+  font-weight: 400 !important;
+  line-height: .92 !important;
+  letter-spacing: 0 !important;
 }
+
+/* Header supporting descriptions */
+.event-nikkah .nikkah-intro,
+.event-mehndi .celebration-header > p,
+.event-baraat .celebration-header > p,
+.event-walima .celebration-header > p {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+}
+
+/* Event dates */
+.event-nikkah .nikkah-date,
+.event-mehndi .celebration-date,
+.event-baraat .celebration-date,
+.event-walima .celebration-date {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+/* Timeline times */
+.event-nikkah .nikkah-time,
+.event-mehndi .mehndi-time,
+.event-baraat .baraat-time,
+.event-walima .walima-time {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.15 !important;
+}
+
+/* Timeline decorative/script labels */
+.event-nikkah .nikkah-card-script,
+.event-mehndi .mehndi-timeline-card > span,
+.event-baraat .baraat-card-script,
+.event-walima .walima-card-script {
+  font-family: "Italianno", cursive !important;
+  font-size: 25px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* Timeline card titles */
+.event-nikkah .nikkah-card-title strong,
+.event-mehndi .mehndi-timeline-card > strong,
+.event-baraat .baraat-card-title strong,
+.event-walima .walima-card-title strong {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Timeline descriptions */
+.event-nikkah .nikkah-card p,
+.event-mehndi .mehndi-timeline-card > p,
+.event-baraat .baraat-timeline-card p,
+.event-walima .walima-timeline-card p {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Venue names */
+.event-nikkah .nikkah-venue > strong,
+.event-mehndi .mehndi-venue-card strong,
+.event-baraat .baraat-starting-point strong,
+.event-walima .walima-venue > strong {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+}
+
+/* Venue supporting text */
+.event-nikkah .nikkah-venue > span,
+.event-mehndi .mehndi-venue-card span,
+.event-baraat .baraat-starting-point span,
+.event-walima .walima-venue > span {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+
+  .event-nikkah .nikkah-header h3,
+  .event-mehndi .celebration-header h3,
+  .event-baraat .celebration-header h3,
+  .event-walima .celebration-header h3 {
+    font-size: 58px !important;
+  }
+
+  .event-nikkah .nikkah-intro,
+  .event-mehndi .celebration-header > p,
+  .event-baraat .celebration-header > p,
+  .event-walima .celebration-header > p {
+    font-size: 12px !important;
+  }
+
+  .event-nikkah .nikkah-date,
+  .event-mehndi .celebration-date,
+  .event-baraat .celebration-date,
+  .event-walima .celebration-date {
+    font-size: 16px !important;
+  }
+
+  .event-nikkah .nikkah-time,
+  .event-mehndi .mehndi-time,
+  .event-baraat .baraat-time,
+  .event-walima .walima-time {
+    font-size: 13px !important;
+  }
+
+  .event-nikkah .nikkah-card-script,
+  .event-mehndi .mehndi-timeline-card > span,
+  .event-baraat .baraat-card-script,
+  .event-walima .walima-card-script {
+    font-size: 23px !important;
+  }
+
+  .event-nikkah .nikkah-card-title strong,
+  .event-mehndi .mehndi-timeline-card > strong,
+  .event-baraat .baraat-card-title strong,
+  .event-walima .walima-card-title strong {
+    font-size: 19px !important;
+  }
+
+  .event-nikkah .nikkah-card p,
+  .event-mehndi .mehndi-timeline-card > p,
+  .event-baraat .baraat-timeline-card p,
+  .event-walima .walima-timeline-card p {
+    font-size: 10px !important;
+  }
+}
+
+
+/* =========================================================
+   AFTER EVENTS — COMPACT ENDING
+   RSVP / Privacy / Receiving / Closing
+========================================================= */
+
+/* Main sections */
+.rsvp,
+.privacy-request,
+.receiving-section,
+.final-closing {
+  min-height: auto !important;
+}
+
+/* Inner containers */
+.rsvp-inner,
+.privacy-inner,
+.receiving-inner,
+.closing-inner {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+}
+
+/* RSVP */
+.rsvp-monogram {
+  margin-bottom: 14px !important;
+}
+
+.rsvp .eyebrow {
+  margin-bottom: 7px !important;
+}
+
+.rsvp .section-title {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.rsvp .section-copy {
+  margin-top: 0 !important;
+  margin-bottom: 15px !important;
+}
+
+.rsvp-divider {
+  margin: 14px auto 18px !important;
+}
+
+.rsvp-choice {
+  margin-top: 0 !important;
+  gap: 10px !important;
+}
+
+/* Privacy */
+.privacy-ornament {
+  margin-bottom: 8px !important;
+}
+
+.privacy-icon {
+  margin-bottom: 12px !important;
+}
+
+.privacy-request .eyebrow {
+  margin-bottom: 6px !important;
+}
+
+.privacy-request .section-title {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.privacy-divider {
+  margin: 12px auto !important;
+}
+
+.privacy-request .section-copy {
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.privacy-note {
+  margin-top: 6px !important;
+}
+
+.privacy-ornament-bottom {
+  margin-top: 15px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Receiving */
+.receiving-monogram {
+  margin-bottom: 12px !important;
+}
+
+.receiving-kicker {
+  margin-bottom: 5px !important;
+}
+
+.receiving-title {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.receiving-gold-rule {
+  margin: 12px auto 16px !important;
+}
+
+.family-elders {
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
+}
+
+.receiving-heading {
+  margin-top: 14px !important;
+  margin-bottom: 12px !important;
+}
+
+.receiving-list {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+.receiving-note {
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Final closing */
+.closing-flourish {
+  margin-bottom: 10px !important;
+}
+
+.final-closing .eyebrow {
+  margin-bottom: 7px !important;
+}
+
+.closing-title {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+.closing-divider {
+  margin: 13px auto !important;
+}
+
+.closing-prayer {
+  margin-top: 10px !important;
+  margin-bottom: 14px !important;
+}
+
+.closing-couple {
+  margin-top: 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.closing-monogram {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.closing-thanks {
+  margin-top: 8px !important;
+  margin-bottom: 10px !important;
+}
+
+.closing-flourish-bottom {
+  margin-top: 12px !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* MOBILE — tighter ending */
+@media (max-width: 640px) {
+
+  .rsvp-inner,
+  .privacy-inner,
+  .receiving-inner,
+  .closing-inner {
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .rsvp-divider,
+  .privacy-divider,
+  .receiving-gold-rule,
+  .closing-divider {
+    margin-top: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .rsvp-choice {
+    gap: 8px !important;
+  }
+
+  .family-elders {
+    margin-bottom: 12px !important;
+  }
+
+  .receiving-heading {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+
+/* =========================================================
+   RSVP — COMPACT VERSION
+========================================================= */
+
+.rsvp {
+  min-height: auto !important;
+}
+
+.rsvp .rsvp-inner {
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+}
+
+/* M & U */
+.rsvp .rsvp-monogram {
+  margin-bottom: 8px !important;
+}
+
+/* Kindly Respond */
+.rsvp .eyebrow {
+  margin-top: 0 !important;
+  margin-bottom: 5px !important;
+}
+
+/* Will You Celebrate With Us? */
+.rsvp .section-title {
+  margin-top: 0 !important;
+  margin-bottom: 7px !important;
+}
+
+/* Description */
+.rsvp .section-copy {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+/* Gold divider */
+.rsvp .rsvp-divider {
+  margin-top: 10px !important;
+  margin-bottom: 14px !important;
+}
+
+/* Yes / No area */
+.rsvp .rsvp-choice {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  gap: 8px !important;
+}
+
+/* Yes / No cards */
+.rsvp .rsvp-option {
+  padding-top: 13px !important;
+  padding-bottom: 13px !important;
+}
+
+/* Hidden form after selecting Yes */
+.rsvp .rsvp-details {
+  margin-top: 14px !important;
+}
+
+.rsvp .rsvp-field {
+  margin-bottom: 10px !important;
+}
+
+.rsvp .rsvp-submit {
+  margin-top: 10px !important;
+}
+
+
+/* MOBILE */
+@media (max-width: 640px) {
+
+  .rsvp .rsvp-inner {
+    padding-top: 26px !important;
+    padding-bottom: 26px !important;
+  }
+
+  .rsvp .rsvp-monogram {
+    margin-bottom: 6px !important;
+  }
+
+  .rsvp .section-copy {
+    margin-bottom: 8px !important;
+  }
+
+  .rsvp .rsvp-divider {
+    margin: 8px auto 11px !important;
+  }
+
+  .rsvp .rsvp-choice {
+    gap: 7px !important;
+  }
+
+  .rsvp .rsvp-option {
+    padding-top: 11px !important;
+    padding-bottom: 11px !important;
+  }
+}
+
+
+/* =========================================================
+   EVENTS — FINAL TIME SIZE LOCK
+========================================================= */
+
+.event-nikkah .nikkah-time,
+.event-mehndi .mehndi-time,
+.event-baraat .baraat-time,
+.event-walima .walima-time {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Keep exactly the same time size on mobile */
+@media (max-width: 640px) {
+  .event-nikkah .nikkah-time,
+  .event-mehndi .mehndi-time,
+  .event-baraat .baraat-time,
+  .event-walima .walima-time {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.15 !important;
+  }
+}
+
+
+/* =========================================================
+   EVENTS — ABSOLUTE FINAL TIMELINE TIME LOCK
+========================================================= */
+
+/* Normal + highlighted/main timeline times */
+.event-nikkah .nikkah-time,
+.event-nikkah .nikkah-main .nikkah-time,
+
+.event-mehndi .mehndi-time,
+.event-mehndi .mehndi-main .mehndi-time,
+
+.event-baraat .baraat-time,
+.event-baraat .baraat-main .baraat-time,
+
+.event-walima .walima-time,
+.event-walima .walima-main .walima-time {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 27px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: .04em !important;
+}
+
+/* Mobile — ALL events exactly same */
+@media (max-width: 640px) {
+
+  .event-nikkah .nikkah-time,
+  .event-nikkah .nikkah-main .nikkah-time,
+
+  .event-mehndi .mehndi-time,
+  .event-mehndi .mehndi-main .mehndi-time,
+
+  .event-baraat .baraat-time,
+  .event-baraat .baraat-main .baraat-time,
+
+  .event-walima .walima-time,
+  .event-walima .walima-main .walima-time {
+    font-size: 21px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    letter-spacing: .04em !important;
+  }
+}
+
+
+/* BARAAT — TIMELINE MARKER ICONS */
+.event-baraat .baraat-marker svg {
+  width: 17px !important;
+  height: 17px !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.6 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+
+/* =========================================================
+   BARAAT + WALIMA — PREMIUM ICON MARKERS
+========================================================= */
+
+.event-baraat .baraat-marker,
+.event-walima .walima-marker {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  background: #fffdf8 !important;
+  border: 1.5px solid #c5a059 !important;
+
+  color: #a47d32 !important;
+
+  box-shadow:
+    0 0 0 5px #fffdf8,
+    0 5px 14px rgba(120, 90, 35, .12) !important;
+
+  transform: none !important;
+}
+
+/* Remove old diamond */
+.event-baraat .baraat-marker > span,
+.event-walima .walima-marker > span {
+  display: none !important;
+}
+
+
+/* SVG */
+.event-baraat .baraat-marker svg,
+.event-walima .walima-marker svg {
+  display: block !important;
+
+  width: 19px !important;
+  height: 19px !important;
+
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.55 !important;
+
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+
+/* Main/highlighted timeline point */
+.event-baraat .baraat-main .baraat-marker,
+.event-walima .walima-main .walima-marker {
+  background: #a47d32 !important;
+  color: #fffdf8 !important;
+  border-color: #d8bd7c !important;
+
+  box-shadow:
+    0 0 0 5px #fffdf8,
+    0 6px 16px rgba(120, 90, 35, .20) !important;
+}
+
+
+/* MOBILE */
+@media (max-width: 640px) {
+
+  .event-baraat .baraat-marker,
+  .event-walima .walima-marker {
+    width: 34px !important;
+    height: 34px !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .event-baraat .baraat-marker svg,
+  .event-walima .walima-marker svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+
+/* =========================================================
+   RSVP — PREMIUM COMPACT MOBILE FINAL
+========================================================= */
+
+@media (max-width: 640px) {
+
+  /* Remove full-screen / excessive vertical space */
+  .rsvp {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  .rsvp .rsvp-inner {
+    min-height: 0 !important;
+    height: auto !important;
+
+    padding-top: 34px !important;
+    padding-bottom: 36px !important;
+  }
+
+
+  /* M & U */
+  .rsvp .rsvp-monogram {
+    margin: 0 0 12px !important;
+    font-size: 32px !important;
+    line-height: 1 !important;
+  }
+
+
+  /* KINDLY RESPOND */
+  .rsvp .eyebrow {
+    margin: 0 0 10px !important;
+
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    letter-spacing: .24em !important;
+  }
+
+
+  /* Main heading */
+  .rsvp .section-title {
+    max-width: 330px !important;
+    margin: 0 auto 12px !important;
+
+    font-size: 39px !important;
+    line-height: .98 !important;
+    letter-spacing: -.025em !important;
+  }
+
+
+  /* Supporting text */
+  .rsvp .section-copy {
+    max-width: 330px !important;
+    margin: 0 auto 15px !important;
+
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+
+  /* Gold divider */
+  .rsvp .rsvp-divider {
+    margin: 10px auto 18px !important;
+  }
+
+
+  /* YES / NO container */
+  .rsvp .rsvp-choice {
+    width: calc(100% - 32px) !important;
+    max-width: 390px !important;
+
+    margin: 0 auto !important;
+    gap: 10px !important;
+  }
+
+
+  /* Cards */
+  .rsvp .rsvp-option {
+    min-height: 0 !important;
+    height: auto !important;
+
+    padding: 18px 8px 16px !important;
+
+    border-radius: 22px !important;
+  }
+
+
+  /* Round check / X icon */
+  .rsvp .rsvp-option-icon {
+    width: 43px !important;
+    height: 43px !important;
+
+    margin: 0 auto 12px !important;
+
+    font-size: 20px !important;
+  }
+
+
+  /* Yes / Unable title */
+  .rsvp .rsvp-option strong {
+    display: block !important;
+
+    font-size: 17px !important;
+    line-height: 1.15 !important;
+
+    white-space: nowrap !important;
+  }
+
+
+  /* I'll be there / With our prayers */
+  .rsvp .rsvp-option small,
+  .rsvp .rsvp-option span:not(.rsvp-option-icon) {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+  }
+
+
+  /* Form shown after YES */
+  .rsvp .rsvp-details {
+    margin-top: 18px !important;
+  }
+
+}
+
+
+/* RSVP — SMALL ELEGANT CHOICE CARDS */
+@media (max-width: 640px) {
+
+  .rsvp .rsvp-choice {
+    width: calc(100% - 48px) !important;
+    max-width: 350px !important;
+    gap: 8px !important;
+  }
+
+  .rsvp .rsvp-option {
+    min-height: 0 !important;
+    height: auto !important;
+
+    padding: 12px 6px !important;
+    border-radius: 16px !important;
+  }
+
+  .rsvp .rsvp-option-icon {
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 auto 7px !important;
+
+    font-size: 15px !important;
+  }
+
+  .rsvp .rsvp-option strong {
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Empty old subtitles shouldn't take space */
+  .rsvp .rsvp-option small:empty,
+  .rsvp .rsvp-option span:empty {
+    display: none !important;
+  }
+}
+
+
+/* RSVP — SUBTLE M & U */
+.rsvp .rsvp-monogram {
+  margin: 0 auto 8px !important;
+  font-size: 25px !important;
+  line-height: 1 !important;
+  opacity: .9 !important;
+}
+
+.rsvp .rsvp-monogram i {
+  font-size: .6em !important;
+  margin: 0 4px !important;
+}
+
+@media (max-width: 640px) {
+  .rsvp .rsvp-monogram {
+    font-size: 24px !important;
+    margin-bottom: 8px !important;
+  }
+}
+
