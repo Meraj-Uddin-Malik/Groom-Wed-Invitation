@@ -17689,3 +17689,14 @@ body.invitation-closed .envelope {
   }
 }
 
+
+/* NIKKAH — MOBILE DESCRIPTION SIZE FINAL */
+@media (max-width: 640px) {
+  .event-nikkah .nikkah-card p,
+  .event-nikkah .nikkah-timeline-card p,
+  .event-nikkah .nikkah-main p,
+  .event-nikkah .nikkah-copy {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+}
