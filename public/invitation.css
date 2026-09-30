@@ -17171,3 +17171,44 @@ body.invitation-closed .envelope {
   }
 }
 
+
+/* =========================================================
+   LAST 4 SECTIONS — BALANCED SPACING FINAL
+========================================================= */
+
+.rsvp .rsvp-inner,
+.privacy-request .privacy-inner,
+.receiving-section .receiving-inner,
+.final-closing .closing-inner {
+  padding-top: 38px !important;
+  padding-bottom: 38px !important;
+}
+
+@media (max-width: 640px) {
+  .rsvp .rsvp-inner,
+  .privacy-request .privacy-inner,
+  .receiving-section .receiving-inner,
+  .final-closing .closing-inner {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+}
+
+/* LAST 4 SECTIONS — BALANCED SPACING */
+.rsvp .rsvp-inner,
+.privacy-request .privacy-inner,
+.receiving-section .receiving-inner,
+.final-closing .closing-inner {
+  padding-top: 38px !important;
+  padding-bottom: 38px !important;
+}
+
+@media (max-width: 640px) {
+  .rsvp .rsvp-inner,
+  .privacy-request .privacy-inner,
+  .receiving-section .receiving-inner,
+  .final-closing .closing-inner {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+}
