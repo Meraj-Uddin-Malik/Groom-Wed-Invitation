@@ -17286,3 +17286,48 @@ body.invitation-closed .envelope {
   }
 }
 
+
+/* =========================================================
+   OUR CELEBRATIONS INTRO — COMPACT FINAL
+========================================================= */
+
+.events > .eyebrow {
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  letter-spacing: .14em !important;
+  margin-bottom: 5px !important;
+}
+
+.events > .section-title {
+  font-size: 34px !important;
+  line-height: 1 !important;
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.events > .section-copy {
+  max-width: 340px !important;
+  margin: 0 auto 22px !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  text-align: center !important;
+}
+
+@media (max-width: 640px) {
+  .events > .eyebrow {
+    font-size: 9px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .events > .section-title {
+    font-size: 30px !important;
+    margin-bottom: 7px !important;
+  }
+
+  .events > .section-copy {
+    max-width: 300px !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 18px !important;
+  }
+}
