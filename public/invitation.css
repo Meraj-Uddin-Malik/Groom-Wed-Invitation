@@ -17700,3 +17700,356 @@ body.invitation-closed .envelope {
     line-height: 1.4 !important;
   }
 }
+
+
+/* =========================================================
+   EVENTS — TABBED COMPACT MOBILE EXPERIENCE
+========================================================= */
+
+/* ---------- TABS ---------- */
+
+.event-tabs-wrap {
+  width: 100%;
+  max-width: 760px;
+  margin: 18px auto 22px;
+  padding: 0 14px;
+}
+
+.event-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+
+  padding: 5px;
+
+  background: rgba(255, 253, 248, .88);
+  border: 1px solid rgba(164, 125, 50, .30);
+  border-radius: 18px;
+}
+
+.event-tab {
+  min-width: 0;
+  min-height: 52px;
+
+  padding: 7px 4px;
+
+  border: 0;
+  border-radius: 13px;
+
+  background: transparent;
+  color: #315343;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.05;
+
+  cursor: pointer;
+  transition:
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease;
+}
+
+.event-tab small {
+  display: block;
+  margin-top: 4px;
+
+  font-family: inherit;
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1;
+
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  opacity: .68;
+}
+
+.event-tab.active {
+  background: #315343;
+  color: #fffaf0;
+
+  box-shadow:
+    0 4px 12px rgba(49, 83, 67, .16);
+}
+
+
+/* ---------- TAB PANELS ---------- */
+
+.events.events-tabs-ready > .event {
+  display: none !important;
+}
+
+.events.events-tabs-ready > .event.event-tab-active {
+  display: block !important;
+}
+
+
+/* =========================================================
+   MOBILE — COMPACT TIMELINE ROWS
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .event-tabs-wrap {
+    margin: 13px auto 15px;
+    padding: 0 10px;
+  }
+
+  .event-tabs {
+    gap: 3px;
+    padding: 4px;
+    border-radius: 15px;
+  }
+
+  .event-tab {
+    min-height: 48px;
+    padding: 6px 2px;
+
+    font-size: 13px;
+    border-radius: 11px;
+  }
+
+  .event-tab small {
+    margin-top: 3px;
+    font-size: 7px;
+    letter-spacing: .04em;
+  }
+
+
+  /* -----------------------------------------
+     Active event itself
+  ----------------------------------------- */
+
+  .events.events-tabs-ready > .event.event-tab-active {
+    padding-top: 22px !important;
+    padding-bottom: 25px !important;
+  }
+
+
+  /* -----------------------------------------
+     Hide decorative/repeated timeline content
+  ----------------------------------------- */
+
+  .event-tab-active .nikkah-marker,
+  .event-tab-active .mehndi-marker,
+  .event-tab-active .baraat-marker,
+  .event-tab-active .walima-marker,
+
+  .event-tab-active .nikkah-card-script,
+  .event-tab-active .mehndi-timeline-card > span,
+  .event-tab-active .baraat-card-script,
+  .event-tab-active .walima-card-script,
+
+  .event-tab-active .nikkah-card-title svg,
+  .event-tab-active .baraat-card-title svg,
+  .event-tab-active .walima-card-title svg,
+
+  .event-tab-active .nikkah-card p,
+  .event-tab-active .mehndi-timeline-card p,
+  .event-tab-active .baraat-timeline-card p,
+  .event-tab-active .walima-timeline-card p {
+    display: none !important;
+  }
+
+
+  /* -----------------------------------------
+     Timelines become simple vertical lists
+  ----------------------------------------- */
+
+  .event-tab-active .nikkah-timeline,
+  .event-tab-active .mehndi-event-timeline,
+  .event-tab-active .baraat-event-timeline,
+  .event-tab-active .walima-event-timeline {
+    width: calc(100% - 28px) !important;
+    max-width: 430px !important;
+
+    margin: 15px auto !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+
+  /* -----------------------------------------
+     Each schedule item = one compact row
+  ----------------------------------------- */
+
+  .event-tab-active .nikkah-row,
+  .event-tab-active .mehndi-row,
+  .event-tab-active .baraat-row,
+  .event-tab-active .walima-row {
+    width: 100% !important;
+    min-height: 54px !important;
+
+    margin: 0 !important;
+    padding: 11px 2px !important;
+
+    display: grid !important;
+    grid-template-columns: 86px minmax(0, 1fr) !important;
+    gap: 10px !important;
+
+    align-items: center !important;
+
+    border-bottom:
+      1px solid rgba(164, 125, 50, .20) !important;
+
+    transform: none !important;
+  }
+
+  .event-tab-active .nikkah-row:last-child,
+  .event-tab-active .mehndi-row:last-child,
+  .event-tab-active .baraat-row:last-child,
+  .event-tab-active .walima-row:last-child {
+    border-bottom: 0 !important;
+  }
+
+
+  /* -----------------------------------------
+     TIME — left side
+  ----------------------------------------- */
+
+  .event-tab-active .nikkah-time,
+  .event-tab-active .mehndi-time,
+  .event-tab-active .baraat-time,
+  .event-tab-active .walima-time {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+
+    position: static !important;
+
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    transform: none !important;
+
+    text-align: left !important;
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif !important;
+
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+
+    color: #9a7530 !important;
+  }
+
+  .event-tab-active .nikkah-time span,
+  .event-tab-active .mehndi-time span,
+  .event-tab-active .baraat-time span,
+  .event-tab-active .walima-time span {
+    display: none !important;
+  }
+
+
+  /* -----------------------------------------
+     CARD — right side
+  ----------------------------------------- */
+
+  .event-tab-active .nikkah-card,
+  .event-tab-active .mehndi-timeline-card,
+  .event-tab-active .baraat-timeline-card,
+  .event-tab-active .walima-timeline-card {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+
+    position: static !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    transform: none !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    text-align: left !important;
+  }
+
+
+  /* -----------------------------------------
+     EVENT NAME
+  ----------------------------------------- */
+
+  .event-tab-active .nikkah-card-title,
+  .event-tab-active .baraat-card-title,
+  .event-tab-active .walima-card-title {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .event-tab-active .nikkah-card-title strong,
+  .event-tab-active .mehndi-timeline-card > strong,
+  .event-tab-active .baraat-card-title strong,
+  .event-tab-active .walima-card-title strong {
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif !important;
+
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+
+    color: #294b3c !important;
+
+    text-align: left !important;
+  }
+
+
+  /* -----------------------------------------
+     Compact decorative elements
+  ----------------------------------------- */
+
+  .event-tab-active .celebration-motif,
+  .event-tab-active .baraat-royal-mark,
+  .event-tab-active .walima-monogram {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    transform: scale(.86) !important;
+  }
+
+
+  /* -----------------------------------------
+     Venue/map area remains available
+  ----------------------------------------- */
+
+  .event-tab-active .nikkah-venue,
+  .event-tab-active .celebration-details,
+  .event-tab-active .baraat-starting-point {
+    margin-top: 14px !important;
+    margin-bottom: 0 !important;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.event-tab:focus-visible {
+  outline: 2px solid #c5a059;
+  outline-offset: 2px;
+}
+

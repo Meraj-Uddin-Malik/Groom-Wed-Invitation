@@ -1506,3 +1506,154 @@ function startWeddingFireworks() {
 
   }, 120000);
 }
+
+
+/* =========================================================
+   EVENT TABS
+========================================================= */
+
+(() => {
+  const eventsSection = document.querySelector(".events");
+  const tabs = Array.from(
+    document.querySelectorAll(".event-tab[data-event-tab]")
+  );
+
+  if (!eventsSection || !tabs.length) return;
+
+  const eventPanels = Array.from(
+    eventsSection.querySelectorAll(":scope > .event")
+  );
+
+  if (!eventPanels.length) return;
+
+
+  function activateEvent(eventId, options = {}) {
+    const { focus = false } = options;
+
+    const selectedPanel =
+      document.getElementById(eventId);
+
+    if (!selectedPanel) return;
+
+
+    eventPanels.forEach((panel) => {
+      const active = panel.id === eventId;
+
+      panel.classList.toggle(
+        "event-tab-active",
+        active
+      );
+
+      panel.setAttribute(
+        "aria-hidden",
+        active ? "false" : "true"
+      );
+    });
+
+
+    tabs.forEach((tab) => {
+      const active =
+        tab.dataset.eventTab === eventId;
+
+      tab.classList.toggle(
+        "active",
+        active
+      );
+
+      tab.setAttribute(
+        "aria-selected",
+        active ? "true" : "false"
+      );
+
+      tab.tabIndex = active ? 0 : -1;
+    });
+
+
+    try {
+      localStorage.setItem(
+        "wedding-selected-event",
+        eventId
+      );
+    } catch {}
+
+
+    if (focus) {
+      selectedPanel.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }
+
+
+  tabs.forEach((tab, index) => {
+
+    tab.addEventListener("click", () => {
+      activateEvent(
+        tab.dataset.eventTab,
+        { focus: true }
+      );
+    });
+
+
+    tab.addEventListener("keydown", (event) => {
+
+      if (
+        event.key !== "ArrowLeft" &&
+        event.key !== "ArrowRight"
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const direction =
+        event.key === "ArrowRight"
+          ? 1
+          : -1;
+
+      const nextIndex =
+        (index + direction + tabs.length) %
+        tabs.length;
+
+      tabs[nextIndex].focus();
+
+      activateEvent(
+        tabs[nextIndex].dataset.eventTab
+      );
+    });
+
+  });
+
+
+  /* Default = Walima.
+     If guest previously selected another event,
+     remember their choice. */
+
+  let initialEvent = "event-walima";
+
+  try {
+    const saved =
+      localStorage.getItem(
+        "wedding-selected-event"
+      );
+
+    if (
+      saved &&
+      eventPanels.some(
+        (panel) => panel.id === saved
+      )
+    ) {
+      initialEvent = saved;
+    }
+  } catch {}
+
+
+  activateEvent(initialEvent);
+
+  eventsSection.classList.add(
+    "events-tabs-ready"
+  );
+
+})();
+
