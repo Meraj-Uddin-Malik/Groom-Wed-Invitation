@@ -17331,3 +17331,55 @@ body.invitation-closed .envelope {
     margin-bottom: 18px !important;
   }
 }
+
+/* FINAL CLOSING — FONT SIZE BALANCE */
+
+.final-closing .eyebrow {
+  font-size: 11px !important;
+}
+
+.final-closing .closing-title span {
+  font-size: 17px !important;
+  line-height: 1.25 !important;
+}
+
+.final-closing .closing-title strong {
+  font-size: 30px !important;
+  line-height: 1.08 !important;
+}
+
+.final-closing .closing-prayer {
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+.final-closing .closing-couple {
+  font-size: 27px !important;
+}
+
+.final-closing .closing-thanks {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+@media (max-width: 640px) {
+  .final-closing .closing-title span {
+    font-size: 16px !important;
+  }
+
+  .final-closing .closing-title strong {
+    font-size: 28px !important;
+  }
+
+  .final-closing .closing-prayer {
+    font-size: 14px !important;
+  }
+
+  .final-closing .closing-couple {
+    font-size: 26px !important;
+  }
+
+  .final-closing .closing-thanks {
+    font-size: 12px !important;
+  }
+}
