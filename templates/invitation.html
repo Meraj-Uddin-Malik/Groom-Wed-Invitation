@@ -18,7 +18,7 @@
       content="A wedding invitation for Meraj and Urooj."
     />
 
-    <title>Meraj Uddin &amp; Urooj Fatima | Wedding Invitation</title>
+    <title>Meraj Uddin Malik — Walima Invitation</title>
 
     <!-- Favicon -->
     <link
@@ -68,10 +68,10 @@
       rel="stylesheet"
       href="/invitation.css"
     />
-  
+
   <!-- WhatsApp / Social Share Preview -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Meraj & Urooj — Wedding Invitation">
+  <meta property="og:title" content="Meraj Uddin Malik — Walima Invitation">
   <meta property="og:description" content="Together with our families, we invite you to celebrate our special day.">
   <meta property="og:image" content="https://groom-invitation.netlify.app/wedding-preview.jpg?v=1">
   <meta property="og:image:secure_url" content="https://groom-invitation.netlify.app/wedding-preview.jpg?v=1">
@@ -83,7 +83,7 @@
   <meta property="og:site_name" content="Meraj & Urooj Wedding">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Meraj & Urooj — Wedding Invitation">
+  <meta name="twitter:title" content="Meraj Uddin Malik — Walima Invitation">
   <meta name="twitter:description" content="Together with our families, we invite you to celebrate our special day.">
   <meta name="twitter:image" content="https://groom-invitation.netlify.app/wedding-preview.jpg?v=1">
 
@@ -251,6 +251,13 @@
 
           <div class="rsvp-divider" aria-hidden="true">
             <span></span><b>✦</b><span></span>
+          </div>
+
+
+          <div class="rsvp-deadline" id="rsvp-deadline">
+            <span>✦ A Kind Note</span><br />
+            Kindly confirm your attendance through RSVP to help us make
+            comfortable arrangements for our guests.
           </div>
 
           <form class="rsvp-form" id="rsvp-form">
@@ -610,6 +617,47 @@
       </div>
     </div>
 
+
+
+    <!-- EVENT DAY QUICK PANEL -->
+    <aside
+      class="event-day-panel"
+      id="event-day-panel"
+      aria-live="polite"
+      hidden>
+
+      <button
+        class="event-day-close"
+        type="button"
+        aria-label="Close">
+        &times;
+      </button>
+
+      <div class="event-day-kicker">
+        Today's Celebration
+      </div>
+
+      <strong class="event-day-title"></strong>
+      <span class="event-day-time"></span>
+
+      <div class="event-day-actions">
+
+        <button
+          type="button"
+          class="event-day-calendar">
+          Add to Calendar
+        </button>
+
+        <a
+          class="event-day-directions"
+          target="_blank"
+          rel="noopener noreferrer"
+          hidden>
+          Directions ↗
+        </a>
+
+      </div>
+    </aside>
 
     <!-- Main Invitation JavaScript -->
     <script

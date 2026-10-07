@@ -255,7 +255,7 @@ document.getElementById("open").onclick = () => {
    COUNTDOWN
 ========================================================= */
 
-let wedding = new Date("2027-01-10T19:00:00+05:00");
+let wedding = new Date("2027-01-10T10:00:00+05:00");
 
 function tick() {
   if (!wedding) return;
@@ -1208,6 +1208,24 @@ if (
 
     form.hidden = true;
     success.hidden = false;
+
+    try {
+      localStorage.setItem(
+        "merajUroojWalimaRsvp",
+        JSON.stringify({
+          submitted: true,
+          attendance,
+          guestName,
+          guestCount,
+          savedAt: Date.now()
+        })
+      );
+    } catch (error) {
+      console.warn(
+        "Could not save RSVP status locally:",
+        error
+      );
+    }
   });
 
   function escapeHtml(value) {
@@ -1773,7 +1791,7 @@ function startWeddingFireworks() {
 
     reminderTimer = window.setTimeout(() => {
       openReminder();
-    }, 750);
+    }, 1300);
   });
 
   rsvpAction?.addEventListener("click", () => {
@@ -1792,3 +1810,358 @@ function startWeddingFireworks() {
   });
 })();
 
+
+
+/* =========================================================
+   INVITATION EVENT UTILITIES
+========================================================= */
+
+(() => {
+
+  const events = {
+
+    nikkah: {
+      title: "Meraj & Urooj — Nikkah",
+      start: "20270108T123000Z",
+      end: "20270108T153000Z",
+      time: "5:30 PM",
+      location: "Bride's Residence, Karachi",
+      directions:
+        "https://share.google/SKPDm5EXxf8Hwsqf4"
+    },
+
+    mehndi: {
+      title: "Meraj & Urooj — Mehndi",
+      start: "20270109T131500Z",
+      end: "20270109T173000Z",
+      time: "6:15 PM",
+      location: "AG Malik Residence, Karachi",
+      directions:
+        "https://share.google/OZUVWHGfUYWQcO8fl"
+    },
+
+    baraat: {
+      title: "Meraj & Urooj — Baraat",
+      start: "20270110T043000Z",
+      end: "20270110T070000Z",
+      time: "9:30 AM",
+      location: "AGM Home, Karachi",
+      directions: "https://www.google.com/maps/dir//AGM+Home,+Plot+481+Noor+shah+mohallah,+near+jama+masjid+madina,+Moach+Goth,+Karachi,+75760,+Pakistan/@24.9189189,66.954464,14z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x3eb31500439f8997:0x7374834aef14fd04!2m2!1d66.9404835!2d24.9185912?entry=ttu&g_ep=EgoyMDI2MTAwNS4wIKXMDSoASAFQAw%3D%3D"
+    },
+
+    walima: {
+      title: "Meraj & Urooj — Walima Reception",
+      start: "20270110T060000Z",
+      end: "20270110T110000Z",
+      time: "11:00 AM – 4:00 PM",
+      location: "Rose Mehal Banquet, Karachi",
+      directions:
+        "https://www.google.com/maps/search/?api=1&query=Rose+Mehal+Banquet+Karachi+Pakistan"
+    }
+
+  };
+
+
+  function openCalendar(key) {
+
+    const item = events[key];
+
+    if (!item) return;
+
+    const url =
+      "https://calendar.google.com/calendar/render" +
+      "?action=TEMPLATE" +
+      "&text=" +
+      encodeURIComponent(item.title) +
+      "&dates=" +
+      encodeURIComponent(
+        item.start + "/" + item.end
+      ) +
+      "&details=" +
+      encodeURIComponent(
+        "We would be honoured to celebrate this special occasion with you."
+      ) +
+      "&location=" +
+      encodeURIComponent(item.location);
+
+    window.open(
+      url,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  }
+
+
+  document
+    .querySelectorAll("[data-calendar-event]")
+    .forEach((button) => {
+
+      button.addEventListener(
+        "click",
+        () => {
+          openCalendar(
+            button.dataset.calendarEvent
+          );
+        }
+      );
+
+    });
+
+
+  /* EVENT DAY PANEL */
+
+  const panel =
+    document.getElementById(
+      "event-day-panel"
+    );
+
+  if (!panel) return;
+
+
+  const title =
+    panel.querySelector(
+      ".event-day-title"
+    );
+
+  const time =
+    panel.querySelector(
+      ".event-day-time"
+    );
+
+  const calendar =
+    panel.querySelector(
+      ".event-day-calendar"
+    );
+
+  const directions =
+    panel.querySelector(
+      ".event-day-directions"
+    );
+
+  const close =
+    panel.querySelector(
+      ".event-day-close"
+    );
+
+
+  const dateParts =
+    new Intl.DateTimeFormat(
+      "en-CA",
+      {
+        timeZone: "Asia/Karachi",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }
+    )
+      .formatToParts(new Date())
+      .reduce(
+        (result, part) => {
+          result[part.type] =
+            part.value;
+          return result;
+        },
+        {}
+      );
+
+
+  const today =
+    dateParts.year +
+    "-" +
+    dateParts.month +
+    "-" +
+    dateParts.day;
+
+
+  let key = null;
+
+
+  if (today === "2027-01-08") {
+    key = "nikkah";
+  }
+
+  if (today === "2027-01-09") {
+    key = "mehndi";
+  }
+
+  if (today === "2027-01-10") {
+    key = "walima";
+  }
+
+
+  if (!key) return;
+
+
+  const item = events[key];
+
+
+  title.textContent =
+    item.title.replace(
+      "Meraj & Urooj — ",
+      ""
+    );
+
+  time.textContent =
+    item.time;
+
+
+  calendar.addEventListener(
+    "click",
+    () => openCalendar(key)
+  );
+
+
+  if (item.directions) {
+
+    directions.href =
+      item.directions;
+
+    directions.hidden =
+      false;
+
+  }
+
+
+  close.addEventListener(
+    "click",
+    () => {
+
+      panel.classList.remove(
+        "is-visible"
+      );
+
+      setTimeout(
+        () => {
+          panel.hidden = true;
+        },
+        350
+      );
+
+    }
+  );
+
+
+  panel.hidden = false;
+
+
+  requestAnimationFrame(
+    () => {
+
+      requestAnimationFrame(
+        () => {
+          panel.classList.add(
+            "is-visible"
+          );
+        }
+      );
+
+    }
+  );
+
+})();
+
+
+/* =========================================================
+   SMART RSVP REMINDER STATUS
+========================================================= */
+
+(() => {
+
+  const modal =
+    document.getElementById(
+      "rsvp-reminder-modal"
+    );
+
+  if (!modal) return;
+
+
+  let saved = null;
+
+  function readSavedRsvp() {
+    try {
+      return JSON.parse(
+        localStorage.getItem(
+          "merajUroojWalimaRsvp"
+        ) || "null"
+      );
+    } catch (error) {
+      return null;
+    }
+  }
+
+  saved = readSavedRsvp();
+
+  if (!saved?.submitted) return;
+
+
+  const heading =
+    modal.querySelector(
+      "#rsvp-reminder-title"
+    );
+
+  const lead =
+    modal.querySelector(
+      ".rsvp-reminder-lead"
+    );
+
+  const copy =
+    modal.querySelector(
+      ".rsvp-reminder-copy"
+    );
+
+  const note =
+    modal.querySelector(
+      ".rsvp-reminder-note"
+    );
+
+  const action =
+    modal.querySelector(
+      ".rsvp-reminder-action"
+    );
+
+
+  if (heading) {
+
+    heading.innerHTML =
+      'Thank You For Your ' +
+      '<strong>RSVP</strong>';
+
+  }
+
+
+  if (lead) {
+
+    lead.textContent =
+      saved.attendance === "yes"
+        ? "We look forward to celebrating with you."
+        : "Thank you for letting us know.";
+
+  }
+
+
+  if (copy) {
+
+    copy.textContent =
+      "Your RSVP response has already been recorded on this device.";
+
+  }
+
+
+  if (note) {
+
+    note.textContent =
+      saved.attendance === "yes"
+        ? "JazakAllah — we look forward to welcoming you."
+        : "Your prayers and good wishes mean a great deal to us.";
+
+  }
+
+
+  if (action) {
+
+    action.textContent =
+      "View My RSVP";
+
+  }
+
+})();
