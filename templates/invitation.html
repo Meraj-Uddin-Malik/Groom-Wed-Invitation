@@ -460,6 +460,156 @@
 
     </main>
 
+    <!-- ======================================
+         PHOTOGRAPHY PRIVACY REQUEST MODAL
+    ======================================= -->
+    <div
+      class="privacy-modal"
+      id="privacy-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="privacy-modal-title"
+      aria-describedby="privacy-modal-message"
+      hidden
+    >
+      <div class="privacy-modal-backdrop" data-privacy-close></div>
+
+      <div class="privacy-modal-card">
+        <button
+          class="privacy-modal-close"
+          type="button"
+          aria-label="Close privacy request"
+          data-privacy-close
+        >
+          &times;
+        </button>
+
+        <div class="privacy-modal-monogram" aria-hidden="true">
+          M <span>&amp;</span> U
+        </div>
+
+        <div class="privacy-modal-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M7 16h8l3-5h12l3 5h8a3 3 0 0 1 3 3v19a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V19a3 3 0 0 1 3-3Z"></path>
+            <circle cx="24" cy="28" r="8"></circle>
+            <path d="M8 8l32 32"></path>
+          </svg>
+        </div>
+
+        <div class="privacy-modal-eyebrow">A Kind Request</div>
+
+        <h2 id="privacy-modal-title">
+          Please Help Us Keep
+          <strong>This Moment Private</strong>
+        </h2>
+
+        <div class="privacy-modal-divider" aria-hidden="true">
+          <span></span>
+          <b>✦</b>
+          <span></span>
+        </div>
+
+        <p id="privacy-modal-message">
+          We kindly request our valued guests to avoid taking photos or
+          videos of the Bride &amp; Groom without permission.
+        </p>
+
+        <p class="privacy-modal-message-secondary">
+          Your presence, prayers, and respect mean more to us than any
+          photograph. Please honour our privacy and help us preserve the
+          dignity of this special occasion.
+        </p>
+
+        <div class="privacy-modal-note">
+          Your respect protects both your dignity and ours.
+        </div>
+
+        <button class="privacy-modal-accept" type="button" data-privacy-close>
+          I Understand &amp; Respect This Request
+        </button>
+
+        <div class="privacy-modal-flourish" aria-hidden="true">❦</div>
+      </div>
+    </div>
+
+
+    <!-- ======================================
+         THANK YOU + RSVP REMINDER MODAL
+    ======================================= -->
+    <div
+      class="rsvp-reminder-modal"
+      id="rsvp-reminder-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="rsvp-reminder-title"
+      hidden
+    >
+      <div class="rsvp-reminder-backdrop" data-rsvp-reminder-close></div>
+
+      <div class="rsvp-reminder-card">
+        <button
+          class="rsvp-reminder-close"
+          type="button"
+          aria-label="Close"
+          data-rsvp-reminder-close
+        >
+          &times;
+        </button>
+
+        <div class="rsvp-reminder-monogram" aria-hidden="true">
+          M <span>&amp;</span> U
+        </div>
+
+        <div class="rsvp-reminder-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M24 41S8 31.5 8 18.5C8 12.7 12.2 9 17 9c3 0 5.6 1.6 7 4 1.4-2.4 4-4 7-4 4.8 0 9 3.7 9 9.5C40 31.5 24 41 24 41Z"></path>
+            <path d="m18 24 4 4 8-9"></path>
+          </svg>
+        </div>
+
+        <div class="rsvp-reminder-eyebrow">Thank You</div>
+
+        <h2 id="rsvp-reminder-title">
+          We Hope to Celebrate
+          <strong>With You</strong>
+        </h2>
+
+        <div class="rsvp-reminder-divider" aria-hidden="true">
+          <span></span>
+          <b>✦</b>
+          <span></span>
+        </div>
+
+        <p class="rsvp-reminder-lead">
+          Your presence would make our celebration even more meaningful.
+        </p>
+
+        <p class="rsvp-reminder-copy">
+          To help us prepare thoughtfully for our guests, kindly confirm
+          your attendance through the RSVP section.
+        </p>
+
+        <div class="rsvp-reminder-note">
+          Your response will help us make the necessary arrangements
+          for everyone’s comfort.
+        </div>
+
+        <button class="rsvp-reminder-action" type="button">
+          Confirm My RSVP
+        </button>
+
+        <button
+          class="rsvp-reminder-later"
+          type="button"
+          data-rsvp-reminder-close
+        >
+          Close
+        </button>
+
+        <div class="rsvp-reminder-flourish" aria-hidden="true">❦</div>
+      </div>
+    </div>
+
 
     <!-- Main Invitation JavaScript -->
     <script

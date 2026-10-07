@@ -1657,3 +1657,138 @@ function startWeddingFireworks() {
 
 })();
 
+
+/* =========================================================
+   END-OF-INVITATION — PHOTOGRAPHY PRIVACY MODAL
+========================================================= */
+
+(() => {
+  const modal = document.getElementById("privacy-modal");
+  const finalSection = document.querySelector(".final-closing");
+
+  if (!modal || !finalSection) return;
+
+  let hasShown = false;
+
+  const openModal = () => {
+    if (hasShown) return;
+
+    hasShown = true;
+    modal.hidden = false;
+    document.body.classList.add("privacy-modal-open");
+
+    const closeButton = modal.querySelector(".privacy-modal-close");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        modal.classList.add("is-visible");
+        closeButton?.focus();
+      });
+    });
+  };
+
+  const closeModal = () => {
+    modal.classList.remove("is-visible");
+
+    window.setTimeout(() => {
+      modal.hidden = true;
+      document.body.classList.remove("privacy-modal-open");
+    }, 550);
+  };
+
+  modal.querySelectorAll("[data-privacy-close]").forEach((element) => {
+    element.addEventListener("click", closeModal);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) {
+      closeModal();
+    }
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+
+      if (entry?.isIntersecting && !hasShown) {
+        openModal();
+        observer.disconnect();
+      }
+    },
+    {
+      threshold: 0.55
+    }
+  );
+
+  observer.observe(finalSection);
+})();
+
+/* =========================================================
+   THANK YOU + RSVP REMINDER FLOW
+========================================================= */
+
+(() => {
+  const privacyModal = document.getElementById("privacy-modal");
+  const reminderModal = document.getElementById("rsvp-reminder-modal");
+  const privacyAccept = document.querySelector(".privacy-modal-accept");
+  const rsvpAction = document.querySelector(".rsvp-reminder-action");
+  const rsvpSection = document.getElementById("rsvp");
+
+  if (!privacyModal || !reminderModal) return;
+
+  let reminderTimer = null;
+
+  const openReminder = () => {
+    reminderModal.hidden = false;
+    document.body.classList.add("rsvp-reminder-open");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        reminderModal.classList.add("is-visible");
+      });
+    });
+  };
+
+  const closeReminder = (afterClose) => {
+    reminderModal.classList.remove("is-visible");
+
+    window.setTimeout(() => {
+      reminderModal.hidden = true;
+      document.body.classList.remove("rsvp-reminder-open");
+
+      if (typeof afterClose === "function") {
+        afterClose();
+      }
+    }, 550);
+  };
+
+  reminderModal
+    .querySelectorAll("[data-rsvp-reminder-close]")
+    .forEach((element) => {
+      element.addEventListener("click", () => closeReminder());
+    });
+
+  privacyAccept?.addEventListener("click", () => {
+    window.clearTimeout(reminderTimer);
+
+    reminderTimer = window.setTimeout(() => {
+      openReminder();
+    }, 750);
+  });
+
+  rsvpAction?.addEventListener("click", () => {
+    closeReminder(() => {
+      rsvpSection?.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !reminderModal.hidden) {
+      closeReminder();
+    }
+  });
+})();
+
