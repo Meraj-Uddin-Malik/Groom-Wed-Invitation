@@ -4812,7 +4812,7 @@ body.ceremony .shell {
 
   color: var(--nk-gray) !important;
 
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.65 !important;
 }
 
@@ -17353,7 +17353,7 @@ body.invitation-closed .envelope {
   .event-tab-active .mehndi-timeline-card p,
   .event-tab-active .baraat-timeline-card p,
   .event-tab-active .walima-timeline-card p {
-    font-size: 14px !important;
+    font-size: 11px !important;
     line-height: 1.35 !important;
     margin-top: 5px !important;
     margin-bottom: 0 !important;
@@ -17415,7 +17415,7 @@ body.invitation-closed .envelope {
   .event-mehndi .mehndi-timeline-card > p,
   .event-baraat .baraat-timeline-card p,
   .event-walima .walima-timeline-card p {
-    font-size: 10px !important;
+    font-size: 11px !important;
     line-height: 1.4 !important;
   }
 }
