@@ -4774,7 +4774,6 @@ body.ceremony .shell {
 .nikkah-card-title {
   display: flex;
   align-items: center;
-
   gap: 8px;
 }
 
@@ -4813,7 +4812,7 @@ body.ceremony .shell {
 
   color: var(--nk-gray) !important;
 
-  font-size: 12px !important;
+  font-size: 10px !important;
   line-height: 1.65 !important;
 }
 
