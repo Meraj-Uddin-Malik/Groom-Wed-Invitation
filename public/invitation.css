@@ -4058,17 +4058,9 @@ body.ceremony .shell {
   padding-top: 28px !important;
 }
 
-@media (max-width: 640px) {
-  .hero .card {
-    padding-top: 20px !important;
-  }
-}
 
-@media (max-width: 380px) {
-  .hero .card {
-    padding-top: 16px !important;
-  }
-}
+
+
 
 /* =========================================================
 
@@ -7641,18 +7633,7 @@ body.ceremony .shell {
 
 /* accessibility */
 
-@media (prefers-reduced-motion: reduce) {
 
-  .nikkah-card {
-    transition:
-      none;
-  }
-
-  .nikkah-card:hover {
-    transform:
-      none;
-  }
-}
 
 
 /* Nikkah mini venue map */
@@ -9734,12 +9715,7 @@ body.ceremony .shell {
   z-index: 3 !important;
 }
 
-@media (max-width: 640px) {
-  .event-nikkah .nikkah-event-number {
-    top: 10px !important;
-    font-size: 105px !important;
-  }
-}
+
 
 /* FINAL — Nikkah large 01 watermark only */
 
@@ -17203,15 +17179,7 @@ body.invitation-closed .envelope {
   padding-bottom: 38px !important;
 }
 
-@media (max-width: 640px) {
-  .rsvp .rsvp-inner,
-  .privacy-request .privacy-inner,
-  .receiving-section .receiving-inner,
-  .final-closing .closing-inner {
-    padding-top: 32px !important;
-    padding-bottom: 32px !important;
-  }
-}
+
 
 /* =========================================================
    MAIN INVITATION — BALANCED COMPACT SPACING
