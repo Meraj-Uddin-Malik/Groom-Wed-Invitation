@@ -3406,7 +3406,7 @@ body.ceremony .shell {
 /* AYAH AREA */
 .hero .wedding-ayah {
   width: min(90%, 540px) !important;
-  margin: 0 auto 28px !important;
+  margin: 0 auto 20px !important;
   padding: 34px 0 29px !important;
 }
 
@@ -3459,7 +3459,7 @@ body.ceremony .shell {
 /* INVITATION */
 .hero .walima-invite {
   gap: 4px !important;
-  margin: 0 auto 22px !important;
+  margin: 0 auto 16px !important;
   color: #183f30 !important;
   font-family: Georgia, serif !important;
   font-size: clamp(1rem, 4.1vw, 1.3rem) !important;
@@ -3487,7 +3487,7 @@ body.ceremony .shell {
 
 /* NAMES */
 .hero .walima-names {
-  margin: 15px auto 20px !important;
+  margin: 10px auto 14px !important;
 }
 
 .hero .walima-names .name-first,
@@ -3523,7 +3523,7 @@ body.ceremony .shell {
 /* CLOSING MESSAGE */
 .hero .walima-blessing {
   width: min(90%, 470px);
-  margin: 30px auto 12px;
+  margin: 20px auto 12px;
 
   color: #253f33;
   font-family: Georgia, "Times New Roman", serif;
