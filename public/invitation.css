@@ -2433,8 +2433,7 @@ body.ceremony
 /* hide all intro content once opening starts */
 .intro.open .seal,
 .intro.open .seal-light,
-.intro.open .intro-hint,
-.intro.open .door-stars {
+.intro.open .intro-hint {
   opacity: 0 !important;
   visibility: hidden !important;
 }
@@ -2611,19 +2610,6 @@ body.ceremony .shell {
 
 
 /* Gentle touch reaction */
-
-.opening-sequence .seal {
-  filter:
-    drop-shadow(
-      0 10px 10px
-      rgba(0,0,0,.35)
-    )
-    drop-shadow(
-      0 0 8px
-      rgba(225,188,109,.3)
-    ) !important;
-}
-
 
 /* Wax moves down and sideways like it has been released */
 
@@ -2882,66 +2868,6 @@ body.ceremony .shell {
     transform:
       scale(.78)
       rotate(37deg);
-  }
-}
-
-
-/* =========================================================
-   FLOATING FLOWERS
-========================================================= */
-
-.celebration-flower {
-  position: absolute;
-
-  top: -12vh;
-
-  font-size:
-    var(--flower-size);
-
-  color:
-    #f0c7c4;
-
-  opacity: .9;
-
-  text-shadow:
-    0 2px 5px
-    rgba(75,31,32,.2);
-
-  animation:
-    celebration-flower-fall
-    var(--flower-dur)
-    var(--flower-delay)
-    linear
-    both;
-
-  pointer-events: none;
-}
-
-
-@keyframes celebration-flower-fall {
-
-  0% {
-    opacity: 0;
-
-    transform:
-      translate3d(0,-10vh,0)
-      rotate(0deg);
-  }
-
-  12% {
-    opacity: .95;
-  }
-
-  100% {
-    opacity: 0;
-
-    transform:
-      translate3d(
-        var(--flower-drift),
-        112vh,
-        0
-      )
-      rotate(480deg);
   }
 }
 
@@ -14269,21 +14195,6 @@ body.invitation-closed .envelope {
 }
 
 /* Wedding Footer */
-.wedding-footer {
-  padding: 28px 20px 32px;
-  text-align: center;
-  font-size: 11px;
-  line-height: 1.8;
-  letter-spacing: .08em;
-  opacity: .58;
-}
-
-.wedding-footer .developer-credit {
-  font-size: 9px;
-  letter-spacing: .06em;
-  opacity: .75;
-}
-
 /* =========================================================
    WALIMA RSVP — PREMIUM
 ========================================================= */
