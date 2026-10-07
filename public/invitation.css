@@ -3916,44 +3916,9 @@ body.ceremony .shell {
   background-position: center bottom !important;
 }
 
-/* FINAL CARD VERTICAL SPACE -10PX */
-@media (max-width: 640px) {
-  .hero .card {
-    padding-top: 0 !important;
-    padding-bottom: 20px !important;
-  }
-}
-
-@media (max-width: 380px) {
-  .hero .card {
-    padding-top: 0 !important;
-    padding-bottom: 16px !important;
-  }
-}
-
-/* FINAL CARD POSITION POLISH */
-@media (max-width: 640px) {
-  .hero .card {
-    padding-bottom: 6px !important;
-  }
-
-  .hero .card > * {
-    position: relative;
-    top: -6px;
-  }
-}
-
-@media (max-width: 380px) {
-  .hero .card {
-    padding-bottom: 4px !important;
-  }
-
-  .hero .card > * {
-    top: -6px;
-  }
-}
-
-/* NOTICEABLE HERO CONTENT POSITION FIX */
+/* =========================================================
+   HERO — FINAL MOBILE LAYOUT
+========================================================= */
 @media (max-width: 640px) {
   .hero .card {
     padding-top: 0 !important;
@@ -3961,12 +3926,11 @@ body.ceremony .shell {
   }
 
   .hero .card > * {
+    position: relative;
+    top: -6px;
     transform: translateY(-15px) !important;
   }
-}
 
-/* AYAH — FINAL TYPOGRAPHY & POSITION */
-@media (max-width: 640px) {
   .hero .wedding-ayah {
     transform: translateY(-10px) !important;
   }
@@ -3981,36 +3945,27 @@ body.ceremony .shell {
   .hero .wedding-ayah .ayah-reference {
     margin-top: 2px !important;
   }
-}
 
-/* WITH DIVIDER — CROP + COLOR FIX ONLY */
-@media (max-width: 640px) {
-  .hero .walima-names .name-amp {
-    height: 30px !important;
-
-    /* show a little more of the upper ornament */
-    background-size: auto 40px !important;
-    background-position: center 58% !important;
-
-    /* lighter, closer to invitation gold */
-    filter: brightness(1.12) saturate(0.82) !important;
-    opacity: 0.92 !important;
-  }
-}
-
-/* WITH DIVIDER — KEEP ORIGINAL COLOR, CROP FIX ONLY */
-@media (max-width: 640px) {
   .hero .walima-names .name-amp {
     height: 30px !important;
     background-size: auto 40px !important;
     background-position: center 58% !important;
-
-    /* restore previous color */
     filter:
       saturate(0.9)
       brightness(0.88)
       contrast(0.95) !important;
     opacity: 0.95 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .card {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero .card > * {
+    top: -6px;
   }
 }
 
