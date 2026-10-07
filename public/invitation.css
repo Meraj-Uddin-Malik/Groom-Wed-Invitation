@@ -167,57 +167,9 @@ img {
    ENVELOPE PREVIEW
 ======================================== */
 
-.env-preview {
-  position: absolute;
-  inset: 0;
 
-  display: grid;
-  place-content: center;
 
-  gap: 12px;
 
-  padding: 20%;
-
-  text-align: center;
-
-  color: var(--forest);
-
-  background:
-    #faf5ea
-    url("/floral-invitation.webp")
-    center / 100% 100%
-    no-repeat;
-
-  letter-spacing: 0.04em;
-
-  transition:
-    transform 1.4s cubic-bezier(.2, .7, .2, 1),
-    filter 1.4s ease;
-}
-
-.env-preview > span[lang] {
-  font-family: "Amiri", serif;
-  font-size: 23px;
-  line-height: 1.7;
-}
-
-.env-preview b {
-  display: block;
-
-  margin: 0;
-
-  color: var(--forest);
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 45px;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-.intro.open .env-preview {
-  transform: scale(1.045);
-  filter: brightness(1.06);
-}
 
 
 /* ========================================
@@ -661,15 +613,7 @@ span:first-child {
     both;
 }
 
-.bismillah {
-  margin: 0 0 10px;
 
-  color: #745d3a;
-
-  font-family: "Amiri", serif;
-  font-size: 30px;
-  line-height: 1.7;
-}
 
 .verse {
   margin: 0 0 24px;
@@ -1704,10 +1648,6 @@ body.ceremony
     box-shadow: none;
   }
 
-  .env-preview {
-    padding:
-      25% 17%;
-  }
 
   .seal {
     width:
@@ -1782,9 +1722,7 @@ body.ceremony
       0 8px;
   }
 
-  .bismillah {
-    font-size: 25px;
-  }
+
 
   .verse >
   p:first-child {
@@ -1974,10 +1912,7 @@ body.ceremony
     animation: none !important;
   }
 
-  .env-panel,
-  .curtain-panel,
-  .curtain-monogram,
-  .env-preview {
+  .env-panel {
     transition: none !important;
   }
 
@@ -2042,122 +1977,17 @@ body.ceremony
 
 /* Invitation visible behind the doors */
 
-.env-preview {
-  position: absolute;
-  inset: 13px;
-
-  z-index: 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 16px;
-
-  padding: 44px 28px;
-
-  overflow: hidden;
-
-  border-radius: 10px;
-
-  color: #214334;
-
-  background:
-    linear-gradient(
-      rgba(255, 252, 244, 0.9),
-      rgba(250, 243, 226, 0.94)
-    ),
-    url("/floral-invitation.webp")
-    center / cover
-    no-repeat;
-
-  box-shadow:
-    inset 0 0 0 1px rgba(174, 139, 78, 0.55),
-    inset 0 0 0 8px rgba(255, 251, 238, 0.55);
-}
 
 
 /* Gold decorative frame */
 
-.env-preview::before {
-  content: "";
-
-  position: absolute;
-  inset: 14px;
-
-  border: 1px solid rgba(169, 132, 74, 0.68);
-  border-radius: 6px;
-
-  pointer-events: none;
-}
-
-.env-preview::after {
-  content: "M  ✦  U";
-
-  position: absolute;
-  top: 32px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  color: #a27c40;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 17px;
-
-  letter-spacing: 0.24em;
-}
 
 
-.env-preview > span[lang] {
-  position: relative;
-  z-index: 1;
-
-  margin-top: 28px;
-
-  color: #715b36;
-
-  font-family: "Amiri", serif;
-  font-size: 25px;
-}
 
 
-.env-preview b {
-  position: relative;
-  z-index: 1;
-
-  display: block;
-
-  margin: 12px 0 4px;
-
-  color: #214b38;
-
-  font-family: "Italianno", cursive;
-  font-size: clamp(62px, 18vw, 88px);
-  font-weight: 400;
-  line-height: 0.9;
-
-  letter-spacing: 0;
-
-  text-shadow:
-    0 2px 0 rgba(255, 255, 255, 0.8);
-}
 
 
-.env-preview > span:last-child {
-  position: relative;
-  z-index: 1;
 
-  color: #917147;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
-
-  letter-spacing: 0.16em;
-
-  text-transform: uppercase;
-}
 
 
 /* =========================================================
@@ -2367,13 +2197,6 @@ body.ceremony
     rotateY(118deg);
 }
 
-.intro.open .env-preview {
-  transform:
-    scale(1.035);
-
-  filter:
-    brightness(1.08);
-}
 
 
 /* =========================================================
@@ -2393,28 +2216,9 @@ body.ceremony
     border-radius: 0;
   }
 
-  .env-preview {
-    inset: 14px;
 
-    border-radius: 4px;
-  }
 
-  .env-preview::before {
-    inset: 12px;
-  }
 
-  .env-preview::after {
-    top: 30px;
-  }
-
-  .env-preview b {
-    font-size:
-      clamp(
-        66px,
-        21vw,
-        94px
-      );
-  }
 
   .seal {
     width:
@@ -2627,7 +2431,6 @@ body.ceremony
 }
 
 /* hide all intro content once opening starts */
-.intro.open .env-preview,
 .intro.open .seal,
 .intro.open .seal-light,
 .intro.open .intro-hint,
@@ -2644,10 +2447,6 @@ body.ceremony
 }
 
 /* Never show invitation preview between doors and curtain */
-.intro.open .env-preview {
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
 
 .intro.finished {
   opacity: 0 !important;
@@ -2667,18 +2466,6 @@ body.ceremony
 }
 
 /* Curtain already sits behind the doors */
-.curtain-stage {
-  z-index: 20 !important;
-
-  /* Never reveal cream between transitions */
-  background:
-    radial-gradient(
-      circle at 50% 42%,
-      #31513f 0%,
-      #203c2e 48%,
-      #102018 100%
-    ) !important;
-}
 
 /* Main invitation stays underneath */
 .shell {
@@ -2759,21 +2546,12 @@ body.ceremony
    CURTAIN OPENS SLOWER
 --------------------------------------------------------- */
 
-.curtain-panel {
-  transition:
-    transform 2.35s
-    cubic-bezier(.65,0,.18,1) !important;
-}
 
 
 /* ---------------------------------------------------------
    NEVER SHOW THE CREAM PREVIEW AFTER OPENING STARTS
 --------------------------------------------------------- */
 
-.intro.open .env-preview {
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
 
 
 /* intro disappears only after the doors finish */
@@ -2809,17 +2587,6 @@ body.ceremony .shell {
   perspective: 1600px;
 }
 
-.curtain-stage {
-  z-index: 30 !important;
-
-  background:
-    radial-gradient(
-      circle at 50% 45%,
-      #294536 0%,
-      #152c21 55%,
-      #08130e 100%
-    ) !important;
-}
 
 .shell {
   position: relative;
@@ -2983,10 +2750,6 @@ body.ceremony .shell {
 
 /* Do not expose cream invitation preview */
 
-.intro.doors-opening .env-preview {
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
 
 
 /* =========================================================
@@ -3213,14 +2976,7 @@ body.ceremony .shell {
       3.1s !important;
   }
 
-  .curtain-panel {
-    transition-duration:
-      2.9s !important;
-  }
 
-  .curtain-stage::before {
-    height: 13vh;
-  }
 
   .seal {
     transition-duration:
@@ -3234,129 +2990,19 @@ body.ceremony .shell {
 ========================================================= */
 
 /* curtain stage behind opening */
-.curtain-stage {
-  background:
-    radial-gradient(circle at 50% 30%, rgba(255,255,255,.05), transparent 28%),
-    linear-gradient(180deg, #0f2018 0%, #173126 55%, #0c1812 100%) !important;
-  overflow: hidden;
-}
 
 /* top curtain header / pelmet */
-.curtain-stage::before {
-  content: "";
-  position: absolute;
-  left: -2%;
-  right: -2%;
-  top: 0;
-  height: 92px;
-  z-index: 6;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.12), transparent 35%),
-    repeating-linear-gradient(
-      90deg,
-      #163125 0 28px,
-      #2b4f3d 28px 56px,
-      #193527 56px 84px,
-      #3b6450 84px 112px
-    );
-  border-bottom: 2px solid rgba(214, 185, 108, .75);
-  box-shadow:
-    0 12px 24px rgba(0,0,0,.35),
-    inset 0 -12px 18px rgba(0,0,0,.25);
-}
 
 /* real curtain cloth look */
-.curtain-panel {
-  width: 50.5% !important;
-  top: 0;
-  bottom: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.16) 0%,
-      rgba(255,255,255,.03) 6%,
-      rgba(0,0,0,.18) 12%,
-      rgba(255,255,255,.08) 19%,
-      rgba(0,0,0,.22) 28%,
-      rgba(255,255,255,.06) 36%,
-      rgba(0,0,0,.20) 44%,
-      rgba(255,255,255,.08) 53%,
-      rgba(0,0,0,.24) 63%,
-      rgba(255,255,255,.08) 74%,
-      rgba(0,0,0,.20) 84%,
-      rgba(255,255,255,.04) 100%
-    ),
-    repeating-linear-gradient(
-      90deg,
-      #173427 0 22px,
-      #274c3a 22px 46px,
-      #1a3629 46px 70px,
-      #3f6854 70px 95px,
-      #173326 95px 118px
-    ) !important;
-  box-shadow:
-    inset 0 0 45px rgba(0,0,0,.25),
-    0 0 26px rgba(0,0,0,.28) !important;
-  transition:
-    transform 3.1s cubic-bezier(.66,0,.16,1) !important;
-  will-change: transform;
-}
 
-.curtain-left {
-  border-right: 2px solid rgba(216, 188, 116, .78) !important;
-  box-shadow:
-    inset -20px 0 32px rgba(0,0,0,.28),
-    10px 0 24px rgba(0,0,0,.25) !important;
-}
 
-.curtain-right {
-  border-left: 2px solid rgba(216, 188, 116, .78) !important;
-  box-shadow:
-    inset 20px 0 32px rgba(0,0,0,.28),
-    -10px 0 24px rgba(0,0,0,.25) !important;
-}
 
 /* slower opening */
-.curtain-stage.parting .curtain-left {
-  transform: translateX(-103%) scaleX(.9) !important;
-}
 
-.curtain-stage.parting .curtain-right {
-  transform: translateX(103%) scaleX(.9) !important;
-}
 
 /* white floral decoration on curtains */
-.curtain-panel::before {
-  content: "";
-  position: absolute;
-  top: 15%;
-  width: 120px;
-  height: 170px;
-  z-index: 7;
-  opacity: .95;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 18% 18%, #ffffff 0 8px, transparent 9px),
-    radial-gradient(circle at 34% 28%, #fffdf8 0 10px, transparent 11px),
-    radial-gradient(circle at 54% 18%, #ffffff 0 9px, transparent 10px),
-    radial-gradient(circle at 70% 34%, #fffefa 0 8px, transparent 9px),
-    radial-gradient(circle at 86% 20%, #ffffff 0 7px, transparent 8px),
-    radial-gradient(circle at 42% 52%, #fffefc 0 10px, transparent 11px),
-    radial-gradient(circle at 74% 60%, #ffffff 0 9px, transparent 10px),
-    radial-gradient(circle at 25% 73%, #ffffff 0 8px, transparent 9px),
-    radial-gradient(circle at 57% 82%, #fffefa 0 10px, transparent 11px),
-    radial-gradient(circle at 82% 84%, #ffffff 0 8px, transparent 9px);
-  filter: drop-shadow(0 3px 6px rgba(0,0,0,.18));
-}
 
-.curtain-left::before {
-  right: 16px;
-}
 
-.curtain-right::before {
-  left: 16px;
-}
 
 /* petals softer and more realistic */
 .petal {
@@ -3453,18 +3099,8 @@ body.ceremony .shell {
 
 /* mobile */
 @media (max-width:640px) {
-  .curtain-panel {
-    transition-duration: 2.8s !important;
-  }
 
-  .curtain-panel::before {
-    width: 92px;
-    height: 135px;
-  }
 
-  .curtain-stage::before {
-    height: 78px;
-  }
 }
 
 
@@ -3473,12 +3109,6 @@ body.ceremony .shell {
    FINAL OPENING — NO CURTAIN
    Seal moves -> disappears -> doors open -> invitation
 ========================================================= */
-
-/* Disable old curtain completely */
-.curtain-stage,
-#curtain-stage {
-  display: none !important;
-}
 
 /* Main invitation hidden until doors finish */
 body.invitation-closed .shell {
@@ -3600,10 +3230,6 @@ body.ceremony .shell {
 }
 
 /* No intermediate cream card */
-.intro.doors-opening .env-preview {
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
 
 /* No old open-state animation overriding this */
 .intro.open .env-panel.left,
@@ -3633,9 +3259,6 @@ body.ceremony .shell {
 ========================================================= */
 
 /* Never show the cream preview card */
-.env-preview {
-  display: none !important;
-}
 
 /* Invitation must NOT be visible before opening */
 body.invitation-closed .shell {
@@ -3721,9 +3344,7 @@ body.ceremony .shell {
   margin-bottom: 16px;
 }
 
-.hero #hero-date {
-  margin-top: 0;
-}
+
 
 @media (max-width: 640px) {
   .hero .card {
@@ -3731,9 +3352,7 @@ body.ceremony .shell {
     padding-right: 24px;
   }
 
-  .hero .card .bismillah {
-    margin-bottom: 16px;
-  }
+
 
   .hero .walima-names .name-first,
   .hero .walima-names .name-second {
@@ -3994,12 +3613,7 @@ body.ceremony .shell {
 }
 
 /* Date */
-.hero #hero-date {
-  margin: 0 auto 10px !important;
-  color: #8f6b34 !important;
-  font-size: clamp(.72rem, 3vw, .9rem) !important;
-  letter-spacing: .18em !important;
-}
+
 
 
 /* SMALL MOBILE */
