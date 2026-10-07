@@ -16650,16 +16650,6 @@ body.invitation-closed .envelope {
   }
 }
 
-/* LAST 4 SECTIONS — BALANCED SPACING */
-.rsvp .rsvp-inner,
-.privacy-request .privacy-inner,
-.receiving-section .receiving-inner,
-.final-closing .closing-inner {
-  padding-top: 38px !important;
-  padding-bottom: 38px !important;
-}
-
-
 
 /* =========================================================
    MAIN INVITATION — BALANCED COMPACT SPACING
