@@ -19380,3 +19380,61 @@ body.rsvp-reminder-open {
     transition: none !important;
   }
 }
+
+
+
+
+
+
+/* ROYAL BOTANICAL SIDE-EDGE DECK — SINGLE AUTHORITATIVE LAYOUT */
+.events.events-deck-ready{background:#faf5eb!important;overflow:hidden!important;padding-left:10px!important;padding-right:10px!important;padding-bottom:46px!important}
+.events.events-deck-ready .event-tabs-wrap,.events.events-deck-ready>.event{display:none!important}
+.events.events-deck-ready .wedding-card-deck{position:relative!important;isolation:isolate!important;display:block!important;width:min(100%,470px)!important;height:clamp(445px,119vw,515px)!important;margin:22px auto 16px!important;padding:0!important;overflow:visible!important;touch-action:pan-y!important}
+.events.events-deck-ready #event-nikkah{--paper-card:#fbf6eb;--ink:#234a3b;--metal:#b89a63;--accent:#234a3b}
+.events.events-deck-ready #event-mehndi{--paper-card:#f6e2e3;--ink:#783e4c;--metal:#b7898d;--accent:#783e4c}
+.events.events-deck-ready #event-baraat{--paper-card:#f5ead6;--ink:#73502e;--metal:#b79762;--accent:#73502e}
+.events.events-deck-ready #event-walima{--paper-card:#153f33;--ink:#f7e8c8;--metal:#c9a969;--accent:#f7e8c8}
+.events.events-deck-ready .wedding-card-deck>.event{position:absolute!important;top:0!important;left:0!important;right:auto!important;bottom:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;width:calc(100% - 68px)!important;max-width:none!important;height:100%!important;min-height:0!important;margin:0!important;padding:32px 19px 26px!important;box-sizing:border-box!important;overflow:visible!important;border:1.5px solid var(--metal)!important;border-radius:15px!important;background:var(--paper-card)!important;color:var(--ink)!important;box-shadow:0 13px 26px rgba(57,45,28,.16)!important;text-align:center!important;animation:none!important;opacity:1!important;visibility:visible!important;transition:transform .4s cubic-bezier(.2,.75,.2,1),opacity .3s!important;transform-origin:center center!important}
+.events.events-deck-ready .wedding-deck-card::before{content:''!important;position:absolute!important;inset:7px!important;width:auto!important;height:auto!important;transform:none!important;background:none!important;border:1px solid var(--metal)!important;border-radius:10px!important;opacity:.7!important;pointer-events:none!important;z-index:1!important}
+.events.events-deck-ready .wedding-deck-card::after{display:none!important;content:none!important}
+.events.events-deck-ready .wedding-deck-card>.royal-botanical{position:absolute!important;display:block!important;width:56px!important;height:56px!important;z-index:2!important;pointer-events:none!important;background:url('/wedding-botanical.svg') center/contain no-repeat!important;opacity:.8!important}
+.events.events-deck-ready .royal-botanical.tl{top:7px;left:7px}.events.events-deck-ready .royal-botanical.tr{top:7px;right:7px;transform:scaleX(-1)}.events.events-deck-ready .royal-botanical.bl{bottom:7px;left:7px;transform:scaleY(-1)}.events.events-deck-ready .royal-botanical.br{bottom:7px;right:7px;transform:scale(-1)}
+.events.events-deck-ready .wedding-deck-card>:not(.deck-premium-heading):not(.deck-compact-content):not(.royal-botanical):not(.royal-deck-edge){display:none!important}
+.events.events-deck-ready .deck-premium-heading{position:relative!important;z-index:3!important;display:block!important;margin:0 0 13px!important;font:italic 500 clamp(47px,12vw,67px)/1 'Cormorant Garamond',Georgia,serif!important;letter-spacing:-.035em!important;color:var(--ink)!important;text-shadow:none!important}
+.events.events-deck-ready .deck-compact-content{position:relative!important;z-index:3!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:15px!important;width:100%!important;max-width:325px!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;transform:none!important}
+.events.events-deck-ready .deck-compact-date{margin:0!important;color:var(--metal)!important;font:600 clamp(13px,3.6vw,16px)/1.25 'Cormorant Garamond',Georgia,serif!important;letter-spacing:.10em!important;text-transform:uppercase!important}
+.events.events-deck-ready .deck-compact-schedule{width:100%!important;max-width:290px!important;margin:4px 0!important;padding:12px 0!important;border-top:1px solid var(--metal)!important;border-bottom:1px solid var(--metal)!important;background:none!important}
+.events.events-deck-ready .deck-schedule-row{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;margin:0!important;padding:5px 0!important;border:0!important;color:var(--ink)!important;font:500 clamp(12px,3.25vw,15px)/1.25 Georgia,serif!important;letter-spacing:0!important}
+.events.events-deck-ready .deck-schedule-row strong{font:600 inherit!important;white-space:nowrap!important}.events.events-deck-ready .deck-schedule-row span{text-align:right!important}
+.events.events-deck-ready .deck-compact-venue{display:flex!important;flex-direction:column!important;gap:3px!important;margin:0!important}.events.events-deck-ready .deck-compact-venue span{color:var(--metal)!important;font:600 10px/1.3 Georgia,serif!important;letter-spacing:.2em!important;text-transform:uppercase!important}.events.events-deck-ready .deck-compact-venue strong{color:var(--ink)!important;font:500 clamp(23px,6vw,29px)/1.12 'Cormorant Garamond',Georgia,serif!important}
+.events.events-deck-ready .deck-compact-actions{display:flex!important;gap:7px!important;flex-wrap:nowrap!important;width:100%!important;max-width:300px!important;margin:0!important}
+.events.events-deck-ready .deck-compact-actions>button,.events.events-deck-ready .deck-compact-actions>a{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:1 1 0!important;min-width:0!important;width:auto!important;min-height:38px!important;margin:0!important;padding:7px 5px!important;border:1px solid var(--metal)!important;border-radius:24px!important;background:transparent!important;color:var(--ink)!important;box-shadow:none!important;text-decoration:none!important;white-space:nowrap!important;font:500 clamp(10px,2.7vw,13px)/1.1 Georgia,serif!important;letter-spacing:0!important}
+.events.events-deck-ready .deck-compact-actions>a.deck-location-button{background:transparent!important;color:var(--ink)!important;border-color:var(--metal)!important}.events.events-deck-ready .deck-compact-actions svg{width:13px!important;height:13px!important;flex:none!important}
+/* Exposed edges are genuine parts of the same four cards */
+.events.events-deck-ready .royal-deck-edge{position:absolute!important;top:19%!important;right:-1px!important;z-index:8!important;display:flex!important;align-items:center!important;justify-content:center!important;width:22px!important;height:48%!important;border:1px solid var(--metal)!important;border-right:0!important;border-radius:9px 0 0 9px!important;background:var(--paper-card)!important;color:var(--ink)!important;writing-mode:vertical-rl!important;text-orientation:mixed!important;font:italic 600 clamp(15px,4vw,19px)/1 'Cormorant Garamond',Georgia,serif!important;letter-spacing:.03em!important;cursor:pointer!important;pointer-events:auto!important}
+.events.events-deck-ready .wedding-deck-card[data-depth='0']{transform:translateX(0)!important;pointer-events:auto!important}.events.events-deck-ready .wedding-deck-card[data-depth='1']{transform:translateX(23px) scale(.997)!important;pointer-events:none!important}.events.events-deck-ready .wedding-deck-card[data-depth='2']{transform:translateX(46px) scale(.994)!important;pointer-events:none!important}.events.events-deck-ready .wedding-deck-card[data-depth='3']{transform:translateX(69px) scale(.991)!important;pointer-events:none!important}
+.events.events-deck-ready .wedding-deck-card[data-depth='0']>.royal-deck-edge{display:none!important}.events.events-deck-ready .wedding-deck-card[data-depth]:not([data-depth='0'])>.royal-deck-edge{pointer-events:auto!important}
+.events.events-deck-ready .wedding-deck-card.deck-exiting{transform:translateX(-115%) rotate(-7deg)!important;opacity:0!important}
+.events.events-deck-ready .wedding-deck-navigation{display:flex!important;align-items:center!important;justify-content:center!important;gap:22px!important;margin:0 auto 0!important}.events.events-deck-ready .deck-nav-button{display:grid!important;place-items:center!important;width:30px!important;height:30px!important;border:0!important;border-radius:50%!important;background:transparent!important;color:#395748!important;font-size:22px!important}.events.events-deck-ready .deck-navigation-status{min-width:90px!important;color:#b89a63!important;font:500 16px Georgia,serif!important;letter-spacing:.16em!important}.events.events-deck-ready .royal-deck-hint{margin:4px auto 0!important;color:#49604e!important;font:italic 16px 'Cormorant Garamond',Georgia,serif!important;text-align:center!important}
+@media(max-width:390px){.events.events-deck-ready .wedding-card-deck{height:440px!important}.events.events-deck-ready .wedding-card-deck>.event{padding:24px 13px 21px!important}.events.events-deck-ready .deck-compact-content{gap:12px!important}.events.events-deck-ready .wedding-deck-card>.royal-botanical{width:45px!important;height:45px!important}.events.events-deck-ready .deck-premium-heading{font-size:50px!important}}
+@media(prefers-reduced-motion:reduce){.events.events-deck-ready .wedding-card-deck>.event{transition:none!important}}
+
+.events.events-deck-ready .wedding-deck-card[data-depth='1'],.events.events-deck-ready .wedding-deck-card[data-depth='2'],.events.events-deck-ready .wedding-deck-card[data-depth='3']{pointer-events:auto!important}
+.events.events-deck-ready .wedding-deck-card:not(.deck-front) .deck-compact-content,.events.events-deck-ready .wedding-deck-card:not(.deck-front) .deck-premium-heading{pointer-events:none!important}
+
+/* FIX: Walima must occupy the same stacked deck as all events */
+.events.events-deck-ready .wedding-card-deck > #event-walima {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  display: flex !important;
+  width: calc(100% - 68px) !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  transform-origin: center center !important;
+}
