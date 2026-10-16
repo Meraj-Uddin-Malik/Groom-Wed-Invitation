@@ -1526,155 +1526,336 @@ function startWeddingFireworks() {
 }
 
 
+
 /* =========================================================
-   EVENT TABS
+   PREMIUM STACKED WEDDING EVENT DECK
 ========================================================= */
-
 (() => {
-  const eventsSection = document.querySelector(".events");
-  const tabs = Array.from(
-    document.querySelectorAll(".event-tab[data-event-tab]")
-  );
+  const section = document.querySelector(".events");
+  if (!section || section.dataset.deckInitialized === "true") return;
 
-  if (!eventsSection || !tabs.length) return;
+  const ids = [
+    "event-nikkah",
+    "event-mehndi",
+    "event-baraat",
+    "event-walima"
+  ];
 
-  const eventPanels = Array.from(
-    eventsSection.querySelectorAll(":scope > .event")
-  );
+  const cards = ids.map(id => document.getElementById(id));
+  if (cards.some(card => !card)) return;
 
-  if (!eventPanels.length) return;
+  section.dataset.deckInitialized = "true";
 
+  const deck = document.createElement("div");
+  deck.className = "wedding-card-deck";
+  deck.tabIndex = 0;
+  deck.setAttribute("role", "region");
+  deck.setAttribute("aria-label", "Wedding celebration cards");
 
-  function activateEvent(eventId, options = {}) {
-    const { focus = false } = options;
+  cards[0].before(deck);
+  cards.forEach(card => deck.appendChild(card));
 
-    const selectedPanel =
-      document.getElementById(eventId);
+  const tabs = section.querySelector(".event-tabs-wrap");
+  if (tabs) tabs.hidden = true;
 
-    if (!selectedPanel) return;
+  const schedules = {
+    "event-nikkah": [
+      ["5:30 PM", "Guest Arrival"],
+      ["6:00 PM", "Nikkah Ceremony"],
+      ["7:30 PM", "Dinner"]
+    ],
+    "event-mehndi": [
+      ["6:15 PM", "Guest Arrival"],
+      ["6:45 PM", "Mehndi Celebration"],
+      ["9:00 PM", "Dinner"]
+    ],
+    "event-baraat": [
+      ["9:30 AM", "Family Gathering"],
+      ["10:00 AM", "Departure"]
+    ],
+    "event-walima": [
+      ["11:00 AM", "Guest Arrival"],
+      ["12:00 PM", "Reception"],
+      ["1:30 PM", "Lunch"],
+      ["4:00 PM", "Celebration Concludes"]
+    ]
+  };
 
-
-    eventPanels.forEach((panel) => {
-      const active = panel.id === eventId;
-
-      panel.classList.toggle(
-        "event-tab-active",
-        active
-      );
-
-      panel.setAttribute(
-        "aria-hidden",
-        active ? "false" : "true"
-      );
-    });
-
-
-    tabs.forEach((tab) => {
-      const active =
-        tab.dataset.eventTab === eventId;
-
-      tab.classList.toggle(
-        "active",
-        active
-      );
-
-      tab.setAttribute(
-        "aria-selected",
-        active ? "true" : "false"
-      );
-
-      tab.tabIndex = active ? 0 : -1;
-    });
-
-
-    try {
-      localStorage.setItem(
-        "wedding-selected-event",
-        eventId
-      );
-    } catch {}
-
-
-    if (focus) {
-      selectedPanel.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+  const details = {
+    "event-nikkah": {
+      date: "Friday · 08 January 2027",
+      venue: "Bride's Residence",
+      map: "https://share.google/SKPDm5EXxf8Hwsqf4"
+    },
+    "event-mehndi": {
+      date: "Saturday · 09 January 2027",
+      venue: "AG Malik Residence",
+      map: "https://share.google/OZUVWHGfUYWQcO8fl"
+    },
+    "event-baraat": {
+      date: "Sunday · 10 January 2027",
+      venue: "AGM Home",
+      map: ""
+    },
+    "event-walima": {
+      date: "Sunday · 10 January 2027",
+      venue: "Rose Mehal Banquet",
+      map: "https://share.google/ZGDf7IdDX9hMAY7PF"
     }
-  }
+  };
 
+  cards.forEach((card, index) => {
+    card.classList.add("wedding-deck-card");
+    // Use one dedicated title, so legacy headers cannot duplicate the date.
+    const oldHeading = card.querySelector("h3");
+    const premiumHeading = document.createElement("h3");
+    premiumHeading.className = "deck-premium-heading";
+    premiumHeading.textContent = ({ "event-nikkah":"Nikkah", "event-mehndi":"Mehndi", "event-baraat":"Baraat", "event-walima":"Walima" })[card.id];
+    card.prepend(premiumHeading);
 
-  tabs.forEach((tab, index) => {
+    // Decorative SVG floral corners; purely visual, no effect on event controls.
+    for (const corner of ['tl', 'tr', 'bl', 'br']) {
+      const ornament = document.createElement('span');
+      ornament.className = 'royal-botanical ' + corner;
+      ornament.setAttribute('aria-hidden', 'true');
+      card.appendChild(ornament);
+    }
 
-    tab.addEventListener("click", () => {
-      activateEvent(
-        tab.dataset.eventTab,
-        { focus: true }
-      );
+    card.dataset.deckIndex = String(index);
+
+    const info = details[card.id];
+
+    const summary = document.createElement("div");
+    summary.className = "deck-compact-content";
+
+    const date = document.createElement("p");
+    date.className = "deck-compact-date";
+    date.textContent = info.date;
+    summary.appendChild(date);
+
+    const schedule = document.createElement("div");
+    schedule.className = "deck-compact-schedule";
+
+    schedules[card.id].forEach(([time, label]) => {
+      const item = document.createElement("div");
+      item.className = "deck-schedule-row";
+
+      const timeElement = document.createElement("strong");
+      timeElement.textContent = time;
+
+      const labelElement = document.createElement("span");
+      labelElement.textContent = label;
+
+      item.append(timeElement, labelElement);
+      schedule.appendChild(item);
     });
 
+    summary.appendChild(schedule);
 
-    tab.addEventListener("keydown", (event) => {
+    const venue = document.createElement("div");
+    venue.className = "deck-compact-venue";
 
-      if (
-        event.key !== "ArrowLeft" &&
-        event.key !== "ArrowRight"
-      ) {
-        return;
-      }
+    const venueLabel = document.createElement("span");
+    venueLabel.textContent =
+      card.id === "event-baraat" ? "Starting Point" : "Venue";
 
-      event.preventDefault();
+    const venueName = document.createElement("strong");
+    venueName.textContent = info.venue;
 
-      const direction =
-        event.key === "ArrowRight"
-          ? 1
-          : -1;
+    venue.append(venueLabel, venueName);
+    summary.appendChild(venue);
 
-      const nextIndex =
-        (index + direction + tabs.length) %
-        tabs.length;
+    const actions = document.createElement("div");
+    actions.className = "deck-compact-actions";
 
-      tabs[nextIndex].focus();
+    const calendar = card.querySelector(".event-calendar-button");
+    if (calendar) actions.appendChild(calendar);
 
-      activateEvent(
-        tabs[nextIndex].dataset.eventTab
-      );
-    });
+    if (info.map) {
+      const mapLink = document.createElement("a");
+      mapLink.className = "deck-location-button";
+      mapLink.href = info.map;
+      mapLink.target = "_blank";
+      mapLink.rel = "noopener noreferrer";
+      mapLink.textContent = "View Location ↗";
+      actions.appendChild(mapLink);
+    }
 
+    summary.appendChild(actions);
+
+    const header =
+      card.querySelector(".nikkah-header") ||
+      card.querySelector(".celebration-header");
+
+    if (header) header.after(summary);
+    else card.prepend(summary);
+
+    card.setAttribute("aria-label", ids[index].replace("event-", ""));
   });
 
+  const navigation = document.createElement("div");
+  navigation.className = "wedding-deck-navigation";
 
-  /* Default = Walima.
-     If guest previously selected another event,
-     remember their choice. */
+  const previous = document.createElement("button");
+  previous.type = "button";
+  previous.className = "deck-nav-button";
+  previous.textContent = "←";
+  previous.setAttribute("aria-label", "Previous celebration");
 
-  let initialEvent = "event-walima";
+  const status = document.createElement("div");
+  status.className = "deck-navigation-status";
+  status.setAttribute("aria-live", "polite");
 
-  try {
-    const saved =
-      localStorage.getItem(
-        "wedding-selected-event"
-      );
+  const next = document.createElement("button");
+  next.type = "button";
+  next.className = "deck-nav-button";
+  next.textContent = "→";
+  next.setAttribute("aria-label", "Next celebration");
 
-    if (
-      saved &&
-      eventPanels.some(
-        (panel) => panel.id === saved
-      )
-    ) {
-      initialEvent = saved;
+  navigation.append(previous, status, next);
+  deck.after(navigation);
+
+
+  /* VISIBLE FOUR EVENT NAVIGATION */
+  const eventNames = ["Nikkah", "Mehndi", "Baraat", "Walima"];
+  const eventTabs = document.createElement("div");
+  eventTabs.className = "deck-visible-events";
+  eventTabs.setAttribute("aria-label", "Choose wedding event");
+
+  const eventButtons = eventNames.map((name, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "deck-event-tab";
+    button.innerHTML =
+      '<span class="deck-tab-number">0' + (index + 1) +
+      '</span><span class="deck-tab-name">' + name + '</span>';
+    button.addEventListener("click", () => {
+      if (animating || activeIndex === index) return;
+      activeIndex = index;
+      render();
+    });
+    eventTabs.appendChild(button);
+    return button;
+  });
+
+  deck.after(eventTabs);
+  const swipeHint = document.createElement("p");
+  swipeHint.className = "deck-swipe-hint";
+  swipeHint.textContent = "← Swipe to explore all 4 celebrations →";
+  eventTabs.after(swipeHint);
+
+  let activeIndex = 0;
+  let animating = false;
+  let pointerStart = null;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  function render() {
+    cards.forEach((card, index) => {
+      const depth = (index - activeIndex + cards.length) % cards.length;
+
+      card.dataset.depth = String(depth);
+      card.style.zIndex = String(cards.length - depth);
+      card.classList.toggle("deck-front", depth === 0);
+      card.classList.remove("deck-exiting");
+
+      card.setAttribute("aria-hidden", depth === 0 ? "false" : "true");
+      card.inert = depth !== 0;
+    });
+
+    eventButtons.forEach((button, index) => {
+      const selected = index === activeIndex;
+      button.classList.toggle("is-active", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+
+    const name = ids[activeIndex].replace("event-", "");
+    status.textContent =
+      String(activeIndex + 1).padStart(2, "0") +
+      " / 04 · " +
+      name.charAt(0).toUpperCase() +
+      name.slice(1);
+
+    try {
+      localStorage.setItem("wedding-selected-event", ids[activeIndex]);
+    } catch (_) {}
+  }
+
+  function change(direction) {
+    if (animating) return;
+
+    animating = true;
+
+    const front = cards[activeIndex];
+
+    if (direction > 0 && !reducedMotion) {
+      front.classList.add("deck-exiting");
     }
-  } catch {}
 
+    const duration = reducedMotion ? 0 : direction > 0 ? 420 : 260;
 
-  activateEvent(initialEvent);
+    window.setTimeout(() => {
+      activeIndex =
+        (activeIndex + direction + cards.length) % cards.length;
 
-  eventsSection.classList.add(
-    "events-tabs-ready"
-  );
+      render();
+      animating = false;
+    }, duration);
+  }
 
+  next.addEventListener("click", () => change(1));
+  previous.addEventListener("click", () => change(-1));
+
+  deck.addEventListener("pointerdown", event => {
+    if (animating) return;
+
+    if (event.target.closest("a, button, input, textarea, iframe")) {
+      return;
+    }
+
+    pointerStart = {
+      x: event.clientX,
+      y: event.clientY,
+      id: event.pointerId
+    };
+  });
+
+  deck.addEventListener("pointerup", event => {
+    if (!pointerStart || pointerStart.id !== event.pointerId) return;
+
+    const dx = event.clientX - pointerStart.x;
+    const dy = event.clientY - pointerStart.y;
+
+    pointerStart = null;
+
+    if (Math.abs(dx) < 55 || Math.abs(dx) < Math.abs(dy) * 1.2) {
+      return;
+    }
+
+    change(dx < 0 ? 1 : -1);
+  });
+
+  deck.addEventListener("pointercancel", () => {
+    pointerStart = null;
+  });
+
+  deck.addEventListener("keydown", event => {
+    if (event.target !== deck) return;
+
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      change(1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      change(-1);
+    }
+  });
+
+  render();
+  section.classList.add("events-deck-ready");
 })();
-
 
 /* =========================================================
    END-OF-INVITATION — PHOTOGRAPHY PRIVACY MODAL
