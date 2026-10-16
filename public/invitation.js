@@ -1716,33 +1716,18 @@ function startWeddingFireworks() {
   deck.after(navigation);
 
 
-  /* VISIBLE FOUR EVENT NAVIGATION */
-  const eventNames = ["Nikkah", "Mehndi", "Baraat", "Walima"];
-  const eventTabs = document.createElement("div");
-  eventTabs.className = "deck-visible-events";
-  eventTabs.setAttribute("aria-label", "Choose wedding event");
-
-  const eventButtons = eventNames.map((name, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "deck-event-tab";
-    button.innerHTML =
-      '<span class="deck-tab-number">0' + (index + 1) +
-      '</span><span class="deck-tab-name">' + name + '</span>';
-    button.addEventListener("click", () => {
-      if (animating || activeIndex === index) return;
-      activeIndex = index;
-      render();
-    });
-    eventTabs.appendChild(button);
-    return button;
+  // Each card owns its visible edge; no separate event-tab row.
+  cards.forEach((card,index)=>{
+    const edge=document.createElement('span');
+    edge.className='royal-deck-edge';
+    edge.textContent=['Nikkah','Mehndi','Baraat','Walima'][index];
+    edge.setAttribute('aria-hidden','true');
+    card.appendChild(edge);
   });
-
-  deck.after(eventTabs);
-  const swipeHint = document.createElement("p");
-  swipeHint.className = "deck-swipe-hint";
-  swipeHint.textContent = "← Swipe to explore all 4 celebrations →";
-  eventTabs.after(swipeHint);
+  const swipeHint=document.createElement('p');
+  swipeHint.className='royal-deck-hint';
+  swipeHint.textContent='Swipe to explore all 4 celebrations';
+  navigation.after(swipeHint);
 
   let activeIndex = 0;
   let animating = false;
@@ -1765,18 +1750,10 @@ function startWeddingFireworks() {
       card.inert = depth !== 0;
     });
 
-    eventButtons.forEach((button, index) => {
-      const selected = index === activeIndex;
-      button.classList.toggle("is-active", selected);
-      button.setAttribute("aria-pressed", String(selected));
-    });
-
     const name = ids[activeIndex].replace("event-", "");
-    status.textContent =
-      String(activeIndex + 1).padStart(2, "0") +
-      " / 04 · " +
-      name.charAt(0).toUpperCase() +
-      name.slice(1);
+    status.textContent = '●  ●  ●  ●';
+    status.setAttribute('aria-label', (activeIndex+1)+' of 4: '+name);
+    status.style.setProperty('--active-dot', String(activeIndex));
 
     try {
       localStorage.setItem("wedding-selected-event", ids[activeIndex]);
@@ -1808,10 +1785,20 @@ function startWeddingFireworks() {
   next.addEventListener("click", () => change(1));
   previous.addEventListener("click", () => change(-1));
 
+  deck.addEventListener('click', event => {
+    const edge=event.target.closest('.royal-deck-edge');
+    if(!edge || animating) return;
+    const card=edge.closest('.wedding-deck-card');
+    const index=cards.indexOf(card);
+    if(index<0 || index===activeIndex) return;
+    activeIndex=index;
+    render();
+  });
+
   deck.addEventListener("pointerdown", event => {
     if (animating) return;
 
-    if (event.target.closest("a, button, input, textarea, iframe")) {
+    if (event.target.closest("a, button, input, textarea, iframe, .royal-deck-edge")) {
       return;
     }
 
