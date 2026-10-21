@@ -741,7 +741,7 @@ if (revealButton) {
 const celebratedEvents = new Set();
 
 function eventCelebrationBurst(event) {
-  if (!event?.id || celebratedEvents.has(event.id)) return;
+  if (!event?.id) return;
 
   const themes = {
     "event-nikkah": [
@@ -776,7 +776,7 @@ function eventCelebrationBurst(event) {
   const colors = themes[event.id];
   if (!colors) return;
 
-  celebratedEvents.add(event.id);
+  // Allow celebration every time an event becomes active.
 
   /* Play burst sound once when this event celebrates */
   playCelebrationBurstSound();
@@ -1749,6 +1749,9 @@ function startWeddingFireworks() {
       card.setAttribute("aria-hidden", depth === 0 ? "false" : "true");
       card.inert = depth !== 0;
     });
+
+    // Celebrate when an event becomes the front card.
+    eventCelebrationBurst(cards[activeIndex]);
 
     const name = ids[activeIndex].replace("event-", "");
     status.textContent = '●  ●  ●  ●';

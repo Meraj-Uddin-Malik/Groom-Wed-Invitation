@@ -19437,3 +19437,127 @@ body.rsvp-reminder-open {
   margin: 0 !important;
   box-sizing: border-box !important;
 }
+
+
+/* RSVP MOBILE BOTANICAL DESIGN V1 */
+/* Scope is deliberately restricted to RSVP and privacy request. */
+.rsvp {
+  isolation:isolate;
+  padding:clamp(64px,9vw,105px) 18px 70px !important;
+  background:radial-gradient(ellipse at 50% 32%,#164534 0%,#0d3024 56%,#09251d 100%) !important;
+  color:#fff9e9;
+}
+.rsvp::before {
+  content:"";position:absolute;z-index:-1;inset:10px 10px 0;
+  border:1px solid rgba(214,174,100,.32);
+  border-radius:90px 90px 0 0;
+  pointer-events:none;
+}
+.rsvp-inner {max-width:470px !important;}
+.rsvp-monogram {margin-bottom:18px !important;color:#e6c48a !important;font-size:21px !important;letter-spacing:.15em !important;}
+.rsvp-monogram span {font-size:32px !important;}
+.rsvp .eyebrow,.rsvp .section-kicker {color:#e6c48a !important;letter-spacing:.30em !important;}
+.rsvp .section-title {font-size:clamp(29px,8.5vw,44px) !important;line-height:1.15 !important;color:#e8c58b !important;letter-spacing:.12em !important;}
+.rsvp .section-copy {max-width:390px !important;color:#f8f1e5 !important;font-family:Georgia,serif !important;font-size:clamp(16px,4.2vw,19px) !important;line-height:1.55 !important;}
+.rsvp-divider {margin:22px auto 24px !important;}
+.rsvp-divider b {color:#dfbd7b !important;}
+.rsvp-choice {display:grid !important;grid-template-columns:minmax(0,1fr) !important;gap:14px !important;margin-top:18px !important;}
+.rsvp-option {
+  position:relative;display:grid !important;grid-template-columns:62px minmax(0,1fr) 18px !important;
+  grid-template-rows:auto auto;align-items:center;text-align:left !important;
+  column-gap:14px !important;min-height:102px !important;
+  padding:16px 19px !important;border-radius:28px !important;
+  border:2px solid #d4a75f !important;
+  background:linear-gradient(135deg,rgba(55,107,77,.70),rgba(13,57,42,.94)) !important;
+  box-shadow:inset 0 0 0 3px rgba(255,245,214,.10),0 9px 25px rgba(0,0,0,.16) !important;
+  color:#fff8e8 !important;
+}
+.rsvp-option::after {content:'›';grid-column:3;grid-row:1 / span 2;font-family:Georgia,serif;font-size:34px;line-height:1;color:#e5bd7e;}
+.rsvp-option-icon {grid-column:1;grid-row:1 / span 2;margin:0 !important;width:55px !important;height:55px !important;border:2px solid #e7c48c !important;border-radius:50%;color:#e7c48c !important;font-size:27px !important;}
+.rsvp-option strong {grid-column:2;grid-row:1;font-family:Georgia,serif !important;font-size:clamp(19px,5.3vw,25px) !important;font-style:italic;font-weight:400 !important;letter-spacing:-.025em;line-height:1.2;}
+.rsvp-option small {grid-column:2;grid-row:2;margin-top:4px !important;color:rgba(255,250,237,.80) !important;font-size:13px !important;letter-spacing:0 !important;line-height:1.35;}
+.rsvp-option[data-rsvp="no"] {background:linear-gradient(135deg,#fffcf4,#e8dcc8) !important;color:#18382c !important;border-color:#bd8c4d !important;}
+.rsvp-option[data-rsvp="no"] strong {color:#17382c !important;}
+.rsvp-option[data-rsvp="no"] small {color:#675c50 !important;}
+.rsvp-option[data-rsvp="no"] .rsvp-option-icon {color:#a7763b !important;border-color:#a7763b !important;}
+.rsvp-option[data-rsvp="no"]::after {color:#a7763b;}
+.rsvp-option.selected {outline:2px solid #f7dfab !important;outline-offset:3px !important;}
+.rsvp-option:focus-visible {outline:3px solid #fff2b9 !important;outline-offset:4px !important;}
+.rsvp-details,.rsvp-success {border-color:rgba(223,187,121,.6) !important;}
+/* Respect / photography request: same ivory botanical treatment as approved mockup. */
+.privacy-request {position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 38%,#fffdf7 0%,#f5ead7 100%) !important;color:#17392d !important;padding:58px 18px 70px !important;}
+.privacy-request::before,.privacy-request::after {content:'❦';position:absolute;z-index:-1;color:rgba(170,126,64,.20);font-family:Georgia,serif;font-size:125px;line-height:1;pointer-events:none;}
+.privacy-request::before {left:-24px;top:30px;transform:rotate(-24deg);}
+.privacy-request::after {right:-24px;bottom:12px;transform:rotate(145deg);}
+.privacy-request .privacy-inner {max-width:470px !important;margin:auto !important;padding:0 7px !important;}
+.privacy-request .privacy-icon {width:76px !important;height:76px !important;margin:0 auto 20px !important;border:1px solid rgba(175,122,55,.38) !important;border-radius:50%;box-shadow:0 0 0 8px rgba(190,144,76,.07);color:#9c713e !important;display:flex;align-items:center;justify-content:center;}
+.privacy-request .privacy-icon svg {width:42px !important;height:42px !important;}
+.privacy-request .eyebrow {color:#9a6535 !important;letter-spacing:.24em !important;font-size:11px !important;margin:0 auto 10px !important;}
+.privacy-request .section-title {color:#12392d !important;font-family:Georgia,serif !important;font-style:italic !important;font-weight:400 !important;font-size:clamp(35px,9vw,48px) !important;line-height:1.12 !important;margin:0 auto 20px !important;}
+.privacy-request .privacy-divider {margin:17px auto 23px !important;}
+.privacy-request .privacy-message {max-width:390px !important;margin:auto !important;padding:0 !important;color:#253c33 !important;font-family:Georgia,serif !important;font-size:clamp(14px,4vw,18px) !important;line-height:1.8 !important;}
+.privacy-request .privacy-message > span {white-space:normal !important;}
+.privacy-request .section-copy,.privacy-request .privacy-note {color:#35463e !important;line-height:1.7 !important;}
+@media(min-width:700px){.rsvp::before {inset:18px max(18px,calc((100% - 580px)/2));}.rsvp-option {min-height:112px !important;}}
+@media(max-width:370px){.rsvp-option {grid-template-columns:49px minmax(0,1fr) 14px !important;gap:10px !important;padding:13px 12px !important;}.rsvp-option-icon {width:46px !important;height:46px !important;}.rsvp-option strong {font-size:19px !important;}.rsvp-option small {font-size:11px !important;}.privacy-request .privacy-message {font-size:14px !important;}}
+@media(prefers-reduced-motion:reduce){.rsvp-option {transition:none !important;}}
+
+
+/* RSVP BOTANICAL V2 — scoped visual corrections */
+.rsvp { position:relative !important; overflow:hidden !important; padding:64px 20px 58px !important; background:radial-gradient(ellipse at 50% 20%,#1b4d39 0%,#103a2b 48%,#092a20 100%) !important; }
+.rsvp::before { inset:12px !important; z-index:0 !important; border:1px solid rgba(224,184,111,.52) !important; border-radius:105px 105px 28px 28px !important; box-shadow:inset 0 0 0 5px rgba(226,183,105,.045); }
+.rsvp::after { content:'❦       ❦'; white-space:pre; position:absolute; top:21px; left:0; right:0; text-align:center; font:36px Georgia,serif; letter-spacing:100px; color:rgba(220,177,107,.38); pointer-events:none; }
+.rsvp-inner { position:relative !important; z-index:1 !important; max-width:440px !important; margin:0 auto !important; }
+.rsvp-monogram { margin:10px auto 13px !important; }
+.rsvp-heading-icon { margin-bottom:14px !important; }
+.rsvp .eyebrow { margin-bottom:15px !important; color:#e8c990 !important; font-size:12px !important; letter-spacing:.26em !important; }
+.rsvp .section-copy { margin:0 auto !important; max-width:345px !important; font-size:17px !important; line-height:1.65 !important; }
+.rsvp-divider { margin:19px auto !important; }
+.rsvp-deadline { display:block !important; max-width:390px !important; margin:0 auto 22px !important; padding:17px 18px !important; border:1px solid rgba(223,190,129,.58) !important; border-radius:20px !important; background:rgba(242,228,192,.09) !important; color:#f5e9d2 !important; font-size:14px !important; line-height:1.65 !important; text-align:center !important; box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
+.rsvp-deadline span { color:#eac58b !important; display:inline-block; margin-bottom:5px; font-size:12px !important; letter-spacing:.10em; }
+.rsvp-choice { display:grid !important; grid-template-columns:minmax(0,1fr) !important; gap:13px !important; margin:0 !important; }
+.rsvp-option { width:100% !important; box-sizing:border-box !important; display:grid !important; grid-template-columns:54px minmax(0,1fr) 17px !important; grid-template-rows:1fr !important; align-items:center !important; column-gap:13px !important; min-height:91px !important; padding:13px 16px !important; border-radius:25px !important; text-align:left !important; }
+.rsvp-option-icon { grid-column:1 !important; grid-row:1 !important; width:49px !important; height:49px !important; display:flex !important; align-items:center !important; justify-content:center !important; }
+.rsvp-option-icon svg { width:28px !important; height:28px !important; }
+.rsvp-option-text { grid-column:2; grid-row:1; display:flex; flex-direction:column; gap:5px; min-width:0; }
+.rsvp-option strong { display:block !important; font-size:clamp(18px,5vw,24px) !important; line-height:1.16 !important; }
+.rsvp-option small { display:block !important; margin:0 !important; font:12px/1.4 system-ui,sans-serif !important; letter-spacing:0 !important; }
+.rsvp-option::after { grid-column:3 !important; grid-row:1 !important; align-self:center !important; font-size:29px !important; }
+.rsvp-option[data-rsvp="no"] { background:linear-gradient(135deg,#fffdf7,#eadfc9) !important; }
+.privacy-request { padding:67px 24px 76px !important; }
+.privacy-request::before,.privacy-request::after { font-size:150px !important; color:rgba(158,112,53,.19) !important; }
+.privacy-request::before { top:5px !important; left:-30px !important; }
+.privacy-request::after { bottom:-20px !important; right:-25px !important; }
+.privacy-request .privacy-inner { position:relative; z-index:1; }
+.privacy-request .privacy-icon { width:82px !important; height:82px !important; margin-bottom:23px !important; }
+.privacy-request .eyebrow { margin-bottom:13px !important; }
+.privacy-request .section-title { font-size:clamp(34px,9vw,47px) !important; margin-bottom:15px !important; }
+.privacy-request .privacy-divider { margin:15px auto 22px !important; }
+.privacy-request .privacy-message { max-width:360px !important; font-size:clamp(15px,4vw,18px) !important; line-height:1.75 !important; }
+.privacy-request .privacy-message span { display:block; margin-bottom:6px; }
+@media(max-width:370px) { .rsvp {padding:59px 18px 54px !important;} .rsvp::after {letter-spacing:65px;font-size:28px;} .rsvp-option {grid-template-columns:44px minmax(0,1fr) 13px !important;gap:10px !important;min-height:85px !important;padding:12px 13px !important;} .rsvp-option-icon {width:41px !important;height:41px !important;} .rsvp-option strong {font-size:18px !important;} .rsvp-option small {font-size:11px !important;} .rsvp-deadline {font-size:13px !important;} }
+@media(min-width:700px) { .rsvp {padding:75px 24px 72px !important;} .rsvp::before {inset:15px max(20px,calc((100% - 590px)/2)) !important;} }
+
+
+/* RSVP BOTANICAL V2 MOBILE COMPACT PATCH */
+@media(max-width:699px){
+  .rsvp { height:auto !important; min-height:0 !important; max-height:none !important; padding:35px 20px 35px !important; display:block !important; }
+  .rsvp::before { inset:9px 12px !important; border-radius:78px 78px 24px 24px !important; }
+  .rsvp::after { top:11px !important; font-size:25px !important; letter-spacing:65px !important; }
+  .rsvp-inner { height:auto !important; min-height:0 !important; max-height:none !important; padding:0 !important; margin:0 auto !important; }
+  .rsvp-monogram { margin:0 auto 7px !important; }
+  .rsvp-monogram span { font-size:29px !important; }
+  .rsvp-heading-icon { margin:0 auto 7px !important; }
+  .rsvp .eyebrow { margin:0 auto 10px !important; }
+  .rsvp .section-copy { font-size:clamp(15px,4.3vw,18px) !important; line-height:1.45 !important; }
+  .rsvp-divider { margin:12px auto 14px !important; }
+  .rsvp-deadline { margin:0 auto 15px !important; padding:12px 13px !important; font-size:13px !important; line-height:1.48 !important; border-radius:17px !important; }
+  .rsvp-deadline span { margin-bottom:2px !important; }
+  .rsvp-choice { gap:10px !important; }
+  .rsvp-option { min-height:73px !important; padding:10px 13px !important; border-radius:21px !important; grid-template-columns:43px minmax(0,1fr) 14px !important; column-gap:10px !important; }
+  .rsvp-option-icon { width:40px !important; height:40px !important; }
+  .rsvp-option-icon svg { width:24px !important; height:24px !important; }
+  .rsvp-option strong { font-size:clamp(17px,4.6vw,21px) !important; }
+  .rsvp-option small { font-size:11px !important; }
+  .rsvp-option::after { font-size:25px !important; }
+}
