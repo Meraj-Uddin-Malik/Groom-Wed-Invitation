@@ -19561,3 +19561,38 @@ body.rsvp-reminder-open {
   .rsvp-option small { font-size:11px !important; }
   .rsvp-option::after { font-size:25px !important; }
 }
+
+/* RSVP MOBILE TYPOGRAPHY AND SPACING V3 */
+@media (max-width:699px) {
+  .rsvp {height:auto !important; min-height:0 !important; max-height:none !important; padding:27px 18px 28px !important;}
+  .rsvp::before {inset:8px 12px !important; border-radius:58px 58px 22px 22px !important;}
+  .rsvp::after {top:8px !important; font-size:18px !important; letter-spacing:45px !important; opacity:.55 !important;}
+  .rsvp-inner {height:auto !important; min-height:0 !important; max-height:none !important; padding:0 4px !important; margin:0 auto !important;}
+  .rsvp-monogram {margin:0 auto 4px !important; font-size:15px !important; line-height:1.1 !important;}
+  .rsvp-monogram span {font-size:26px !important;}
+  .rsvp-heading-icon {margin:0 auto 5px !important;}
+  .rsvp-heading-icon svg {width:25px !important; height:25px !important;}
+  .rsvp .eyebrow {font-size:10px !important; letter-spacing:.21em !important; margin:0 auto 9px !important;}
+  .rsvp .section-copy {font-size:clamp(14px,3.8vw,16px) !important; line-height:1.42 !important; max-width:310px !important; margin:0 auto !important;}
+  .rsvp-divider {margin:11px auto 12px !important;}
+  .rsvp-deadline {max-width:345px !important; padding:10px 13px !important; margin:0 auto 13px !important; border-radius:16px !important; font-size:12px !important; line-height:1.45 !important;}
+  .rsvp-deadline span {font-size:11px !important; margin-bottom:2px !important;}
+  .rsvp-form {margin:0 !important; padding:0 !important;}
+  .rsvp-choice {grid-template-columns:minmax(0,1fr) !important; gap:9px !important; margin:0 auto !important; max-width:340px !important;}
+  .rsvp-option {box-sizing:border-box !important; min-height:66px !important; padding:9px 12px !important; border-radius:17px !important; grid-template-columns:36px minmax(0,1fr) 12px !important; grid-template-rows:1fr !important; column-gap:10px !important; border-width:1.5px !important;}
+  .rsvp-option-icon {width:34px !important; height:34px !important; margin:0 !important;}
+  .rsvp-option-icon svg {width:22px !important; height:22px !important;}
+  .rsvp-option-text {gap:2px !important;}
+  .rsvp-option strong {font-size:clamp(15px,4.1vw,18px) !important; line-height:1.2 !important;}
+  .rsvp-option small {font-size:10.5px !important; line-height:1.25 !important;}
+  .rsvp-option::after {font-size:22px !important;}
+  .rsvp-details:not([hidden]), .rsvp-success:not([hidden]) {margin-top:13px !important;}
+  .privacy-request {padding:39px 20px 46px !important;}
+  .privacy-request .privacy-icon {width:62px !important; height:62px !important; margin-bottom:12px !important;}
+  .privacy-request .privacy-icon svg {width:34px !important; height:34px !important;}
+  .privacy-request .eyebrow {font-size:10px !important; margin-bottom:8px !important;}
+  .privacy-request .section-title {font-size:clamp(27px,7.2vw,35px) !important; margin-bottom:10px !important;}
+  .privacy-request .privacy-divider {margin:10px auto 14px !important;}
+  .privacy-request .privacy-message {font-size:clamp(13px,3.5vw,15px) !important; line-height:1.55 !important;}
+  .privacy-request .privacy-message span {margin-bottom:4px !important;}
+}
