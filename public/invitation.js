@@ -1628,29 +1628,49 @@ function startWeddingFireworks() {
     const summary = document.createElement("div");
     summary.className = "deck-compact-content";
 
-    const date = document.createElement("p");
-    date.className = "deck-compact-date";
-    date.textContent = info.date;
-    summary.appendChild(date);
+    const day = document.createElement("span");
+    day.className = "deck-luxury-day";
 
-    const schedule = document.createElement("div");
-    schedule.className = "deck-compact-schedule";
+    const dateNumber = document.createElement("strong");
+    dateNumber.className = "deck-luxury-number";
 
-    schedules[card.id].forEach(([time, label]) => {
-      const item = document.createElement("div");
-      item.className = "deck-schedule-row";
+    const month = document.createElement("span");
+    month.className = "deck-luxury-month";
 
-      const timeElement = document.createElement("strong");
-      timeElement.textContent = time;
+    const dateParts = {
+      "event-nikkah": ["FRIDAY", "08", "JANUARY 2027"],
+      "event-mehndi": ["SATURDAY", "09", "JANUARY 2027"],
+      "event-baraat": ["SUNDAY", "10", "JANUARY 2027"],
+      "event-walima": ["SUNDAY", "10", "JANUARY 2027"]
+    };
 
-      const labelElement = document.createElement("span");
-      labelElement.textContent = label;
+    const [dayText, numberText, monthText] = dateParts[card.id];
+    day.textContent = dayText;
+    dateNumber.textContent = numberText;
+    month.textContent = monthText;
 
-      item.append(timeElement, labelElement);
-      schedule.appendChild(item);
-    });
+    const dateDisplay = document.createElement("div");
+    dateDisplay.className = "deck-luxury-date";
+    dateDisplay.append(day, dateNumber, month);
+    summary.appendChild(dateDisplay);
 
-    summary.appendChild(schedule);
+    const ceremony = document.createElement("div");
+    ceremony.className = "deck-luxury-time";
+
+    const timeLabel = document.createElement("span");
+    timeLabel.textContent = "CEREMONY BEGINS";
+
+    const timeValue = document.createElement("strong");
+    const startTimes = {
+      "event-nikkah": "6:00 PM",
+      "event-mehndi": "6:45 PM",
+      "event-baraat": "10:00 AM",
+      "event-walima": "12:00 PM"
+    };
+    timeValue.textContent = startTimes[card.id];
+
+    ceremony.append(timeLabel, timeValue);
+    summary.appendChild(ceremony);
 
     const venue = document.createElement("div");
     venue.className = "deck-compact-venue";
@@ -1663,13 +1683,53 @@ function startWeddingFireworks() {
     venueName.textContent = info.venue;
 
     venue.append(venueLabel, venueName);
+
+
+    const invitationNote = document.createElement("p");
+    invitationNote.className = "deck-invitation-note";
+
+    const notes = {
+      "event-nikkah": {
+        title: "A Celebration with Family & Relatives",
+        message: "Private family event"
+      },
+      "event-mehndi": {
+        title: "A Celebration with Family & Relatives",
+        message: "Private family event"
+      },
+      "event-baraat": {
+        title: "A Celebration with Family & Relatives",
+        message: "Private family event"
+      },
+      "event-walima": {
+        title: "We Would Love to Celebrate with You",
+        message: "Family, relatives & friends are invited"
+      }
+    };
+
+    const note = notes[card.id];
+    invitationNote.replaceChildren();
+
+    const noteTitle = document.createElement("strong");
+    noteTitle.className = "deck-guest-title";
+    noteTitle.textContent = note.title;
+
+    const noteMessage = document.createElement("span");
+    noteMessage.className = "deck-guest-message";
+    noteMessage.textContent = note.message;
+
+    invitationNote.append(noteTitle, noteMessage);
+
+    summary.appendChild(invitationNote);
     summary.appendChild(venue);
 
     const actions = document.createElement("div");
     actions.className = "deck-compact-actions";
 
-    const calendar = card.querySelector(".event-calendar-button");
-    if (calendar) actions.appendChild(calendar);
+
+    if (card.id === "event-baraat") {
+      info.map = "https://share.google/MfSJcMRSvYEYcz3ih";
+    }
 
     if (info.map) {
       const mapLink = document.createElement("a");
@@ -1747,7 +1807,12 @@ function startWeddingFireworks() {
       card.classList.remove("deck-exiting");
 
       card.setAttribute("aria-hidden", depth === 0 ? "false" : "true");
-      card.inert = depth !== 0;
+      card.inert = false;
+      // Keep rear card edges interactive; disable their content separately.
+      Array.from(card.children).forEach(child => {
+        if (child.classList.contains("royal-deck-edge")) return;
+        child.inert = depth !== 0;
+      });
     });
 
     // Celebrate when an event becomes the front card.

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
 :root {
   --forest: #1f3b31;
   --forest-dark: #13261f;
@@ -19595,4 +19597,366 @@ body.rsvp-reminder-open {
   .privacy-request .privacy-divider {margin:10px auto 14px !important;}
   .privacy-request .privacy-message {font-size:clamp(13px,3.5vw,15px) !important; line-height:1.55 !important;}
   .privacy-request .privacy-message span {margin-bottom:4px !important;}
+}
+
+
+
+/* STEP 9L — CONSOLIDATED ROYAL INVITATION SUITE */
+
+.events.events-deck-ready .wedding-card-deck {
+  height: clamp(495px, 130vw, 570px) !important;
+}
+
+.events.events-deck-ready .wedding-card-deck > .event {
+  padding: 28px 19px 24px !important;
+}
+
+.events.events-deck-ready .deck-premium-heading {
+  font-family: 'Allura', cursive !important;
+  font-size: clamp(51px, 11vw, 65px) !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+  margin: 0 0 13px !important;
+  letter-spacing: 0 !important;
+}
+
+.events.events-deck-ready .deck-compact-content {
+  gap: 13px !important;
+}
+
+.events.events-deck-ready .deck-luxury-date {
+  display: grid !important;
+  grid-template-columns: auto auto !important;
+  grid-template-areas:
+    "day day"
+    "number month" !important;
+  column-gap: 14px !important;
+  row-gap: 5px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.events.events-deck-ready .deck-luxury-day {
+  grid-area: day !important;
+  font: 600 10px/1.4 Georgia, serif !important;
+  letter-spacing: .2em !important;
+  color: var(--metal) !important;
+}
+
+.events.events-deck-ready .deck-luxury-number {
+  grid-area: number !important;
+  margin: 0 !important;
+  padding-right: 14px !important;
+  border-right: 1px solid var(--metal) !important;
+  font: 400 70px/.95 'Cormorant Garamond', Georgia, serif !important;
+  color: var(--ink) !important;
+}
+
+.events.events-deck-ready .deck-luxury-month {
+  grid-area: month !important;
+  max-width: 95px !important;
+  text-align: left !important;
+  font: 500 18px/1.25 'Cormorant Garamond', Georgia, serif !important;
+  letter-spacing: .02em !important;
+  color: var(--ink) !important;
+}
+
+.events.events-deck-ready .deck-luxury-time {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 9px 0 !important;
+  width: 75% !important;
+  border-top: 1px solid var(--metal) !important;
+  border-bottom: 1px solid var(--metal) !important;
+}
+
+.events.events-deck-ready .deck-luxury-time span,
+.events.events-deck-ready .deck-compact-venue span {
+  font: 600 10px/1.3 Georgia, serif !important;
+  letter-spacing: .16em !important;
+  color: var(--metal) !important;
+}
+
+.events.events-deck-ready .deck-luxury-time strong {
+  font: 500 23px/1.1 'Cormorant Garamond', Georgia, serif !important;
+  color: var(--ink) !important;
+}
+
+.events.events-deck-ready .deck-compact-venue {
+  gap: 5px !important;
+}
+
+.events.events-deck-ready .deck-compact-venue strong {
+  font: 500 clamp(22px, 5vw, 27px)/1.15
+    'Cormorant Garamond', Georgia, serif !important;
+  letter-spacing: 0 !important;
+  color: var(--ink) !important;
+}
+
+.events.events-deck-ready .deck-invitation-note {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 3px !important;
+  max-width: 260px !important;
+  margin: 0 !important;
+  padding: 9px 12px !important;
+  border: 1px solid var(--metal) !important;
+  border-radius: 6px !important;
+  text-align: center !important;
+}
+
+.events.events-deck-ready .deck-guest-title {
+  font: 600 12px/1.3 Georgia, serif !important;
+  color: var(--ink) !important;
+}
+
+.events.events-deck-ready .deck-guest-message {
+  font: 400 11px/1.4 Georgia, serif !important;
+  color: var(--ink) !important;
+}
+
+.events.events-deck-ready .deck-location-button {
+  min-height: 35px !important;
+  padding: 8px 20px !important;
+  border: 1px solid var(--metal) !important;
+  border-radius: 20px !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  font-size: 12px !important;
+}
+
+@media (max-width: 390px) {
+  .events.events-deck-ready .wedding-card-deck {
+    height: 510px !important;
+  }
+
+  .events.events-deck-ready .wedding-card-deck > .event {
+    padding: 22px 13px !important;
+  }
+
+  .events.events-deck-ready .deck-premium-heading {
+    font-size: 52px !important;
+  }
+
+  .events.events-deck-ready .deck-compact-content {
+    gap: 10px !important;
+  }
+
+  .events.events-deck-ready .deck-luxury-number {
+    font-size: 62px !important;
+  }
+}
+
+/* STEP 9M — WIDER PREMIUM EVENT CARDS */
+
+.events.events-deck-ready .wedding-card-deck > .event {
+  width: calc(100% - 52px) !important;
+  padding-left: 17px !important;
+  padding-right: 17px !important;
+}
+
+.events.events-deck-ready .deck-compact-content {
+  max-width: 100% !important;
+}
+
+@media (max-width: 390px) {
+  .events.events-deck-ready .wedding-card-deck > .event {
+    width: calc(100% - 52px) !important;
+    padding-left: 13px !important;
+    padding-right: 13px !important;
+  }
+}
+
+/* STEP 9N — SOFT ROYAL CARD COLORS */
+
+.events.events-deck-ready #event-nikkah {
+  background: linear-gradient(155deg, #fffaf0, #f2e5cc) !important;
+}
+
+.events.events-deck-ready #event-mehndi {
+  background: linear-gradient(155deg, #fff2f3, #ead0d8) !important;
+}
+
+.events.events-deck-ready #event-baraat {
+  background: linear-gradient(155deg, #fff7e8, #ead4af) !important;
+}
+
+.events.events-deck-ready #event-walima {
+  background: linear-gradient(155deg, #205748, #10372f) !important;
+}
+
+/* Add subtle depth to guest invitation panels */
+.events.events-deck-ready .deck-invitation-note {
+  background: color-mix(
+    in srgb,
+    var(--metal) 9%,
+    transparent
+  ) !important;
+}
+
+/* Slightly richer ornamental accents */
+.events.events-deck-ready .deck-luxury-time {
+  border-color: var(--metal) !important;
+}
+
+.events.events-deck-ready .deck-location-button {
+  background: color-mix(
+    in srgb,
+    var(--metal) 12%,
+    transparent
+  ) !important;
+}
+
+/* STEP 9Q — ELEGANT GUEST MESSAGE */
+
+.events.events-deck-ready .deck-invitation-note {
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 1px solid var(--metal) !important;
+  border-radius: 0 !important;
+  padding: 10px 4px 0 !important;
+  max-width: 290px !important;
+  gap: 5px !important;
+}
+
+.events.events-deck-ready .deck-guest-title {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 19px !important;
+  font-weight: 500 !important;
+  font-style: italic !important;
+  line-height: 1.15 !important;
+  color: var(--ink) !important;
+}
+
+.events.events-deck-ready .deck-guest-message {
+  font-family: Georgia, serif !important;
+  font-size: 10px !important;
+  letter-spacing: .08em !important;
+  line-height: 1.4 !important;
+  color: var(--metal) !important;
+}
+
+
+/* STEP 9R — REFINED TYPOGRAPHY */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+
+.events.events-deck-ready .deck-guest-title {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(20px, 5vw, 24px) !important;
+  font-weight: 500 !important;
+  font-style: italic !important;
+  line-height: 1.15 !important;
+  letter-spacing: -.01em !important;
+}
+
+.events.events-deck-ready .deck-guest-message,
+.events.events-deck-ready .deck-compact-venue span {
+  font-family: 'DM Sans', Arial, sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .13em !important;
+  text-transform: uppercase !important;
+}
+
+.events.events-deck-ready .deck-compact-venue strong {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(25px, 6vw, 31px) !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  line-height: 1.1 !important;
+  letter-spacing: -.02em !important;
+}
+
+
+/* STEP 9S — INVITATION TEXT SINGLE LINE */
+.events.events-deck-ready .deck-guest-title {
+  font-size: clamp(13px, 3.4vw, 17px) !important;
+  white-space: nowrap !important;
+  letter-spacing: -.035em !important;
+  line-height: 1.3 !important;
+}
+
+.events.events-deck-ready .deck-invitation-note {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* STEP 9T — EQUAL SIZE FOR ALL FOUR CARDS */
+
+.events.events-deck-ready .wedding-card-deck > #event-nikkah,
+.events.events-deck-ready .wedding-card-deck > #event-mehndi,
+.events.events-deck-ready .wedding-card-deck > #event-baraat,
+.events.events-deck-ready .wedding-card-deck > #event-walima {
+  width: calc(100% - 52px) !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+
+/* STEP 9U — MOBILE CARD CENTER ALIGNMENT */
+
+@media (max-width: 640px) {
+
+  .events.events-deck-ready .wedding-card-deck {
+    transform: translateX(12px) !important;
+  }
+
+}
+
+/* STEP 9V — MOBILE DECK CENTERING */
+
+@media (max-width: 640px) {
+
+  .events.events-deck-ready .wedding-card-deck {
+    width: calc(100% - 48px) !important;
+    max-width: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
+  }
+
+  .events.events-deck-ready .wedding-card-deck > .event,
+  .events.events-deck-ready .wedding-card-deck > #event-nikkah,
+  .events.events-deck-ready .wedding-card-deck > #event-mehndi,
+  .events.events-deck-ready .wedding-card-deck > #event-baraat,
+  .events.events-deck-ready .wedding-card-deck > #event-walima {
+    width: calc(100% - 40px) !important;
+    left: 0 !important;
+    right: auto !important;
+  }
+
+}
+
+/* STEP 9W — RESTORE LARGE CARD WIDTH */
+
+@media (max-width: 640px) {
+
+  .events.events-deck-ready .wedding-card-deck {
+    width: min(100%, 470px) !important;
+    max-width: 470px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .events.events-deck-ready .wedding-card-deck > .event,
+  .events.events-deck-ready .wedding-card-deck > #event-nikkah,
+  .events.events-deck-ready .wedding-card-deck > #event-mehndi,
+  .events.events-deck-ready .wedding-card-deck > #event-baraat,
+  .events.events-deck-ready .wedding-card-deck > #event-walima {
+    width: calc(100% - 52px) !important;
+    height: 100% !important;
+    left: 0 !important;
+    right: auto !important;
+  }
+
 }

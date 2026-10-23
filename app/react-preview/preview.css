@@ -1,0 +1,317 @@
+.react-preview-page {
+  min-height: 100dvh;
+  padding: 32px 16px;
+  background: #f6f0e7;
+  color: #382b25;
+  font-family: Georgia, serif;
+}
+
+.react-preview-heading {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.react-preview-heading h1 {
+  font-size: clamp(24px, 6vw, 38px);
+  margin: 8px 0;
+}
+
+.react-preview-heading p {
+  font-size: 13px;
+}
+
+.react-event-deck {
+  width: min(100%, 420px);
+  margin: 0 auto;
+}
+
+.react-event-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.react-event-tabs button {
+  flex: 1;
+  border: 1px solid #c9b8a1;
+  border-radius: 999px;
+  background: #fffaf3;
+  padding: 10px 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.react-event-tabs button[aria-current="true"] {
+  background: #66503e;
+  color: white;
+}
+
+.react-event-deck-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  gap: 12px;
+}
+
+.react-event-deck-controls button {
+  border: 1px solid #c9b8a1;
+  background: #fffaf3;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* PREMIUM HORIZONTAL EVENT DECK */
+.react-preview-page .react-event-deck-stack {
+  position: relative;
+  width: min(100%, 470px);
+  height: clamp(445px, 119vw, 515px);
+  margin: 22px auto 16px;
+  overflow: visible;
+  isolation: isolate;
+  touch-action: pan-y;
+}
+
+.react-preview-page .react-event-deck-item {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: calc(100% - 68px);
+  height: 100%;
+  transition: transform .4s cubic-bezier(.2,.75,.2,1), opacity .3s;
+  transform-origin: center;
+}
+
+.react-preview-page .react-event-deck-item[data-depth="0"] {
+  transform: translateX(0);
+}
+
+.react-preview-page .react-event-deck-item[data-depth="1"] {
+  transform: translateX(23px) scale(.997);
+}
+
+.react-preview-page .react-event-deck-item[data-depth="2"] {
+  transform: translateX(46px) scale(.994);
+}
+
+.react-preview-page .react-event-deck-item[data-depth="3"] {
+  transform: translateX(69px) scale(.991);
+}
+
+.react-preview-page .react-event-deck-item.deck-exiting {
+  transform: translateX(-115%) rotate(-7deg);
+  opacity: 0;
+}
+
+.react-preview-page .react-event-deck-item .event {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 32px 19px 26px;
+  border: 1.5px solid var(--metal);
+  border-radius: 15px;
+  background: var(--paper-card);
+  color: var(--ink);
+  text-align: center;
+}
+
+.react-preview-page #event-nikkah {
+  --paper-card: #fbf6eb;
+  --ink: #234a3b;
+  --metal: #b89a63;
+}
+
+.react-preview-page #event-mehndi {
+  --paper-card: #f6e2e3;
+  --ink: #783e4c;
+  --metal: #b7898d;
+}
+
+.react-preview-page #event-baraat {
+  --paper-card: #f5ead6;
+  --ink: #73502e;
+  --metal: #b79762;
+}
+
+.react-preview-page #event-walima {
+  --paper-card: #153f33;
+  --ink: #f7e8c8;
+  --metal: #c9a969;
+}
+
+.react-preview-page .deck-premium-heading {
+  font: italic 500 clamp(47px,12vw,67px)/1 "Cormorant Garamond", Georgia, serif;
+  margin: 0 0 13px;
+  color: var(--ink);
+}
+
+.react-preview-page .deck-compact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 325px;
+}
+
+.react-preview-page .deck-compact-date {
+  color: var(--metal);
+  font: 600 clamp(13px,3.6vw,16px)/1.25 "Cormorant Garamond", Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.react-preview-page .deck-compact-schedule {
+  width: 100%;
+  max-width: 290px;
+  padding: 12px 0;
+  border-top: 1px solid var(--metal);
+  border-bottom: 1px solid var(--metal);
+}
+
+.react-preview-page .deck-schedule-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 0;
+  font: 500 clamp(12px,3.25vw,15px)/1.25 Georgia, serif;
+}
+
+.react-preview-page .deck-compact-venue {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.react-preview-page .deck-compact-venue span {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--metal);
+}
+
+.react-preview-page .deck-compact-venue strong {
+  font: 500 clamp(23px,6vw,29px)/1.12 "Cormorant Garamond", Georgia, serif;
+}
+
+.react-preview-page .deck-compact-actions a {
+  display: inline-flex;
+  padding: 10px 18px;
+  border: 1px solid var(--metal);
+  border-radius: 24px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.react-preview-page .royal-botanical {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  background: url("/wedding-botanical.svg") center/contain no-repeat;
+  pointer-events: none;
+}
+
+.react-preview-page .royal-botanical.tl { top: 7px; left: 7px; }
+.react-preview-page .royal-botanical.tr { top: 7px; right: 7px; transform: scaleX(-1); }
+.react-preview-page .royal-botanical.bl { bottom: 7px; left: 7px; transform: scaleY(-1); }
+.react-preview-page .royal-botanical.br { bottom: 7px; right: 7px; transform: scale(-1); }
+
+.react-preview-page .react-event-edge-button {
+  position: absolute;
+  top: 19%;
+  right: -1px;
+  width: 22px;
+  height: 48%;
+  border: 1px solid var(--metal);
+  background: var(--paper-card);
+  color: var(--ink);
+  writing-mode: vertical-rl;
+  font: italic 600 17px "Cormorant Garamond", Georgia, serif;
+  cursor: pointer;
+}
+
+.react-preview-page .react-event-deck-hint {
+  text-align: center;
+  font: italic 16px "Cormorant Garamond", Georgia, serif;
+}
+
+@media (max-width: 390px) {
+  .react-preview-page .react-event-deck-stack { height: 440px; }
+  .react-preview-page .react-event-deck-item .event { padding: 24px 13px 21px; }
+  .react-preview-page .royal-botanical { width: 45px; height: 45px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .react-preview-page .react-event-deck-item { transition: none; }
+}
+
+/* Card content and accessibility */
+.react-preview-page .react-event-card-content {
+  width: 100%;
+  height: 100%;
+}
+
+.react-preview-page .react-event-deck-item:not([data-depth="0"]) {
+  pointer-events: none;
+}
+
+.react-preview-page .react-event-deck-item[data-depth="0"]
+.react-event-card-content {
+  pointer-events: auto;
+}
+
+.react-preview-page .royal-deck-edge {
+  display: none;
+}
+
+/* STEP 6C — Independent clickable edge layer */
+.react-preview-page .react-deck-edge-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.react-preview-page .react-deck-edge-tab {
+  position: absolute;
+  top: 19%;
+  width: 22px;
+  height: 48%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  border: 1px solid #b89a63;
+  border-radius: 9px 0 0 9px;
+  background: #fbf6eb;
+  color: #234a3b;
+  font: italic 600 17px "Cormorant Garamond", Georgia, serif;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.react-preview-page .react-deck-edge-mehndi {
+  background: #f6e2e3;
+  color: #783e4c;
+  border-color: #b7898d;
+}
+
+.react-preview-page .react-deck-edge-baraat {
+  background: #f5ead6;
+  color: #73502e;
+  border-color: #b79762;
+}
+
+.react-preview-page .react-deck-edge-walima {
+  background: #153f33;
+  color: #f7e8c8;
+  border-color: #c9a969;
+}
